@@ -8,4 +8,35 @@
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="text_size">14sp</dimen>
+    <dimen name="text_size_large">14sp</dimen>
+    <dimen name="text_size_small_l">13sp</dimen>
+    <dimen name="text_size_tooltip">17sp</dimen>
+
+    <dimen name="spinenrtext">13sp</dimen>
+    <dimen name="text_size_tooltip_small">15sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_dialog_header">22sp</dimen>
+    <dimen name="text_size_dialogcontent">20sp</dimen>
+    <dimen name="abacus_ball_size">55sp</dimen>
+    <dimen name="text_size_header">18sp</dimen><!--25-->
+    <dimen name="TEXT_QA_TEXT">35dp</dimen><!--25-->
+    <dimen name="activity_horizontal_margin_">20dp</dimen>
+    <dimen name="textsizelist">12sp</dimen>
+
+    <dimen name="normal_padding">5sp</dimen>
+    <dimen name="small_padding">3sp</dimen>
+    <dimen name="margin_right">10sp</dimen>
+
+    <dimen name="padding">2sp</dimen>
+    <dimen name="tooltipmarginleft">30sp</dimen>
+    <dimen name="tooltipmarginright">30sp</dimen>
+
+
+
+
+    <dimen name="marginleft">10dp</dimen>
+    <dimen name="marginright">20dp</dimen>
+    <dimen name="marginleftedtextt">15dp</dimen>
 </resources>

@@ -206,4 +206,28 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
+    <string name="leave">Leave</string>
+    <string name="submit">Submit</string>
+    <string name="miss_punch">Miss Punch</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">Are you sure want to Exit?</string>
+    <string name="dialog_ok">OK</string>
+
+    <!--06-04-2020 pragna for expense module -->
+    <string name="travelled_km">K.M.</string>
+    <string name="mode_of_tras">Mode Of Transport</string>
+    <string name="night_holt_city">Night Halt City</string>
+    <string name="visited_city">Visited City</string>
+    <string name="visited_state">Visited State</string>
+    <string name="visit_purpose">Visit Purpose</string>
+    <string name="please_select_tranpor">Please Select Mode Of Mode Of Transport</string>
+    <string name="please_enter_km">Please Enter KM</string>
+    <string name="please_select_document">Please Select Document</string>
+    <string name="please_select_state">Please Select State</string>
+    <string name="please_select_city">Please Select City</string>
+    <string name="please_select_night_hold_city">Please Select Night Halt City</string>
+    <string name="factory_visit">Factory Visit</string>
+
+
+
 </resources>
