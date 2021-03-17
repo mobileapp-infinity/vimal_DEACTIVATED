@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
+import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.ActivityApprovalPojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.ExpenseListForApprovalPojo;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
