@@ -1,0 +1,54 @@
+package com.infinity.infoway.vimal.util.common;
+
+import android.content.Context;
+import android.location.Location;
+import android.preference.PreferenceManager;
+
+import com.infinity.infoway.vimal.R;
+
+import java.text.DateFormat;
+import java.util.Date;
+
+public class LocationUtil {
+
+    static final String KEY_REQUESTING_LOCATION_UPDATES = "requesting_locaction_updates";
+
+    /**
+     * Returns true if requesting location updates, otherwise returns false.
+     *
+     * @param context The {@link Context}.
+     */
+   public static boolean requestingLocationUpdates(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(KEY_REQUESTING_LOCATION_UPDATES, false);
+    }
+
+    /**
+     * Stores the location updates state in SharedPreferences.
+     * @param requestingLocationUpdates The location updates state.
+     */
+    public static void setRequestingLocationUpdates(Context context, boolean requestingLocationUpdates) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putBoolean(KEY_REQUESTING_LOCATION_UPDATES, requestingLocationUpdates)
+                .apply();
+    }
+
+
+    /*public static String getLocationText(Location location) {
+        return location == null ? "Unknown location" :
+                "(" + location.getLatitude() + ", " + location.getLongitude() + ")";
+    }*/
+
+    public static String getLocationText(Location location) {
+        return location == null ? "Unknown location" :
+                "(" + location.getLatitude() + ", " + location.getLongitude() + ")";
+        //return "Sheetal App Running...";
+    }
+
+    public static String getLocationTitle(Context context) {
+        return context.getString(R.string.location_updated,
+                DateFormat.getDateTimeInstance().format(new Date()));
+    }
+
+}

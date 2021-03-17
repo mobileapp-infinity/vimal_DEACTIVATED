@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_order_place"
+
+            android:icon="@drawable/orderplacetocomapny"
+            android:title="@string/title_order_place_to_company_name" />
+
+
+        <item
+            android:id="@+id/nav_invoice_ledger"
+            android:icon="@drawable/ledgerblack"
+            android:title="@string/title_perform_invoice_and_ledger_nav" />
+
+
+
+
+
+        <item
+            android:id="@+id/nav_vehicle_dispatch_update"
+            android:icon="@drawable/vehicleblack"
+            android:visible="true"
+            android:title="@string/title_vehicle_dispatch_update_nav" />
+
+        <item
+            android:id="@+id/nav_update_call_list"
+            android:icon="@drawable/updatecallblack"
+            android:visible="true"
+            android:title="@string/title_update_call_list" />
+        <item
+            android:id="@+id/nav_retailer_order_booking"
+            android:icon="@drawable/orderbookingblack"
+            android:title="@string/title_retail_order_booking_nav" />
+
+
+        <item
+            android:id="@+id/nav_retailer_order_summary"
+            android:icon="@drawable/ordersummaryblack"
+            android:title="@string/title_retailer_order_summary_nav"
+            android:visible="true" />
+
+
+        <item
+            android:id="@+id/nav_salses_stock"
+            android:icon="@drawable/stockblack"
+            android:visible="true"
+            android:title="@string/title_sales_and_stock_details_nav" />
+
+
+        <item
+            android:id="@+id/nav_promo_require"
+            android:icon="@drawable/photovideosblack"
+            android:title="@string/title_promonational_requirement_nav" />
+
+
+        <item
+            android:id="@+id/nav_feedback_form"
+            android:icon="@drawable/feedbackblack"
+            android:title="@string/title_feedback_form" />
+
+        <item
+            android:id="@+id/nav_complaint_form"
+            android:icon="@drawable/complainblack"
+            android:title="@string/title_complain_form" />
+
+        <item
+            android:id="@+id/nav_retailer_management"
+            android:icon="@drawable/retailer_black"
+            android:title="@string/title_nav_Retailer_Management" />
+        <item
+
+
+
+        android:id="@+id/nav_new_retailer"
+        android:icon="@drawable/menu_supervisor_account_perple_24dp"
+        android:visible="false"
+        android:title="@string/title_nav_Retailer_Management" />
+
+        <item
+            android:id="@+id/nav_credit_note"
+            android:icon="@drawable/ic_action_blank_expense"
+            android:title="@string/title_credit_note" />
+        <item
+            android:id="@+id/nav_debit_note"
+            android:icon="@drawable/ic_action_blank_expense"
+            android:title="@string/title_debit_note" />
+
+        <item
+            android:id="@+id/nav_schedules"
+            android:icon="@drawable/ic_menu_my_schedule"
+            android:title="Schedules" />
+
+        <item
+            android:id="@+id/nav_route_planning"
+            android:icon="@drawable/ic_action_blank_expense"
+            android:title="Route Planning" />
+
+    </group>
+
+    <item android:title="Communicate"  android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_action_menu_feedback"
+                android:title="@string/title_screen_send_complain" />
+
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_action_menu_attendance"
+            android:title="@string/title_attendance_management_menu" />
+
+        <item
+            android:id="@+id/nav_add_retailer"
+            android:icon="@drawable/ic_action_menu_retailer"
+            android:visible="false"
+            android:title="@string/title_retailer_management_menu" />
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_action_menu_order"
+            android:visible="false"
+            android:title="@string/title_order_history_menu" />
+
+
+        <item
+            android:id="@+id/nav_my_schedule"
+            android:icon="@drawable/ic_menu_my_schedule"
+            android:visible="true"
+            android:title="@string/title_add_and_view_call" />
+
+        <item
+            android:id="@+id/nav_outstanding"
+            android:icon="@drawable/ic_action_menu_outstanding"
+            android:visible="false"
+            android:title="@string/title_outstanding_collection_menu" />
+        <item
+            android:id="@+id/nav_expense"
+            android:icon="@drawable/ic_action_menu_expense"
+            android:title="@string/title_expense_management_menu" />
+
+
+        <item
+            android:id="@+id/nav_collection"
+            android:icon="@drawable/ic_menu_collection"
+            android:title="@string/title_collection_management_menu"
+            android:visible="false" />
+
+
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_menu_report"
+            android:visible="false"
+            android:title="@string/title_report_management_menu" />
+
+
+        <item
+            android:id="@+id/nav_sync_data"
+            android:icon="@drawable/ic_menu_sync_data"
+            android:title="@string/title_sync_offline_data" />
+
+
+        <item
+            android:id="@+id/nav_Suspecting"
+            android:icon="@drawable/ic_menu_assignment_black_24dp"
+            android:title="@string/title_report_menu_Suspecting" />
+
+        <item
+        android:id="@+id/nav_Tour_planning"
+        android:icon="@drawable/ic_menu_tour_planning_white_24dp"
+        android:title="@string/title_my_schedule_menu" /> <item
+        android:id="@+id/nav_new_retailer"
+        android:icon="@drawable/menu_supervisor_account_perple_24dp"
+        android:title="@string/title_nav_Retailer_Management" />
+    </group>
+
+    <item android:title="Communicate"  android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_action_menu_feedback"
+                android:title="@string/title_screen_send_complain" />
+
+        </menu>
+    </item>
+
+</menu>

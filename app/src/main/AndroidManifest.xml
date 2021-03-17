@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.infinity.infoway.vimal">
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 1-08-2020 pragna added for background location service permisstion -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION " />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name="com.infinity.infoway.vimal.config.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:installLocation="auto"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:icon,android:allowBackup">
+        <activity android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningCopyOrViewActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity"></activity>
+        <activity android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity"
+            android:parentActivityName=".delear.RoutePlanning.RoutePlanningActivity"/>
+        <activity
+            android:name=".delear.RoutePlanning.RoutePlanningActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity android:name="com.infinity.infoway.vimal.delear.activity.DebittNote.DebitNoteActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.CreditNote.CreditNoteActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name="com.infinity.infoway.vimal.delear.activity.add_schedule.activity.ScheduleActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.OrderPlaceToCompanyActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.RetailerManagementForRetailerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.UpdateCallList.UpdateCallListActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.RetailerOrderSummary.RetailerOrderSummaryActiivty"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.PromotionalRequirement.PromoitonalRequirementActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.SalesAndStockDetails.SalesAndStockDetailsActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.VehicleDispatchUpdate.VehicleDispatchUpdateActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.PerfomInVoiceLedger.PerFormInvoiceAndLedgerActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.Complaint.ComplainFormActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.FeedBack.FeedbackFormActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.activity.DashboardActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Splash"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_MySchedule"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" /> <!-- 17-02-2020 by pragna for schedule -->
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Vimal_Suspecting_Entry"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Vimal_Suspecting_View_Edit"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.User_Location_Schedule"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Suspecting_Main"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Add_Customer"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Home"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_View_Expense_Detail"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Expense_Management"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Attendance_Management"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Sync_Data"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Select_City"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Add_Call"
+            android:label="@string/title_activity__add__call"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.Activity_Call_Detail_Scrolling"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.activity.NotificationListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name="com.infinity.infoway.vimal.activity.ViewNotificationDetailActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyACHKi_FsglHtGK9RDayjbK5N6lYyJTRnA" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/noti_small" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="channel_02" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <receiver
+            android:name="com.infinity.infoway.vimal.service.AfterBootrBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped1">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
+                <!--
+                  <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                  &lt;!&ndash;For HTC devices&ndash;&gt;
+                  <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+
+
+                  <action android:name="android.intent.action.SCREEN_OFF"></action>
+                  <action android:name="android.intent.action.SCREEN_ON"></action>
+                  <action android:name="android.intent.action.ACTION_POWER_CONNECTED"></action>
+                  <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"></action>
+                  <action android:name="android.intent.action.ACTION_SHUTDOWN"></action>
+                -->
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.infinity.infoway.vimal.service.LocationUpdateForegroundService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" /> <!-- 20-aug-19 pragna -->
+        <service
+            android:name="com.infinity.infoway.vimal.service.JobScheduledService"
+            android:exported="true"
+            android:label="Data Service Sending"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="com.infinity.infoway.vimal.service.OverLayTrackingService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+        <!--
+ Set custom default icon. This is used when no icon is set for incoming notification messages.
+             See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <service android:name="com.infinity.infoway.vimal.service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+ Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <service android:name="com.infinity.infoway.vimal.service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service> <!-- private static final String CHANNEL_ID = "channel_01"; -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+    </application>
+
+</manifest>

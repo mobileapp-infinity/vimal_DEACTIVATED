@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "212643632933",
+    "project_id": "vimal-306808",
+    "storage_bucket": "vimal-306808.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212643632933:android:4c78685d50deee2f15accc",
+        "android_client_info": {
+          "package_name": "com.infinity.infoway.vimal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212643632933-jkrmtkauafd7pseqd4u61kei2l9s6p8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqhd4yQqGSb1vu1wZ_7p7Uewdlu1pQaAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212643632933-jkrmtkauafd7pseqd4u61kei2l9s6p8n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "212643632933-9f8lg93d1j6pnc1k4dmbbl1rsop2j95a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.infinity.infoway.vimal"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#A7080B</color>
+    <color name="colorPrimaryDark">#8B0305</color>-->
+
+    <color name="colorPrimary">#ED1C24</color>
+    <color name="colorPrimaryDark">#006A3B</color>
+    <color name="colorAccent">#777575</color>
+    <color name="disable_bg">#88676767</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_color_home">#E0E0E0</color>
+    <color name="color_black">#353434</color>
+    <color name="transparent">#000000</color>
+
+    <color name="fill_button">#e1e7e4</color>
+    <color name="color_view">#D1D1D1</color>
+
+
+    <color name="color_attendance_present">#006A3B</color>
+  <!--  <color name="color_attendance_absent">#c70f1b</color>-->
+    <color name="color_attendance_absent">#ED1C24</color>
+
+    <color name="color_order_dash_board">#5328b9</color>
+    <color name="color_outstanding_dash_board">#ED1C24</color>
+    <color name="color_expense_dash_board">#188f7e</color>
+    <color name="color_collection_dash_board">#be8713</color>
+    <color name="color_attendance_dash_board">#1e35e4</color>
+    <color name="color_text_expense">#2b2a2a</color>
+    <color name="color_self_cert_receive_dark">#ed41be</color>
+
+    <color name="color_dealername_bg">#f54a96</color>
+    <color name="color_pending">#714d0f</color>
+    <color name="color_retailer_dash_board">#5d4037</color>
+
+    <color name="color_light_black">#353434</color>
+    <color name="color_myschedule_dash_board">#5B1566</color>
+    <color name="color_report_dash_board">#697611</color>
+    <color name="color_sync_dash_board">#006A3B</color>
+    <color name="color_feedback">#9068cf</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="color_outstanding_bg">#d2206f</color>
+    <color name="tab_selected_color">#129DAF</color>
+    <color name="YELLOW_FONT_COLOR">#FFD72D</color>
+
+    <color name="colorPrimaryDarklite">#621E1E</color>
+    <color name="bg_black">#000000</color>
+
+</resources>

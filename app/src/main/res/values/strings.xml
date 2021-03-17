@@ -1,0 +1,209 @@
+<resources>
+    <!--<string name="app_name">Etrack</string>-->
+    <string name="app_name">Vimal</string>
+    <string name="download_update">Downloading update…</string>
+    <string name="permissions_has_not_grant">Permissions has not been granted</string>
+    <string name="permission_request">Permission Request</string>
+    <string name="something_went_wrong">Something went wrong,try again !!!</string>
+    <string name="internal_storage">Internal storage</string>
+    <string name="processing_request_call">Please wait sync data...</string>
+
+    <string name="processing_request_download_offline_data">Please wait download offline data...</string>
+
+    <string name="title_search">Type here to search </string>
+
+    <string name="request_location_updates">Request location updates</string>
+    <string name="remove_location_updates">Remove location updates</string>
+
+    <string name="location_updated">Last updated: %1$s</string>
+
+    <string name="launch_activity">Launch activity</string>
+    <string name="location_unknown">Location unknown</string>
+    <string name="location_updates_label">Location Updates</string>
+
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core
+        functionality.</string>
+
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="retry">Retry</string>
+    <string name="connection_lost">Connection lost!!!</string>
+
+    <string name="title_valid_username">Please enter valid user name!</string>
+    <string name="title_valid_password">Please enter valid password!</string>
+
+    <string name="processing_request">Processing Request</string>
+    <string name="title_loading">Processing Request</string>
+
+    <string name="title_valid_gps_start">Please start gps location !!!</string>
+    <string name="title_do_punch_in">Please first do the punch in !!!</string>
+    <string name="title_view_attendance_details">View attendance\n details</string>
+    <string name="title_punch_in">Punch In</string>
+    <string name="title_press_to_punch_in">Press to punch in</string>
+    <string name="title_punch_out">Punch Out</string>
+    <string name="title_press_to_punch_out">Press to punch out</string>
+    <string name="title_are_you_sure">Are you sure want to</string>
+
+    <string name="sorder_good_job">Success</string>
+    <string name="sorder_oops">Oops…</string>
+
+    <string name="settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="title_app_config">Please wait app config.…</string>
+    <string name="title_no_internet">No internet connection , try again !!!</string>
+
+    <string name="processing_request_attendance">Please wait sync attendance data...</string>
+    <string name="title_activity__add__call">Activity_Add_Call</string>
+
+    <string name="description">Write expense related description</string>
+    <string name="title_save">Save</string>
+    <string name="title_amount">Amount</string>
+    <string name="title_select_document">Select document</string>
+    <string name="title_capture_image">Capture Image</string>
+    <string name="title_save_expense">Save Expense</string>
+    <string name="select_expenses_name">Please select expenses name</string>
+    <string name="please_enterdescriptition">Please enter description</string>
+    <string name="please_enter_amount">Please enter amount</string>
+    <string name="please_select_date">Please select date</string>
+    <string name="date">Date</string>
+    <string name="ve"><u>View/Edit</u></string>
+
+    <string name="error_occured">Something went wrong, Please try again</string>
+    <string name="tap_back_again_to_exit">Tap back again to exit</string>
+    <string name="you_are_using_latest">You are using latest version</string>
+    <string name="title_ok">OK</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="are_sure_want_logout">Are you sure want to logout?</string>
+    <string name="title_no">NO</string>
+    <string name="title_yes">YES</string>
+    <string name="are_sure_want_exit">Are you sure want to exit?</string>
+
+    <string name="title_type_here_to_search_city">Search City</string>
+    <string name="title_select_exp">Select expense name</string>
+    <string name="title_exp_double_confirm">Are you sure want to add expense details?</string>
+
+    <string name="title_confirm_add_call">Are you sure want to confirm add call?</string>
+
+    <string name="title_go">GO</string>
+    <string name="view_details">View\nDetails</string>
+    <string name="add_with_stock">Add</string>
+    <string name="cancel_with_stock">Cancel</string>
+    <string name="title_from_date">From Date</string>
+    <string name="title_to_date">To Date</string>
+    <string name="title_view_expense">View Expense</string>
+    <string name="title_view_expense_details">View Expense\n Details</string>
+    <string name="title_view_collection_details">View Collection\n Details</string>
+
+    <string name="title_order_history">Order\nManagement</string>
+    <string name="title_new_retailer">New\nRetailer </string>
+    <string name="title_order_history_menu">Order Management</string>
+    <string name="title_outstanding_collection_menu">Outstanding Report</string>
+    <string name="title_collection_management_menu">Collection Management</string>
+    <string name="title_expense_management_menu">Expense Management</string>
+    <string name="title_attendance_management_menu">Attendance Management</string>
+    <string name="title_retailer_management_menu">Retailer Management</string>
+    <string name="title_my_schedule_management_menu">My Schedule Management</string>
+    <string name="title_report_management_menu">Dynamic Report</string>
+    <string name="title_report_menu_Suspecting">Suspecting Report</string>
+    <string name="title_nav_tour_planning">Tour Planning</string>
+    <string name="title_nav_Retailer_Management">Retailer Management</string>
+
+    <string name="title_outstanding_collection">Outstanding\n Report</string>
+    <string name="title_Suspecting_Report">Suspecting\nReport</string>
+    <string name="title_add_Suspecting_Report">Add \nSuspecting Report</string>
+    <string name="title_view_Suspecting_Report">View/Edit \nSuspecting Report</string>
+    <string name="title_Tour_planning">Tour\nPlanning</string>
+
+    <string name="title_expense_management">Expense \nManagement</string>
+    <string name="title_collection_management">Collection \nManagement</string>
+    <string name="title_attendance_management">Attendance \nManagement</string>
+    <string name="title_retailer_management">Retailer \nManagement</string>
+    <string name="title_add_expense">Add Expense</string>
+
+    <string name="title_view_retailer_details">View retailer\ndetails</string>
+    <string name="title_view_your_order_history">View your order\nhistory</string>
+
+    <string name="title_add_collection">Add Collection</string>
+    <string name="title_my_schedule_management">Add And\nView Call</string>
+    <string name="title_report_management">Dynamic\nReport</string>
+    <string name="title_sync_offline_data">Sync Offline Data</string>
+    <string name="title_logout">Logout</string>
+    <string name="title_update">Update</string>
+    <string name="title_exit">Exit</string>
+
+    <string name="title_view_outstanding_amp_collection"><![CDATA[View outstanding &\n collection]]></string>
+
+    <string name="title_send_complain">Send\nComplain</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="title_add_and_view_call">Add And View Call</string>
+
+    <string name="title_screen_send_complain">Send Complain</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_exit_from_app">You have successfully exit from app</string>
+    <string name="title_logout_from_app">You have successfully logout from app</string>
+    <string name="title_select_any_one_expense_option">Select any one expense option</string>
+
+    <string name="title_add_attendance">Add Attendance</string>
+    <string name="title_view_attendance">View Attendance</string>
+
+    <string name="title_valid_company">Select valid company!</string>
+
+    <string name="processing_request_app_download">Please wait download updated app...</string>
+    <string name="GPS_ON_OFF">We are not able to get your exact location, please start GPS.And if GPS already started than do stop GPS and start it again
+
+
+
+
+    </string>
+
+    <string name="notification">Notification</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="download_success">Download Successfully</string>
+    <string name="loading_please_wait">Loading Please Wait....</string>
+    <string name="not_now">Not now</string>
+
+    <!--Edited 20-nov-pragna for attendance pg strings for map -->
+    <string name="photoupload">Capture Photo</string>
+    <string name="currentlocation">Current Location</string>
+
+
+    <string name="title_disp_remarks">Remarks</string>
+    <string name="title_my_schedule_menu">My Schedule</string>
+
+    <string name="title_order_place_to_company">Place Order</string>
+    <string name="title_perform_invoice_and_ledger">Perform Invoice \n&amp; Ledger</string>
+    <string name="route_planning">Route Planning</string>
+    <string name="title_vehicle_dispatch_update">Vehicle Dispatch \nUpdate</string>
+    <string name="title_update_call_list">Call List</string>
+    <string name="title_retail_order_booking">Retailer Order \nBooking</string>
+    <string name="title_retailer_order_summary">Retailer Order \nSummary</string>
+    <string name="title_sales_and_stock_details">Sales &amp; Stock \nDetails</string>
+    <string name="title_promonational_requirement">Promotional \nRequirement</string>
+    <string name="title_feedback_form">Feedback Form</string>
+    <string name="title_credit_note">Credit Note</string>
+
+    <string name="title_debit_note">Debit Note</string>
+    <string name="title_complain_form">Complaint Form</string>
+    <string name="title_retailer_management_nav">Retailer Management</string>
+
+
+    <string name="title_order_place_to_company_name">Place Order</string>
+    <string name="title_perform_invoice_and_ledger_nav">Perform Invoice And Ledger</string>
+    <string name="title_vehicle_dispatch_update_nav">Vehicle Dispatch Update</string>
+    <string name="title_retailer_order_summary_nav">Retailer Order Summary</string>
+    <string name="title_sales_and_stock_details_nav">Sales And Stock Details</string>
+    <string name="title_promonational_requirement_nav">Promotional Requirement</string>
+    <string name="title_retail_order_booking_nav">Retailer Order Booking</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

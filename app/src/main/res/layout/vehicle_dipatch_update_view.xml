@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:id="@+id/tv_vehicle_dispatch_update_invoice_name"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/img_download_pdf"
+                android:layout_weight="1"
+                android:src="@drawable/ic_expand_more_black_24dp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"/>
+
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExpendedDetails"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:id="@+id/llinnerDetails"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/vehicle_dispatch_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:padding="@dimen/_2sdp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Invoice No :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_invoice_name"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Invoice Date :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_invoice_date"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Driver Name :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_driver_name"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Driver No :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_driver_no"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Vehicle No :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_vehicle_no"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Customer City :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_customer_city"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Delivery City :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_delivery_city"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:padding="@dimen/_2sdp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:text="Delivery Area :-"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_delivery_area"
+                    android:layout_weight="0.4"
+                    android:layout_width="match_parent"
+
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"/>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>

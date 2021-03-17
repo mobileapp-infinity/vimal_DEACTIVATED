@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:padding="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <LinearLayout
+
+            android:id="@+id/ll_header"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Sr No."
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Date"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Dis Name"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="City"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Shop \nName"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Ret. \nName"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Mobile"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Area"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Village"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="City"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="District"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Feedback"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+           <!-- <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Mobile"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Area"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="City"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="District"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>-->
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Sr No."
+                android:id="@+id/tv_sr_no"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Date"
+                android:id="@+id/tv_date"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:id="@+id/tv_distriutor_name"
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Dis Name"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="City"
+                android:id="@+id/tv_city"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:padding="@dimen/_5sdp"
+                android:layout_width="90dp"
+                android:text="Shop \nName"
+                android:id="@+id/tv_shop_name"
+                android:textStyle="bold"
+
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_ret_name"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Ret. \nName"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_mobile"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Mobile"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_area"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Area"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_village"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Village"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:id="@+id/tv_city_2"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="City"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_district"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="District"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+android:id="@+id/tv_feedback"
+                android:layout_width="90dp"
+                android:layout_gravity="center"
+                android:text="Feedback"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <!-- <TextView
+
+                 android:textAlignment="center"
+                 android:padding="@dimen/_5sdp"
+                 android:layout_width="wrap_content"
+                 android:layout_gravity="center"
+                 android:text="Mobile"
+                 android:textStyle="bold"
+                 android:textColor="@android:color/black"
+                 android:layout_height="wrap_content"/>
+
+
+             <TextView
+
+                 android:textAlignment="center"
+                 android:padding="@dimen/_5sdp"
+                 android:layout_width="wrap_content"
+                 android:layout_gravity="center"
+                 android:text="Area"
+                 android:textStyle="bold"
+                 android:textColor="@android:color/black"
+                 android:layout_height="wrap_content"/>
+
+             <TextView
+                 android:padding="@dimen/_5sdp"
+                 android:textAlignment="center"
+                 android:layout_weight="1"
+                 android:layout_width="match_parent"
+                 android:layout_gravity="center"
+                 android:text="City"
+                 android:textStyle="bold"
+                 android:textColor="@android:color/black"
+                 android:layout_height="wrap_content"/>
+
+             <TextView
+
+                 android:textAlignment="center"
+                 android:padding="@dimen/_5sdp"
+                 android:layout_width="wrap_content"
+                 android:layout_gravity="center"
+                 android:text="District"
+                 android:textStyle="bold"
+                 android:textColor="@android:color/black"
+                 android:layout_height="wrap_content"/>-->
+
+
+
+
+
+        </LinearLayout>
+
+
+        <!--<LinearLayout
+
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:text="Sr No."
+                android:id="@+id/tv_sr_no"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:id="@+id/tv_date"
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:text="Date"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:textStyle="bold"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:text="Dis Name"
+                android:id="@+id/tv_distriutor_name"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/tv_city"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:text="City"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:text="Shop \nName"
+                android:textStyle="bold"
+
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ret. \nName"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Mobile"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Area"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:padding="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:text="City"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:textAlignment="center"
+                android:padding="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="District"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:layout_height="wrap_content"/>
+
+
+
+
+
+        </LinearLayout>-->
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</HorizontalScrollView>

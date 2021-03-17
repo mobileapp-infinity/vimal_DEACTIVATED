@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:layout_margin="5dp"
+android:padding="5dp"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical"
+      >
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:gravity="center"
+android:padding="7dp"
+        android:maxLines="2"
+        android:lines="1"
+        android:textStyle="bold"
+
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:drawableLeft="@drawable/ic_bell"
+        android:text="@string/notification"
+
+        />
+    </LinearLayout>
+    <TextView
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        android:gravity="center"
+
+        android:maxLines="1"
+        android:lines="1"
+
+        android:textColor="@color/color_black"
+        android:textSize="15sp"
+        />
+<!--<ScrollView
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:scrollbars="vertical"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="vertical"
+        android:background="@color/colorPrimary"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_height="wrap_content">-->
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minWidth="210dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textAlignment="viewStart"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="10"
+        android:lines="7"
+android:text=""
+        android:textColor="@color/color_black"
+        android:textSize="16sp"
+      />
+   <!-- </LinearLayout>
+
+</ScrollView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnNegative"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_negative_gradient"
+            android:padding="10dp"
+
+            android:text="@string/not_now"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+
+          />
+
+        <Button
+            android:id="@+id/btnPositive"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_negative_gradient"
+            android:padding="5dp"
+            android:text="  View  "
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+           />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<infinityd.CommonCls.CustomTextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:singleLine="true"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@color/colorAccent"-->
+<!--    android:textSize="@dimen/DESCRIPTIONFONT"-->
+<!--    android:textAlignment="inherit"/>-->
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Select City"
+    android:id="@+id/tv_city"
+    android:textColorHint="@android:color/black"
+    android:textColor="@android:color/black"
+
+    android:padding="5dp"
+
+    />
+
+    <!--<CheckedTextView-->
+    <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:hint="Select City"-->
+    <!--    android:textColorHint="@color/color_for_txt_tint"-->
+    <!--    android:textColor="@color/colorPrimary"-->
+    <!--    android:padding="5dp"-->
+    <!--    android:textSize="@dimen/DEFAULTFONT"-->
+    <!--    />-->
