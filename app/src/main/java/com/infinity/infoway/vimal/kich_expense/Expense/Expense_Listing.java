@@ -23,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.kich_expense.Expense.Adapter.Expense_View_List_Adapter;
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Expense_Listing_Pojo;
@@ -30,6 +31,8 @@ import com.infinity.infoway.vimal.kich_expense.Expense.adapter_new.ExpenseApprov
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.ExpenseListForApprovalPojo;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -406,7 +409,7 @@ public class Expense_Listing extends AppCompatActivity implements View.OnClickLi
 
                     expenseApproveRejectAdapter = new ExpenseApproveRejectAdapter(Expense_Listing.this, expenseListForApprovalPojo, new ExpenseApproveRejectAdapter.OnItemCLickListner() {
                         @Override
-                        public void onItemClicked(int position, com.infinity.kich.Expense.model_new.ExpenseListForApprovalPojo deRecordsBeanList, View itemView) {
+                        public void onItemClicked(int position, ExpenseListForApprovalPojo deRecordsBeanList, View itemView) {
 
                         }
                     });

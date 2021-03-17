@@ -33,6 +33,11 @@
     <dimen name="tooltipmarginleft">30sp</dimen>
     <dimen name="tooltipmarginright">30sp</dimen>
 
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="alert__image_width">280dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+
 
 
 

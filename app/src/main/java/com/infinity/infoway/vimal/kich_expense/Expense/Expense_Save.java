@@ -30,14 +30,19 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
+import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
+import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Expense_ModeOf_TransportPojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Expense_Names_Pojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.SaveExpensePojo;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomEditText;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.MarshMallowPermission;
+import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.infoway.vimal.util.common.Validations;
+import com.jaiselrahman.filepicker.config.Configurations;
 import com.jaiselrahman.filepicker.model.MediaFile;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
@@ -55,6 +60,8 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+
+import static com.infinity.infoway.vimal.util.common.DialogUtils.hideProgressDialog;
 
 
 /**
@@ -873,7 +880,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
             call.enqueue(new Callback<SaveExpensePojo>() {
                 @Override
                 public void onResponse(Call<SaveExpensePojo> call, retrofit2.Response<SaveExpensePojo> response) {
-                    DialogUtils.hideProgressDialog();
+                    hideProgressDialog();
                     System.out.println("respose!!!! " + call.request());
                     System.out.println("respose!!!! " + response.isSuccessful() + "");
                     System.out.println("respose!!!! " + response.raw() + "");
@@ -881,7 +888,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
 
                 @Override
                 public void onFailure(Call<SaveExpensePojo> call, Throwable t) {
-                    DialogUtils.hideProgressDialog();
+                    hideProgressDialog();
                     System.out.println("failed!!!! save expense  ");
                     t.printStackTrace();
                 }
@@ -1255,7 +1262,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
         call.enqueue(new Callback<SaveExpensePojo>() {
             @Override
             public void onResponse(Call<SaveExpensePojo> call, retrofit2.Response<SaveExpensePojo> response) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 try {
                     if (response.body() != null && response.body().getFLAG() == 1) {
                         SaveExpensePojo saveExpensePojo = response.body();
@@ -1271,7 +1278,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFailure(Call<SaveExpensePojo> call, Throwable t) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 Toast.makeText(Expense_Save.this, "Request Failed:- " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

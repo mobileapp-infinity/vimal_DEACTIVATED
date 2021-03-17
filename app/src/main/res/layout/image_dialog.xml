@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/linearcustom"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_border"
+        android:orientation="vertical"
+        card_view:cardCornerRadius="12dp"
+
+        card_view:cardElevation="8dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:contentPadding="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:id="@+id/tv_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_header"></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:minWidth="@dimen/alert_width"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/alert__image_width"
+                    android:layout_height="@dimen/alert__image_width"
+                    android:id="@+id/image"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/app_logo_u"
+                    ></ImageView>
+
+
+            </LinearLayout>
+
+            <!--  <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:weightSum="2">-->
+
+            <com.infinity.infoway.vimal.util.common.CustomButtonView
+                android:id="@+id/btn_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_size"
+                android:background="@drawable/border_leave"
+                android:text="@string/dialog_ok"
+                android:textColor="@color/white"></com.infinity.infoway.vimal.util.common.CustomButtonView>
+
+            <com.infinity.infoway.vimal.util.common.CustomButtonView
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
+                android:background="@drawable/leave_border_black"
+                android:text="@string/dialog_cancel"
+
+                android:textColor="@color/white"></com.infinity.infoway.vimal.util.common.CustomButtonView>
+
+
+            <!--</LinearLayout>-->
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

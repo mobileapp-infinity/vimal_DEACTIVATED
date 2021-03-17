@@ -21,6 +21,8 @@ import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.ExpenseListForApprovalPojo;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 public class ExpenseApproveRejectAdapter extends RecyclerView.Adapter<ExpenseApproveRejectAdapter.MyViewHolder> {
 
