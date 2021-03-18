@@ -23,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity
     ImageView profileimg;
     ImageView editpic;
     CustomBoldTextView txtusername;
-    LinearLayout widget393;
+//    LinearLayout widget393;
     LinearLayout widget39;
     CustomTextView edtempcode;
     CustomTextView edtempname;
@@ -67,7 +67,7 @@ public class ProfileActivity extends AppCompatActivity
         profileimg = (ImageView) findViewById(R.id.profile_img);
         editpic = (ImageView) findViewById(R.id.edit_pic);
         txtusername = (CustomBoldTextView) findViewById(R.id.txt_username);
-        widget393 = (LinearLayout) findViewById(R.id.widget393);
+//        widget393 = (LinearLayout) findViewById(R.id.widget393);
         widget39 = (LinearLayout) findViewById(R.id.widget39);
         edtempcode = (CustomTextView) findViewById(R.id.edt_emp_code);
         edtempcode.setText(mySharedPrefereces.getEmpCode()+"");
