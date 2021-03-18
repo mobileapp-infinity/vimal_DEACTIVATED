@@ -190,331 +190,331 @@
         <activity android:name="com.infinity.infoway.vimal.activity.ViewNotificationDetailActivity" />
 
 
-<!--        //kich leave module-->
+        <!--        //kich leave module-->
         <activity
-            android:name=".Leave.Activity.AddLeaveAcivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.AddLeaveAcivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.AddMissPunchActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.AddMissPunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ApplyCancelLeaveActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ApplyCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ApproveLeaveActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ApproveLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.AttendanceReportActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.AttendanceReportActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.BooksChapter"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.BooksChapter"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.BooksChapterDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.BooksChapterDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- Stationary MODULE -->
 
         <activity
-            android:name=".Leave.Activity.CancelLeaveApproveRejectActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CancelLeaveApproveRejectActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ChangePasswordActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ChangePasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.CoffDetailActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CoffDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.COffLeaveApprovalActitivty"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.COffLeaveApprovalActitivty"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ConferencePubActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ConferencePubActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ConferencePubApproveReject"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ConferencePubApproveReject"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.Consultancy"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.Consultancy"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ConsultancyDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ConsultancyDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.CpdApplication"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CpdApplication"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.CpdApplicationDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CpdApplicationDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.FDPAttended"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttended"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.FDPAttendedDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttendedDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- forget password module -->
 
         <activity
-            android:name=".Leave.Activity.ForgotpasswordActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ForgotpasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.GrantReceived"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.GrantReceived"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.GrantReceivedDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.GrantReceivedDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.JournalPub"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPub"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.JournalPubDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPubDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.LeaveApplicationApproveReject"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveApplicationApproveReject"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.LeaveBalanceActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveBalanceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".Leave.Activity.LoginActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.MainActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Leave.Activity.MissPunchApproval"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MissPunchApproval"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.MissPunchApprovedActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MissPunchApprovedActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.MissPunchUpdateActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MissPunchUpdateActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.MyMissPunchActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MyMissPunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Leave.Activity.PatentAwarded"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PatentAwarded"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PatentAwardedDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PatentAwardedDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PDAppDocumentApprovalActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PDAppDocumentApprovalActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- tour planning module -->
 
         <activity
-            android:name=".Leave.Activity.PDAppDocumentApprovalListing"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PDAppDocumentApprovalListing"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PDApplication"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PDApplication"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PDApplicationDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PDApplicationDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PGScholars"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PGScholars"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PGScholarsDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PGScholarsDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- Task Module -->
 
         <activity
-            android:name=".Leave.Activity.PhDDScholars"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PhDDScholars"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PhDDScholarsDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PhDDScholarsDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PostDocument"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PostDocument"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.PostDocumentdetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PostDocumentdetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" /> <!-- 07-07-2020 pragna for leave module -->
 
         <activity
-            android:name=".Leave.Activity.ProfileActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ProfileActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.SeedMoney"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.SeedMoney"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.SeedMoneyDetail"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.SeedMoneyDetail"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.SlarySlipActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.SlarySlipActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.StatisticsActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.StatisticsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewAllLeavePunchInOut"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewAllLeavePunchInOut"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewApproveCancelLeaveActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewApproveCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewCancelLeaveActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewCancelLeaveDetailsOnly"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewCancelLeaveDetailsOnly"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewLeaveActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
 
         <activity
-            android:name=".Leave.Activity.ViewLeaveListingActivity"
+            android:name="com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewLeaveListingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
