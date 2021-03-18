@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
     <include
-        layout="@layout/activity_home"
+        layout="@layout/activity_home_for_leave_module"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
     <com.google.android.material.navigation.NavigationView
@@ -76,7 +76,7 @@
                         android:layout_height="25dp"
                         android:layout_gravity="center"
                         android:layout_weight=".3"
-                        android:src="@drawable/my_profile_dra_black"></ImageView>
+                        android:src="@drawable/my_profile_dra_black"/>
 
                     <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_my_profile"
@@ -113,7 +113,7 @@
                         android:layout_height="25dp"
                         android:layout_gravity="center"
                         android:layout_weight=".3"
-                        android:src="@drawable/view_leave_dra_black"></ImageView>
+                        android:src="@drawable/view_leave_dra_black"/>
 
                     <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_view_leave"

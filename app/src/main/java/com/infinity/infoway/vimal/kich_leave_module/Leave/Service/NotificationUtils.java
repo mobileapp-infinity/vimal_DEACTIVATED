@@ -21,7 +21,7 @@ import android.util.Patterns;
 import androidx.core.app.NotificationCompat;
 
 import com.infinity.infoway.vimal.R;
-import com.infinity.kich.Leave.App.Config;
+import com.infinity.infoway.vimal.config.Config;
 
 import java.io.IOException;
 import java.io.InputStream;

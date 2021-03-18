@@ -52,14 +52,14 @@ public class GrantReceivedAdapter extends BaseSwipeAdapter
     List<GReceivePojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
+    LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public GrantReceivedAdapter(Context ctx, GReceivePojo gReceivePojo, List<GReceivePojo.DataBean> listall, Boolean Isc)
     {

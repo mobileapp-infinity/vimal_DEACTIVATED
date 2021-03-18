@@ -47,7 +47,7 @@ public class CoffLeaveAdapter extends BaseSwipeAdapter {
     List<CoffPojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
+    LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
@@ -55,7 +55,7 @@ public class CoffLeaveAdapter extends BaseSwipeAdapter {
     CoffPojo coffPojo;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public CoffLeaveAdapter(Context ctx, CoffPojo coffPojo, List<CoffPojo.DataBean> listall, Boolean Isc) {
         this.ctx = ctx;

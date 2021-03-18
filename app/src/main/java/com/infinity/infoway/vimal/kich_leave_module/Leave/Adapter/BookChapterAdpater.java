@@ -51,7 +51,7 @@ public class BookChapterAdpater extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public BookChapterAdpater(Context ctx, BookChapterPubPojo bookChapterPubPojo, List<BookChapterPubPojo.DataBean> listall, Boolean Isc)
     {

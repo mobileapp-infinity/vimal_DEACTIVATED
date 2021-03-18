@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);s
+        navigationView.setNavigationItemSelectedListener(this);
 
 
         Menu m = navigationView.getMenu();
@@ -1041,7 +1041,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 imgviewleave.setImageDrawable(getResources().getDrawable(R.drawable.view_leave_final_white));
 
 //                llviewleave_new.setBackground(getResources().getDrawable(R.drawable.border_signup));
-                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Leave.Activity.ViewLeaveListingActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewLeaveListingActivity.class);
                 startActivity(intent);
 
             }
@@ -1101,7 +1101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 imgviewcancelleaves.setImageDrawable(getResources().getDrawable(R.drawable.view_cancel_leave_final_white));
                 card_view_cancel_leave.setCardBackgroundColor(getResources().getColor(R.color.dark_black));
 
-                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Leave.Activity.ViewCancelLeaveActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewCancelLeaveActivity.class);
                 startActivity(intent);
             }
         });
@@ -1114,17 +1114,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     return;
                 }
                 lastClickTime = SystemClock.elapsedRealtime();
-                com.infinity.kich.Leave.Activity.ApproveLeaveActivity.listall = new ArrayList<>();
-                com.infinity.kich.Leave.Activity.ApproveLeaveActivity.listall.clear();
-                com.infinity.kich.Leave.Activity.ApproveLeaveActivity.leaveApproveLPojo = new LeaveApproveLPojo();
-                com.infinity.kich.Leave.Activity.ApproveLeaveActivity.isChecked_API = false;
+                ApproveLeaveActivity.listall = new ArrayList<>();
+                ApproveLeaveActivity.listall.clear();
+                ApproveLeaveActivity.leaveApproveLPojo = new LeaveApproveLPojo();
+                ApproveLeaveActivity.isChecked_API = false;
                 changeListingDataColor();
 
                 tv_leave_approval.setTextColor(getResources().getColor(R.color.white));
                 imgleaveapproval.setImageDrawable(getResources().getDrawable(R.drawable.leave_approval_final_white));
                 cardleaveapproval.setCardBackgroundColor(getResources().getColor(R.color.dark_black));
 
-                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Leave.Activity.ApproveLeaveActivity.class);
+                Intent intent = new Intent(MainActivity.this, ApproveLeaveActivity.class);
                 startActivity(intent);
             }
         });
@@ -1144,7 +1144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 imgcancelleaveapproval.setImageDrawable(getResources().getDrawable(R.drawable.cancel_leave_approval_final_white));
                 card_cancel_leave_approval.setCardBackgroundColor(getResources().getColor(R.color.dark_black));
 
-                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Leave.Activity.ViewApproveCancelLeaveActivity.class);
+                Intent intent = new Intent(MainActivity.this, ViewApproveCancelLeaveActivity.class);
                 startActivity(intent);
             }
         });
@@ -1371,7 +1371,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                llmyprofile.setBackgroundColor(getResources().getColor(R.color.bg_drawer_select));
                 ll_logout.setBackgroundColor(getResources().getColor(R.color.red));
                 // Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Activity.MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
 //                DialogUtils.showDialog4YNo(MainActivity.this, "", "Are You Sure To Logout ?", new DialogUtils.DailogCallBackOkButtonClick() {
@@ -1705,7 +1705,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 changeBackgoundColor();
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                iv_change_psw.setImageDrawable(getResources().getDrawable(R.drawable.chnage_psw_dra_white));
+                iv_change_psw.setImageDrawable(getResources().getDrawable(R.drawable.change_psw_dra_black));
                 drawer.closeDrawer(GravityCompat.START);
                 ll_change_psw.setBackgroundColor(getResources().getColor(R.color.red));
                 tv_change_psw.setTextColor(getResources().getColor(R.color.white));

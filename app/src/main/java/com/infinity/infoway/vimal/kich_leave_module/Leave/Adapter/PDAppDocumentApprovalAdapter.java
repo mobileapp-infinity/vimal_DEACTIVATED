@@ -52,7 +52,7 @@ public class PDAppDocumentApprovalAdapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public PDAppDocumentApprovalAdapter(Context ctx, PdApprovalListingPojo pdApprovalListingPojo, List<PdApprovalListingPojo.DataBean> listall, Boolean Isc)
     {

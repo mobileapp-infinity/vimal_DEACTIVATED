@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ApproveLeaveActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveApplicationApproveReject;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.AddMissPunchPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveApproveLPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveTypePojo;
@@ -48,14 +49,14 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter {
     List<LeaveApproveLPojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
+    LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public CancelLeavesAdapter(Context ctx, LeaveApproveLPojo leaveApproveLPojo, List<LeaveApproveLPojo.DataBean> listall, Boolean Isc) {
         this.ctx = ctx;
@@ -274,7 +275,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         final View dialogView = inflater.inflate(R.layout.layout_leave_dialog, null);
         LeaveApplicationApproveReject.IDS.add(leave_id_final);
-        leaveTypePopupAdapter = new com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter(ctx, leave_id_final, leaveTypePojo, leave_ID, new com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter.ManageClick() {
+        leaveTypePopupAdapter = new LeaveTypePopupAdapter(ctx, leave_id_final, leaveTypePojo, leave_ID, new LeaveTypePopupAdapter.ManageClick() {
             @Override
 //            public void manageRadioClick(int position, boolean is_check)
             public void manageRadioClick(String IDp) {

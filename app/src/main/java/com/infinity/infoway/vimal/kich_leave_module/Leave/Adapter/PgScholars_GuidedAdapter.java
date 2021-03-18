@@ -25,6 +25,7 @@ import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PGScholars;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PGScholarsDetail;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
@@ -51,7 +52,7 @@ public class PgScholars_GuidedAdapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public PgScholars_GuidedAdapter(Context ctx, PgScolarsGuidedPojo pgScolarsGuidedPojo, List<PgScolarsGuidedPojo.DataBean> listall, Boolean Isc)
     {

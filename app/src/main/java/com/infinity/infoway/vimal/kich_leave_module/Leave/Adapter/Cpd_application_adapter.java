@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CpdApplication;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.CpdApplicationDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CPDAppPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
@@ -50,7 +51,7 @@ public class Cpd_application_adapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public Cpd_application_adapter(Context ctx, CPDAppPojo cpdAppPojo, List<CPDAppPojo.DataBean> listall, Boolean Isc)
     {

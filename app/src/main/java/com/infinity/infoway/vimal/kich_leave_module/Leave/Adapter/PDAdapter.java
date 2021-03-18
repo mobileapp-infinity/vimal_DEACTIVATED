@@ -53,7 +53,7 @@ public class PDAdapter extends BaseSwipeAdapter {
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public PDAdapter(Context ctx, PDAppPojo pdAppPojo, List<PDAppPojo.DataBean> listall, Boolean Isc) {
         this.ctx = ctx;

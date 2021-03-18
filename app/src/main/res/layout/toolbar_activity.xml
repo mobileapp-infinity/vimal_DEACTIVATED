@@ -43,7 +43,7 @@
                         android:src="@drawable/ic_back_final"
                         android:visibility="visible" />
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/iv_back"

@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttended;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttendedDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.FDPAttendedPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveTypePojo;
@@ -49,14 +50,14 @@ public class FDpAttendedAdapter extends BaseSwipeAdapter
     List<FDPAttendedPojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
+    LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public FDpAttendedAdapter(Context ctx, FDPAttendedPojo fdpAttendedPojo, List<FDPAttendedPojo.DataBean> listall, Boolean Isc)
     {

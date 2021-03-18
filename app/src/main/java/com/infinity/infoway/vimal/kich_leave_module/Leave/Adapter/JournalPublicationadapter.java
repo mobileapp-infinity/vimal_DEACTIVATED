@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPub;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPubDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.JournalPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
@@ -51,7 +52,7 @@ public class JournalPublicationadapter  extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public JournalPublicationadapter(Context ctx, JournalPojo journalPojo, List<JournalPojo.DataBean> listall, Boolean Isc)
     {

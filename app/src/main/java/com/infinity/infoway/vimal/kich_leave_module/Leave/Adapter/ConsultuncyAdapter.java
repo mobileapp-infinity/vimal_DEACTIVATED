@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.Consultancy;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ConsultancyDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConsultuncyPojo;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveTypePojo;
@@ -48,14 +49,14 @@ public class ConsultuncyAdapter extends BaseSwipeAdapter
     ConsultuncyPojo consultuncyPojo;
     List<ConsultuncyPojo.DataBean> listall;
     RequestQueue queue;
-    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
+    LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public ConsultuncyAdapter(Context ctx, ConsultuncyPojo consultuncyPojo, List<ConsultuncyPojo.DataBean> listall, Boolean Isc)
     {

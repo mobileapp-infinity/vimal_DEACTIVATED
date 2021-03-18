@@ -14,7 +14,7 @@
         android:layout_weight="1.5"
         android:weightSum="2"
         android:orientation="horizontal">
-        <com.infinity.kich.CommonCls.CustomTextView
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="1dp"
             android:layout_height="1dp"
             android:id="@+id/tv_count_total_pending"
@@ -44,23 +44,23 @@
             android:gravity="left"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
-            <com.infinity.kich.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Employee Code :"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-            <com.infinity.kich.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                 android:id="@+id/tv_emp_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="2dp"
                 android:text=""
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
         </LinearLayout>
-        <com.infinity.kich.CommonCls.CustomTextView
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_total_pending_count"
@@ -83,21 +83,21 @@
         android:layout_weight=".5"
         android:gravity="right">
 
-        <com.infinity.kich.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
             android:id="@+id/tv_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-        <com.infinity.kich.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
             android:id="@+id/tv_version_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="2dp"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
     </LinearLayout>
 </LinearLayout>

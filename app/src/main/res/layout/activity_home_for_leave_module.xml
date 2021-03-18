@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/OFFWHITE">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_1"
+        android:layout_marginBottom="40dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_1"
+                android:layout_margin="5dp"></ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="2">
+
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Today's InTime  :-"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
+                        android:id="@+id/tv_todays_in"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:padding="5dp">
+
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Today's OutTime  :-"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
+                        android:id="@+id/tv_todays_out"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text=""
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lv"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <!-- <androidx.cardview.widget.CardView
+                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                     android:id="@+id/card_leave"
+                     card_view:cardCornerRadius="4dp"
+                     card_view:cardElevation="5dp"
+                     android:paddingBottom="25dp"
+                     android:paddingTop="25dp"
+                     card_view:contentPadding="2dp"
+                     card_view:elevation="36dp"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:layout_width="50dp"
+                     android:layout_height="wrap_content">-->
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                    android:id="@+id/tv_leave"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_fill_border_pink"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/leave"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold" />
+                <!--
+                        </androidx.cardview.widget.CardView>
+                -->
+                <!--  <androidx.cardview.widget.CardView
+                      xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                      android:id="@+id/card_root"
+                      card_view:cardCornerRadius="4dp"
+                      card_view:cardElevation="5dp"
+                      android:paddingBottom="25dp"
+                      android:paddingTop="25dp"
+                      card_view:contentPadding="2dp"
+                      card_view:elevation="36dp"
+                      android:layout_gravity="center"
+                      android:layout_weight="1"
+                      android:layout_width="50dp"
+                      android:layout_height="wrap_content">-->
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                    android:id="@+id/tv_miss_punch"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_cat_main"
+                    android:gravity="center"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@string/miss_punch"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold" />
+                <!--
+                        </androidx.cardview.widget.CardView>
+                -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_leave_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/llviewleave"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_view_leave"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imgviewleave"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/view_leave_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_view_leave_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="View Leaves"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:id="@+id/lladdleave_new"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_add_leave"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+
+                                    android:id="@+id/imgaddleave"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/add_leave_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_add_leave_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="Add Leave"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <!--       <LinearLayout
+                               android:layout_width="match_parent"
+                               android:layout_height="wrap_content"
+                               android:orientation="horizontal"
+                               android:weightSum="2">
+
+                               <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                                   android:id="@+id/tv_view_leave_gd"
+                                   android:layout_width="95dp"
+                                   android:layout_height="110dp"
+                                   android:layout_margin="5dp"
+                                   android:layout_weight="1"
+                                   android:background="@drawable/view_leave_border"
+                                   android:gravity="center"
+                                   android:padding="8dp"
+                                   android:text="View \nLeaves"
+                                   android:textColor="@color/text"
+                                   android:textSize="@dimen/text_size_large" />
+
+                               <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                                   android:id="@+id/tv_add_leave_gd"
+                                   android:layout_width="95dp"
+                                   android:layout_height="110dp"
+                                   android:layout_margin="5dp"
+                                   android:layout_weight="1"
+                                   android:background="@drawable/view_leave_border"
+                                   android:gravity="center"
+                                   android:padding="8dp"
+                                   android:layout_gravity="center"
+                                   android:text="Add \nLeaves"
+                                   android:textColor="@color/text"
+                                   android:textSize="@dimen/text_size_large" />
+                           </LinearLayout>-->
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+
+                        android:id="@+id/lllevebalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_leaveleave_balance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+
+                                    android:id="@+id/imgleavebalance"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/leave_balance_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_leave_balance_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="      Leave      \n   Balance    "
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:id="@+id/llviewcancelleaves"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_view_cancel_leave"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
+                                android:id="@+id/tv_count_view_leave_cancel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:background="@drawable/badge_circle"
+                                android:gravity="center"
+                                android:minWidth="21sp"
+                                android:paddingBottom="1dp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+
+                                    android:id="@+id/imgviewcancelleaves"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/view_cancel_leave_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_cancel_leave"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="View Cancel\nLeaves"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+
+                        android:id="@+id/ll_leave_approval_new"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/cardleaveapproval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
+                                android:id="@+id/tv_count_leave"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:background="@drawable/badge_circle"
+                                android:gravity="center"
+                                android:minWidth="21sp"
+                                android:paddingBottom="1dp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+
+                                    android:id="@+id/imgleaveapproval"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/leave_approval_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_leave_approval_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="      Leave       \n   Approval    "
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:id="@+id/llviewcancelleavesapproval"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_cancel_leave_approval"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
+                                android:id="@+id/tv_count_cancel_leave"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:background="@drawable/badge_circle"
+                                android:gravity="center"
+                                android:minWidth="21sp"
+                                android:paddingBottom="1dp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size"
+                                android:visibility="invisible" />
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+
+                                    android:id="@+id/imgcancelleaveapproval"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/cancel_leave_approval_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_view_cancel_leave_approve"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="Cancel Leave\nApproval"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                            android:id="@+id/tv_leave_balance_gd"
+                            android:layout_width="95dp"
+                            android:layout_height="110dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_leave_border"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Leave \nBalance"
+                            android:textColor="@color/text"
+                            android:textSize="@dimen/text_size_large" />
+
+                        <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                            android:id="@+id/tv_cancel_leave"
+                            android:layout_width="95dp"
+                            android:layout_height="110dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_leave_border"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="View Cancel\nLeaves"
+                            android:textColor="@color/text"
+                            android:textSize="@dimen/text_size_large" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>-->
+
+                <!--  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="5dp"
+                      android:layout_weight="1"
+                      android:orientation="vertical">
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:orientation="horizontal"
+                          android:weightSum="2">
+
+                          <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                              android:id="@+id/tv_leave_approval_gd"
+                              android:layout_width="95dp"
+                              android:layout_height="110dp"
+                              android:layout_margin="5dp"
+                              android:layout_weight="1"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:text="Leave \nApproval"
+                              android:textColor="@color/text"
+                              android:textSize="@dimen/text_size_large" />
+                          <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                              android:id="@+id/tv_view_cancel_leave_approve"
+                              android:layout_width="95dp"
+                              android:layout_height="110dp"
+                              android:layout_margin="5dp"
+                              android:layout_weight="1"
+                              android:background="@drawable/view_leave_border"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:text="Cancel Leave\nApproval"
+                              android:textColor="@color/text"
+                              android:textSize="@dimen/text_size_large"
+                              android:visibility="visible" />
+
+
+                      </LinearLayout>
+                  </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                            android:id="@+id/tv_appluy_cancel_leave_gd"
+                            android:layout_width="95dp"
+                            android:layout_height="110dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_leave_border"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Apply \nCancel Leave"
+                            android:textColor="@color/text"
+                            android:textSize="@dimen/text_size_large" />
+
+                        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                            android:id="@+id/tv_apply_cancel_leave_gd"
+                            android:layout_width="95dp"
+                            android:layout_height="110dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/view_leave_border"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Cancel Leave\nApproval"
+                            android:textColor="@color/text"
+                            android:textSize="@dimen/text_size_large"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--   <com.infinity.infoway.rkuniversity.CommonCls.ExpandableHeightGridView
+                       android:id="@+id/grid_leave"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@color/OFFWHITE"
+                       android:numColumns="2"
+                       android:visibility="visible"></com.infinity.infoway.rkuniversity.CommonCls.ExpandableHeightGridView>
+
+                   <com.infinity.infoway.rkuniversity.CommonCls.ExpandableHeightGridView
+                       android:id="@+id/grid_miss_punch"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:listSelector="@drawable/border_signup"
+                       android:numColumns="2"
+
+                       android:visibility="gone"></com.infinity.infoway.rkuniversity.CommonCls.ExpandableHeightGridView>-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_miss_punch_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+
+                        android:id="@+id/ll_miss_punch_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_view_miss_punch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imgviewmisspunch"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/vew_miss_punch_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_view_miss_punch_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="View \nMiss Punch"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_add_punch_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/card_add_miss_punch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            card_view:cardCornerRadius="4dp"
+                            card_view:cardElevation="5dp"
+                            card_view:cardUseCompatPadding="true"
+                            card_view:contentPadding="2dp"
+                            card_view:elevation="36dp">
+
+                            <LinearLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imgaddmisspunch"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:src="@drawable/add_miss_punch_final_red" />
+
+                                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                    android:id="@+id/tv_add_miss_punch_gd"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:lines="2"
+                                    android:text="Add \nMiss Punch"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_large"
+                                    android:textStyle="bold"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_margin="10dp"
+                     android:layout_weight="1"
+                     android:orientation="vertical">
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"
+                         android:weightSum="2">
+
+                         <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                             android:id="@+id/tv_view_miss_punch_gd"
+                             android:layout_width="95dp"
+                             android:layout_height="110dp"
+                             android:layout_margin="5dp"
+                             android:layout_weight="1"
+                             android:background="@drawable/view_leave_border"
+                             android:gravity="center"
+                             android:padding="8dp"
+                             android:text="View \nMiss Punch"
+                             android:textColor="@color/text"
+                             android:textSize="@dimen/text_size_large" />
+
+                         <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                             android:id="@+id/tv_add_miss_punch_gd"
+                             android:layout_width="95dp"
+                             android:layout_height="110dp"
+                             android:layout_margin="5dp"
+                             android:layout_weight="1"
+                             android:background="@drawable/view_leave_border"
+                             android:gravity="center"
+                             android:padding="8dp"
+                             android:text="Add \nMiss Punch"
+                             android:textColor="@color/text"
+                             android:textSize="@dimen/text_size_large" />
+                     </LinearLayout>
+
+                     <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:orientation="horizontal"></LinearLayout>
+                 </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/ll_miss_punch_approval_new"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/card_view_miss_punch_approval"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="5dp"
+                                card_view:cardUseCompatPadding="true"
+                                card_view:contentPadding="2dp"
+                                card_view:elevation="36dp">
+
+                                <com.infinity.infoway.vimal.util.common.CustomTextView
+                                    android:id="@+id/tv_count_view_miss_punch"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:background="@drawable/badge_circle"
+                                    android:gravity="center"
+                                    android:minWidth="21sp"
+                                    android:paddingBottom="1dp"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_size"
+                                    android:visibility="invisible" />
+
+                                <LinearLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/imgviewmisspunchapproval"
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/miss_punch_approve_final_red" />
+
+                                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                        android:id="@+id/tv_miss_punch_approval_gd"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:lines="2"
+                                        android:text="Miss Punch \nApproval"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_large"
+                                        android:textStyle="bold"
+                                        android:visibility="visible" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:visibility="invisible">
+
+                            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                card_view:cardCornerRadius="4dp"
+                                card_view:cardElevation="5dp"
+                                card_view:cardUseCompatPadding="true"
+                                card_view:contentPadding="2dp"
+                                card_view:elevation="36dp">
+
+                                <LinearLayout
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="70dp"
+                                        android:layout_height="70dp"
+                                        android:src="@drawable/vew_miss_punch_final_red" />
+
+                                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:lines="2"
+                                        android:text="Add \nMiss Punch"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_size_large"
+                                        android:textStyle="bold"
+                                        android:visibility="visible" />
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                        <!--  <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                              android:id="@+id/tv_miss_punch_approval_gd"
+                              android:layout_width="95dp"
+                              android:layout_height="110dp"
+                              android:layout_margin="5dp"
+                              android:layout_weight="1"
+                              android:background="@drawable/view_leave_border"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:text="Miss Punch \nApproval"
+                              android:textColor="@color/text"
+                              android:textSize="@dimen/text_size_large" />
+
+                          <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                              android:layout_width="95dp"
+                              android:layout_height="110dp"
+                              android:layout_margin="5dp"
+                              android:layout_weight="1"
+                              android:background="@drawable/view_leave_border"
+                              android:gravity="center"
+                              android:padding="8dp"
+                              android:text="Miss Punch \nApproval"
+                              android:textColor="@color/text"
+                              android:textSize="@dimen/text_size_large"
+                              android:visibility="invisible" />-->
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/ll_1"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/ll_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

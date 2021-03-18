@@ -26,7 +26,7 @@ public class CancelLeaveAdapterListing extends BaseAdapter {
     Context ctx;
     List<CancelLeavePojo.DataBean> listall;
     CancelLeavePojo cancelLeavePojo;
-    com.infinity.kich.Leave.Adapter.ViewLeaveListingAdapter.onSwitchOn onSwitchOn;
+    ViewLeaveListingAdapter.onSwitchOn onSwitchOn;
     Boolean b;
     View view_;
     private int selectedPosition = -1;

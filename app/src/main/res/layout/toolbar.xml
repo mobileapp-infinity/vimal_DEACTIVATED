@@ -29,7 +29,7 @@
 
 
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -99,13 +99,13 @@ android:visibility="invisible"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentLeft="true"
                     android:layout_height="wrap_content">
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:layout_width="match_parent"
                         android:text="Etham walker"
 
                         android:textSize="20dp"
                         android:textColor="@color/red"
-                        android:layout_height="wrap_content"></com.infinity.kich.CommonCls.CustomTextView>
+                        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
                     <View
                         android:id="@+id/lineee"
                         android:layout_width="wrap_content"
