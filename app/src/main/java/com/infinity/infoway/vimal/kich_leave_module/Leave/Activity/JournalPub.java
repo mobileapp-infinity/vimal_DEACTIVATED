@@ -21,16 +21,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.JournalPublicationadapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.JournalPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.JournalPublicationadapter;
-import com.infinity.kich.Leave.Pojo.JournalPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class JournalPub extends AppCompatActivity {
 
     CustomBoldTextView txtenrollno;
@@ -255,9 +255,9 @@ public class JournalPub extends AppCompatActivity {
     {
         super.onResume();
 
-        if ( com.infinity.kich.Leave.Activity.JournalPubDetail.is_back_general_pub_approval)
+        if (JournalPubDetail.is_back_general_pub_approval)
         {
-            com.infinity.kich.Leave.Activity.JournalPubDetail.is_back_general_pub_approval = false;
+           JournalPubDetail.is_back_general_pub_approval = false;
 
         }
 

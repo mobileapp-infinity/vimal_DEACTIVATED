@@ -8,6 +8,7 @@
     <string name="something_went_wrong">Something went wrong,try again !!!</string>
     <string name="internal_storage">Internal storage</string>
     <string name="processing_request_call">Please wait sync data...</string>
+    <string name="app_name_LEAVE_MODULE">Kich - Leave Application</string>
 
     <string name="processing_request_download_offline_data">Please wait download offline data...</string>
 

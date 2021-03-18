@@ -53,7 +53,7 @@ public class Phd_scolars_awardedAdapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public Phd_scolars_awardedAdapter(Context ctx, PhdScolarGuidedPojo phdScolarGuidedPojo, List<PhdScolarGuidedPojo.DataBean> listall, Boolean Isc)
     {

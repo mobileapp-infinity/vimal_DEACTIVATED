@@ -23,16 +23,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.ConfarancePubAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConfarancePubPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
-import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.ConfarancePubAdapter;
-import com.infinity.kich.Leave.Pojo.ConfarancePubPojo;
 import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class ConferencePubActivity extends AppCompatActivity {
 
     static Boolean isChecked_API = false;
@@ -144,9 +144,9 @@ public class ConferencePubActivity extends AppCompatActivity {
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.ConferencePubApproveReject.is_back_con_approval)
+        if (ConferencePubApproveReject.is_back_con_approval)
         {
-            com.infinity.kich.Leave.Activity.ConferencePubApproveReject.is_back_con_approval = false;
+           ConferencePubApproveReject.is_back_con_approval = false;
 
         }
 

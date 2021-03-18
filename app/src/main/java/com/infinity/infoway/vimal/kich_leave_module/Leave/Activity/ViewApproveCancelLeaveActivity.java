@@ -22,15 +22,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.CancelApproveLeaveAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CancelApproveLPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.CancelApproveLeaveAdapter;
-import com.infinity.kich.Leave.Pojo.CancelApproveLPojo;
 
 import java.util.ArrayList;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class ViewApproveCancelLeaveActivity extends AppCompatActivity
 {
 
@@ -134,10 +134,10 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.CancelLeaveApproveRejectActivity.is_back_cancel_leave)
+        if (CancelLeaveApproveRejectActivity.is_back_cancel_leave)
         {
             System.out.println("is Backkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-            com.infinity.kich.Leave.Activity.CancelLeaveApproveRejectActivity.is_back_cancel_leave = false;
+            CancelLeaveApproveRejectActivity.is_back_cancel_leave = false;
 
           /*  listall = new ArrayList<>();
             listall.clear();

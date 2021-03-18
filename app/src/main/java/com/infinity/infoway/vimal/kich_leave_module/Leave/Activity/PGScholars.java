@@ -23,16 +23,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.PgScholars_GuidedAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PgScolarsGuidedPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.PgScholars_GuidedAdapter;
-import com.infinity.kich.Leave.Pojo.PgScolarsGuidedPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class PGScholars extends AppCompatActivity {
 
     CustomBoldTextView txtenrollno;
@@ -230,9 +230,9 @@ public class PGScholars extends AppCompatActivity {
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.PGScholarsDetail.is_back_pg)
+        if (PGScholarsDetail.is_back_pg)
         {
-            com.infinity.kich.Leave.Activity.PGScholarsDetail.is_back_pg= false;
+            PGScholarsDetail.is_back_pg= false;
 
         }
 

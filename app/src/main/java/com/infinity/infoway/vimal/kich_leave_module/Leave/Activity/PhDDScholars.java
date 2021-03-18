@@ -23,16 +23,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.Phd_scolars_awardedAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PhdScolarGuidedPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.Phd_scolars_awardedAdapter;
-import com.infinity.kich.Leave.Pojo.PhdScolarGuidedPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class PhDDScholars extends AppCompatActivity {
 
     CustomBoldTextView txtenrollno;
@@ -235,9 +235,9 @@ public class PhDDScholars extends AppCompatActivity {
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.PhDDScholarsDetail.is_back_phd)
+        if (PhDDScholarsDetail.is_back_phd)
         {
-            com.infinity.kich.Leave.Activity.PhDDScholarsDetail.is_back_phd = false;
+            PhDDScholarsDetail.is_back_phd = false;
 
         }
 

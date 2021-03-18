@@ -34,15 +34,15 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.App.MarshMallowPermission;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.BookChapterPubPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConfarancePubPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.App.MarshMallowPermission;
-import com.infinity.kich.Leave.Pojo.BookChapterPubPojo;
-import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
-import com.infinity.kich.Leave.Pojo.ConfarancePubPojo;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -508,7 +508,7 @@ public class ConferencePubApproveReject extends AppCompatActivity {
             }
         });
     }
-  ConAppRejPojo  conAppRejPojo ;
+  ConAppRejPojo conAppRejPojo ;
     private void ApproveConfarancePub(String reason, AlertDialog show, String id, String approve)
     {
 

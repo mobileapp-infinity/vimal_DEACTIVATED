@@ -23,13 +23,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.PatentAwardedAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PatentAwaredPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
 import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.PatentAwardedAdapter;
-import com.infinity.kich.Leave.Pojo.PatentAwaredPojo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class PatentAwarded extends AppCompatActivity {
     LinearLayout llmainheder;
     static ListView lv_patent_award;
     CustomBoldTextView tv_emp_code, tv_version, tv_version_code;
-    static  PatentAwardedAdapter patentAwardedAdapter;
+    static PatentAwardedAdapter patentAwardedAdapter;
     static MySharedPrefereces mySharedPrefereces;
     ImageView iv_back;
     CustomBoldTextView txt_act;
@@ -227,9 +227,9 @@ public class PatentAwarded extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.PatentAwardedDetail.is_back_jounral_pub)
+        if (PatentAwardedDetail.is_back_jounral_pub)
         {
-            com.infinity.kich.Leave.Activity.PatentAwardedDetail.is_back_jounral_pub = false;
+            PatentAwardedDetail.is_back_jounral_pub = false;
         }
         else {
             cbcheck.setChecked(false);

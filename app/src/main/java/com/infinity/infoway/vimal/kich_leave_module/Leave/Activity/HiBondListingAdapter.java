@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.infinity.infoway.vimal.R;
-import com.infinity.kich.Leave.Pojo.LastInOutPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LastInOutPojo;
+
 public class HiBondListingAdapter extends BaseAdapter
 {
 

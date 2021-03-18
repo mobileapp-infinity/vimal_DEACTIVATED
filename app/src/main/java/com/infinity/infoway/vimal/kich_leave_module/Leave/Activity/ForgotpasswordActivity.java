@@ -18,10 +18,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ForgotPswPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Pojo.ForgotPswPojo;
 public class ForgotpasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_cat_main"
+    android:gravity="center_horizontal"
+
+    android:padding="10dp">
+
+    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+        android:id="@+id/tv_titile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lines="2"
+        android:paddingLeft="8dp"
+        android:text=""  android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_below="@+id/tv_titile"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:padding="5dp"
+            android:id="@+id/ll_leave_approval_count"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Pending Leave Approval Count  :-"
+                android:textStyle="bold"
+                android:lines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"
+                android:layout_weight="1.5"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/tv_leave_approval_count"
+                android:gravity="center|left"
+                android:layout_gravity="left|center"
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+                android:layout_weight=".5"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+
+            android:id="@+id/ll_cancel_leave_approval_count"
+            android:layout_height="wrap_content">
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:lines="2"
+                android:textSize="@dimen/text_size"
+                android:layout_height="wrap_content"
+                android:text="Pending Cancel Leave Approval Count  :-"
+                android:layout_weight="1.5"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center|left"
+            android:layout_gravity="left|center"
+            android:id="@+id/tv_cancel_leave_approval_count"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size"
+            android:layout_weight=".5"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+                android:id="@+id/ll_miss_punch_aaproval_count"
+            android:layout_height="wrap_content">
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:lines="2"
+                android:textSize="@dimen/text_size"
+                android:layout_height="wrap_content"
+                android:text="Pending Miss Punch Approval Count  :-"
+                android:layout_weight="1.5"></com.infinity.infoway.vimal.util.common.CustomBoldTextView> <com.infinity.infoway.vimal.util.common.CustomTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:gravity="center|left"
+            android:layout_gravity="left|center"
+            android:id="@+id/tv_pending_miss_punch_approval_count"
+            android:textColor="@color/text"
+            android:textSize="@dimen/text_size"
+            android:layout_weight=".5"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -58,7 +58,7 @@ public class SeedMoneyAdapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
+    SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public SeedMoneyAdapter(Context ctx, SeedMoneyPojo seedMoneyPojo, List<SeedMoneyPojo.DataBean> listall, Boolean Isc)
     {

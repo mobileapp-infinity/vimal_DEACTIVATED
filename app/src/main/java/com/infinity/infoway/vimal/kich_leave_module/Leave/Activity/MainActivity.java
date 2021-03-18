@@ -52,6 +52,19 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.config.Config;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.LastInOutAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.LeaveAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.MissPunchAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CancelApproveLPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CheckVersionPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CoffPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.FireBasePojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LastInOutPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveApproveLPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.MissPunchApprovePojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PendingApprovalsPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.TodaysInOutPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
@@ -60,19 +73,6 @@ import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.ExpandableHeightGridView;
 import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.LastInOutAdapter;
-import com.infinity.kich.Leave.Adapter.LeaveAdapter;
-import com.infinity.kich.Leave.Adapter.MissPunchAdapter;
-import com.infinity.kich.Leave.App.Config;
-import com.infinity.kich.Leave.Pojo.CancelApproveLPojo;
-import com.infinity.kich.Leave.Pojo.CheckVersionPojo;
-import com.infinity.kich.Leave.Pojo.CoffPojo;
-import com.infinity.kich.Leave.Pojo.FireBasePojo;
-import com.infinity.kich.Leave.Pojo.LastInOutPojo;
-import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
-import com.infinity.kich.Leave.Pojo.MissPunchApprovePojo;
-import com.infinity.kich.Leave.Pojo.PendingApprovalsPojo;
-import com.infinity.kich.Leave.Pojo.TodaysInOutPojo;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -147,13 +147,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.app_name_LEAVE_MODULE, R.string.app_name_LEAVE_MODULE);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.app_name, R.string.app_name);
         drawer.addDrawerListener(toggle);
         toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);s
 
 
         Menu m = navigationView.getMenu();

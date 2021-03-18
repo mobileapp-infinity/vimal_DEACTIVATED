@@ -25,17 +25,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.FDpAttendedAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.FDPAttendedPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.FDpAttendedAdapter;
-import com.infinity.kich.Leave.Pojo.FDPAttendedPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class FDPAttended extends AppCompatActivity {
 
     /**
@@ -252,10 +252,10 @@ public class FDPAttended extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.FDPAttendedDetail.is_back_fdp_approval)
+        if (FDPAttendedDetail.is_back_fdp_approval)
 
         {
-            com.infinity.kich.Leave.Activity.FDPAttendedDetail.is_back_fdp_approval = false;
+            FDPAttendedDetail.is_back_fdp_approval = false;
         }
         else
         {

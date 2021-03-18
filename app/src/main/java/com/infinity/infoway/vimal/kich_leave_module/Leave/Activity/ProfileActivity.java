@@ -87,7 +87,7 @@ public class ProfileActivity extends AppCompatActivity
         widget30 = (RelativeLayout) findViewById(R.id.widget30);
 
 
-        Glide.with(ProfileActivity.this).load(mySharedPrefereces.getUserPhoto()+"").error(R.drawable.noimage).into(profileimg);
+        Glide.with(ProfileActivity.this).load(mySharedPrefereces.getUserPhoto()+"").error(R.drawable.no_image_available).into(profileimg);
         PackageInfo pInfo = null;
         assert pInfo != null;
 

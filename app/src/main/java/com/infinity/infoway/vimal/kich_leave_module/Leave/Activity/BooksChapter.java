@@ -23,17 +23,16 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.BookChapterAdpater;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.BookChapterPubPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.BookChapterAdpater;
-import com.infinity.kich.Leave.Pojo.BookChapterPubPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 
 public class BooksChapter extends AppCompatActivity
 {
@@ -49,10 +48,10 @@ public class BooksChapter extends AppCompatActivity
     CustomBoldTextView txt_act;
     static int PAGE_NUMBER;
     CustomBoldTextView tv_emp_code, tv_version, tv_version_code;
-  public  static   BookChapterPubPojo bookChapterPubPojo;
+  public  static BookChapterPubPojo bookChapterPubPojo;
   public  static   Boolean isChecked_API = false;
    public static RequestQueue queue;
-    public  static  BookChapterAdpater bookChapterAdpater;
+    public  static BookChapterAdpater bookChapterAdpater;
    public static Activity activity;
 
 

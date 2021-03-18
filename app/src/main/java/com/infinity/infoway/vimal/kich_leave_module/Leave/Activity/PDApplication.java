@@ -25,17 +25,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.PDAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PDAppPojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.PDAdapter;
-import com.infinity.kich.Leave.Pojo.PDAppPojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class PDApplication extends AppCompatActivity
 {
 
@@ -139,9 +139,9 @@ public class PDApplication extends AppCompatActivity
         super.onResume();
 
 
-        if (com.infinity.kich.Leave.Activity.PDApplicationDetail.is_back_pd_app)
+        if (PDApplicationDetail.is_back_pd_app)
         {
-            com.infinity.kich.Leave.Activity.PDApplicationDetail.is_back_pd_app = false;
+            PDApplicationDetail.is_back_pd_app = false;
         }
         else
         {

@@ -25,17 +25,17 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter.GrantReceivedAdapter;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.GReceivePojo;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-import com.infinity.kich.Leave.Adapter.GrantReceivedAdapter;
-import com.infinity.kich.Leave.Pojo.GReceivePojo;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class GrantReceived extends AppCompatActivity {
 
     /**
@@ -255,9 +255,9 @@ public class GrantReceived extends AppCompatActivity {
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.GrantReceivedDetail.is_back_grant_receive_approval)
+        if (GrantReceivedDetail.is_back_grant_receive_approval)
         {
-            com.infinity.kich.Leave.Activity.GrantReceivedDetail.is_back_grant_receive_approval =false;
+            GrantReceivedDetail.is_back_grant_receive_approval =false;
         }
         else
         {
