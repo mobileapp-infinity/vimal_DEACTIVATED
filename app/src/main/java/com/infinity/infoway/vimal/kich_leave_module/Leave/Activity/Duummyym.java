@@ -11,7 +11,6 @@ import androidx.cardview.widget.CardView;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
-
 public class Duummyym extends AppCompatActivity {
 
     CustomBoldTextView tvtitile;

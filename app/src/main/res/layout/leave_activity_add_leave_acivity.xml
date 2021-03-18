@@ -24,7 +24,7 @@
         android:visibility="gone"
         android:weightSum="2">
 
-        <com.infinity.kich.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
             android:id="@+id/tv_approve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:text="Update"
             android:textColor="@color/white" />
 
-        <com.infinity.kich.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
             android:id="@+id/tv_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -111,7 +111,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -135,7 +135,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -170,7 +170,7 @@
                     android:layout_weight="1.8"
                     android:orientation="vertical">
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
@@ -178,7 +178,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size" />
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tvSelectFromDateText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
                 android:padding="10dp"
                 android:visibility="gone">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -283,7 +283,7 @@
                         android:layout_weight="1.8"
                         android:orientation="vertical">
 
-                        <com.infinity.kich.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="15dp"
@@ -291,7 +291,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size" />
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:id="@+id/tvFromDateText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -339,7 +339,7 @@
                         android:layout_weight="1.8"
                         android:orientation="vertical">
 
-                        <com.infinity.kich.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="15dp"
@@ -347,7 +347,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/text_size" />
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:id="@+id/tvToDateText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -387,7 +387,7 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="15dp"
@@ -395,7 +395,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size" />
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tvCalculatedLeaveDays"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -426,7 +426,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -453,7 +453,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -478,7 +478,7 @@
                 android:padding="10dp"
                 android:visibility="gone">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -507,7 +507,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -536,7 +536,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -563,7 +563,7 @@
                 android:padding="10dp"
                 android:weightSum="2">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -632,13 +632,13 @@
                 android:orientation="horizontal"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Note : "
                     android:textColor="@color/black" />
 
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/tv_note"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -657,7 +657,7 @@
                 android:visibility="gone"
                 android:weightSum="2">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:id="@+id/tv_submit_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -673,7 +673,7 @@
                     android:textColor="@color/white"
                     android:visibility="visible" />
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:id="@+id/tv_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -702,7 +702,7 @@
                 android:visibility="gone"
                 android:weightSum="2">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:id="@+id/tv_apply_cancel_leave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -717,7 +717,7 @@
                     android:textColor="@color/white"
                     android:visibility="gone" />
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

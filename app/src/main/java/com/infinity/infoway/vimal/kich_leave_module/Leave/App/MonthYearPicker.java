@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.infinity.kich.Leave.App;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.App;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -22,8 +22,7 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.NumberPicker;
 
-
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
 
 import java.util.Calendar;
 

@@ -22,7 +22,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.PatentAwardedAdapter;
 import com.infinity.kich.Leave.Pojo.PatentAwaredPojo;
 
@@ -39,7 +44,7 @@ public class PatentAwarded extends AppCompatActivity {
     static ListView lv_patent_award;
     CustomBoldTextView tv_emp_code, tv_version, tv_version_code;
     static  PatentAwardedAdapter patentAwardedAdapter;
-    static  MySharedPrefereces mySharedPrefereces;
+    static MySharedPrefereces mySharedPrefereces;
     ImageView iv_back;
     CustomBoldTextView txt_act;
     static int PAGE_NUMBER;

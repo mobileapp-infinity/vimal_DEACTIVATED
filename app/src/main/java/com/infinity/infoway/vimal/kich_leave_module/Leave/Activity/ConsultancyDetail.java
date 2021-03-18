@@ -37,7 +37,7 @@ import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
 import com.infinity.kich.Leave.Pojo.ConsultuncyPojo;
-
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class ConsultancyDetail extends AppCompatActivity {
 
     private ImageView iv_back;

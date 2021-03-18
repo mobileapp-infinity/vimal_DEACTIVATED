@@ -29,6 +29,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Pojo.ChangepswPojo;
 
@@ -269,7 +270,7 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
                                         if (changepswPojo.getData().get(0).getMsg().compareToIgnoreCase("Password Changed")==0)
                                         {
                                             DialogUtils.Show_Toast(ChangePasswordActivity.this, changepswPojo.getData().get(0).getMsg());
-                                            Intent intent = new Intent(ChangePasswordActivity.this, com.infinity.kich.Leave.Activity.MainActivity.class);
+                                            Intent intent = new Intent(ChangePasswordActivity.this, MainActivity.class);
                                             startActivity(intent);
                                             finish();
                                         }

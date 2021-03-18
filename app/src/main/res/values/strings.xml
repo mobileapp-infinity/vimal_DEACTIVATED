@@ -192,6 +192,8 @@
     <string name="title_debit_note">Debit Note</string>
     <string name="title_complain_form">Complaint Form</string>
     <string name="title_retailer_management_nav">Retailer Management</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="approve">Approve</string>
 
 
     <string name="title_order_place_to_company_name">Place Order</string>
@@ -227,6 +229,15 @@
     <string name="please_select_city">Please Select City</string>
     <string name="please_select_night_hold_city">Please Select Night Halt City</string>
     <string name="factory_visit">Factory Visit</string>
+
+    <string name="reject">Reject</string>
+    <string name="alert_dialog_title">Please Select</string>
+    <string name="positive_button_text">Select</string>
+    <string name="negative_button_text">Cancel</string>
+    <string name="title_app_update">Update</string>
+    <string name="title_update_now">Update Now</string>
+    <string name="title_new_version_available">There is a newer version of this application available</string>
+    <string name="title_not_now">Not Now</string>
 
 
 

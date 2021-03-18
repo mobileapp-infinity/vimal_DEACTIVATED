@@ -43,6 +43,7 @@ import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter;
 import com.infinity.kich.Leave.Pojo.AddMissPunchPojo;
@@ -60,6 +61,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import static com.infinity.infoway.vimal.util.common.DialogUtils.hideProgressDialog;
 
 
 public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickListener {
@@ -141,7 +143,6 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
     int LEAVE_TYPE = 0;
     private SharedPref getSharedPrefKich;
     CustomTextView tvCalculatedLeaveDays;
-
 
 
     @Override
@@ -1573,7 +1574,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
         StringRequest request1 = new StringRequest(Request.Method.GET, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response1) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
 
                 System.out.println("response of Employee_leave_application_insert !!!!!!!!!!! " + response1);
                 response1 = response1 + "";
@@ -1618,7 +1619,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(AddLeaveAcivity.this, "Please Try Again Later");
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
@@ -1638,7 +1639,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
 
                 System.out.println("response of Get_Employee_Leave_balance !!!!!!!!!!! " + response);
                 response = response + "";
@@ -1671,7 +1672,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(AddLeaveAcivity.this, "Please Try Again Later");
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
@@ -1696,7 +1697,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
 
         final EditText edt_reason = (EditText) dialogView.findViewById(R.id.edt_reason);
         CustomBoldTextView tv_titile = (CustomBoldTextView) dialogView.findViewById(R.id.tv_titile);
-        tv_titile.setText(context.getResources().getString(R.string.app_name_));
+        tv_titile.setText(context.getResources().getString(R.string.app_name));
         CustomButtonView dialogButtonCancel = (CustomButtonView) dialogView.findViewById(R.id.dialogButtonCancel);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -1741,7 +1742,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
 
                 System.out.println("response of Apply_Cancel_Leave_application !!!!!!!!!!! " + response);
                 response = response + "";
@@ -1776,7 +1777,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(AddLeaveAcivity.this, "Please Try Again Later");
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
@@ -1795,7 +1796,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
 
                 //  System.out.println("response of employee_cancel_leave_application_approve !!!!!!!!!!! " + response);
                 response = response + "";
@@ -1815,7 +1816,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
                         //  DialogUtils.Show_Toast(AddLeaveAcivity.this, cancelLeaveMailPojo.getData());
 
                         //AproveMailSend();
-                        Intent intent = new Intent(AddLeaveAcivity.this, com.infinity.kich.Leave.Activity.ViewLeaveListingActivity.class);
+                        Intent intent = new Intent(AddLeaveAcivity.this, ViewLeaveListingActivity.class);
                         startActivity(intent);
 
                     }
@@ -1828,7 +1829,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(AddLeaveAcivity.this, "Please Try Again Later");
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
@@ -1846,7 +1847,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
 
                 System.out.println("response of employee_leave_application_mst_delete !!!!!!!!!!! " + response);
                 response = response + "";
@@ -1864,7 +1865,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
                         if (addMissPunchPojo.getData().size() > 0) {
                             DialogUtils.Show_Toast(AddLeaveAcivity.this, addMissPunchPojo.getData().get(0).getMsg());
 
-                            Intent intent = new Intent(AddLeaveAcivity.this, com.infinity.kich.Leave.Activity.ViewLeaveListingActivity.class);
+                            Intent intent = new Intent(AddLeaveAcivity.this, ViewLeaveListingActivity.class);
                             startActivity(intent);
                         }
                     }
@@ -1877,7 +1878,7 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(AddLeaveAcivity.this, "Please Try Again Later");
-                DialogUtils.hideProgressDialog();
+                hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }

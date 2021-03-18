@@ -51,11 +51,14 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
+import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.CustomTypefaceSpan;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.ExpandableHeightGridView;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.LastInOutAdapter;
 import com.infinity.kich.Leave.Adapter.LeaveAdapter;
@@ -70,14 +73,12 @@ import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
 import com.infinity.kich.Leave.Pojo.MissPunchApprovePojo;
 import com.infinity.kich.Leave.Pojo.PendingApprovalsPojo;
 import com.infinity.kich.Leave.Pojo.TodaysInOutPojo;
-import com.infinity.kich.R;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-
 
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -1369,10 +1370,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 iv_logout.setImageDrawable(getResources().getDrawable(R.drawable.logout_dra_white));
 //                llmyprofile.setBackgroundColor(getResources().getColor(R.color.bg_drawer_select));
                 ll_logout.setBackgroundColor(getResources().getColor(R.color.red));
-               // Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        Intent intent = new Intent(MainActivity.this, com.infinity.kich.Activity.MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                // Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, com.infinity.kich.Activity.MainActivity.class);
+                startActivity(intent);
+                finish();
 //                DialogUtils.showDialog4YNo(MainActivity.this, "", "Are You Sure To Logout ?", new DialogUtils.DailogCallBackOkButtonClick() {
 //                    @Override
 //                    public void onDialogOkButtonClicked() {

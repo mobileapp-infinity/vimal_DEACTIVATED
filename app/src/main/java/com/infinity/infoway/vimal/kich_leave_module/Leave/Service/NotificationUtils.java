@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Service;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Service;
 
 import android.app.ActivityManager;
 import android.app.Notification;
@@ -14,16 +14,14 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
-
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Patterns;
 
 import androidx.core.app.NotificationCompat;
 
-import com.google.firebase.messaging.RemoteMessage;
+import com.infinity.infoway.vimal.R;
 import com.infinity.kich.Leave.App.Config;
-import com.infinity.kich.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -59,7 +57,7 @@ public class NotificationUtils
 
 
         // notification icon
-        final int icon = R.drawable.notify_launcher;
+        final int icon = R.drawable.ic_bell;
 
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         final PendingIntent resultPendingIntent =
@@ -117,7 +115,7 @@ public class NotificationUtils
                 .setSound(alarmSound)
                 .setStyle(inboxStyle)
                 .setWhen(getTimeMilliSec(timeStamp))
-                .setSmallIcon(R.drawable.notify_launcher)
+                .setSmallIcon(R.drawable.ic_bell_u)
                 .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                 .setContentText(message)
                 .build();
@@ -140,7 +138,7 @@ public class NotificationUtils
                 .setSound(alarmSound)
                 .setStyle(bigPictureStyle)
                 .setWhen(getTimeMilliSec(timeStamp))
-                .setSmallIcon(R.drawable.notify_launcher)
+                .setSmallIcon(R.drawable.ic_bell)
                 .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                 .setContentText(message)
                 .build();

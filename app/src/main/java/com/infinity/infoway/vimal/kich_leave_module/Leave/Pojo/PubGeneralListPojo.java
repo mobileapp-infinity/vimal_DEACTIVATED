@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Pojo;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo;
 
 import java.util.List;
 

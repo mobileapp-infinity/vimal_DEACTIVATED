@@ -37,7 +37,7 @@
                     android:weightSum="3">
 
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:id="@+id/txt_enroll_no"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_large" />
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:id="@+id/txt_sr_no"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -81,23 +81,23 @@
                     android:weightSum="4">
 
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:text="Name"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"></com.infinity.kich.CommonCls.CustomBoldTextView>
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:text="Status"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".7"></com.infinity.kich.CommonCls.CustomBoldTextView>
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_weight=".7"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
                         android:text="In Time"
@@ -105,8 +105,8 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.15"></com.infinity.kich.CommonCls.CustomBoldTextView>
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_weight="1.15"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
                         android:text="Out Time"
@@ -114,7 +114,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.15"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:layout_weight="1.15"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                 </LinearLayout>
 
                 <LinearLayout

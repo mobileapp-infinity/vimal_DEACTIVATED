@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_cat_main"
+    android:gravity="center_horizontal"
+    android:padding="10dp">
+
+    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+        android:id="@+id/tv_titile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:lines="2"
+        android:padding="3dp"
+        android:paddingLeft="8dp"
+        android:text=" "
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size" />
+
+
+    <com.infinity.infoway.vimal.util.common.CustomEditText
+
+        android:id="@+id/edt_reason"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_titile"
+        android:layout_margin="@dimen/normal_padding"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.0"
+        android:minLines="5"
+        android:hint="Enter Reason"
+        android:background="@drawable/view_leave_border"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size" />
+
+    <com.infinity.infoway.vimal.util.common.CustomTextView
+
+        android:id="@+id/tv_msg_guj"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_reason"
+        android:layout_margin="@dimen/normal_padding"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.0"
+        android:minLines="3"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size"
+        android:visibility="gone" />
+
+    <com.infinity.infoway.vimal.util.common.CustomButtonView
+        android:id="@+id/dialogButtonOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_msg_guj"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/border_fill_border_pink"
+        android:gravity="center"
+        android:lines="2"
+        android:text="OK"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size" />
+
+    <com.infinity.infoway.vimal.util.common.CustomButtonView
+        android:id="@+id/dialogButtonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_msg_guj"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@+id/dialogButtonOK"
+        android:background="@drawable/border_fill_border_only_pink"
+        android:gravity="center"
+        android:lines="2"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/red"
+
+        android:textSize="@dimen/text_size"
+        android:visibility="visible" />
+</RelativeLayout>

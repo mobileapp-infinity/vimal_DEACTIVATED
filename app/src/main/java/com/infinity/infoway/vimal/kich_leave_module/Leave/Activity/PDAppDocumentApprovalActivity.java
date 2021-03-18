@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.infinity.infoway.vimal.R;
-
 public class PDAppDocumentApprovalActivity extends AppCompatActivity {
 
 

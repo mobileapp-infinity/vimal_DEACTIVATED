@@ -36,6 +36,7 @@ import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Pojo.BookChapterPubPojo;
 import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 
 public class BooksChapterDetail extends AppCompatActivity {
 
@@ -347,7 +348,7 @@ public class BooksChapterDetail extends AppCompatActivity {
 
         final EditText edt_reason = (EditText) dialogView.findViewById(R.id.edt_reason);
         CustomBoldTextView tv_titile = (CustomBoldTextView) dialogView.findViewById(R.id.tv_titile);
-        tv_titile.setText(context.getResources().getString(R.string.app_name_));
+        tv_titile.setText(context.getResources().getString(R.string.app_name));
         CustomButtonView dialogButtonCancel = (CustomButtonView) dialogView.findViewById(R.id.dialogButtonCancel);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);

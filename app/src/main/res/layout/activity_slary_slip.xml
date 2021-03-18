@@ -41,7 +41,7 @@
                     android:weightSum="3">
 
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:text="Month"
                         android:padding="5dp"
@@ -49,13 +49,13 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.1"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:layout_weight="1.1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                     <View
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
                         android:padding="15dp"
                         android:background="@color/grey" />
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
                         android:text="Amount"
@@ -65,13 +65,13 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.1"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:layout_weight="1.1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                     <View
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
                         android:padding="15dp"
                         android:background="@color/grey" />
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
                         android:text="Download"
@@ -79,7 +79,7 @@
                         android:gravity="center"
                         android:textColor="@color/white"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".8"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:layout_weight=".8"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                 </LinearLayout>
 
                 <LinearLayout

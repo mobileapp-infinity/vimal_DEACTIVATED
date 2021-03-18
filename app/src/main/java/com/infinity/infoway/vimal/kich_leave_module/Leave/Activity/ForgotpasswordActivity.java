@@ -22,7 +22,6 @@ import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Pojo.ForgotPswPojo;
-
 public class ForgotpasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     /**
@@ -114,7 +113,7 @@ public class ForgotpasswordActivity extends AppCompatActivity implements View.On
 
                                     if (!forgotPswPojo.getData().get(0).getMsg().contentEquals("")) {
                                         DialogUtils.Show_Toast(ForgotpasswordActivity.this, forgotPswPojo.getData().get(0).getMsg());
-                                        Intent intent =new Intent(ForgotpasswordActivity.this, com.infinity.kich.Leave.Activity.LoginActivity.class);
+                                        Intent intent =new Intent(ForgotpasswordActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                         finish();
                                     }

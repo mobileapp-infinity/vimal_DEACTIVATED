@@ -7,12 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.infinity.infoway.vimal.R;
 
-
 public class HiBondListingActivity extends AppCompatActivity
 {
 
     ListView lv;
-    com.infinity.kich.Leave.Activity.HiBondListingAdapter hiBondListingAdapter;
+    HiBondListingAdapter hiBondListingAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,7 +21,7 @@ public class HiBondListingActivity extends AppCompatActivity
 
         lv = (ListView) findViewById(R.id.lv);
 
-        hiBondListingAdapter = new com.infinity.kich.Leave.Activity.HiBondListingAdapter(HiBondListingActivity.this);
+        hiBondListingAdapter = new HiBondListingAdapter(HiBondListingActivity.this);
         lv.setAdapter(hiBondListingAdapter);
 
 

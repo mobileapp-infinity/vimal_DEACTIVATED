@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Pojo.CoffDetailPojo;
 import com.infinity.kich.Leave.Pojo.CoffPojo;
@@ -198,12 +199,12 @@ public class CoffDetailActivity extends AppCompatActivity implements View.OnClic
                                 {
                                     DialogUtils.Show_Toast(CoffDetailActivity.this, coofApprovePojo.getData().get(0).getMsg() + "");
 
-                                    com.infinity.kich.Leave.Activity.COffLeaveApprovalActitivty.listall = new ArrayList<>();
-                                    com.infinity.kich.Leave.Activity.COffLeaveApprovalActitivty.listall.clear();
-                                    com.infinity.kich.Leave.Activity.COffLeaveApprovalActitivty.coffPojo = new CoffPojo();
-                                    com.infinity.kich.Leave.Activity.COffLeaveApprovalActitivty.CoffApproval(1,false);
+                                    COffLeaveApprovalActitivty.listall = new ArrayList<>();
+                                    COffLeaveApprovalActitivty.listall.clear();
+                                    COffLeaveApprovalActitivty.coffPojo = new CoffPojo();
+                                    COffLeaveApprovalActitivty.CoffApproval(1,false);
 
-                                    Intent intent =new Intent(CoffDetailActivity.this, com.infinity.kich.Leave.Activity.COffLeaveApprovalActitivty.class);
+                                    Intent intent =new Intent(CoffDetailActivity.this, COffLeaveApprovalActitivty.class);
                                     startActivity(intent);
                                     finish();
 

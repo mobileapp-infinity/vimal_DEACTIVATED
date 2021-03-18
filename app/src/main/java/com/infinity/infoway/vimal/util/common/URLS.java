@@ -5,6 +5,8 @@ import com.infinity.infoway.vimal.config.Config;
 
 public class URLS {
 
+    public static int TIME_TILL_DISABLE_BTN = 2000;
+
     /**
      * COMMON MODULE
      */

@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Activity;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Activity;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -43,6 +43,7 @@ import com.infinity.kich.Leave.Pojo.LeaveDetailPojo;
 import com.infinity.kich.Leave.Pojo.LeaveTypePojo;
 import com.infinity.kich.Leave.Pojo.NotesPojo;
 import com.infinity.kich.Leave.Pojo.ReasonPojo;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 
 import java.util.ArrayList;
 
@@ -658,7 +659,7 @@ public class CancelLeaveApproveRejectActivity extends AppCompatActivity implemen
 
         final EditText edt_reason = (EditText) dialogView.findViewById(R.id.edt_reason);
         CustomBoldTextView tv_titile = (CustomBoldTextView) dialogView.findViewById(R.id.tv_titile);
-        tv_titile.setText(context.getResources().getString(R.string.app_name_));
+        tv_titile.setText(context.getResources().getString(R.string.app_name));
         CustomButtonView dialogButtonCancel = (CustomButtonView) dialogView.findViewById(R.id.dialogButtonCancel);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);

@@ -37,6 +37,7 @@ import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.App.MarshMallowPermission;
 import com.infinity.kich.Leave.Pojo.BookChapterPubPojo;
@@ -50,7 +51,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
-
 public class ConferencePubApproveReject extends AppCompatActivity {
 
     CustomBoldTextView tvapprove;
@@ -461,7 +461,7 @@ public class ConferencePubApproveReject extends AppCompatActivity {
 
         final EditText edt_reason = (EditText) dialogView.findViewById(R.id.edt_reason);
         CustomBoldTextView tv_titile = (CustomBoldTextView) dialogView.findViewById(R.id.tv_titile);
-        tv_titile.setText(context.getResources().getString(R.string.app_name_));
+        tv_titile.setText(context.getResources().getString(R.string.app_name));
         CustomButtonView dialogButtonCancel = (CustomButtonView) dialogView.findViewById(R.id.dialogButtonCancel);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);

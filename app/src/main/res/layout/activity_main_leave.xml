@@ -57,7 +57,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="30dp"
                         android:background="@color/white"
-                        android:src="@drawable/kichlogonew" />
+                        android:src="@mipmap/ic_launcher" />
                 </LinearLayout>
                 </LinearLayout>
 
@@ -78,7 +78,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/my_profile_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_my_profile"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/view_leave_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_view_leave"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/add_leave_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_add_leave"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/view_cancel_leave_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_view_cl_leave"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -239,7 +239,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/add_leave_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_apply_leave"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -272,7 +272,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/leave_apprval_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_leave_approval"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -317,7 +317,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/cancel_leave_approval_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_view_cl_leave_apr"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -353,7 +353,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/leave_balance_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_leave_balance"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -395,7 +395,7 @@
                         android:layout_weight=".3"
                         android:src="@drawable/check_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_coff_approval"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -439,7 +439,7 @@ android:visibility="gone"
                         android:layout_gravity="center"
                         android:layout_weight=".3"
                         android:src="@drawable/view_miss_punch_dra_black"></ImageView>
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_view_mp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -477,7 +477,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/add_miss_punch_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_add_mp"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -523,7 +523,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/miss_punch_app_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_miss_punch_app"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -559,7 +559,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/attendance_report_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_att"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -595,7 +595,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/leave_balance_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_leave_statastics"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -631,7 +631,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/salary_slip_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_salary_slip"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -668,7 +668,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/change_psw_dra_black"></ImageView>
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_change_psw"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -706,7 +706,7 @@ android:visibility="gone"
                         android:layout_weight=".3"
                         android:src="@drawable/logout_dra_black"></ImageView>
 
-                   <!-- <com.infinity.kich.CommonCls.CustomTextView
+                   <!-- <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_logout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -720,7 +720,7 @@ android:visibility="gone"
 
                         android:visibility="visible" />-->
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tv_logout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -734,7 +734,7 @@ android:visibility="gone"
                         android:visibility="visible" />
                 </LinearLayout>
 
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/tv_Online_Admission"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

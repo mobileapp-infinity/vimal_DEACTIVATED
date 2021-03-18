@@ -36,7 +36,7 @@
                     android:weightSum="3">
 
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:id="@+id/txt_enroll_no"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_size_large" />
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:id="@+id/txt_sr_no"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:orientation="horizontal"
                     android:weightSum="3">
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -87,9 +87,9 @@
                         android:gravity="center"
                         android:text="Name"
                         android:textColor="@color/black"
-                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+                       ></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -97,9 +97,9 @@
                         android:gravity="center"
                         android:text="Status"
                         android:textColor="@color/black"
-                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+                       ></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -108,9 +108,9 @@
                         android:text="Patent \nNumber"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
-                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+                       ></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -120,7 +120,7 @@
                         android:text="Title Of \nPaper"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
-                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+                       ></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                 </LinearLayout>
 
                 <LinearLayout

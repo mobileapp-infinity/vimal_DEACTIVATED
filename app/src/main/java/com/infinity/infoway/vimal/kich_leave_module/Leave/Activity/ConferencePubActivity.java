@@ -29,10 +29,10 @@ import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.ConfarancePubAdapter;
 import com.infinity.kich.Leave.Pojo.ConfarancePubPojo;
-
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 public class ConferencePubActivity extends AppCompatActivity {
 
     static Boolean isChecked_API = false;

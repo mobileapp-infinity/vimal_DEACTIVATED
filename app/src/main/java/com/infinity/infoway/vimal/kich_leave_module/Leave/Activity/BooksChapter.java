@@ -32,6 +32,8 @@ import com.infinity.kich.Leave.Pojo.BookChapterPubPojo;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 
 public class BooksChapter extends AppCompatActivity
 {
@@ -235,9 +237,9 @@ public class BooksChapter extends AppCompatActivity
     {
         super.onResume();
 
-        if (com.infinity.kich.Leave.Activity.BooksChapterDetail.is_back_book_chepter_approval)
+        if (BooksChapterDetail.is_back_book_chepter_approval)
         {
-            com.infinity.kich.Leave.Activity.BooksChapterDetail.is_back_book_chepter_approval = false;
+            BooksChapterDetail.is_back_book_chepter_approval = false;
         }
         else
         {

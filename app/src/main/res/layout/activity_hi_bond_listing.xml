@@ -13,7 +13,7 @@
         android:weightSum="4"
         android:layout_margin="5dp"
         android:layout_height="wrap_content">
-        <com.infinity.kich.CommonCls.CustomTextView
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -23,8 +23,8 @@
             android:textColor="@color/white"
             android:text="All"
             android:background="@color/font_color_hibond"
-            android:layout_weight="1"></com.infinity.kich.CommonCls.CustomTextView>
-        <com.infinity.kich.CommonCls.CustomTextView
+            android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -34,8 +34,8 @@
             android:textColor="@color/white"
             android:text="AutoMobile"
             android:background="@color/font_color_hibond"
-            android:layout_weight="1"></com.infinity.kich.CommonCls.CustomTextView>
-        <com.infinity.kich.CommonCls.CustomTextView
+            android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -45,8 +45,8 @@
             android:textColor="@color/white"
             android:text="Accessories"
             android:background="@color/font_color_hibond"
-            android:layout_weight="1"></com.infinity.kich.CommonCls.CustomTextView>
-        <com.infinity.kich.CommonCls.CustomTextView
+            android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+        <com.infinity.infoway.vimal.util.common.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -56,7 +56,7 @@
             android:textColor="@color/white"
             android:text="Electrics"
             android:background="@color/font_color_hibond"
-            android:layout_weight="1"></com.infinity.kich.CommonCls.CustomTextView>
+            android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
     </LinearLayout>
 
     <ListView

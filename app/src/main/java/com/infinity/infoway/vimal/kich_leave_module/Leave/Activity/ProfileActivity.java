@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
-
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 
 public class ProfileActivity extends AppCompatActivity
 {

@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.App;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.App;
 
 public class Config
 {

@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 
 import com.infinity.infoway.vimal.R;
 import com.infinity.kich.Leave.Pojo.LastInOutPojo;
-
 public class HiBondListingAdapter extends BaseAdapter
 {
 

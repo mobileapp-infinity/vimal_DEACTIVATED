@@ -32,7 +32,7 @@
             android:orientation="vertical">
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:src="@drawable/kichbigtransparent"
+                android:src="@mipmap/ic_launcher"
                 android:background="@android:color/transparent"
                 android:layout_height="wrap_content">
 
@@ -44,7 +44,7 @@
 
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -55,14 +55,14 @@
                     android:textSize="30dp"
                     />
 
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textSize="30dp"
                     android:gravity="start"
-                    android:text=" KICH..."
+                    android:text=" Vimal..."
                     android:textColor="@color/red"
 
                     />
@@ -71,7 +71,7 @@
 
 
 
-            <com.infinity.kich.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="15dp"
@@ -87,7 +87,7 @@
                 android:background="@drawable/login_border"
                 android:padding="10dp">
 
-                <com.infinity.kich.CommonCls.CustomEditText
+                <com.infinity.infoway.vimal.util.common.CustomEditText
                     android:id="@+id/edt_uname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
                     android:textSize="@dimen/text_size" />
             </LinearLayout>
 
-            <com.infinity.kich.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -122,7 +122,7 @@
                 android:padding="10dp"
                 android:weightSum="2">
 
-                <com.infinity.kich.CommonCls.CustomEditText
+                <com.infinity.infoway.vimal.util.common.CustomEditText
                     android:id="@+id/edt_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                 android:visibility="gone"
                 android:id="@+id/ll_company"
                 android:layout_height="wrap_content">
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -177,7 +177,7 @@
                     android:background="@drawable/login_border"
                     android:padding="10dp">
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <com.infinity.kich.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="15dp"
@@ -257,7 +257,7 @@ android:checked="true"
 
 
 
-                <com.infinity.kich.CommonCls.CustomTextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/tv_f_psw"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -373,14 +373,14 @@ android:visibility="invisible"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content">
-            <com.infinity.kich.CommonCls.CustomTextView
+            <com.infinity.infoway.vimal.util.common.CustomTextView
                 android:layout_width="match_parent"
                 android:gravity="center_horizontal"
                 android:textColor="@color/red"
                 android:textStyle="bold"
                 android:layout_marginRight="@dimen/marginright"
                 android:layout_height="wrap_content"
-                android:text="www.kichindia.com"></com.infinity.kich.CommonCls.CustomTextView>
+                android:text="www.vimaldairy.com"></com.infinity.infoway.vimal.util.common.CustomTextView>
         </LinearLayout>
 
 

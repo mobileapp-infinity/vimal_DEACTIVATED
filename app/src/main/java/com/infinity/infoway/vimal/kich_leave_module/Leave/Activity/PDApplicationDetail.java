@@ -34,6 +34,7 @@ import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.App.MarshMallowPermission;
 import com.infinity.kich.Leave.Pojo.PDAppPojo;
@@ -46,7 +47,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
-
 public class PDApplicationDetail extends AppCompatActivity {
 
 

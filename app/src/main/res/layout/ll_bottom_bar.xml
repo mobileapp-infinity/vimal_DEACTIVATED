@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/red"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:id="@+id/ll_bottom"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <com.infinity.kich.CommonCls.CustomTextView
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:id="@+id/tv_count_total_pending"
+            android:background="@drawable/badge_circle"
+            android:layout_alignTop="@+id/iv_todays_inout"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/white"
+            android:layout_marginLeft="40dp"
+            android:minWidth="1sp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:paddingBottom="1dp"
+            android:textSize="@dimen/text_size"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:id="@+id/iv_todays_inout"
+            android:layout_gravity="center_horizontal|left"
+            android:src="@drawable/edt_profile"
+            android:visibility="gone"
+            android:layout_weight=".5"></ImageView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <com.infinity.kich.CommonCls.CustomBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employee Code :"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+            <com.infinity.kich.CommonCls.CustomBoldTextView
+                android:id="@+id/tv_emp_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="2dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+        </LinearLayout>
+        <com.infinity.kich.CommonCls.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_total_pending_count"
+            android:background="@drawable/badge_circle"
+            android:layout_gravity="right"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:minWidth="21sp"
+            android:layout_marginLeft="5dp"
+            android:visibility="invisible"
+            android:paddingBottom="1dp"
+            android:textSize="@dimen/text_size"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight=".5"
+        android:gravity="right">
+
+        <com.infinity.kich.CommonCls.CustomBoldTextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+        <com.infinity.kich.CommonCls.CustomBoldTextView
+            android:id="@+id/tv_version_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="2dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+    </LinearLayout>
+</LinearLayout>

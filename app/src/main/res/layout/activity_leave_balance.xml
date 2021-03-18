@@ -57,7 +57,7 @@
                     android:padding="20dp"
                     android:weightSum="2">
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center|left"
@@ -65,9 +65,9 @@
                         android:gravity="left|center"
                         android:text="Leave Type"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
 
-                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -76,7 +76,7 @@
                         android:paddingLeft="10dp"
                         android:text="Balance"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
                 </LinearLayout>
 
 
@@ -103,7 +103,7 @@
 
                             android:padding="15dp" />
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -111,9 +111,9 @@
                             android:padding="15dp"
                             android:text="Compulsorry Off"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -124,7 +124,7 @@
                             android:paddingLeft="15dp"
                             android:text="0"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -142,7 +142,7 @@
 
                             android:padding="10dp" />
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -150,9 +150,9 @@
                             android:padding="15dp"
                             android:text="Casual Leave"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -163,7 +163,7 @@
                             android:paddingLeft="15dp"
                             android:text="10"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
                     </LinearLayout>
 
                     <LinearLayout
@@ -181,7 +181,7 @@
 
                             android:padding="10dp" />
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -190,9 +190,9 @@
 
                             android:text="Medical Leave"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
 
-                        <com.infinity.kich.CommonCls.CustomTextView
+                        <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -204,7 +204,7 @@
                             android:paddingLeft="15dp"
                             android:text="6"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
                     </LinearLayout>
 
                     <View

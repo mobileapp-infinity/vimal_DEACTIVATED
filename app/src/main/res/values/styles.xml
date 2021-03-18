@@ -101,6 +101,17 @@
 
     </style>
 
+    <style name="RadioButtonStyle" parent="AppTheme">
+        <item name="colorControlNormal">@color/text</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorSecondary">@color/black</item>
+    </style>
+
+    <style name="CustomAppTheme" parent="Theme.AppCompat">
+        <item name="android:textColorPrimaryDisableOnly">@color/switch_color</item>
+        <item name="colorAccent">@color/switch_color</item>
+        <item name="android:colorForeground">@color/white</item>
+    </style>
 
 
     <!--<style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">

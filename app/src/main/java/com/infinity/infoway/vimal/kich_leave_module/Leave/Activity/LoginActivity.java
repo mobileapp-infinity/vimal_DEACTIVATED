@@ -34,6 +34,7 @@ import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter;
 import com.infinity.kich.Leave.Pojo.CPermissionPojo;
@@ -154,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
                     }
                 })
-                .setIcon(R.drawable.logo)
+                .setIcon(R.mipmap.ic_blue_map)
                 .show();
     }
 

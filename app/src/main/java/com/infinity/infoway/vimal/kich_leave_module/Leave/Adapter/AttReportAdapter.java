@@ -1,8 +1,6 @@
-//package com.infinity.kich.Leave.Adapter;
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +9,10 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.Leave.Pojo.AttReportDetailPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.AttReportDetailPojo;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
+
 
 public class AttReportAdapter extends BaseAdapter {
     Context ctx;

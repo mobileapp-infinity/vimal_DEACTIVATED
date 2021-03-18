@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Activity;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Activity;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -24,8 +24,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveApplicationApproveReject;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.EndlessScrollListener;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.infinity.kich.Leave.Adapter.CancelLeavesAdapter;
 import com.infinity.kich.Leave.Adapter.ViewAll_LastInOutAdapter;
@@ -33,6 +36,9 @@ import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.github.douglasjunior.androidSimpleTooltip.SimpleTooltip;
+
 public class ApproveLeaveActivity extends AppCompatActivity {
 
     static ListView lvapproveleave;
@@ -145,8 +151,8 @@ public class ApproveLeaveActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (com.infinity.kich.Leave.Activity.LeaveApplicationApproveReject.is_back_leave_app_approval) {
-            com.infinity.kich.Leave.Activity.LeaveApplicationApproveReject.is_back_leave_app_approval = false;
+        if (LeaveApplicationApproveReject.is_back_leave_app_approval) {
+            LeaveApplicationApproveReject.is_back_leave_app_approval = false;
         } else {
             cb_check.setChecked(false);
             listall = new ArrayList<>();
