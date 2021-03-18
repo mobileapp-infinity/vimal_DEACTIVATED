@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,18 +24,17 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.FDPAttended;
-import com.infinity.kich.Leave.Activity.FDPAttendedDetail;
-import com.infinity.kich.Leave.Activity.MainActivity;
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomButtonView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
-import com.infinity.kich.Leave.Pojo.FDPAttendedPojo;
-import com.infinity.kich.Leave.Pojo.LeaveTypePojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttended;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.FDPAttendedDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.FDPAttendedPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveTypePojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomButtonView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,14 +49,14 @@ public class FDpAttendedAdapter extends BaseSwipeAdapter
     List<FDPAttendedPojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    LeaveTypePopupAdapter leaveTypePopupAdapter;
+    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    SpinnerSimpleAdapter spinnerSimpleAdapter;
+    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public FDpAttendedAdapter(Context ctx, FDPAttendedPojo fdpAttendedPojo, List<FDPAttendedPojo.DataBean> listall, Boolean Isc)
     {

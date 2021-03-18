@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_main"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/ll_main_approve_headder_leave"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:background="@drawable/miss_punch_bg"
+        android:padding="7dp"
+        android:weightSum="3">
+
+
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+            android:id="@+id/txt_enroll_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:padding="5dp"
+
+            android:text="View Cancel Leave"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_large" />
+
+        <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+            android:id="@+id/txt_sr_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:text="Pending/All"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_large" />
+
+
+
+        <Switch
+            android:id="@+id/cb_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight=".5"
+
+            android:gravity="left|center"
+            android:padding="5dp"
+            android:theme="@style/CustomAppTheme" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:id="@+id/ll_main_heder"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:text="Leave Status"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:textSize="@dimen/text_size"
+                android:text="From Date"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="0dp"
+                android:textSize="@dimen/text_size"
+                android:text="To Date"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:id="@+id/ll_pending"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:text=""
+                android:visibility="visible"
+                android:textColor="@color/text"
+               ></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:id="@+id/tv_leave_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".7"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text"
+               ></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:id="@+id/tv_from_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.15"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+               ></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:id="@+id/tv_to_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.15"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/text"
+                android:textSize="@dimen/text_size"
+               ></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:id="@+id/ll_approve"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="0dp"
+                android:text="Approved"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/tv_l_s"
+
+                android:textColor="@color/text"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="0dp"
+                android:textSize="@dimen/text_size"
+                android:text="01/08/2018 \n(09:00 AM)"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/tv_from_date_time"
+                android:textColor="@color/text"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="0dp"
+                android:textSize="@dimen/text_size"
+                android:text="01/08/2018 \n(09:00 AM)"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/tv_to_date_time"
+                android:textColor="@color/text"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

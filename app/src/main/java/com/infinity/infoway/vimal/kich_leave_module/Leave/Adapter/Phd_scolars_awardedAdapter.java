@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,26 +24,17 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.ApproveLeaveActivity;
-import com.infinity.kich.Leave.Activity.LeaveApplicationApproveReject;
-import com.infinity.kich.Leave.Activity.MainActivity;
-import com.infinity.kich.Leave.Activity.PGScholars;
-import com.infinity.kich.Leave.Activity.PhDDScholars;
-import com.infinity.kich.Leave.Activity.PhDDScholarsDetail;
-import com.infinity.kich.Leave.Activity.SeedMoney;
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomButtonView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.AddMissPunchPojo;
-import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
-import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
-import com.infinity.kich.Leave.Pojo.PatentAwaredPojo;
-import com.infinity.kich.Leave.Pojo.PgScolarsGuidedPojo;
-import com.infinity.kich.Leave.Pojo.PhdScolarGuidedPojo;
-import com.infinity.kich.Leave.Pojo.SeedMoneyPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PhDDScholars;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PhDDScholarsDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PhdScolarGuidedPojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomButtonView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +53,7 @@ public class Phd_scolars_awardedAdapter extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    SpinnerSimpleAdapter spinnerSimpleAdapter;
+    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public Phd_scolars_awardedAdapter(Context ctx, PhdScolarGuidedPojo phdScolarGuidedPojo, List<PhdScolarGuidedPojo.DataBean> listall, Boolean Isc)
     {

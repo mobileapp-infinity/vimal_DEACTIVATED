@@ -1,9 +1,8 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +11,14 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
-import com.infinity.kich.Leave.Activity.MissPunchUpdateActivity;
-import com.infinity.kich.Leave.Activity.MyMissPunchActivity;
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.MissPunchListPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MissPunchUpdateActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.MissPunchListPojo;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.List;
+
 
 public class MyMissPunchAdapter extends BaseAdapter {
 

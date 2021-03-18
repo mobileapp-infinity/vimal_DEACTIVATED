@@ -1,8 +1,7 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.infinity.kich.Leave.Activity.AddMissPunchActivity;
-import com.infinity.kich.Leave.Activity.MissPunchApproval;
-import com.infinity.kich.Leave.Activity.MyMissPunchActivity;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.AddMissPunchActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MissPunchApproval;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MyMissPunchActivity;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+
 
 public class MissPunchAdapter extends BaseAdapter
 {

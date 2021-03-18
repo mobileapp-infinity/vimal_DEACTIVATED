@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.SystemClock;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,19 +25,17 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.ApproveLeaveActivity;
-import com.infinity.kich.Leave.Activity.LeaveApplicationApproveReject;
-
-import com.infinity.kich.Leave.Activity.MainActivity;
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomButtonView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.AddMissPunchPojo;
-import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
-import com.infinity.kich.Leave.Pojo.LeaveTypePojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ApproveLeaveActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveApplicationApproveReject;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.AddMissPunchPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveApproveLPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveTypePojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomButtonView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,14 +48,14 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter {
     List<LeaveApproveLPojo.DataBean> listall;
     RequestQueue queue;
     public static ArrayList<String> IDS = new ArrayList<>();
-    LeaveTypePopupAdapter leaveTypePopupAdapter;
+    com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter leaveTypePopupAdapter;
     ArrayList<String> Leave_List;
     ArrayList<String> Leave_ID_List;
     LeaveTypePojo leaveTypePojo;
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    SpinnerSimpleAdapter spinnerSimpleAdapter;
+    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public CancelLeavesAdapter(Context ctx, LeaveApproveLPojo leaveApproveLPojo, List<LeaveApproveLPojo.DataBean> listall, Boolean Isc) {
         this.ctx = ctx;
@@ -277,7 +274,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         final View dialogView = inflater.inflate(R.layout.layout_leave_dialog, null);
         LeaveApplicationApproveReject.IDS.add(leave_id_final);
-        leaveTypePopupAdapter = new LeaveTypePopupAdapter(ctx, leave_id_final, leaveTypePojo, leave_ID, new LeaveTypePopupAdapter.ManageClick() {
+        leaveTypePopupAdapter = new com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter(ctx, leave_id_final, leaveTypePojo, leave_ID, new com.infinity.kich.Leave.Adapter.LeaveTypePopupAdapter.ManageClick() {
             @Override
 //            public void manageRadioClick(int position, boolean is_check)
             public void manageRadioClick(String IDp) {

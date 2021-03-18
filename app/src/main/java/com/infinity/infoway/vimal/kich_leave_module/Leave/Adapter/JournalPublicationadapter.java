@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -24,18 +24,16 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.JournalPub;
-import com.infinity.kich.Leave.Activity.JournalPubDetail;
-
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomButtonView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Activity.MainActivity;
-import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
-import com.infinity.kich.Leave.Pojo.JournalPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPub;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.JournalPubDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ConAppRejPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.JournalPojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomButtonView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +51,7 @@ public class JournalPublicationadapter  extends BaseSwipeAdapter
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    SpinnerSimpleAdapter spinnerSimpleAdapter;
+    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public JournalPublicationadapter(Context ctx, JournalPojo journalPojo, List<JournalPojo.DataBean> listall, Boolean Isc)
     {
@@ -223,7 +221,7 @@ public class JournalPublicationadapter  extends BaseSwipeAdapter
 
         final EditText edt_reason = (EditText) dialogView.findViewById(R.id.edt_reason);
         CustomBoldTextView tv_titile = (CustomBoldTextView) dialogView.findViewById(R.id.tv_titile);
-        tv_titile.setText(context.getResources().getString(R.string.app_name_));
+        tv_titile.setText(context.getResources().getString(R.string.app_name));
         CustomButtonView dialogButtonCancel = (CustomButtonView) dialogView.findViewById(R.id.dialogButtonCancel);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);

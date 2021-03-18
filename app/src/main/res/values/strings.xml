@@ -1,6 +1,7 @@
 <resources>
     <!--<string name="app_name">Etrack</string>-->
     <string name="app_name">Vimal</string>
+    <string name="app_name_">Vimal</string>
     <string name="download_update">Downloading update…</string>
     <string name="permissions_has_not_grant">Permissions has not been granted</string>
     <string name="permission_request">Permission Request</string>

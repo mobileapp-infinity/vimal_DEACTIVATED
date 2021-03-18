@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -8,8 +8,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
-
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +27,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.SlarySlipActivity;
-import com.infinity.kich.Leave.App.MarshMallowPermission;
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.AttfReportSummryPojo;
-import com.infinity.kich.Leave.Pojo.SalaryDwnloadPojo;
-import com.infinity.kich.Leave.Pojo.SalarySlipPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.App.MarshMallowPermission;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.SalaryDwnloadPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.SalarySlipPojo;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.io.BufferedInputStream;
 import java.io.File;

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="left"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/tv"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:text="Select Leave Type"
+                android:textColor="@color/black" />
+        <CheckBox
+            android:layout_width="match_parent"
+            android:id="@+id/ch_check"
+            android:layout_height="wrap_content">
+
+        </CheckBox>
+<!--      <RadioGroup-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:gravity="left|center"-->
+<!--          android:layout_gravity="center|left"-->
+<!--          android:id="@+id/rg_leave_type">-->
+<!--          <RadioButton-->
+<!--              android:layout_width="wrap_content"-->
+<!--              android:layout_height="wrap_content"-->
+<!--              android:textSize="@dimen/text_size"-->
+<!--              android:padding="5dp"-->
+<!--              android:gravity="left|center"-->
+<!--              android:theme="@style/RadioButtonStyle"-->
+<!--              android:layout_gravity="center|left"-->
+<!--              android:id="@+id/rb_leave_type"></RadioButton>-->
+<!--      </RadioGroup>-->
+    </LinearLayout>
+
+</LinearLayout>

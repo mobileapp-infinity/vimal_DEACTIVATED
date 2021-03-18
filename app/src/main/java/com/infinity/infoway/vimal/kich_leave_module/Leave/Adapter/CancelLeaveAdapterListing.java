@@ -1,9 +1,8 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +13,12 @@ import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 
-import com.infinity.kich.Leave.Activity.ViewCancelLeaveDetailsOnly;
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.CancelLeavePojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewCancelLeaveDetailsOnly;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.CancelLeavePojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.List;
 
@@ -27,7 +26,7 @@ public class CancelLeaveAdapterListing extends BaseAdapter {
     Context ctx;
     List<CancelLeavePojo.DataBean> listall;
     CancelLeavePojo cancelLeavePojo;
-    ViewLeaveListingAdapter.onSwitchOn onSwitchOn;
+    com.infinity.kich.Leave.Adapter.ViewLeaveListingAdapter.onSwitchOn onSwitchOn;
     Boolean b;
     View view_;
     private int selectedPosition = -1;

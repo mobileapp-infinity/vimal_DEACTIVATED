@@ -1,4 +1,4 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.SystemClock;
-import androidx.cardview.widget.CardView ;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -26,29 +27,18 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.google.gson.Gson;
-import com.infinity.kich.Leave.Activity.ApproveLeaveActivity;
-import com.infinity.kich.Leave.Activity.Consultancy;
-import com.infinity.kich.Leave.Activity.ConsultancyDetail;
-import com.infinity.kich.Leave.Activity.MainActivity;
-import com.infinity.kich.Leave.Activity.PDApplicationDetail;
-import com.infinity.kich.CommonCls.CustomBoldTextView;
-import com.infinity.kich.CommonCls.CustomButtonView;
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.CommonCls.DialogUtils;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.CommonCls.URLS;
-import com.infinity.kich.Leave.Pojo.AddMissPunchPojo;
-import com.infinity.kich.Leave.Pojo.ApprovePdWindowPojo;
-import com.infinity.kich.Leave.Pojo.ConAppRejPojo;
-import com.infinity.kich.Leave.Pojo.ConsultuncyPojo;
-import com.infinity.kich.Leave.Pojo.LeaveApproveLPojo;
-import com.infinity.kich.Leave.Pojo.LeaveTypePojo;
-import com.infinity.kich.Leave.Pojo.PDAppApprovalPojo;
-import com.infinity.kich.Leave.Pojo.PDAppPojo;
-import com.infinity.kich.Leave.Pojo.PdAppApproveMailPojo;
-import com.infinity.kich.R;
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.PDApplicationDetail;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.ApprovePdWindowPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PDAppApprovalPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PDAppPojo;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PdAppApproveMailPojo;
+import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+import com.infinity.infoway.vimal.util.common.URLS;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PDAdapter extends BaseSwipeAdapter {
@@ -63,7 +53,7 @@ public class PDAdapter extends BaseSwipeAdapter {
     Boolean Isc = true;
     private long lastClickTime = 0;
 
-    SpinnerSimpleAdapter spinnerSimpleAdapter;
+    com.infinity.kich.Leave.Adapter.SpinnerSimpleAdapter spinnerSimpleAdapter;
 
     public PDAdapter(Context ctx, PDAppPojo pdAppPojo, List<PDAppPojo.DataBean> listall, Boolean Isc) {
         this.ctx = ctx;

@@ -1,9 +1,6 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView ;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.infinity.kich.Leave.Pojo.PunchDetailPojo;
-import com.infinity.kich.R;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.PunchDetailPojo;
 
 public class ViewAll_LastInOutAdapter extends BaseAdapter {
     LayoutInflater mInflater;

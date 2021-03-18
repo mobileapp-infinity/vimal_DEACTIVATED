@@ -1,11 +1,7 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView ;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +9,16 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.infinity.kich.Leave.Activity.AddLeaveAcivity;
-import com.infinity.kich.Leave.Activity.ApproveLeaveActivity;
-import com.infinity.kich.Leave.Activity.LeaveBalanceActivity;
-import com.infinity.kich.Leave.Activity.ViewLeaveListingActivity;
-import com.infinity.kich.CommonCls.MySharedPrefereces;
-import com.infinity.kich.R;
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.AddLeaveAcivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ApproveLeaveActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.LeaveBalanceActivity;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ViewLeaveListingActivity;
+import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
+
 
 public class LeaveAdapter extends BaseAdapter {
     Context ctx;

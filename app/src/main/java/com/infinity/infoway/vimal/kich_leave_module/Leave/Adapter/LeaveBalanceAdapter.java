@@ -1,23 +1,17 @@
-package com.infinity.kich.Leave.Adapter;
+package com.infinity.infoway.vimal.kich_leave_module.Leave.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView ;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.infinity.kich.Leave.Activity.ViewAllLeavePunchInOut;
-import com.infinity.kich.CommonCls.CustomTextView;
-import com.infinity.kich.Leave.Pojo.LastInOutPojo;
-import com.infinity.kich.Leave.Pojo.LeaveBalancePojo;
-import com.infinity.kich.R;
+import androidx.annotation.NonNull;
+
+import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LeaveBalancePojo;
+import com.infinity.infoway.vimal.util.common.CustomTextView;
 
 public class LeaveBalanceAdapter extends BaseAdapter
 {
