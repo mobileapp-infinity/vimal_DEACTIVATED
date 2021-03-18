@@ -23,7 +23,7 @@
             android:background="@drawable/expense_list_shape"
             android:orientation="horizontal">
 
-            <com.infinity.kich.CommonCls.CustomTextView
+            <com.infinity.infoway.vimal.util.common.CustomTextView
                 android:id="@+id/tvExpenseName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -34,7 +34,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
 
-            <com.infinity.kich.CommonCls.CustomTextView
+            <com.infinity.infoway.vimal.util.common.CustomTextView
                 android:id="@+id/tvExpenseAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -117,7 +117,7 @@
                     android:layout_marginBottom="8dp"
                     android:background="@drawable/login_border">
 
-                    <com.infinity.kich.CommonCls.CustomEditText
+                    <com.infinity.infoway.vimal.util.common.CustomEditText
                         android:id="@+id/edtExpenseDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                     android:padding="4dp"
                     android:background="@drawable/login_border">
 
-                    <com.infinity.kich.CommonCls.CustomEditText
+                    <com.infinity.infoway.vimal.util.common.CustomEditText
                         android:id="@+id/edtExpenseAmount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                     android:gravity="center_vertical"
                     android:background="@drawable/login_border">
 
-                    <com.infinity.kich.CommonCls.CustomTextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/tvAttachmentName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

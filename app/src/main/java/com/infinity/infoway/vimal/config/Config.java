@@ -61,6 +61,7 @@ public class Config {
     //For LEAVE MODULE
     //TODO LIVE URL FOR LEAVE MODULE FOR VIMAL PROJECT
     public static final String LEAVE_MODULE_LIVE_URL = "http://vimal.ierp.co.in/ierphr.asmx/";
+    public static final int MIN_KM_FOR_ACCURACY = 10000;
 
     //TODO LOCAL URL FOR LEAVE MODULE IS NOT GIVEN BY RASHMIKANT SIR DON't USE ABOVE URL FOR LOCAL
 

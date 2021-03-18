@@ -1,7 +1,7 @@
 package com.infinity.infoway.vimal.kich_expense.Expense.model_new;
 
 import com.google.gson.annotations.SerializedName;
-import com.infinity.kich.Expense.Pojo.Get_All_Transport_Expense_Mode_Pojo;
+import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Get_All_Transport_Expense_Mode_Pojo;
 
 import java.util.List;
 

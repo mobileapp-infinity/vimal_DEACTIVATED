@@ -484,8 +484,8 @@ public class DialogUtils extends Application
        //     Url="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"; for testing is working OK :)
        RequestOptions options = new RequestOptions()
                 .centerCrop()
-                .placeholder(R.mipmap.app_logo_u)
-                .error(R.mipmap.app_logo_u);
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher);
 
 
 

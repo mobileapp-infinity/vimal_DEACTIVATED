@@ -575,7 +575,7 @@ public class LocationUpdateForegroundService extends Service {
                 .setSmallIcon(R.mipmap.ic_action_logo_small)
                 .setTicker(text)
                 .setWhen(System.currentTimeMillis());*/
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.noti_small);
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_bell);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setContentText(text)
@@ -584,7 +584,7 @@ public class LocationUpdateForegroundService extends Service {
                 .setPriority(Notification.PRIORITY_HIGH)
 //                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(activityPendingIntent)
-                .setSmallIcon(R.drawable.noti_small)
+                .setSmallIcon(R.drawable.ic_bell)
                 .setTicker(text)
                 .setLargeIcon(largeIcon)
                 .setSound(Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + getApplicationContext().getPackageName() + "/" + R.raw.notification))
@@ -650,7 +650,7 @@ public class LocationUpdateForegroundService extends Service {
                 .setOngoing(true)
                 .setPriority(Notification.PRIORITY_HIGH)
 //                .setSmallIcon(R.mipmap.ic_launcher)
-                .setSmallIcon(R.drawable.noti_small)
+                .setSmallIcon(R.drawable.ic_bell)
                 .setColor(Color.parseColor("#A7080B"))
                 .setTicker(txt)
                 .setShowWhen(true)

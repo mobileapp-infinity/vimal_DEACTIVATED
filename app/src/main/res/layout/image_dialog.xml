@@ -50,8 +50,8 @@
                     android:layout_width="@dimen/alert__image_width"
                     android:layout_height="@dimen/alert__image_width"
                     android:id="@+id/image"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/app_logo_u"
+                    android:adjustViewBounds="true"
+                    android:src="@mipmap/ic_launcher"
                     ></ImageView>
 
 

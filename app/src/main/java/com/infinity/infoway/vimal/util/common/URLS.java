@@ -1,42 +1,9 @@
 package com.infinity.infoway.vimal.util.common;
 
-import com.infinity.kich.Config.Config;
+
+import com.infinity.infoway.vimal.config.Config;
 
 public class URLS {
-
-    public static int TIME_TILL_DISABLE_BTN = 2000;
-
-    /**
-     * MODULE DEALER SALES ORDER
-     */
-
-    public static String get_dealer_sales_order_list = Config.MAIN_URL + "get_dealer_sales_order_list?";
-    public static String Get_Project_List = Config.MAIN_URL + "Get_Project_List?";
-    public static String GetTrasporter = Config.MAIN_URL + "GetTrasporter?";
-
-    /**
-     * MODULE BRANDING
-     */
-    public static String get_brand_list = Config.MAIN_URL + "get_brand_list?";
-    public static String get_vendor_list = Config.MAIN_URL + "get_vendor_list?";
-    public static String save_brand_master = Config.MAIN_URL + "save_brand_master?";
-
-
-    /**
-     * new Api added On 6-2-2021 by harsh
-     **/
-    public static String Get_All_Brand_Appointmet_For = Config.MAIN_URL + "Get_All_Brand_Appointmet_For?";
-    public static String Get_All_Brand_Order_Segments = Config.MAIN_URL + "Get_All_Brand_Order_Segments?";
-/**new Api added On 6-2-2021 by harsh**/
-
-    /**
-     * MODULE display
-     */
-
-    public static String get_display_list = Config.MAIN_URL + "get_display_list?";
-    public static String save_display_mst = Config.MAIN_URL + "save_display_mst?";
-    public static String save_multiple_files = Config.MAIN_URL + "save_multiple_files?";
-
 
     /**
      * COMMON MODULE
@@ -51,53 +18,6 @@ public class URLS {
 
     public static String list_of_all_employees = Config.MAIN_URL + "list_of_all_employees?";
 
-
-    /**
-     * MODULE STOCKINQUIRY
-     */
-    public static String Get_Virtual_Stock_Of_Item = Config.MAIN_URL + "Get_Virtual_Stock_Of_Item?";
-    public static String get_stock_inquiry_list = Config.MAIN_URL + "get_stock_inquiry_list?";
-    /**
-     * MODULE SPECIAL INQUIRY
-     */
-    public static String get_special_inquiry_list = Config.MAIN_URL + "get_special_inquiry_list?";
-
-    public static String save_special_inquiry = Config.MAIN_URL + "save_special_inquiry?";
-
-
-    /**
-     * module EVENTS
-     */
-    public static String get_list_of_events = Config.MAIN_URL + "get_list_of_events?";
-    public static String get_list_of_event_types = Config.MAIN_URL + "get_list_of_event_types?";
-    public static String get_stationary_details_from_event_type = Config.MAIN_URL + "get_stationary_details_from_event_type?";
-    public static String get_list_of_display_branding = Config.MAIN_URL + "get_list_of_display_branding?";
-    public static String get_list_of_gifts = Config.MAIN_URL + "get_list_of_gifts?";
-
-    /**
-     * MODULE  PUBLIC EVENTS
-     */
-    public static String get_list_of_public_events = Config.MAIN_URL + "get_list_of_public_events?";
-    public static String get_list_of_public_event_types = Config.MAIN_URL + "get_list_of_public_event_types?";
-
-
-    /**
-     * MODULE LOGIN
-     */
-    public static String Check_Login = Config.MAIN_URL + "Check_Login?";
-    public static String getFCMRegistrationID = Config.MAIN_URL + "getFCMRegistrationID?";
-    public static String GetCompanyListByUserName = Config.MAIN_URL + "GetCompanyListByUserName?";
-    public static String forgot_Password = Config.MAIN_URL + "forgot_Password?";
-
-
-    /**
-     * Module Tour Planning
-     */
-//public static String get_list_of_all_tour_planning_by_user_id = Config.MAIN_URL + "get_list_of_all_tour_planning_by_user_id?";
-    public static String get_list_of_tour_planning_by_date_and_user_id = Config.MAIN_URL + "get_list_of_tour_planning_by_date_and_user_id?";
-    public static String save_tour_planning = Config.MAIN_URL + "save_tour_planning?";
-
-
     /**
      * Module Expense
      */
@@ -109,70 +29,8 @@ public class URLS {
     public static String Get_All_Transport_Expense_Mode = Config.MAIN_URL + "Get_All_Transport_Expense_Mode?";/*02-03-2021 pragna for updated expense rules */
     public static String Get_All_Food_Expense_Mode = Config.MAIN_URL + "Get_All_Food_Expense_Mode?";
 
+    public static String Base_URl_FOR_LEAVE_MODULE = Config.LEAVE_MODULE_LIVE_URL;//added by remish to maintain all base url in one file
 
-    /**
-     * MODULE STATIONARY
-     */
-    public static String get_list_of_stationary = Config.MAIN_URL + "get_list_of_stationary?";
-
-    /**
-     * Module Task
-     */
-    public static String get_list_of_all_tasks_entered_by_user_id = Config.MAIN_URL + "get_list_of_all_tasks_entered_by_user_id?";
-    public static String Get_all_type_of_work = Config.MAIN_URL + "Get_all_type_of_work?";
-    public static String get_list_of_child_employees = Config.MAIN_URL + "get_list_of_child_employees?";
-    public static String get_list_of_all_tasks_for_employee_by_employees_user_id_and_date = Config.MAIN_URL + "get_list_of_all_tasks_for_employee_by_employees_user_id_and_date?";
-
-
-    /**
-     * 08-09-2020 pragna Activity Module
-     */
-    public static String get_activity_type_dynamic_controlles = Config.MAIN_URL + "get_activity_type_dynamic_controlles?";
-    /**
-     * 27-10-2020 pragna for distributor changes in to activity module
-     */
-    public static String Get_All_DistributorForActivity = Config.MAIN_URL + "Get_All_DistributorForActivity?";
-    public static String Get_State_list_emp_wise = Config.MAIN_URL + "Get_State_list_emp_wise?";
-
-
-    /**
-     * 2-03-2021 pragna for activity listing
-     */
-//    public static String Get_All_Activity_Detail = Config.MAIN_URL + "Get_All_Activity_Detail?";
-
-   // public static String Get_expense_list_for_approval = Config.MAIN_URL + "Get_expense_list_for_approval?";
-  //  public static String Expense_Approval = Config.MAIN_URL + "Expense_Approval?";
-    public static String Activity_Approval = Config.MAIN_URL + "Activity_Approval?";
-    public static String Get_All_Activity_Detail = Config.MAIN_URL + "Get_All_Activity_Detail?";
-    /**
-     * 3-03-2021 harsh for activity approval
-     */
-   // public static String Activity_Approval = Config.MAIN_URL + "Activity_Approval?";
-
-    /*02-01-2021 pragna*/
-    public static String Get_Activity_Details_For_Task = Config.MAIN_URL + "Get_Activity_Details_For_Task?";
-
-    /**
-     * 07-07-2020 pragna for leave module
-     */
-
-
-    // ****** testing url for demo *********
-//    public static String Base_URl = "http://demo1.iipl.info/ierphr.asmx/";
-
-
-//    public static String Base_URl_FOR_LEAVE_MODULE = "http://iipl.iipl.info/ierphr.asmx/";
-    // public static String Base_URl_FOR_LEAVE_MODULE = "http://iipl.iipl.info/ierphr.asmx/";
-    //http://27.54.165.244/API/SFKich/
-//    public static String Base_URl_FOR_LEAVE_MODULE = "http://bmef.icrp.in/administrative/IerpHR.asmx/";
-    //http://rku.ierp.co.in/ierphr.asmx
-//    public static String Base_URl_FOR_LEAVE_MODULE = "http://27.54.165.244/administrative/IerpHR.asmx/";noooo
-//    public static String Base_URl_FOR_LEAVE_MODULE = "http://27.54.165.244/ierphr.asmx/";
-    public static String Base_URl_FOR_LEAVE_MODULE = Config.MAIN_URL_LEAVE;//added by remish to maintain all base url in one file
-
-
-    //********** live rk url **********
-//    public static String Base_URl = "http://rku.ierp.co.in/ierphr.asmx/";
 
 //    public static  int TIME_TILL_DISABLE_BTN = 2000;
 
@@ -362,23 +220,6 @@ public class URLS {
     public static String Get_employee_pending_approvals = Base_URl_FOR_LEAVE_MODULE + "Get_employee_pending_approvals?";
 
     public static String Get_app_version = Base_URl_FOR_LEAVE_MODULE + "Get_app_version?";
-
-
-    //Added by remish to save cold coll form
-    public static String Insert_activity_type_dynamic_values = Config.MAIN_URL + "Insert_activity_type_dynamic_values?";
-
-    /**
-     * 25-09-2020 pragna for dashboard grid
-     */
-    public static String Get_Job_Card_Detail = Config.MAIN_URL + "Get_Job_Card_Detail?";
-    public static String Get_Work_Order_Detail = Config.MAIN_URL + "Get_Work_Order_Detail?";
-    public static String Get_Stock_Details = Config.MAIN_URL + "Get_Stock_Details?";
-    public static String Get_Item_Outsource_Details = Config.MAIN_URL + "Get_Item_Outsource_Details?";
-    public static String Get_GRN_Status_For_Raw_Material = Config.MAIN_URL + "Get_GRN_Status_For_Raw_Material?";
-
-
-    public static String get_statastic_detail = Config.MAIN_URL + "get_statastic_detail?";
-
 
     //-remish varsani
     public static String Get_From_and_To_Date_For_Leave_Application = Base_URl_FOR_LEAVE_MODULE + "Get_From_and_To_Date_For_Leave_Application?";

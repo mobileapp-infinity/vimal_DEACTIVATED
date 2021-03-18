@@ -69,6 +69,13 @@ import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRoute
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
+import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Multiple_File_Save_Response;
+import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.SaveExpensePojo;
+import com.infinity.infoway.vimal.kich_expense.Expense.model_new.InsertExpenseDetailsModel;
+import com.infinity.infoway.vimal.kich_expense.Expense.model_new.SaveExpenseModelNew;
+
+import java.util.HashMap;
+import java.util.List;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -79,6 +86,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -656,6 +664,7 @@ public interface ApiInterface {
             @Query("comp_id") String comp_id
 
     );
+
     @GET("Get_All_Route_List")
     Call<GetAllRouteListPojo> getAllRouteList(
             @Query("app_version") String app_version,
@@ -691,6 +700,7 @@ public interface ApiInterface {
             @Query("tdt") String tdt
 
     );
+
     @GET("get_sale_route_wise_sales_officer_mapping_view_copy")
     Call<GetRoutePlanningListPojo> getSaleRouteWiseSalesOfficerMappingViewCopy(
             @Query("app_version") String app_version,
@@ -702,7 +712,52 @@ public interface ApiInterface {
             @Query("effective_date") String effective_date
 
     );
+
     @POST("save_sale_route_wise_sales_officer_mapping")
     Call<SaveRoutePlanningReponsePojo> saveSaleRouteWiseSalesOfficerMapping(@Body SaveRoutePlanningRequestPojo saveRoutePlanningRequestPojo);
+
+
+    //kich expense module api
+    @Multipart
+    @POST("add_expense")
+    Call<SaveExpensePojo> add_expense(
+            @Part("app_version") RequestBody app_version,
+            @Part("android_id") RequestBody android_id,
+            @Part("device_id") RequestBody device_id,
+            @Part("user_id") RequestBody user_id,
+            @Part("key") RequestBody key,
+            @Part("comp_id") RequestBody comp_id,
+            @Part("branch_id") RequestBody branch_id,
+            @Part("expense_id") RequestBody expense_id,
+            @Part("expense_name") RequestBody expense_name,
+            @Part("expense_amount") RequestBody expense_amount,
+            @Part("expense_date") RequestBody expense_date,
+            @Part("description") RequestBody description,
+            @Part("mode_of_transport") RequestBody mode_of_transport,
+            @Part("km_travelled") RequestBody km_travelled,
+            @Part("state_id") RequestBody state_id,
+            @Part("visit_city_id") RequestBody visit_city_id,
+            @Part("night_halt_city_id") RequestBody night_halt_city_id,
+            @Part("mobile_no") RequestBody mobile_no,
+            @Part MultipartBody.Part file);
+
+
+    @POST("add_expense")
+    Call<SaveExpenseModelNew> add_expense_updated(
+            @Body InsertExpenseDetailsModel insertExpenseDetailsModel);
+
+    @Multipart
+    @POST("save_multiple_files")
+    Call<Multiple_File_Save_Response> save_multiple_files_display(@Part("app_version") RequestBody app_version,
+                                                                  @Part("android_id") RequestBody android_id,
+                                                                  @Part("device_id") RequestBody device_id,
+                                                                  @Part("user_id") RequestBody user_id,
+                                                                  @Part("key") RequestBody key,
+                                                                  @Part("comp_id") RequestBody comp_id
+            , @Part("ref_id") RequestBody ref_id//0
+            , @Part("ref_type") RequestBody ref_type//4
+            , @Part List<MultipartBody.Part> file
+            , @PartMap HashMap<String, RequestBody> ref_detail_id,
+                                                                  @Part("ref_mst_id") RequestBody ref_mst_id);//
 
 }

@@ -46,18 +46,20 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:icon,android:allowBackup">
         <activity
-            android:name="com.infinity.kich.Expense.Expense_Listing"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+            android:name="com.infinity.infoway.vimal.kich_expense.Expense.Expense_Listing"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.infinity.kich.Expense.Expense_Save"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+            android:name="com.infinity.infoway.vimal.kich_expense.Expense.Expense_Save"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
         <activity
-            android:name="com.infinity.kich.Expense.Expense_Save_U"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
-        <activity android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningCopyOrViewActivity"
-            android:parentActivityName="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity"></activity>
-        <activity android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity"
-            android:parentActivityName=".delear.RoutePlanning.RoutePlanningActivity"/>
+            android:name="com.infinity.infoway.vimal.kich_expense.Expense.Expense_Save_U"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningCopyOrViewActivity"
+            android:parentActivityName="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity" />
+        <activity
+            android:name="com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity"
+            android:parentActivityName=".delear.RoutePlanning.RoutePlanningActivity" />
         <activity
             android:name=".delear.RoutePlanning.RoutePlanningActivity"
             android:parentActivityName="com.infinity.infoway.vimal.delear.activity.DashboardActivity" />
@@ -192,7 +194,7 @@
             android:value="AIzaSyACHKi_FsglHtGK9RDayjbK5N6lYyJTRnA" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/noti_small" />
+            android:resource="@drawable/ic_bell" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
