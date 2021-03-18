@@ -1,0 +1,279 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardUseCompatPadding="true"
+        card_view:elevation="36dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:padding="10dp"
+            android:layout_margin="3dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="A  :-"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:text="Absent"
+                    android:textColor="@color/text"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:gravity="center|left"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="H  :-"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="Holiday"
+                    android:textSize="@dimen/text_size"
+
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="L  :-"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="All Leave"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="HL  :-"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="Half Leave"
+                    android:textSize="@dimen/text_size"
+
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="P  :-"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="Present"
+                    android:textSize="@dimen/text_size"
+
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="PD  :-"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="Payable Days"
+                    android:textSize="@dimen/text_size"
+
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@color/levave_balance" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight=".6">
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:text="LWP  :-"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/text_size"
+                        android:layout_height="match_parent"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="0dp"
+                    android:paddingLeft="10dp"
+                    android:text="Leave Without Pay"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"></com.infinity.kich.CommonCls.CustomBoldTextView>
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView >
+</LinearLayout>

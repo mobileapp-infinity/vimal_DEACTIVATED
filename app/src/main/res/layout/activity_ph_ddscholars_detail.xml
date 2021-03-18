@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/tool_main_toolbar"
+        layout="@layout/toolbar_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/ll_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_update_delete"
+        android:visibility="visible"
+        android:layout_below="@+id/tool_main_toolbar"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.infinity.kich.CommonCls.CustomBoldTextView
+            android:id="@+id/tv_approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_fill_border_pink"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Approve"
+            android:textColor="@color/white" />
+
+        <com.infinity.kich.CommonCls.CustomBoldTextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_signup"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:text="Reject"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginBottom="55dp"
+        android:layout_below="@+id/ll_update_delete"
+        android:layout_marginTop="20dp"
+        android:windowSoftInputMode="adjustPan">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            tools:context=".Activity.ConferencePubApproveReject"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_emp_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Employee Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_emp_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Name"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_leave_balance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Academic Year"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Academic Year"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/ll_name_phd_scholar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Name of PhD Scholars"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_name_phd_scholar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Name of PhD Scholars"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+   <LinearLayout
+                android:id="@+id/ll_dept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Department"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_dept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Department"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_title_of_reach_paper_domain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Title/Domain of Research"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_title_of_reach_paper_domain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Title/Domain of Research"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_year_awd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Year of Award"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_year_awd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Year of Award"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+
+
+
+            <!--   <LinearLayout
+                   android:id="@+id/ll_contact_no"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/add_leave_border"
+                   android:orientation="vertical"
+                   android:padding="10dp">
+
+                   <com.infinity.infoway.rkuniversity.CommonCls.CustomBoldTextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:paddingLeft="15dp"
+                       android:text="Contact no While On Leave"
+                       android:textColor="@color/black"
+                       android:textSize="@dimen/text_size" />
+
+                   <EditText
+                       android:id="@+id/edt_con_no"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:background="@null"
+                       android:hint="Enter Contact no"
+                       android:paddingLeft="15dp"
+                       android:textSize="@dimen/text_size" />
+               </LinearLayout>
+   -->
+            <LinearLayout
+                android:id="@+id/ll_name_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="visible"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+
+                    android:orientation="vertical">
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="Name of Other Guide"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:id="@+id/edt_name_guide"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:textColor="@color/text"
+                        android:hint="Enter Name of Other Guide"
+                        android:paddingLeft="15dp"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_calendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight=".2"
+                    android:visibility="gone"
+                    android:src="@drawable/calendar" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_reg_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Year of Registration"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_reg_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Year of Registration"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Status"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Status"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_type_auth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Type of Author"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_type_auth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Type of Author"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_ugc_care"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="UGC Care"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_ugc_care"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter UGC Care"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_level_jou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Level of Journal"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_level_jou"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Level of Journal"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_isbn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Proceedings ISBN | ISSN"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_isbn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Enter Proceedings ISBN | ISSN"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_approved_dt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Approve Date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_app_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_approved_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Approved By"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <EditText
+                    android:id="@+id/edt_app_by"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_doc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/add_leave_border"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:orientation="vertical">
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:text="Document of Patent Awarded"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:focusable="false"
+                        android:visibility="gone"
+                        android:textColor="@color/text"
+                        android:hint="Select Date of Publication"
+                        android:paddingLeft="15dp"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight=".2"
+                    android:src="@drawable/calendar" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:id="@+id/ll_submit_cancel"
+                android:layout_marginTop="20dp"
+                android:weightSum="2">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_fill_border_pink"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:textAllCaps="true"
+                    android:text="@string/submit"
+                    android:visibility="visible"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/white" />
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:id="@+id/tv_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/border_profile"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:textAllCaps="true"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="cancel"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

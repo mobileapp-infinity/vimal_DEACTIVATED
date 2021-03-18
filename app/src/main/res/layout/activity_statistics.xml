@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:id="@+id/card_leave_balance"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPadding="3dp"
+            card_view:elevation="36dp">
+            <ListView
+                android:id="@+id/lv_statistics"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"></ListView>
+
+        </androidx.cardview.widget.CardView >
+        <androidx.cardview.widget.CardView  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPadding="3dp"
+            card_view:elevation="36dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/leave_balance_bg"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:weightSum="2">
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|left"
+                        android:layout_weight="1"
+                        android:gravity="left|center"
+                        android:text="Leave Type"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:text="Balance"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/levave_balance"
+
+                            android:padding="15dp" />
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|left"
+                            android:padding="15dp"
+                            android:text="Compulsorry Off"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/levave_balance"
+
+                            android:padding="10dp" />
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|left"
+                            android:padding="15dp"
+                            android:text="Casual Leave"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="15dp"
+                            android:paddingLeft="15dp"
+                            android:text="10"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/levave_balance"
+
+                            android:padding="10dp" />
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|left"
+                            android:padding="15dp"
+
+                            android:text="Medical Leave"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+
+                        <com.infinity.kich.CommonCls.CustomTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="15dp"
+
+                            android:paddingLeft="15dp"
+                            android:text="6"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"></com.infinity.kich.CommonCls.CustomTextView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/levave_balance"
+
+                        android:padding="15dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/levave_balance"
+                        android:padding="15dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView >
+    </LinearLayout>
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/toolbar_activity"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/ll_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

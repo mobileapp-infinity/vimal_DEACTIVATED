@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="6dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPadding="2dp"
+            card_view:elevation="36dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll_main_approve_headder_leave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:background="@drawable/miss_punch_bg"
+                    android:padding="7dp"
+                    android:weightSum="3">
+
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:id="@+id/txt_enroll_no"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:gravity="center|left"
+                        android:padding="5dp"
+                        android:text="PhDD Scholars"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:id="@+id/txt_sr_no"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.2"
+                        android:gravity="center|right"
+                        android:padding="5dp"
+                        android:text="Pending/All"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_large" />
+
+
+
+                    <Switch
+                        android:id="@+id/cb_check"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight=".5"
+                        android:gravity="left|center"
+                        android:padding="5dp"
+                        android:theme="@style/CustomAppTheme" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:id="@+id/ll_main_heder"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight=".7"
+                        android:gravity="center"
+                        android:text="Status"
+                        android:textColor="@color/black"
+                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.15"
+                        android:gravity="center"
+                        android:text="Name of \nPhDD Scholars"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+
+                    <com.infinity.kich.CommonCls.CustomBoldTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.15"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:text="Title Of \nPaper"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size"
+                       ></com.infinity.kich.CommonCls.CustomBoldTextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:id="@+id/lv_phd_scolars"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:divider="@null"></ListView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView >
+    </LinearLayout>
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/toolbar_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/ll_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-3dp" />
+</RelativeLayout>

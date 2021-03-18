@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/scrollview_login_main"
+    android:layout_height="match_parent"
+    android:background="@color/OFFWHITE"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+
+    android:fillViewport="true"
+    android:windowSoftInputMode="adjustPan">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+
+        android:orientation="vertical"
+
+        tools:context=".Login.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/kichbigtransparent"
+                android:background="@android:color/transparent"
+                android:layout_height="wrap_content">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <com.infinity.kich.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:text="Welcome To"
+                    android:textColor="@color/red"
+                    android:textSize="30dp"
+                    />
+
+                <com.infinity.kich.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="30dp"
+                    android:gravity="start"
+                    android:text=" KICH..."
+                    android:textColor="@color/red"
+
+                    />
+
+            </LinearLayout>
+
+
+
+            <com.infinity.kich.CommonCls.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:text="User ID"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/login_border"
+                android:padding="10dp">
+
+                <com.infinity.kich.CommonCls.CustomEditText
+                    android:id="@+id/edt_uname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                    android:hint="Username"
+                    android:paddingLeft="5dp"
+                    android:lines="1"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/black"
+                    android:drawablePadding="5dp"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <com.infinity.kich.CommonCls.CustomBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:text="    Password"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/login_border"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="2">
+
+                <com.infinity.kich.CommonCls.CustomEditText
+                    android:id="@+id/edt_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/black"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    setText=""
+                    android:maxLines="1"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/text_size" />
+
+                <CheckBox
+                    android:id="@+id/chk_show_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/bg_showpassword"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight=".2"
+                    android:visibility="visible"
+
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:id="@+id/ll_company"
+                android:layout_height="wrap_content">
+                <com.infinity.kich.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+
+                    android:text="Select Company Name *"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/login_border"
+                    android:padding="10dp">
+
+                    <com.infinity.kich.CommonCls.CustomTextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:id="@+id/tv_select_company"
+                        android:lines="1"
+                        android:drawableRight="@drawable/ic_down_arrow_down_black_24dp"
+                        android:drawableTint="@color/black"
+                        android:textColorHint="@color/red"
+                        android:drawablePadding="5dp"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.infinity.kich.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="Company"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_border">
+
+                    <Spinner
+                        android:id="@+id/spin_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:paddingLeft="15dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2.2"
+                android:layout_marginTop="10dp">
+
+                <CheckBox
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/chk_show_passwordbtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:text=" Remember Me"
+android:visibility="invisible"
+
+android:checked="true"
+
+
+                    android:button="@drawable/bg_rmemberme"
+                    />
+
+
+
+                <com.infinity.kich.CommonCls.CustomTextView
+                    android:id="@+id/tv_f_psw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+android:visibility="invisible"
+                    android:textColor="@color/red"
+                    android:text="@string/fpassword"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:textSize="@dimen/text_size"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginRight="11dp"
+
+
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/ib_login"
+                android:layout_gravity="center"
+
+                app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+                android:background="@drawable/round_kich"
+                android:layout_height="wrap_content">
+
+            </ImageButton>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+
+            android:padding="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+
+
+
+                android:visibility="invisible"
+
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/ib_google"
+                    android:src="@drawable/googlehangoutsnewnew"
+                    android:background="@drawable/roundwhite"
+                    android:layout_height="wrap_content">
+
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="40dp"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/ib_facebook"
+                    android:src="@drawable/facebooknewnew"
+                    android:background="@drawable/roundwhite"
+                    android:layout_height="wrap_content">
+
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:layout_marginLeft="30dp"
+                android:visibility="invisible"
+
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/ib_twitter"
+                    android:src="@drawable/twitternewnew"
+                    android:background="@drawable/roundwhite"
+                    android:layout_height="wrap_content">
+
+                </ImageButton>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+            <com.infinity.kich.CommonCls.CustomTextView
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:textColor="@color/red"
+                android:textStyle="bold"
+                android:layout_marginRight="@dimen/marginright"
+                android:layout_height="wrap_content"
+                android:text="www.kichindia.com"></com.infinity.kich.CommonCls.CustomTextView>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
