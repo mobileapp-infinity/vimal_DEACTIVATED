@@ -1,6 +1,8 @@
 package com.infinity.infoway.vimal.service;
 
+
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
@@ -9,12 +11,19 @@ import com.infinity.infoway.vimal.database.SharedPref;
 
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
-    private static final String TAG = MyFirebaseInstanceIDService.class.getSimpleName();
+    private static final String TAG = com.infinity.infoway.vimal.service.MyFirebaseInstanceIDService.class.getSimpleName();
     SharedPref getSharedPref;
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+
+        Log.d("FIREBASE_TOKEN", refreshedToken);
+
+
+
+        System.out.println("re-------------"+refreshedToken);
+
 
         // Saving reg id to shared preferences
         storeRegIdInPref(refreshedToken);

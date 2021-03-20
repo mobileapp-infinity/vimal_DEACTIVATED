@@ -1,4 +1,4 @@
-//package com.infinity.infoway.vimal.fragment;
+package com.infinity.infoway.vimal.HR;//package com.infinity.kich.HR;
 //
 //import android.Manifest;
 //import android.annotation.TargetApi;
@@ -40,17 +40,7 @@
 //import android.preference.PreferenceManager;
 //import android.provider.MediaStore;
 //import android.provider.Settings;
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import androidx.annotation.RequiresApi;
-//import com.google.android.material.bottomsheet.BottomSheetDialog;
-//import com.google.android.material.snackbar.Snackbar;
-//import androidx.core.app.ActivityCompat;
-//import androidx.fragment.app.Fragment;
-//import androidx.core.content.FileProvider;
-//import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-//import androidx.appcompat.app.AlertDialog;
-//import androidx.cardview.widget.CardView;
+//
 //import android.text.TextUtils;
 //import android.util.Log;
 //import android.view.LayoutInflater;
@@ -65,6 +55,16 @@
 //import android.widget.TextClock;
 //import android.widget.TextView;
 //import android.widget.Toast;
+//
+//import androidx.annotation.NonNull;
+//import androidx.annotation.Nullable;
+//import androidx.annotation.RequiresApi;
+//import androidx.appcompat.app.AlertDialog;
+//import androidx.cardview.widget.CardView;
+//import androidx.core.app.ActivityCompat;
+//import androidx.core.content.FileProvider;
+//import androidx.fragment.app.Fragment;
+//import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 //
 //import com.android.volley.Request;
 //import com.android.volley.RequestQueue;
@@ -103,23 +103,24 @@
 //import com.google.android.gms.tasks.OnFailureListener;
 //import com.google.android.gms.tasks.OnSuccessListener;
 //import com.google.android.gms.tasks.Task;
-//import com.infinity.infoway.vimal.BuildConfig;
-//import com.infinity.infoway.vimal.R;
-//import com.infinity.infoway.vimal.activity.Activity_Home;
-//import com.infinity.infoway.vimal.api.ApiClient;
-//import com.infinity.infoway.vimal.api.ApiInterface;
-//import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
-//import com.infinity.infoway.vimal.api.response.AddAttendanceResponse;
-//import com.infinity.infoway.vimal.api.response.InsertLocationSyncResponse;
-//import com.infinity.infoway.vimal.config.Config;
-//import com.infinity.infoway.vimal.database.DBConnector;
-//import com.infinity.infoway.vimal.database.SharedPref;
-//import com.infinity.infoway.vimal.model.GPSMasterBean;
-//import com.infinity.infoway.vimal.service.JobScheduledService;
-//import com.infinity.infoway.vimal.service.LocationUpdateForegroundService;
-//import com.infinity.infoway.vimal.service.OverLayTrackingService;
-//import com.infinity.infoway.vimal.util.common.ConnectionDetector;
-//import com.infinity.infoway.vimal.util.common.PhotoHandler;
+//import com.google.android.material.snackbar.Snackbar;
+//import com.infinity.kich.Activity.MainActivity;
+//import com.infinity.kich.Api.ApiClient;
+//import com.infinity.kich.Api.ApiInterface;
+//import com.infinity.kich.Api.request.Request_Insert_Location_Sync;
+//import com.infinity.kich.Api.response.AddAttendanceResponse;
+//import com.infinity.kich.Api.response.InsertLocationSyncResponse;
+//import com.infinity.kich.BuildConfig;
+//import com.infinity.kich.CommonCls.ConnectionDetector;
+//import com.infinity.kich.Config.Config;
+//import com.infinity.kich.Database.DBConnector;
+//import com.infinity.kich.Database.SharedPref;
+//import com.infinity.kich.R;
+//import com.infinity.kich.model.GPSMasterBean;
+//import com.infinity.kich.service.JobScheduledService;
+//import com.infinity.kich.service.LocationUpdateForegroundService_u;
+//import com.infinity.kich.service.OverLayTrackingService;
+//
 //
 //import org.json.JSONArray;
 //import org.json.JSONException;
@@ -149,7 +150,7 @@
 ////public class AddAttendace extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
 ////        GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener, Camera.PictureCallback {
 //
-//public class AddAttendace extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
+//public class AddAttendace_u extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
 //        GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener, Camera.PictureCallback {
 //
 //
@@ -224,7 +225,7 @@
 //    private MyReceiver myReceiver;
 //
 //    // A reference to the service used to get location updates.
-//    private LocationUpdateForegroundService mService = null;
+//    private LocationUpdateForegroundService_u mService = null;
 //
 //    // Tracks the bound state of the service.
 //    private boolean mBound = false;
@@ -234,7 +235,7 @@
 //
 //        @Override
 //        public void onServiceConnected(ComponentName name, IBinder service) {
-//            LocationUpdateForegroundService.LocalBinder binder = (LocationUpdateForegroundService.LocalBinder) service;
+//            LocationUpdateForegroundService_u.LocalBinder binder = (LocationUpdateForegroundService_u.LocalBinder) service;
 //            mService = binder.getService();
 //            mBound = true;
 //
@@ -257,14 +258,14 @@
 ////    private Boolean mRequestingLocationUpdates;
 ////    private String mLastUpdateTime;
 //
-//    public AddAttendace() {
+//    public AddAttendace_u() {
 //        // Required empty public constructor
 //    }
 //
 //
 //    // TODO: Rename and change types and number of parameters
-//    public static AddAttendace newInstance() {
-//        AddAttendace fragment = new AddAttendace();
+//    public static AddAttendace_u newInstance() {
+//        AddAttendace_u fragment = new AddAttendace_u();
 //        return fragment;
 //    }
 //
@@ -319,188 +320,11 @@
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
 //        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_add_attendace, container, false);
+//        View view = inflater.inflate(R.layout.activity_login, container, false);
 //        initControls(view);
-//        Button btn_test = (Button) view.findViewById(R.id.test);
+//     //   Button btn_test = (Button) view.findViewById(R.id.test);
 //        //set_time_last_data();
-//        test t = new test();
-//        //   sendAllGpsDataIFNotPunchOut("", "");
-//        imgAnnexureSend = view.findViewById(R.id.imgAnnexureSend);
-//        imgAnnexureSendDelete = view.findViewById(R.id.imgAnnexureSendDelete);
-//        imgAnnexureSendUpload = view.findViewById(R.id.imgAnnexureSendUpload);
-////        imgAnnexureSendDelete_regular = view.findViewById(R.id.imgAnnexureSendDelete_regular);
-////        imgAnnexureSendDelete_regular = view.findViewById(R.id.imgAnnexureSendDelete_regular);
-//        txt_annexure_file_name = view.findViewById(R.id.txt_annexure_file_name);
-////* 18-dec-19 pragna for retry of location
-////        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-////                && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-////            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
-////                    locationRequestCode);
-////
-////        } else {
-////            // already permission granted
-////            System.out.println("already permission granted!!!!!!!!!!!!!!!!!!!!!!!!!!");
-////        }
 //
-//
-//
-//        // do we have a camera?
-//       /* if (!getActivity().getPackageManager()
-//                .hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-//            Toast.makeText(getActivity(), "No camera on this device", Toast.LENGTH_LONG)
-//                    .show();
-//        } else {
-//            cameraId = findFrontFacingCamera();
-//            if (cameraId < 0) {
-//                Toast.makeText(getActivity(), "No front facing camera found.",
-//                        Toast.LENGTH_LONG).show();
-//            } else {
-//                camera = Camera.open(cameraId);
-//            }
-//        }*/
-//
-//        try {
-//            sdf_full_with_time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a", Locale.getDefault());
-//            dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "document_download");
-//            if (!dir.exists()) {
-//                dir.mkdir();
-//            }
-//        } catch (Exception e) {
-//            System.out.println("error in create file ");
-//        }
-//
-////        logFile = new File(dir, "E_track_location_log.txt");
-//        logFile = new File(dir, "vimal_location_log.txt");
-//
-//        System.out.println("THIS IS PATH " + logFile.getAbsolutePath() + "");
-//        if (!logFile.exists()) {
-//            try {
-//                logFile.createNewFile();
-//            } catch (IOException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
-//        }
-//        imgAnnexureSend.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (selectedBitmap != null) {
-//                    fullScreenImageDisplay();
-//                } else {
-//                    displaySnackBar("Please capture image !!!");
-//                }
-//            }
-//        });
-//
-//        imgAnnexureSendDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                selectedBitmap = null;
-//                txt_annexure_file_name.setText("");
-//            }
-//        });
-////        t.execute();
-//
-//
-//
-//       /* Bitmap bitmapOrg = BitmapFactory.decodeResource(getResources(),  R.drawable.t);
-//        ByteArrayOutputStream bao = new ByteArrayOutputStream();
-//        bitmapOrg.compress(Bitmap.CompressFormat.JPEG, 100, bao);
-//        byte [] ba = bao.toByteArray();
-//        String ba1= android.util.Base64.encodeToString(ba, android.util.Base64.DEFAULT);
-//
-//        System.out.println("TEST "+ba1);
-//
-//
-//        Log.e("TEST", ba1);*/
-//
-//
-////        turnGPSOff();
-//
-//
-//        btn_test.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                camera.startPreview();
-//                camera.takePicture(null, null,
-//                        new PhotoHandler(getActivity()));
-//                getLastLocation();
-//                System.out.println("btn_test api_latitude >>>>>>>>>>>>>>>>>   " + api_latitude + "");
-//                System.out.println("btn_test api_longitude >>>>>>>>>>>>>>>>>>>>   " + api_longitude + "");
-//
-//                // GPSTracker gpsTracker = new GPSTracker(getActivity());
-////                if (gpsTracker.canGetLocation()) {
-////                    System.out.println("btn_test gpsTracker.getLatitude() >>>>>>>>>>>>>>>>>   " + gpsTracker.getLatitude() + "");
-////                    System.out.println("btn_test gpsTracker.getLongitude() >>>>>>>>>>>>>>>>>>>>   " + gpsTracker.getLongitude() + "");
-////                }
-//                /*if (api_latitude == 0.0 && api_longitude == 0.0) {
-//                    //pppppppppppppppp noAddressFound();
-//
-//
-//                    try {
-//                        if (dialogSuccess != null && dialogSuccess.isShowing()) {
-//                            dialogSuccess.dismiss();
-//                        }
-//                    } catch (Exception ex) {
-//                    }
-//
-//                    try {
-//
-//                        dialogSuccess = new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE);
-//                        dialogSuccess.setTitleText(getString(R.string.sorder_oops));
-//
-//                        dialogSuccess.setContentText("Unable to fetch your location , either chnage your position or re-open the application or restart the gps and internet connection");
-//
-//                        dialogSuccess.setCancelable(false);
-//                        dialogSuccess.show();
-//                        dialogSuccess.findViewById(R.id.confirm_button).setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//                                dialogSuccess.dismissWithAnimation();
-//                                dialogSuccess.cancel();
-//
-//                                getLastLocation();
-//                            }
-//                        });
-//
-//                    } catch (Exception ex) {
-//                    }
-//
-//                }*/
-//
-//
-//                // Remove all service and job
-//                /*8-aug-19 Pragna */
-//               /* Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
-//                context.stopService(lintent);
-//
-//                Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
-//                context.stopService(overlay_intent);
-//                getSharedPref.setUserPunchInDate("");
-//                getSharedPref.setUserPunchOutDate("");
-//                //     getSharedPref.setUserPunchInOutFlag(response.body().getPUNCHINFLAG());
-//
-//                JobScheduler jobScheduler = null;
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                    jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-//                    jobScheduler.cancelAll();
-//                }*/
-//            }
-//        });
-//
-//
-//        initControls(view);
-//        curLocation = new Location(LocationManager.GPS_PROVIDER);
-//        manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-//        checkPlayServices();
-//        buildGoogleApiClient();
-//        createLocationRequest();
-//        locationReq();
-//        MapsInitializer.initialize(getActivity());
-//        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-//                .findFragmentById(R.id.viewLocationMap);
-//        //   mapFragment.getMapAsync(this);
-//        mapFragment.getMapAsync(this);
 ////        return view;
 //
 //        return view;
@@ -539,7 +363,7 @@
 //
 //    private void initControls(View view) {
 //        apiService = ApiClient.getClient().create(ApiInterface.class);
-//        mService = new LocationUpdateForegroundService();
+//        mService = new LocationUpdateForegroundService_u();
 //        dbConnector = new DBConnector(context);
 //        /*21-nov pragna for adding map zoom to full screen and for navigation*/
 //        imgFullScreenSchedule = (ImageView) view.findViewById(R.id.imgFullScreenSchedule);
@@ -836,12 +660,14 @@
 //                            } catch (Exception e) {
 //
 //                            }*/
-//                                if (getSharedPref != null) {
-//                                    getSharedPref.SET_LAST_GPS_STOPED_TIME("");
-//                                    getSharedPref.SET_LAST_SERVICE_WORKED_TIME("");
-//                                }
 //
-//                                context.bindService(new Intent(getActivity(), LocationUpdateForegroundService.class), mServiceConnection,
+//                          /**01-09-2020 pragna*/
+////                                if (getSharedPref != null) {
+////                                    getSharedPref.SET_LAST_GPS_STOPED_TIME("");
+////                                    getSharedPref.SET_LAST_SERVICE_WORKED_TIME("");
+////                                }
+//
+//                                context.bindService(new Intent(getActivity(), LocationUpdateForegroundService_u.class), mServiceConnection,
 //                                        Context.BIND_AUTO_CREATE);
 //
 //                                isPunchInClick = true;
@@ -1005,7 +831,7 @@
 //
 //                                        /*29-aug-19 pragna after sending location tilldate data delete remaining data  */
 //                                        dbConnector.deleteGPSData();
-//                                        Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
+//                                        Intent lintent = new Intent(context, LocationUpdateForegroundService_u.class);
 //                                        context.stopService(lintent);
 //
 //                                        Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
@@ -1469,7 +1295,7 @@
 //                                                // Remove all service and job
 //
 //
-//                                                Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
+//                                                Intent lintent = new Intent(context, LocationUpdateForegroundService_u.class);
 //                                                context.stopService(lintent);
 //
 //                                                Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
@@ -1903,7 +1729,7 @@
 //        }*/
 //
 //        LocalBroadcastManager.getInstance(context).registerReceiver(myReceiver,
-//                new IntentFilter(LocationUpdateForegroundService.ACTION_BROADCAST));
+//                new IntentFilter(LocationUpdateForegroundService_u.ACTION_BROADCAST));
 //
 //        // startLocationUpdates();
 //
@@ -1937,7 +1763,7 @@
 //    private class MyReceiver extends BroadcastReceiver {
 //        @Override
 //        public void onReceive(Context context, Intent intent) {
-//            Location location = intent.getParcelableExtra(LocationUpdateForegroundService.EXTRA_LOCATION);
+//            Location location = intent.getParcelableExtra(LocationUpdateForegroundService_u.EXTRA_LOCATION);
 //            if (location != null) {
 //               /* Toast.makeText(MainActivity.this, LocationUtil.getLocationText(location),
 //                        Toast.LENGTH_LONG).show();*/
@@ -2052,33 +1878,7 @@
 //        }
 //    }
 //
-//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-//    public void scheduleJob() {
-//        //900000
-//        final long ONE_DAY_INTERVAL = 1050000; // 10 Min
 //
-//        final long ONE_DAY_INTERVAL_RESTRICTED = 1050000; // 15 Min
-//
-//        ComponentName serviceComponent = new ComponentName(context, JobScheduledService.class);
-//        JobInfo.Builder builder = new JobInfo.Builder(10, serviceComponent);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//            builder.setPeriodic(ONE_DAY_INTERVAL_RESTRICTED);
-//        } else {
-//            builder.setPeriodic(ONE_DAY_INTERVAL);
-//        }
-//
-////        Log.d("Activity_Home", "job being to start!");
-//
-//        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-//        int resultCode = jobScheduler.schedule(builder.build());
-//
-//        if (resultCode == JobScheduler.RESULT_SUCCESS) {
-////            Log.d("Activity_Home", "Job scheduled!");
-//        } else {
-////            Log.d("Activity_Home", "Job not scheduled");
-//        }
-//    }
 //
 //
 //    private void getLastLocation() {
@@ -2536,21 +2336,7 @@
 //        return battery_percentage;
 //    }
 //
-//    private void openBottomSheetSialog(String message) {
-//        try {
-//            bottomSheetDialog = new BottomSheetDialog(context);
-//            bottomSheetDialog.setContentView(R.layout.layout_bottom_sheet_double_confirmation);
-//            TextView txtBottomSheetTitle = bottomSheetDialog.findViewById(R.id.txtBottomSheetTitle);
-//            txtBottomSheetTitle.setText(message);
-//            btnConfirmCheckout = bottomSheetDialog.findViewById(R.id.btnConfirmRegister);
-//            btnCancel = bottomSheetDialog.findViewById(R.id.btnCancelRegistration);
-//            btnConfirmCheckout.setOnClickListener(this);
-//            btnCancel.setOnClickListener(this);
-//            bottomSheetDialog.setCancelable(true);
-//            bottomSheetDialog.show();
-//        } catch (Exception ex) {
-//        }
-//    }
+//
 //
 //    private void showGPSDialog() {
 //        try {
@@ -2799,7 +2585,7 @@
 //               //  context.bindService(new Intent(getActivity(), LocationUpdateForegroundService.class), mServiceConnection,
 //                      //   Context.BIND_AUTO_CREATE);
 //
-//           Activity_Home.      WAS_GPS_OFF=true;
+//           MainActivity.      WAS_GPS_OFF=true;
 //                 getActivity().finish();
 //              //   getLastLocation();
 //             }catch (Exception e)
@@ -2875,7 +2661,7 @@
 //    @Override
 //    public void onConnected(@Nullable Bundle bundle) {
 //        System.out.println("this is connected!!!!!!!!!!!!!!");
-//        if (ActivityCompat.checkSelfPermission(Activity_Home.getHomeActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(Activity_Home.getHomeActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//        if (ActivityCompat.checkSelfPermission(MainActivity.getHomeActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.getHomeActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            return;
 //        }
 //        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);

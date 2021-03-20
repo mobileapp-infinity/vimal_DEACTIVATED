@@ -29,13 +29,13 @@ public class AfterBootrBroadcastReceiver extends BroadcastReceiver {
         Toast.makeText(context, "Booting Completed", Toast.LENGTH_LONG).show();
         Log.i(AfterBootrBroadcastReceiver.class.getSimpleName(), "Service Stops! Oooooooooooooppppssssss!!!!  ");
         try {
-            System.out.println("is service running FIRST LINE AfterBootrBroadcastReceiver !!!!!!!!!!!!!!!!!!!!!!!!!!! " + isServiceRunning(LocationUpdateForegroundService.class) + " ");
-            if (!isServiceRunning(LocationUpdateForegroundService.class)) {
+            System.out.println("is service running FIRST LINE AfterBootrBroadcastReceiver !!!!!!!!!!!!!!!!!!!!!!!!!!! " + isServiceRunning(LocationUpdateForegroundService_u.class) + " ");
+            if (!isServiceRunning(LocationUpdateForegroundService_u.class)) {
                 if (isTodayPunchINDone() && !isTodayPunchOutDone()) {
-                    context.startService(new Intent(context, LocationUpdateForegroundService.class));
+                    context.startService(new Intent(context, LocationUpdateForegroundService_u.class));
 
                     showOverLasysSettingsScreenCall();
-                    System.out.println("is service running " + isServiceRunning(LocationUpdateForegroundService.class) + " ");
+                    System.out.println("is service running " + isServiceRunning(LocationUpdateForegroundService_u.class) + " ");
                 } else {
                     try {
 

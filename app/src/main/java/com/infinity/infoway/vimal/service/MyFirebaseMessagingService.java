@@ -2,9 +2,11 @@ package com.infinity.infoway.vimal.service;
 
 import android.content.Context;
 import android.content.Intent;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import android.net.wifi.hotspot2.pps.HomeSp;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -12,13 +14,100 @@ import com.infinity.infoway.vimal.activity.Activity_Home;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
-import com.infinity.infoway.vimal.util.common.NotificationUtils;
+
+
+//public class MyFirebaseMessagingService extends FirebaseMessagingService {
+//
+//
+//    private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
+//
+//    private NotificationUtilsR notificationUtils;
+//  //  MyDatabaseHelper myDatabaseHelper;
+//    SimpleDateFormat simpleDateFormat;
+//    SharedPref mySharedPreferenses;
+//
+//    @Override
+//    public void onMessageReceived(RemoteMessage remoteMessage) {
+//        Log.e(TAG, "From: " + remoteMessage.getFrom());
+//        Log.e(TAG, "Message: " + remoteMessage.getNotification() + " getData:" + remoteMessage.getData().get("name"));
+//        if (remoteMessage == null)
+//            return;
+//        mySharedPreferenses = new SharedPref(getApplicationContext());
+//        if (!mySharedPreferenses.IsLogin()) {
+//            return;
+//        }
+//
+//
+//        simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
+//        // Check if message contains a data payload.
+//        if (remoteMessage.getData().size() > 0) {
+//            Log.e(TAG, "Data Payload: " + remoteMessage.getData().toString());
+//
+//            try {
+////                myDatabaseHelper = new MyDatabaseHelper(getApplicationContext());
+//                String attach_file = "";
+//                attach_file = remoteMessage.getData().get("attach_file");
+//                String icon = "";
+//                icon = remoteMessage.getData().get("icon");
+//                String name = "";
+//                name = remoteMessage.getData().get("name");
+//                String timestamp = "";
+//                timestamp = remoteMessage.getData().get("timestamp");
+//                String title = "";
+//                title = remoteMessage.getData().get("title");
+//                String big_icon = "";
+//                big_icon = remoteMessage.getData().get("big_icon");
+//                String today_date = simpleDateFormat.format(new Date());
+////
+////                myDatabaseHelper.saveDataInDatabase(title, attach_file, big_icon, name, icon, 0, today_date);
+//                Intent resultIntent = new Intent(getApplicationContext(), Activity_Home.class);
+//                Intent local = new Intent();
+//                local.setAction("com.hello.action");
+//                sendBroadcast(local);
+//                /*if(HomeActivity.getHomeActivity()!=null)
+//                {
+//                    HomeActivity.getHomeActivity().showNofificationCounter();
+//                }*/
+//                if (TextUtils.isEmpty(icon)) {
+//                    System.out.println("this is showNotification Message ");
+//                    showNotificationMessage(getApplicationContext(), title, name, timestamp, resultIntent, "", big_icon, "", "");
+//                } else {
+//                    // image is present, show notification with image
+//                    System.out.println("this is showNotification Message1111111111111 ");
+//                    showNotificationMessageWithBigImage(getApplicationContext(), title, name, timestamp, resultIntent, icon, "", big_icon, "");
+//                }
+//
+//            } catch (Exception e) {
+//                Log.e(TAG, "Exception: " + e.getMessage());
+//            }
+//        }
+//    }
+//
+//    private void showNotificationMessage(Context context, String title, String message, String timeStamp, Intent intent, String action_flag, String big_icon, String message_type, String expiry) {
+//        notificationUtils = new NotificationUtilsR(context);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        notificationUtils.showNotificationMessage(title, message, timeStamp, intent, action_flag, big_icon, message_type);
+//
+//    }
+//
+//    /**
+//     * Showing notification with text and image
+//     */
+//    private void showNotificationMessageWithBigImage(Context context, String title, String message, String timeStamp, Intent intent, String imageUrl, String action_flag, String big_icon, String message_type) {
+//        notificationUtils = new NotificationUtilsR(context);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        notificationUtils.showNotificationMessage(title, message, timeStamp, intent, imageUrl, action_flag, big_icon, message_type);
+//    }
+//
+//
+//}
+
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
-    private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
+    private static final String TAG = com.infinity.infoway.vimal.service.MyFirebaseMessagingService.class.getSimpleName();
 
-    private NotificationUtils notificationUtils;
+    private com.infinity.infoway.vimal.service.NotificationUtils notificationUtils;
     private DBConnector dbHelper;
 
     @Override
@@ -42,7 +131,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
 
             try {
-                System.out.println("remoteMessage:  " + remoteMessage.getData().toString());
+                System.out.println("remoteMessage  " + remoteMessage.getData().toString());
 //                String s="{\n" +
 //                        "\t\"attach_file\": \"\",\n" +
 //                        "\t\"icon\": \"\",\n" +
@@ -65,7 +154,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 //                attach_file = remoteMessage.getData().get("attach_file");
 //                String icon = "";
-//                icon = remoteMessage.getData().get("icon");
+//                icon = remoteMessage.getData().get("icon");1
 //                String name = "";
 //                name = remoteMessage.getData().get("name");
 //                String timestamp = "";
@@ -89,7 +178,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void handleNotification(String message) {
-        if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+        if (!com.infinity.infoway.vimal.service.NotificationUtils.isAppIsInBackground(getApplicationContext())) {
             getSharedPref = new SharedPref(getApplicationContext());
             // app is in foreground, broadcast the push message
             Intent pushNotification = new Intent(Config.PUSH_NOTIFICATION);
@@ -187,7 +276,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             // JSONObject payload = data.getJSONObject("name");
 
 
-            if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+            if (!com.infinity.infoway.vimal.service.NotificationUtils.isAppIsInBackground(getApplicationContext())) {
                 // app is in foreground, broadcast the push message
                 /*Intent pushNotification = new Intent(Config.PUSH_NOTIFICATION);
                 pushNotification.putExtra("message", message);
@@ -270,7 +359,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * Showing notification with text only
      */
     private void showNotificationMessage(Context context, String title, String message, String timeStamp, Intent intent, String action_flag, String big_icon, String message_type, String expiry,String attach_file) {
-        notificationUtils = new NotificationUtils(context);
+        notificationUtils = new com.infinity.infoway.vimal.service.NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent, action_flag, big_icon, message_type,attach_file);
 
@@ -296,7 +385,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      * Showing notification with text and image
      */
     private void showNotificationMessageWithBigImage(Context context, String title, String message, String timeStamp, Intent intent, String imageUrl, String action_flag, String big_icon, String message_type, String expiry,String attach_file) {
-        notificationUtils = new NotificationUtils(context);
+        notificationUtils = new com.infinity.infoway.vimal.service.NotificationUtils(context);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         notificationUtils.showNotificationMessage(title, message, timeStamp, intent, imageUrl, action_flag, big_icon, message_type);
 

@@ -240,7 +240,7 @@
     <string name="title_update_now">Update Now</string>
     <string name="title_new_version_available">There is a newer version of this application available</string>
     <string name="title_not_now">Not Now</string>
-
+    <string name="title_approve_reject">Approve / Reject</string>
 
 
 </resources>

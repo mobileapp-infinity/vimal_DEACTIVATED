@@ -1,4 +1,4 @@
-//package com.infinity.infoway.vimal.fragment;
+package com.infinity.infoway.vimal.HR;//package com.infinity.kich.HR;//package com.infinity.kich.HR;
 //
 //import android.Manifest;
 //import android.annotation.TargetApi;
@@ -40,17 +40,6 @@
 //import android.preference.PreferenceManager;
 //import android.provider.MediaStore;
 //import android.provider.Settings;
-//import androidx.annotation.NonNull;
-//import androidx.annotation.Nullable;
-//import androidx.annotation.RequiresApi;
-//import com.google.android.material.bottomsheet.BottomSheetDialog;
-//import com.google.android.material.snackbar.Snackbar;
-//import androidx.core.app.ActivityCompat;
-//import androidx.fragment.app.Fragment;
-//import androidx.core.content.FileProvider;
-//import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-//import androidx.appcompat.app.AlertDialog;
-//import androidx.cardview.widget.CardView;
 //import android.text.TextUtils;
 //import android.util.Log;
 //import android.view.LayoutInflater;
@@ -65,6 +54,16 @@
 //import android.widget.TextClock;
 //import android.widget.TextView;
 //import android.widget.Toast;
+//
+//import androidx.annotation.NonNull;
+//import androidx.annotation.Nullable;
+//import androidx.annotation.RequiresApi;
+//import androidx.appcompat.app.AlertDialog;
+//import androidx.cardview.widget.CardView;
+//import androidx.core.app.ActivityCompat;
+//import androidx.core.content.FileProvider;
+//import androidx.fragment.app.Fragment;
+//import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 //
 //import com.android.volley.Request;
 //import com.android.volley.RequestQueue;
@@ -103,23 +102,23 @@
 //import com.google.android.gms.tasks.OnFailureListener;
 //import com.google.android.gms.tasks.OnSuccessListener;
 //import com.google.android.gms.tasks.Task;
-//import com.infinity.infoway.vimal.BuildConfig;
-//import com.infinity.infoway.vimal.R;
-//import com.infinity.infoway.vimal.activity.Activity_Home;
-//import com.infinity.infoway.vimal.api.ApiClient;
-//import com.infinity.infoway.vimal.api.ApiInterface;
-//import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
-//import com.infinity.infoway.vimal.api.response.AddAttendanceResponse;
-//import com.infinity.infoway.vimal.api.response.InsertLocationSyncResponse;
-//import com.infinity.infoway.vimal.config.Config;
-//import com.infinity.infoway.vimal.database.DBConnector;
-//import com.infinity.infoway.vimal.database.SharedPref;
-//import com.infinity.infoway.vimal.model.GPSMasterBean;
-//import com.infinity.infoway.vimal.service.JobScheduledService;
-//import com.infinity.infoway.vimal.service.LocationUpdateForegroundService;
-//import com.infinity.infoway.vimal.service.OverLayTrackingService;
-//import com.infinity.infoway.vimal.util.common.ConnectionDetector;
-//import com.infinity.infoway.vimal.util.common.PhotoHandler;
+//import com.google.android.material.snackbar.Snackbar;
+//import com.infinity.kich.Activity.MainActivity;
+//import com.infinity.kich.Api.ApiClient;
+//import com.infinity.kich.Api.ApiInterface;
+//import com.infinity.kich.Api.request.Request_Insert_Location_Sync;
+//import com.infinity.kich.Api.response.AddAttendanceResponse;
+//import com.infinity.kich.Api.response.InsertLocationSyncResponse;
+//import com.infinity.kich.BuildConfig;
+//import com.infinity.kich.CommonCls.ConnectionDetector;
+//import com.infinity.kich.Config.Config;
+//import com.infinity.kich.Database.DBConnector;
+//import com.infinity.kich.Database.SharedPref;
+//import com.infinity.kich.R;
+//import com.infinity.kich.model.GPSMasterBean;
+//import com.infinity.kich.service.JobScheduledService;
+//import com.infinity.kich.service.LocationUpdateForegroundService_u;
+//import com.infinity.kich.service.OverLayTrackingService;
 //
 //import org.json.JSONArray;
 //import org.json.JSONException;
@@ -149,12 +148,15 @@
 ////public class AddAttendace extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
 ////        GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener, Camera.PictureCallback {
 //
-//public class AddAttendace extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
+//public class AddAttendace_WITH_SELFIE_BK extends Fragment implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener, OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks,
 //        GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener, Camera.PictureCallback {
 //
 //
-//    private OnAddAttendanceInteractionListener mListener;
-//
+////    private OnAddAttendanceInteractionListener mListener;
+////    public interface OnAddAttendanceInteractionListener {
+////        // TODO: Update argument type and name
+////        void onFragmentInteraction(int value);
+////    }
 //    private String location_city = "";
 //    private String location_district = "";
 //    private String location_taluk = "";
@@ -224,17 +226,22 @@
 //    private MyReceiver myReceiver;
 //
 //    // A reference to the service used to get location updates.
-//    private LocationUpdateForegroundService mService = null;
+//    private LocationUpdateForegroundService_u mService = null;
 //
 //    // Tracks the bound state of the service.
 //    private boolean mBound = false;
 //    // Used in checking for runtime permissions.
 //    private static final int REQUEST_PERMISSIONS_REQUEST_CODE = 34;
+//    // Container Activity must implement this interface
+//    public interface OnHeadlineSelectedListener {
+//        public void onArticleSelected(int position);
+//    }
+//
 //    private final ServiceConnection mServiceConnection = new ServiceConnection() {
 //
 //        @Override
 //        public void onServiceConnected(ComponentName name, IBinder service) {
-//            LocationUpdateForegroundService.LocalBinder binder = (LocationUpdateForegroundService.LocalBinder) service;
+//            LocationUpdateForegroundService_u.LocalBinder binder = (LocationUpdateForegroundService_u.LocalBinder) service;
 //            mService = binder.getService();
 //            mBound = true;
 //
@@ -257,14 +264,14 @@
 ////    private Boolean mRequestingLocationUpdates;
 ////    private String mLastUpdateTime;
 //
-//    public AddAttendace() {
+//    public AddAttendace_WITH_SELFIE_BK() {
 //        // Required empty public constructor
 //    }
 //
 //
 //    // TODO: Rename and change types and number of parameters
-//    public static AddAttendace newInstance() {
-//        AddAttendace fragment = new AddAttendace();
+//    public static AddAttendace_WITH_SELFIE_BK newInstance() {
+//        AddAttendace_WITH_SELFIE_BK fragment = new AddAttendace_WITH_SELFIE_BK();
 //        return fragment;
 //    }
 //
@@ -370,7 +377,7 @@
 //        }
 //
 ////        logFile = new File(dir, "E_track_location_log.txt");
-//        logFile = new File(dir, "vimal_location_log.txt");
+//        logFile = new File(dir, "kich_location_log.txt");
 //
 //        System.out.println("THIS IS PATH " + logFile.getAbsolutePath() + "");
 //        if (!logFile.exists()) {
@@ -418,75 +425,6 @@
 ////        turnGPSOff();
 //
 //
-//        btn_test.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                camera.startPreview();
-//                camera.takePicture(null, null,
-//                        new PhotoHandler(getActivity()));
-//                getLastLocation();
-//                System.out.println("btn_test api_latitude >>>>>>>>>>>>>>>>>   " + api_latitude + "");
-//                System.out.println("btn_test api_longitude >>>>>>>>>>>>>>>>>>>>   " + api_longitude + "");
-//
-//                // GPSTracker gpsTracker = new GPSTracker(getActivity());
-////                if (gpsTracker.canGetLocation()) {
-////                    System.out.println("btn_test gpsTracker.getLatitude() >>>>>>>>>>>>>>>>>   " + gpsTracker.getLatitude() + "");
-////                    System.out.println("btn_test gpsTracker.getLongitude() >>>>>>>>>>>>>>>>>>>>   " + gpsTracker.getLongitude() + "");
-////                }
-//                /*if (api_latitude == 0.0 && api_longitude == 0.0) {
-//                    //pppppppppppppppp noAddressFound();
-//
-//
-//                    try {
-//                        if (dialogSuccess != null && dialogSuccess.isShowing()) {
-//                            dialogSuccess.dismiss();
-//                        }
-//                    } catch (Exception ex) {
-//                    }
-//
-//                    try {
-//
-//                        dialogSuccess = new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE);
-//                        dialogSuccess.setTitleText(getString(R.string.sorder_oops));
-//
-//                        dialogSuccess.setContentText("Unable to fetch your location , either chnage your position or re-open the application or restart the gps and internet connection");
-//
-//                        dialogSuccess.setCancelable(false);
-//                        dialogSuccess.show();
-//                        dialogSuccess.findViewById(R.id.confirm_button).setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View v) {
-//                                dialogSuccess.dismissWithAnimation();
-//                                dialogSuccess.cancel();
-//
-//                                getLastLocation();
-//                            }
-//                        });
-//
-//                    } catch (Exception ex) {
-//                    }
-//
-//                }*/
-//
-//
-//                // Remove all service and job
-//                /*8-aug-19 Pragna */
-//               /* Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
-//                context.stopService(lintent);
-//
-//                Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
-//                context.stopService(overlay_intent);
-//                getSharedPref.setUserPunchInDate("");
-//                getSharedPref.setUserPunchOutDate("");
-//                //     getSharedPref.setUserPunchInOutFlag(response.body().getPUNCHINFLAG());
-//
-//                JobScheduler jobScheduler = null;
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                    jobScheduler = (JobScheduler) context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-//                    jobScheduler.cancelAll();
-//                }*/
-//            }
-//        });
 //
 //
 //        initControls(view);
@@ -523,7 +461,7 @@
 //                        System.out.println("curLocation locationReq  !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
 //                        MapRefresh();
 //                        fetchGPSDetails();
-//                       // txtLocation.setText(String.format(Locale.US, "%s -- %s", wayLatitude, wayLongitude));
+//                        // txtLocation.setText(String.format(Locale.US, "%s -- %s", wayLatitude, wayLongitude));
 //                    }
 //                }
 //            }
@@ -533,13 +471,13 @@
 //
 //    /*21-nov pragna for adding map zoom to full screen and for navigation*/
 //    ImageView imgFullScreenSchedule, imgNavigation, imgAnnexureSendUpload_regular;
-////    LinearLayout lin;
+//    //    LinearLayout lin;
 //    ScrollView lin;
 //    private boolean MapOpenClose = false;
 //
 //    private void initControls(View view) {
 //        apiService = ApiClient.getClient().create(ApiInterface.class);
-//        mService = new LocationUpdateForegroundService();
+//        mService = new LocationUpdateForegroundService_u();
 //        dbConnector = new DBConnector(context);
 //        /*21-nov pragna for adding map zoom to full screen and for navigation*/
 //        imgFullScreenSchedule = (ImageView) view.findViewById(R.id.imgFullScreenSchedule);
@@ -728,11 +666,11 @@
 //                //filenamePassport = RequestBody.create(MediaType.parse("text/plain"), photoFile.getName());
 //
 //                if (photoFile != null && !TextUtils.isEmpty(photoFile.getName())) {
-//                   // photoFile = saveBitmapToFile(photoFile);
+//                    // photoFile = saveBitmapToFile(photoFile);
 //
-//                  //  RequestBody mFile = RequestBody.create(MediaType.parse("image*//*"), photoFile);
-//                 //   System.out.println("this is file name11111111111 " + imageNameDisplay + "");
-//                 //   fileToUploadPassport = MultipartBody.Part.createFormData("file", photoFile.getName(), mFile);
+//                    //  RequestBody mFile = RequestBody.create(MediaType.parse("image*//*"), photoFile);
+//                    //   System.out.println("this is file name11111111111 " + imageNameDisplay + "");
+//                    //   fileToUploadPassport = MultipartBody.Part.createFormData("file", photoFile.getName(), mFile);
 //                    imageNameDisplay = photoFile.getName();
 //                    System.out.println("this is file name****** " + imageNameDisplay + "");
 //                    System.out.println("this is file SIZE****** " + photoFile.getUsableSpace() + "");
@@ -785,11 +723,11 @@
 //    }
 //
 //    // TODO: Rename method, update argument and hook method into UI event
-//    public void onButtonPressed(int value) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(value);
-//        }
-//    }
+////    public void onButtonPressed(int value) {
+////        if (mListener != null) {
+////            mListener.onFragmentInteraction(value);
+////        }
+////    }
 //
 //    String tilldate = "";
 //
@@ -836,12 +774,14 @@
 //                            } catch (Exception e) {
 //
 //                            }*/
-//                                if (getSharedPref != null) {
+//
+//                          /**01-09-2020 pragna*/
+//                               /* if (getSharedPref != null) {
 //                                    getSharedPref.SET_LAST_GPS_STOPED_TIME("");
 //                                    getSharedPref.SET_LAST_SERVICE_WORKED_TIME("");
-//                                }
+//                                }*/
 //
-//                                context.bindService(new Intent(getActivity(), LocationUpdateForegroundService.class), mServiceConnection,
+//                                context.bindService(new Intent(getActivity(), LocationUpdateForegroundService_u.class), mServiceConnection,
 //                                        Context.BIND_AUTO_CREATE);
 //
 //                                isPunchInClick = true;
@@ -985,9 +925,9 @@
 //                                        }
 //                                    }
 //
-//                                   sendingLocationData(tilldate, "1");
+//                                    sendingLocationData(tilldate, "1");
 //
-//                                  /*  imgPassPortPhotoTpload("1");*/
+//                                    /*  imgPassPortPhotoTpload("1");*/
 //                                } else {
 //                                    System.out.println("doing punchout :::::: no data in to local table  ");
 //                                    System.out.println("now punchout apI FINALLY calls ::::::::::::::::::::::: ");
@@ -1005,7 +945,7 @@
 //
 //                                        /*29-aug-19 pragna after sending location tilldate data delete remaining data  */
 //                                        dbConnector.deleteGPSData();
-//                                        Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
+//                                        Intent lintent = new Intent(context, LocationUpdateForegroundService_u.class);
 //                                        context.stopService(lintent);
 //
 //                                        Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
@@ -1026,9 +966,9 @@
 //                                        System.out.println("we are not able to get address at punchout");
 //                                        getAddressFromApi(api_latitude, api_longitude, "1");
 //                                    } else {
-//                                   //     jgjghj
+//                                        //     jgjghj
 //                                        imgPassPortPhotoTpload("1");
-//                                     /**   ///addAttendanceApiCall("1");*/
+//                                        /**   ///addAttendanceApiCall("1");*/
 //                                    }
 //                                }
 //
@@ -1262,18 +1202,18 @@
 //    @Override
 //    public void onAttach(Context context) {
 //        super.onAttach(context);
-//        if (context instanceof OnAddAttendanceInteractionListener) {
-//            mListener = (OnAddAttendanceInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
+////        if (context instanceof OnAddAttendanceInteractionListener) {
+////            mListener = (OnAddAttendanceInteractionListener) context;
+////        } else {
+////            throw new RuntimeException(context.toString()
+////                    + " must implement OnFragmentInteractionListener");
+////        }
 //    }
 //
 //    @Override
 //    public void onDetach() {
 //        super.onDetach();
-//        mListener = null;
+//        //mListener = null;
 //    }
 //
 //
@@ -1329,9 +1269,9 @@
 //                RequestBody req_punch_in_out = RequestBody.create(MediaType.parse("text/plain"), punch_in_out); RequestBody req_gps = RequestBody.create(MediaType.parse("text/plain"), isGPSON());
 //
 //                Call<AddAttendanceResponse> call = apiService.Add_Attendance(
-//                       AppVersionCode,
-//                     AppAndroidId,
-//                      reg_id,
+//                        AppVersionCode,
+//                        AppAndroidId,
+//                        reg_id,
 //                        reg_user_id,
 //                        req_key,
 //                        req_company_id,
@@ -1349,25 +1289,25 @@
 //                        req_gps, fileToUploadPassport);
 //
 //
-//               /* Call<AddAttendanceResponse> call = apiService.Add_Attendance(
-//                        String.valueOf(getSharedPref.getAppVersionCode()),
-//                        getSharedPref.getAppAndroidId(),
-//                        String.valueOf(getSharedPref.getRegisteredId()),
-//                        String.valueOf(getSharedPref.getRegisteredUserId()),
-//                        Config.ACCESS_KEY,
-//                        getSharedPref.getCompanyId(),
-//                        getSharedPref.getBranchId(),
-//                        "",
-//                        String.valueOf(api_latitude),
-//                        String.valueOf(api_longitude),
-//                        LocationAddress,
-//                        location_city,
-//                        location_district,
-//                        location_taluk,
-//                        location_state,
-//                        location_country,
-//                        punch_in_out,
-//                        isGPSON(), fileToUploadPassport);*/
+////               Call<AddAttendanceResponse> call = apiService.Add_Attendance(
+////                        String.valueOf(getSharedPref.getAppVersionCode()),
+////                        getSharedPref.getAppAndroidId(),
+////                        String.valueOf(getSharedPref.getRegisteredId()),
+////                        String.valueOf(getSharedPref.getRegisteredUserId()),
+////                        Config.ACCESS_KEY,
+////                        getSharedPref.getCompanyId(),
+////                        getSharedPref.getBranchId(),
+////                        "",
+////                        String.valueOf(api_latitude),
+////                        String.valueOf(api_longitude),
+////                        LocationAddress,
+////                        location_city,
+////                        location_district,
+////                        location_taluk,
+////                        location_state,
+////                        location_country,
+////                        punch_in_out,
+////                        isGPSON());
 //
 //
 //                call.enqueue(new Callback<AddAttendanceResponse>() {
@@ -1469,7 +1409,7 @@
 //                                                // Remove all service and job
 //
 //
-//                                                Intent lintent = new Intent(context, LocationUpdateForegroundService.class);
+//                                                Intent lintent = new Intent(context, LocationUpdateForegroundService_u.class);
 //                                                context.stopService(lintent);
 //
 //                                                Intent overlay_intent = new Intent(context, OverLayTrackingService.class);
@@ -1553,10 +1493,7 @@
 //    }
 //
 //
-//    public interface OnAddAttendanceInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(int value);
-//    }
+//
 //
 //    private void displaySnackBar(String message) {
 //        try {
@@ -1903,7 +1840,7 @@
 //        }*/
 //
 //        LocalBroadcastManager.getInstance(context).registerReceiver(myReceiver,
-//                new IntentFilter(LocationUpdateForegroundService.ACTION_BROADCAST));
+//                new IntentFilter(LocationUpdateForegroundService_u.ACTION_BROADCAST));
 //
 //        // startLocationUpdates();
 //
@@ -1937,7 +1874,7 @@
 //    private class MyReceiver extends BroadcastReceiver {
 //        @Override
 //        public void onReceive(Context context, Intent intent) {
-//            Location location = intent.getParcelableExtra(LocationUpdateForegroundService.EXTRA_LOCATION);
+//            Location location = intent.getParcelableExtra(LocationUpdateForegroundService_u.EXTRA_LOCATION);
 //            if (location != null) {
 //               /* Toast.makeText(MainActivity.this, LocationUtil.getLocationText(location),
 //                        Toast.LENGTH_LONG).show();*/
@@ -2007,12 +1944,12 @@
 //                    mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
 //                        @Override
 //                        public void onSuccess(Location location) {
-//                       if(location!=null)
-//                       {
-//                           System.out.println("curLocation on result !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
-//                           MapRefresh();
-//                           fetchGPSDetails();
-//                       }
+//                            if(location!=null)
+//                            {
+//                                System.out.println("curLocation on result !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
+//                                MapRefresh();
+//                                fetchGPSDetails();
+//                            }
 //                        }
 //                    });
 //                } else {
@@ -2084,40 +2021,40 @@
 //    private void getLastLocation() {
 //        try {
 //            System.out.println("getlast location called!!!!!!");
-//           /**
-//            * 18-dec-19 pragna
-//            * mFusedLocationClient.getLastLocation()
-//                    .addOnCompleteListener(new OnCompleteListener<Location>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Location> task) {
-//                            // if (task.isSuccessful() && task.getResult() != null) {
-//                            curLocation = task.getResult();
-//                            if (curLocation != null) {
-//                                System.out.println("curLocation  !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
-//                                MapRefresh();
-//                                fetchGPSDetails();
-//                            }
-//                            // } else {
-//                            //  Log.e("Add Attendance", "Failed to get location.");
-//                            // }
-//                        }
-//                    });*/
+//            /**
+//             * 18-dec-19 pragna
+//             * mFusedLocationClient.getLastLocation()
+//             .addOnCompleteListener(new OnCompleteListener<Location>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Location> task) {
+//            // if (task.isSuccessful() && task.getResult() != null) {
+//            curLocation = task.getResult();
+//            if (curLocation != null) {
+//            System.out.println("curLocation  !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
+//            MapRefresh();
+//            fetchGPSDetails();
+//            }
+//            // } else {
+//            //  Log.e("Add Attendance", "Failed to get location.");
+//            // }
+//            }
+//            });*/
 //
 //
-//           mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-//               @Override
-//               public void onSuccess(Location location) {
-//                   if (location != null) {
-//                       curLocation=location;
-//                       System.out.println("curLocation  !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
-//                       MapRefresh();
-//                       fetchGPSDetails();
-//                   }
-//                   // } else {
-//                   //  Log.e("Add Attendance", "Failed to get location.");
-//                   // }
-//               }
-//           });
+//            mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+//                @Override
+//                public void onSuccess(Location location) {
+//                    if (location != null) {
+//                        curLocation=location;
+//                        System.out.println("curLocation  !!!!!!!!!!!! " + curLocation.getLatitude() + " lon " + curLocation.getLongitude() + "");
+//                        MapRefresh();
+//                        fetchGPSDetails();
+//                    }
+//                    // } else {
+//                    //  Log.e("Add Attendance", "Failed to get location.");
+//                    // }
+//                }
+//            });
 //
 //
 //        } catch (SecurityException unlikely) {
@@ -2418,14 +2355,14 @@
 //            }
 //            System.out.println("We dont found any record for gps now punchInOutApi Will call");
 //            getLastLocation();
-//          //  LocationAddress="";
+//            //  LocationAddress="";
 //            if (LocationAddress == null || LocationAddress.contentEquals("")) {
 //                System.out.println("we are not able to get address at punch-in/out " + punchInOrOut + "");
 //                getAddressFromApi(api_latitude, api_longitude, punchInOrOut + "");
 //            } else {
 //                if (photoFile != null && !TextUtils.isEmpty(photoFile.getName())) {
 //                    System.out.println("now will call attendance API....");
-//                addAttendanceApiCall(punchInOrOut + "");
+//                    addAttendanceApiCall(punchInOrOut + "");
 //                }
 //                else{
 //                    System.out.println("not uploaded file ");
@@ -2536,21 +2473,7 @@
 //        return battery_percentage;
 //    }
 //
-//    private void openBottomSheetSialog(String message) {
-//        try {
-//            bottomSheetDialog = new BottomSheetDialog(context);
-//            bottomSheetDialog.setContentView(R.layout.layout_bottom_sheet_double_confirmation);
-//            TextView txtBottomSheetTitle = bottomSheetDialog.findViewById(R.id.txtBottomSheetTitle);
-//            txtBottomSheetTitle.setText(message);
-//            btnConfirmCheckout = bottomSheetDialog.findViewById(R.id.btnConfirmRegister);
-//            btnCancel = bottomSheetDialog.findViewById(R.id.btnCancelRegistration);
-//            btnConfirmCheckout.setOnClickListener(this);
-//            btnCancel.setOnClickListener(this);
-//            bottomSheetDialog.setCancelable(true);
-//            bottomSheetDialog.show();
-//        } catch (Exception ex) {
-//        }
-//    }
+//
 //
 //    private void showGPSDialog() {
 //        try {
@@ -2688,7 +2611,7 @@
 //                                    System.out.println("STATUS NOT ok ======================");
 //                                    /**ppppppppppp addAttendanceApiCall(isUserPunchIn + "");*/
 //                                    if (photoFile != null && !TextUtils.isEmpty(photoFile.getName())&&fileToUploadPassport!=null) {
-//                                          addAttendanceApiCall(isUserPunchIn + "");
+//                                        addAttendanceApiCall(isUserPunchIn + "");
 //                                        System.out.println("now attendance api will call 2222222222222222222222");
 //                                    }else {
 //                                        imgPassPortPhotoTpload(isUserPunchIn + "");
@@ -2699,10 +2622,10 @@
 //                                //   noAddressFound(user_id, latitude, logitude, isUserPunchIn);
 //                                //   System.out.println("THIS IS ERROR " + e.getLocalizedMessage() + "");
 //                                e.printStackTrace();
-//                          /**      addAttendanceApiCall(isUserPunchIn + "");*/
+//                                /**      addAttendanceApiCall(isUserPunchIn + "");*/
 ////                                imgPassPortPhotoTpload(isUserPunchIn+"");
 //                                if (photoFile != null && !TextUtils.isEmpty(photoFile.getName())&&fileToUploadPassport!=null) {
-//                                      addAttendanceApiCall(isUserPunchIn + "");
+//                                    addAttendanceApiCall(isUserPunchIn + "");
 //                                    System.out.println("now attendance api will call 333333333333333333333333");
 //                                }else {
 //                                    imgPassPortPhotoTpload(isUserPunchIn + "");
@@ -2718,7 +2641,7 @@
 ////                    progressBar.dismiss();
 ////                }
 //                    //noAddressFound(user_id, latitude, logitude, isUserPunchIn);
-//                /**    addAttendanceApiCall(isUserPunchIn + "");*/
+//                    /**    addAttendanceApiCall(isUserPunchIn + "");*/
 //                    imgPassPortPhotoTpload(isUserPunchIn+"");
 //                }
 //            });
@@ -2795,17 +2718,17 @@
 //                }
 //
 //                lastClickTime3 = SystemClock.elapsedRealtime();*/
-//             try {
-//               //  context.bindService(new Intent(getActivity(), LocationUpdateForegroundService.class), mServiceConnection,
-//                      //   Context.BIND_AUTO_CREATE);
+//                try {
+//                    //  context.bindService(new Intent(getActivity(), LocationUpdateForegroundService.class), mServiceConnection,
+//                    //   Context.BIND_AUTO_CREATE);
 //
-//           Activity_Home.      WAS_GPS_OFF=true;
-//                 getActivity().finish();
-//              //   getLastLocation();
-//             }catch (Exception e)
-//             {
-//                 System.out.println("error in to first location get");
-//             }
+//                    MainActivity.      WAS_GPS_OFF=true;
+//                    getActivity().finish();
+//                    //   getLastLocation();
+//                }catch (Exception e)
+//                {
+//                    System.out.println("error in to first location get");
+//                }
 //
 //                System.out.println("again calling for location!!!!!!!!!");
 //
@@ -2875,7 +2798,7 @@
 //    @Override
 //    public void onConnected(@Nullable Bundle bundle) {
 //        System.out.println("this is connected!!!!!!!!!!!!!!");
-//        if (ActivityCompat.checkSelfPermission(Activity_Home.getHomeActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(Activity_Home.getHomeActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//        if (ActivityCompat.checkSelfPermission(MainActivity.getHomeActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.getHomeActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 //            return;
 //        }
 //        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
@@ -2927,8 +2850,8 @@
 //                getAddress(curLocation.getLatitude(), curLocation.getLongitude());
 //
 //                LatLng latLng = new LatLng(curLocation.getLatitude(), curLocation.getLongitude());
-//                System.out.println("before after !!!!!!!!!!!! address0000 " + LocationArray[0] + "");
-//                System.out.println("before after !!!!!!!!!!!! address111 " + LocationAddress + "");
+//                System.out.println("before after111 !!!!!!!!!!!! address0000 " + LocationArray[0] + "");
+//                System.out.println("before after22222222 !!!!!!!!!!!! address111 " + LocationAddress + "");
 //
 //               /* marker = mMap.addMarker(new MarkerOptions()
 //                        .position(latLng)

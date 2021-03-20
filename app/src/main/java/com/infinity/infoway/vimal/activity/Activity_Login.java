@@ -354,8 +354,8 @@ public class Activity_Login extends AppCompatActivity {
 
 
                                 getSharedPref.set_customer_type(response.body().getCustomer_type());
-
-
+/*20-03-21 pragna for emp punchout time */
+                                getSharedPref.setEmp_out_time(response.body().getEmp_out_time() + "");
 
                                 /*pragna 19-Aug for register firebase token*/
 //                                Intent i = new Intent(Activity_Login.this, Activity_Home.class);

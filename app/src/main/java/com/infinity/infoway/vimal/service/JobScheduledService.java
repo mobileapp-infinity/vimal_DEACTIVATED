@@ -15,9 +15,10 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.BatteryManager;
 import android.os.Build;
-import androidx.core.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -31,6 +32,7 @@ import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.model.GPSMasterBean;
 import com.infinity.infoway.vimal.util.common.ConnectionDetector;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +55,7 @@ public class JobScheduledService extends JobService {
     private FusedLocationProviderClient mFusedLocationClient;
     private Location mLocation;
     private DBConnector dbConnector;
-    private LocationUpdateForegroundService mService = null;
+    private LocationUpdateForegroundService_u mService = null;
     private Intent batteryStatus;
     // Tracks the bound state of the service.
     private boolean mBound = false;
@@ -155,7 +157,7 @@ public class JobScheduledService extends JobService {
         new Thread(new Runnable() {
             public void run() {
                 //Log.e("job", "start");
-                if (ActivityCompat.checkSelfPermission(JobScheduledService.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(JobScheduledService.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(com.infinity.infoway.vimal.service.JobScheduledService.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(com.infinity.infoway.vimal.service.JobScheduledService.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
                     // here to request the missing permissions, and then overriding

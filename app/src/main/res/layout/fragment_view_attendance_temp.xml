@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_main_view_attendance"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -48,7 +49,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <com.infinity.infoway.vimal.util.common.CustomEditText
                                 android:id="@+id/etViewAttendanceFromDate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -81,7 +82,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <EditText
+                            <com.infinity.infoway.vimal.util.common.CustomEditText
                                 android:id="@+id/etViewAttendanceToDate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -113,7 +114,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <Button
+                            <com.infinity.infoway.vimal.util.common.CustomButtonView
                                 android:id="@+id/btnLoadAttendance"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -151,5 +152,4 @@
         android:fadingEdge="none"
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

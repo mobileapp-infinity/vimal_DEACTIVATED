@@ -70,10 +70,10 @@ BroadcastReceiver broadcastReceiver;
         Log.i(SensorRestarterBroadcastReceiver.class.getSimpleName(), "Service Stops! Oooooooooooooppppssssss!!!!  ");
         try {
             if (isTodayPunchINDone() && !isTodayPunchOutDone()) {
-                context.startService(new Intent(context, LocationUpdateForegroundService.class));
+                context.startService(new Intent(context, LocationUpdateForegroundService_u.class));
 
                 showOverLasysSettingsScreenCall();
-                System.out.println("is service running "+isServiceRunning(LocationUpdateForegroundService.class)+" ");
+                System.out.println("is service running "+isServiceRunning(LocationUpdateForegroundService_u.class)+" ");
             }
             else{
                 try {

@@ -82,6 +82,7 @@ import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.infinity.infoway.vimal.BuildConfig;
+import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
@@ -96,7 +97,8 @@ import com.infinity.infoway.vimal.model.GPSMasterBean;
 import com.infinity.infoway.vimal.model.NotificationBean;
 import com.infinity.infoway.vimal.service.AfterBootrBroadcastReceiver;
 import com.infinity.infoway.vimal.service.JobScheduledService;
-import com.infinity.infoway.vimal.service.LocationUpdateForegroundService;
+
+import com.infinity.infoway.vimal.service.LocationUpdateForegroundService_u;
 import com.infinity.infoway.vimal.service.MyService;
 import com.infinity.infoway.vimal.service.OverLayTrackingService;
 import com.infinity.infoway.vimal.service.SensorRestarterBroadcastReceiver;
@@ -134,6 +136,7 @@ public class Activity_Home extends AppCompatActivity
     private SharedPref getSharedPref;
     private DrawerLayout drawer;
     public static boolean FLAG_4_BACK_START_PG_AGAIN = true;
+
     /**
      * Tour\nPlanning
      */
@@ -160,7 +163,7 @@ public class Activity_Home extends AppCompatActivity
     }
 
     // A reference to the service used to get location updates.
-    private LocationUpdateForegroundService mService = null;
+    private LocationUpdateForegroundService_u mService = null;
 
     // Tracks the bound state of the service.
     private boolean mBound = false;
@@ -181,7 +184,7 @@ public class Activity_Home extends AppCompatActivity
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             try {
-                LocationUpdateForegroundService.LocalBinder binder = (LocationUpdateForegroundService.LocalBinder) service;
+                LocationUpdateForegroundService_u.LocalBinder binder = (LocationUpdateForegroundService_u.LocalBinder) service;
                 mService = binder.getService();
                 mBound = true;
 
@@ -978,10 +981,10 @@ public class Activity_Home extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        if (isTodayPunchINDone() && (!isTodayPunchOutDone()) && (!isServiceRunning(LocationUpdateForegroundService.class))) {
+        if (isTodayPunchINDone() && (!isTodayPunchOutDone()) && (!isServiceRunning(LocationUpdateForegroundService_u.class))) {
             try {
-                mService = new LocationUpdateForegroundService();
-                bindService(new Intent(Activity_Home.this, LocationUpdateForegroundService.class), mServiceConnection,
+                mService = new LocationUpdateForegroundService_u();
+                bindService(new Intent(Activity_Home.this, LocationUpdateForegroundService_u.class), mServiceConnection,
                         Context.BIND_AUTO_CREATE);
 
             } catch (Exception ex) {
@@ -1056,8 +1059,8 @@ public class Activity_Home extends AppCompatActivity
                 try {
                     try {
 
-                        mService = new LocationUpdateForegroundService();
-                        bindService(new Intent(Activity_Home.this, LocationUpdateForegroundService.class), mServiceConnection,
+                        mService = new LocationUpdateForegroundService_u();
+                        bindService(new Intent(Activity_Home.this, LocationUpdateForegroundService_u.class), mServiceConnection,
                                 Context.BIND_AUTO_CREATE);
 
                     } catch (Exception ex) {
@@ -1349,6 +1352,7 @@ public class Activity_Home extends AppCompatActivity
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CHECK_SETTINGS && resultCode == Activity.RESULT_OK) {
             dismissAppConfigDialog();
         } else if (requestCode == REQUEST_CODE) {

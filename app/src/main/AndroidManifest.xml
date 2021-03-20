@@ -162,7 +162,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.infinity.infoway.vimal.activity.Activity_Attendance_Management"
+            android:name="com.infinity.infoway.vimal.HR.Activity_Attendance_Management"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
@@ -568,7 +568,7 @@
         </receiver>
 
         <service
-            android:name="com.infinity.infoway.vimal.service.LocationUpdateForegroundService"
+            android:name="com.infinity.infoway.vimal.service.LocationUpdateForegroundService_u"
             android:enabled="true"
             android:exported="true"
             android:foregroundServiceType="location" /> <!-- 20-aug-19 pragna -->

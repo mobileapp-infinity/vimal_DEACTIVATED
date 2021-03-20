@@ -685,12 +685,12 @@ public class SharedPref {
     public Integer getAPP_LOCATION_INTERVAL_TIME() {
         SharedPreferences getReg = PreferenceManager
                 .getDefaultSharedPreferences(context);
-        String s = getReg.getString("APP_LOCATION_INTERVAL_TIME", "2");
-        int time_to_send = 2;
+        String s = getReg.getString("APP_LOCATION_INTERVAL_TIME", "");
+        int time_to_send = 20;
         try {
             time_to_send = Integer.parseInt(s + "");
         } catch (Exception e) {
-            time_to_send = 2;
+            time_to_send = 20;
         }
         return time_to_send;
     }
@@ -891,4 +891,48 @@ public class SharedPref {
 
         editPref.commit();
     }
+
+    /*20-03-2021 pragna for punchout remarks*/
+    public void setEmp_out_time(String EMP_OUT_TIME) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editPref = getReg.edit();
+        editPref.putString("EMP_OUT_TIME", EMP_OUT_TIME + "");
+        editPref.commit();
+    }
+
+    public String getEmp_out_time() {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        return getReg.getString("EMP_OUT_TIME", "");
+    }
+
+    public void setEmp_IN_time(String EMP_IN_TIME) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editPref = getReg.edit();
+        editPref.putString("EMP_IN_TIME", EMP_IN_TIME + "");
+        editPref.commit();
+    }
+
+    public String getEmp_IN_time() {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        return getReg.getString("EMP_IN_TIME", "");
+    }
+
+    public void seis_punch_in_again(String is_punch_in_again) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editPref = getReg.edit();
+        editPref.putString("IS_PUNCH_IN_AGAIN", is_punch_in_again + "");
+        editPref.commit();
+    }
+
+    public String getis_punch_in_again() {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        return getReg.getString("IS_PUNCH_IN_AGAIN", "");
+    }
+
 }

@@ -11,6 +11,7 @@ import com.infinity.infoway.vimal.api.response.Add_RetailerPojo;
 import com.infinity.infoway.vimal.api.response.AreaPojo;
 import com.infinity.infoway.vimal.api.response.City_State_Taluka_CountryPojo;
 import com.infinity.infoway.vimal.api.response.Connection_on_off_notificationResponse;
+import com.infinity.infoway.vimal.api.response.Connection_on_off_notificationResponse_updated;
 import com.infinity.infoway.vimal.api.response.Distributor_Pojo;
 import com.infinity.infoway.vimal.api.response.ExecutivePersonPojo;
 import com.infinity.infoway.vimal.api.response.FCMRegResponse;
@@ -109,7 +110,7 @@ public interface ApiInterface {
             , @Query("gps_flag") String gps_flag);*/
 
 
-    @Multipart
+   /* @Multipart
     @POST("Add_Attendance")
     Call<AddAttendanceResponse> Add_Attendance(@Part("app_version") RequestBody app_version, @Part("android_id") RequestBody android_id, @Part("device_id") RequestBody device_id, @Part("user_id") RequestBody user_id, @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("branch_id") RequestBody branch_id, @Part("emp_code") RequestBody emp_code
             , @Part("latitude") RequestBody latitude
@@ -122,8 +123,25 @@ public interface ApiInterface {
             , @Part("location_country") RequestBody location_country
             , @Part("punch_in_out_flag") RequestBody punch_in_out_flag
             , @Part("gps_flag") RequestBody gps_flag
-            , @Part MultipartBody.Part file);
+            , @Part MultipartBody.Part file);*/
+   /*20-03-2021 pragna for adding early reason*/
+   @Multipart
+   @POST("Add_Attendance")
+   Call<AddAttendanceResponse> Add_Attendance(@Part("app_version") RequestBody app_version, @Part("android_id") RequestBody android_id, @Part("device_id") RequestBody device_id, @Part("user_id") RequestBody user_id, @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("branch_id") RequestBody branch_id, @Part("emp_code") RequestBody emp_code
+           , @Part("latitude") RequestBody latitude
+           , @Part("longitude") RequestBody longitude
+           , @Part("location_address") RequestBody location_address
+           , @Part("location_city") RequestBody location_city
+           , @Part("location_district") RequestBody location_district
+           , @Part("location_taluka") RequestBody location_taluka
+           , @Part("location_state") RequestBody location_state
+           , @Part("location_country") RequestBody location_country
+           , @Part("punch_in_out_flag") RequestBody punch_in_out_flag
+           , @Part("gps_flag") RequestBody gps_flag
+           , @Part("early_reason") RequestBody early_reason
 
+           , @Part MultipartBody.Part file
+   );
     @GET("Get_Attendance_List")
     Call<GetAttendanceResponse> Get_Attendance_List(@Query("app_version") String app_version, @Query("android_id") String android_id, @Query("device_id") String device_id, @Query("user_id") String user_id, @Query("key") String key, @Query("comp_id") String comp_id, @Query("branch_id") String branch_id, @Query("fdt") String fdt, @Query("tdt") String tdt);
 
@@ -181,7 +199,7 @@ public interface ApiInterface {
   Call<Connection_on_off_notificationResponse> Sconnection_on_off_notification(@Query("app_version") Integer app_version, @Query("android_id") String android_id, @Query("device_id") Integer device_id, @Query("user_id") Integer user_id, @Query("key") String key, @Query("comp_id") String comp_id, @Query("con_off_time") String con_off_time, @Query("con_on_time") String con_on_time,@Query("type") Integer type);*/
 
     @POST("notification_api")
-    Call<Connection_on_off_notificationResponse> Sconnection_on_off_notification(@Query("app_version") Integer app_version, @Query("android_id") String android_id, @Query("device_id") Integer device_id, @Query("user_id") Integer user_id, @Query("key") String key, @Query("comp_id") String comp_id, @Query("off_time") String con_off_time, @Query("on_time") String con_on_time, @Query("type") Integer type);
+    Call<Connection_on_off_notificationResponse_updated> Sconnection_on_off_notification(@Query("app_version") Integer app_version, @Query("android_id") String android_id, @Query("device_id") Integer device_id, @Query("user_id") Integer user_id, @Query("key") String key, @Query("comp_id") String comp_id, @Query("off_time") String con_off_time, @Query("on_time") String con_on_time, @Query("type") Integer type);
 
     @POST("getFCMRegistrationID")
     Call<FCMRegResponse> getFCMRegistrationIDRetro(@Body RequestgetFCMRegistrationIDRetro requestgetFCMRegistrationIDRetro);

@@ -19,8 +19,9 @@ import android.widget.ImageView;
 
 import com.infinity.infoway.vimal.R;
 
+
 public class OverLayTrackingService extends Service implements View.OnTouchListener {
-    private static final String TAG = OverLayTrackingService.class.getSimpleName();
+    private static final String TAG = com.infinity.infoway.vimal.service.OverLayTrackingService.class.getSimpleName();
 
     private WindowManager windowManager;
 
@@ -55,6 +56,8 @@ public class OverLayTrackingService extends Service implements View.OnTouchListe
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                             | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                             | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
+                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE/**09-1010*/
+
                             | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     PixelFormat.TRANSLUCENT);
 
@@ -71,6 +74,7 @@ public class OverLayTrackingService extends Service implements View.OnTouchListe
                     WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                             | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                             | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
+                            | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
                             | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                     PixelFormat.TRANSLUCENT);
 

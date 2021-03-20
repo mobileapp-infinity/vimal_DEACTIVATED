@@ -12,7 +12,7 @@
         android:id="@+id/img_launcher"
         android:src="@mipmap/ic_launcher"
         android:layout_width="@dimen/_30sdp"
-        android:padding="@dimen/_3sdp"
+        android:padding="5dp"
 
         android:background="@drawable/bg_circle_collection"
         android:layout_height="@dimen/_30sdp"/>

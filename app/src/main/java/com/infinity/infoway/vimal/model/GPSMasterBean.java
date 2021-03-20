@@ -16,6 +16,34 @@ public class GPSMasterBean {
     public String GPS_Is_Loc_Changed;
     public String GPS_COUNTRY_NAME;
 
+    public String getGPS_CITY_NAME() {
+        return GPS_CITY_NAME;
+    }
+
+    public void setGPS_CITY_NAME(String GPS_CITY_NAME) {
+        this.GPS_CITY_NAME = GPS_CITY_NAME;
+    }
+
+    public String getGPS_STATE_NAME() {
+        return GPS_STATE_NAME;
+    }
+
+    public void setGPS_STATE_NAME(String GPS_STATE_NAME) {
+        this.GPS_STATE_NAME = GPS_STATE_NAME;
+    }
+
+    public String getGPS_DISTRICT_NAME() {
+        return GPS_DISTRICT_NAME;
+    }
+
+    public void setGPS_DISTRICT_NAME(String GPS_DISTRICT_NAME) {
+        this.GPS_DISTRICT_NAME = GPS_DISTRICT_NAME;
+    }
+
+    public String GPS_CITY_NAME;
+    public String GPS_STATE_NAME;
+    public String GPS_DISTRICT_NAME;
+
     public String getGPS_COUNTRY_NAME() {
         return GPS_COUNTRY_NAME;
     }

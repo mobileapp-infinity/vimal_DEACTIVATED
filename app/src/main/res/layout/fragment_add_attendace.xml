@@ -5,8 +5,7 @@
     android:id="@+id/frm_add_attendance"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_color_home"
-    tools:context=".fragment.AddAttendace">
+    android:background="@drawable/background">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -53,8 +52,8 @@
         <RelativeLayout
             android:id="@+id/rel"
             android:layout_width="match_parent"
-            android:layout_weight="1.6"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="1.6">
 
             <fragment
                 android:id="@+id/viewLocationMap"
@@ -64,8 +63,8 @@
 
             <ImageView
                 android:id="@+id/imgFullScreenSchedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentRight="true"
 
                 android:padding="10dp"
@@ -73,39 +72,44 @@
 
             <ImageView
                 android:id="@+id/imgNavigation"
-                android:visibility="invisible"
                 android:layout_width="10dp"
                 android:layout_height="2dp"
                 android:layout_below="@+id/imgFullScreenSchedule"
                 android:layout_alignParentRight="true"
                 android:contentDescription="@string/photoupload"
                 android:padding="10dp"
-                android:src="@drawable/ic_navigation" />
+                android:src="@drawable/ic_navigation"
+                android:visibility="invisible" />
         </RelativeLayout>
+
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_weight="0.8"
             android:id="@+id/lin"
-            android:fillViewport="true"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:fillViewport="true">
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_below="@+id/rel"
                 android:id="@+id/lin1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rel"
                 android:layout_weight="0.8"
-                android:orientation="vertical"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:textSize="16sp"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/tv_title"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="italic|bold"
-                    android:textAlignment="center"
-                    android:text="* We need to capture your photo before punch-In or Punch-Out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_height="wrap_content"></TextView>
+                    android:layout_marginTop="15dp"
+                    android:text="* We need to capture your photo before punch-In or Punch-Out"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    android:textStyle="italic|bold"
+                    android:visibility="gone"></com.infinity.infoway.vimal.util.common.CustomTextView>
+
                 <TextClock
                     android:id="@+id/txt_add_attendance_time"
                     android:layout_width="match_parent"
@@ -115,7 +119,7 @@
                     android:layout_marginTop="5dp"
                     android:format12Hour="dd MMM, yyyy hh:mm:ss a"
                     android:gravity="center"
-                    android:textColor="@color/color_black"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:timeZone="GMT+0530" />
@@ -123,19 +127,19 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:visibility="gone"
                     android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
 
-                    <TextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/txt_title_photo_upload"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:padding="@dimen/_2sdp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:padding="2dp"
                         android:text="Photo Upload"
                         android:textColor="@color/colorPrimary" />
 
@@ -143,38 +147,38 @@
                         android:id="@+id/imgAnnexureSend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
                         android:layout_below="@+id/txt_title_photo_upload"
+                        android:layout_alignParentLeft="true"
                         android:background="@drawable/bg_circle"
-                        android:padding="@dimen/_5sdp"
+                        android:padding="5dp"
                         app:srcCompat="@drawable/ic_document" />
 
 
-                    <TextView
+                    <com.infinity.infoway.vimal.util.common.CustomTextView
                         android:id="@+id/txt_annexure_file_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_title_photo_upload"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
                         android:layout_toRightOf="@+id/imgAnnexureSend"
-                        android:padding="@dimen/_2sdp"
+                        android:padding="2dp"
                         android:text=""
-                        android:textSize="15dp"
-                        android:textColor="@color/color_black" />
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
 
 
                     <ImageView
                         android:id="@+id/imgAnnexureSendDelete"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/_3sdp"
-                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="2dp"
                         android:layout_toLeftOf="@+id/imgAnnexureSendUpload"
                         android:background="@drawable/bg_circle_red"
-                        android:padding="@dimen/_5sdp"
-                        app:srcCompat="@drawable/ic_action_delete_red"
-                        android:visibility="invisible" />
+                        android:padding="5dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/ic_action_delete_red" />
 
 
                     <ImageView
@@ -182,13 +186,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="@dimen/_3sdp"
-                        android:layout_marginTop="@dimen/_3sdp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="2dp"
                         android:background="@drawable/bg_circle_red"
-                        android:padding="@dimen/_5sdp"
+                        android:padding="5dp"
                         app:srcCompat="@drawable/ic_action_file_upload_red" />
 
                 </RelativeLayout>
+
                 <LinearLayout
                     android:id="@+id/linear_punch_in_out"
                     android:layout_width="match_parent"
@@ -198,7 +203,7 @@
                     android:gravity="center_horizontal"
                     android:orientation="horizontal">
 
-                    <Button
+                    <com.infinity.infoway.vimal.util.common.CustomButtonView
                         android:id="@+id/test"
                         android:layout_width="1dp"
                         android:layout_height="1dp"
@@ -229,7 +234,7 @@
                                 android:padding="10dp"
                                 app:srcCompat="@drawable/ic_punchin" />
 
-                            <TextView
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -239,12 +244,14 @@
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
-                            <TextView
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
                                 android:id="@+id/txt_punch_in"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
+                                android:lines="2"
+
                                 android:text="@string/title_press_to_punch_in"
                                 android:textColor="@color/transparent"
                                 android:textSize="11sp" />
@@ -252,7 +259,7 @@
 
 
                     </androidx.cardview.widget.CardView>
-
+                    >
 
                     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/card_punch_out"
@@ -277,7 +284,7 @@
                                 android:padding="10dp"
                                 app:srcCompat="@drawable/ic_punchout" />
 
-                            <TextView
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -287,12 +294,13 @@
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
 
-                            <TextView
+                            <com.infinity.infoway.vimal.util.common.CustomTextView
                                 android:id="@+id/txt_punch_out"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
+                                android:lines="2"
                                 android:text="@string/title_press_to_punch_out"
                                 android:textColor="@color/transparent"
                                 android:textSize="11sp" />
@@ -300,10 +308,11 @@
 
 
                     </androidx.cardview.widget.CardView>
+                    >
                 </LinearLayout>
 
 
-                <TextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/txt_punch_in_out_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -311,11 +320,11 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
 
-                    android:textStyle="bold|italic"
                     android:textColor="@color/color_outstanding_bg"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
 
-                <TextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/txt_punch_in_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -323,9 +332,9 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/color_attendance_present"
-                    android:textSize="16dp" />
+                    android:textSize="@dimen/text_size" />
 
-                <TextView
+                <com.infinity.infoway.vimal.util.common.CustomTextView
                     android:id="@+id/txt_punch_out_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -333,7 +342,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/color_attendance_absent"
-                    android:textSize="16dp"/>
+                    android:textSize="@dimen/text_size" />
 
             </LinearLayout>
         </ScrollView>
