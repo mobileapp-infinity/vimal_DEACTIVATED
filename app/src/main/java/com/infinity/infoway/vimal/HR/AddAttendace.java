@@ -995,6 +995,7 @@ public class AddAttendace extends Fragment implements View.OnClickListener, Shar
 
 //                                do_punch_out();
 
+
 //pragna #################################################  addAttendanceApiCall("1");
                             }
 
