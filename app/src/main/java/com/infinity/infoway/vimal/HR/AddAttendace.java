@@ -391,7 +391,7 @@ public class AddAttendace extends Fragment implements View.OnClickListener, Shar
         }
 
 //        logFile = new File(dir, "E_track_location_log.txt");
-        logFile = new File(dir, "kich_location_log.txt");
+        logFile = new File(dir, "vimal_location_log.txt");
 
         System.out.println("THIS IS PATH " + logFile.getAbsolutePath() + "");
         if (!logFile.exists()) {
@@ -994,6 +994,7 @@ public class AddAttendace extends Fragment implements View.OnClickListener, Shar
                                 }
 
 //                                do_punch_out();
+
 
 
 //pragna #################################################  addAttendanceApiCall("1");
