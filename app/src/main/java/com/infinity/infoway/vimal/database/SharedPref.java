@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 
+import com.infinity.infoway.vimal.util.common.SharedPrefNames;
+
 public class SharedPref {
     private final Context context;
     Boolean isGetCode;
@@ -934,5 +936,35 @@ public class SharedPref {
                 .getDefaultSharedPreferences(context);
         return getReg.getString("IS_PUNCH_IN_AGAIN", "");
     }
+
+
+    public void storeLoginData(String status, String user_id, String emp_code, String usrm_name, String usrm_dis_name, String comp_id, String usrm_brm_id, String com_name, String fin_year, String fin_id, String fin_start_date, String fin_end_date, String emp_id, String DEPARTMENT, String Reportingto, String userphoto, String DESIGNATION, String Branch, String FullName) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = getReg.edit();
+        editor.putBoolean(SharedPrefNames.IS_USER_LOGIN, true);
+        editor.putString(SharedPrefNames.STATUS, status);
+        editor.putString(SharedPrefNames.USER_ID, user_id);
+        editor.putString(SharedPrefNames.EMPLOYEE_CODE, emp_code);
+        editor.putString(SharedPrefNames.USER_NAME, usrm_name);
+        editor.putString(SharedPrefNames.USER_FIRST_NAME, usrm_dis_name);
+        editor.putString(SharedPrefNames.COMPANY_ID, comp_id);
+        editor.putString(SharedPrefNames.USER_BRM_ID, usrm_brm_id);
+        editor.putString(SharedPrefNames.COMPANY_NAME, com_name);
+        editor.putString(SharedPrefNames.FINAL_YEAR, fin_year);
+        editor.putString(SharedPrefNames.FIN_ID, fin_id);
+        editor.putString(SharedPrefNames.FIN_START_DATE, fin_start_date);
+        editor.putString(SharedPrefNames.FIN_END_DATE, fin_end_date);
+        editor.putString(SharedPrefNames.EMP_ID, emp_id);
+        editor.putString(SharedPrefNames.DEPARTMENT, DEPARTMENT);
+        editor.putString(SharedPrefNames.DESIGNATION, DESIGNATION);
+        editor.putString(SharedPrefNames.BRANCH, Branch);
+        editor.putString(SharedPrefNames.REPORTINGTO, Reportingto);
+        editor.putString(SharedPrefNames.USERPHOTO, userphoto);
+
+        editor.putString(SharedPrefNames.FULLNAME, FullName);
+        editor.commit();
+    }
+
 
 }

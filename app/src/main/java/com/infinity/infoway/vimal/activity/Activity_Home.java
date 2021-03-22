@@ -35,21 +35,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.provider.Settings;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.annotation.RequiresPermission;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.core.app.ActivityCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -66,6 +51,25 @@ import android.widget.Scroller;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.RequiresPermission;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -80,7 +84,11 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.Gson;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
 import com.infinity.infoway.vimal.R;
@@ -93,16 +101,19 @@ import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.fragment.Background_Service;
+import com.infinity.infoway.vimal.kich_expense.Expense.Expense_Listing;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LoginPojo;
 import com.infinity.infoway.vimal.model.GPSMasterBean;
 import com.infinity.infoway.vimal.model.NotificationBean;
 import com.infinity.infoway.vimal.service.AfterBootrBroadcastReceiver;
 import com.infinity.infoway.vimal.service.JobScheduledService;
-
 import com.infinity.infoway.vimal.service.LocationUpdateForegroundService_u;
 import com.infinity.infoway.vimal.service.MyService;
 import com.infinity.infoway.vimal.service.OverLayTrackingService;
 import com.infinity.infoway.vimal.service.SensorRestarterBroadcastReceiver;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.NotificationUtils;
+import com.infinity.infoway.vimal.util.common.URLS;
 import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 import org.json.JSONArray;
@@ -110,6 +121,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -230,6 +243,10 @@ public class Activity_Home extends AppCompatActivity
     RelativeLayout rvNotificaitonContainer;
     private List<GetAllSyncCityResponse.RECORD> listSyncCity;
     Boolean autoZoneEnabled = false;
+    RequestQueue queue;
+
+    private LinearLayout linear_leave_application;
+
 
     @RequiresPermission("android.permission.WRITE_SETTINGS")
     public String setSettingsAutomaticDateTimeIfNeeded() {
@@ -861,11 +878,9 @@ public class Activity_Home extends AppCompatActivity
             linear_my_schedule.performClick();
         } else if (id == R.id.nav_feedback) {
             linear_complaint.performClick();
-        }
-        else if (id == R.id.nav_Suspecting) {
+        } else if (id == R.id.nav_Suspecting) {
             linear_Suspecting.performClick();
-        }
-        else if (id == R.id.nav_Tour_planning) {
+        } else if (id == R.id.nav_Tour_planning) {
             mLinearTourPlanning.performClick();
         } else if (id == R.id.nav_new_retailer) {
             mLinearNewRetailer.performClick();
@@ -887,7 +902,8 @@ public class Activity_Home extends AppCompatActivity
                     showPunchOutDialog();
                 } else {
                     FLAG_4_BACK_START_PG_AGAIN = false;
-                    intent = new Intent(Activity_Home.this, Activity_Expense_Management.class);
+//                    intent = new Intent(Activity_Home.this, Activity_Expense_Management.class);//changed as below
+                    intent = new Intent(Activity_Home.this, Expense_Listing.class);
                     intent.putExtra("title_screen", txt_title_expense_management.getText().toString().trim());
                     startActivity(intent);
                 }
@@ -938,16 +954,16 @@ public class Activity_Home extends AppCompatActivity
                 }
                 break;
             case R.id.linear_Suspecting:
-            if (!isTodayPunchINDone()) {
-                showAttendanceScreen();
-            } else if (isTodayPunchOutDone()) {
-                showPunchOutDialog();
-            } else {
-                FLAG_4_BACK_START_PG_AGAIN = false;
-                intent = new Intent(Activity_Home.this, Suspecting_Main.class);
-                intent.putExtra("title_screen", txt_title_Suspecting.getText().toString().trim());
-                startActivity(intent);
-                   }
+                if (!isTodayPunchINDone()) {
+                    showAttendanceScreen();
+                } else if (isTodayPunchOutDone()) {
+                    showPunchOutDialog();
+                } else {
+                    FLAG_4_BACK_START_PG_AGAIN = false;
+                    intent = new Intent(Activity_Home.this, Suspecting_Main.class);
+                    intent.putExtra("title_screen", txt_title_Suspecting.getText().toString().trim());
+                    startActivity(intent);
+                }
                 break;
             case R.id.linear_Tour_planning:
                 if (!isTodayPunchINDone()) {
@@ -1183,7 +1199,7 @@ public class Activity_Home extends AppCompatActivity
                                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                                     REQUEST_PERMISSIONS_REQUEST_CODE);
                         }
-                    }) .show();
+                    }).show();
         } else {
             // Request permission. It's possible this can be auto answered if device policy
             // sets the permission in a given state or the user denied the permission
@@ -2366,11 +2382,99 @@ public class Activity_Home extends AppCompatActivity
     }
 
     private void initView() {
+        queue = Volley.newRequestQueue(this);
         mTxtTitleTourPlanning = (TextView) findViewById(R.id.txt_title_Tour_planning);
         mLinearTourPlanning = (LinearLayout) findViewById(R.id.linear_Tour_planning);
         mLinearTourPlanning.setOnClickListener(this);
         mTxtTitleNewRetailer = (TextView) findViewById(R.id.txt_title_new_retailer);
         mLinearNewRetailer = (LinearLayout) findViewById(R.id.linear_new_retailer);
         mLinearNewRetailer.setOnClickListener(this);
+        linear_leave_application = findViewById(R.id.linear_leave_application);
+        linear_leave_application.setOnClickListener(this);
+        linear_leave_application.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                login_for_hr();
+            }
+        });
     }
+
+
+    void login_for_hr() {
+        SharedPreferences sharedPreferences;
+
+        sharedPreferences = getSharedPreferences("Login_master",
+                MODE_PRIVATE);
+
+
+        //if (pref.equals("true")){
+        //  mEdtUname.setText(getSharedPref.getUserName() + "");
+        //  mEdtPassword.setText(getSharedPref.getLoginLoginUserPassword() + "");
+        String PASSWORD = String.valueOf(getSharedPref.getLoginLoginUserPassword() + "");
+        String pssword = PASSWORD;
+        /*encrypt password for special characters allowed ***** 27aug 2019 nirali*/
+        try {
+            pssword = URLEncoder.encode(pssword, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        DialogUtils.showProgressDialog(Activity_Home.this, "");
+//        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
+        String url = URLS.LoginCheck + "&userName=" + getSharedPref.getUserName() + "" + "&passWord=" + pssword + "";
+        url.replace(" ", "%20");
+
+        System.out.println("LoginCheck URL " + url + "");
+        StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                DialogUtils.hideProgressDialog();
+
+                System.out.println("response of LoginCheck !!!!!!!!!!! " + response);
+                response = response + "";
+                if (response.length() > 5) {
+                    response = "{\"Data\":" + response + "}";
+
+                    System.out.println("sucess response LoginCheck !!!!!!!!!!!!!!!!!!!" + response + "");
+                    Gson gson = new Gson();
+                    LoginPojo loginPojo = gson.fromJson(response, LoginPojo.class);
+                    if (loginPojo != null) {
+                        if (loginPojo.getData() != null) {
+                            if (loginPojo.getData().get(0) != null) {
+                                if (loginPojo.getData().size() > 0) {
+                                    if (loginPojo.getData().get(0).getStatus().contentEquals("1")) {
+                                        //DialogUtils.Show_Toast(LoginActivity.this,"Login Sucessfully");
+                                        //********* store login data of user ****************
+                                        getSharedPref.storeLoginData(loginPojo.getData().get(0).getStatus() + "", loginPojo.getData().get(0).getUsrm_id() + "", loginPojo.getData().get(0).getEmp_code() + "", loginPojo.getData().get(0).getUsrm_name() + "", loginPojo.getData().get(0).getUsrm_dis_name() + "", loginPojo.getData().get(0).getComp_id() + "", loginPojo.getData().get(0).getUsrm_brm_id() + "", loginPojo.getData().get(0).getCom_name() + "", loginPojo.getData().get(0).getFin_year() + "", loginPojo.getData().get(0).getFin_id() + "", loginPojo.getData().get(0).getFin_start_date() + "", loginPojo.getData().get(0).getFin_end_date() + "", loginPojo.getData().get(0).getEmp_id() + "", loginPojo.getData().get(0).getDepartment() + "", loginPojo.getData().get(0).getReportingto() + "", loginPojo.getData().get(0).getUserphoto() + "", loginPojo.getData().get(0).getDesignation() + "", loginPojo.getData().get(0).getBranch() + "", loginPojo.getData().get(0).getFullName() + "");
+
+                                        Intent payroll_intent = new Intent(Activity_Home.this, com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.MainActivity.class);
+                                        startActivity(payroll_intent);
+                                        // finish();
+
+                                    } else {
+                                        //  DialogUtils.Show_Toast(LoginActivity.this,"Invalid UserName/Password");
+                                    }
+                                }
+
+
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                DialogUtils.Show_Toast(Activity_Home.this, "Please Try Again Later");
+                DialogUtils.hideProgressDialog();
+                System.out.println("errorrrrrrrrrr " + error);
+                System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
+            }
+        });
+        request.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        queue.add(request);
+
+    }
+
 }
