@@ -81,11 +81,11 @@ public class ViewNewsOrNotificationListActivity extends AppCompatActivity implem
                 });
     }
 
-    private void updateReadUnReadStatus(String cnm_id, String cnm_user_id) {
+    private void updateReadUnReadStatus(String cnm_id) {
         DialogUtils.showProgressDialogNotCancelable(ViewNewsOrNotificationListActivity.this, "");
         NewsOrNotificationImplementer.updateReadUnReadStatusApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
-                getSharedPref.getRegisteredUserId(), String.valueOf(getSharedPref.getCompanyId()), cnm_id, cnm_user_id, new Callback<UpdateReadUnReadStatusPojo>() {
+                getSharedPref.getRegisteredUserId(), String.valueOf(getSharedPref.getCompanyId()), cnm_id, getSharedPref.getRegisteredUserId(), new Callback<UpdateReadUnReadStatusPojo>() {
                     @Override
                     public void onResponse(Call<UpdateReadUnReadStatusPojo> call, Response<UpdateReadUnReadStatusPojo> response) {
                         DialogUtils.hideProgressDialog();
