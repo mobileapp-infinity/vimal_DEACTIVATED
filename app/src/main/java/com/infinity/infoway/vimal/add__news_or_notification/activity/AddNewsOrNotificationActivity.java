@@ -95,6 +95,7 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
     private LinearLayout llDepartment;
     private LinearLayout llSelectDesignation;
     private Calendar myCalendar = Calendar.getInstance();
+    private MultipartBody.Part fileToUpload = null;
 
 
     final DatePickerDialog.OnDateSetListener from_date = new DatePickerDialog.OnDateSetListener() {
@@ -236,9 +237,8 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
                 int news_type = Integer.parseInt(broadcastTypeAndIdHashMap.get(broadcastTypeArrayList.get(spSelectBroadcastType.getSelectedItemPosition())).trim());
                 boolean news_high_imp = cbIsHighlyImportant.isChecked();
                 boolean check_all = cbIsSendToAll.isChecked();
-                int user_type;
-                String names;
-                String file = ;
+                int user_type = 0;
+                String names = "";
                 String destory_date = null;
 
                 if (!cbIsSendToAll.isChecked()) {
@@ -260,6 +260,36 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
                 if (!TextUtils.isEmpty(tvDestroyDate.getText().toString())) {
                     destory_date = tvDestroyDate.getText().toString();
                 }
+
+                RequestBody app_version_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
+                RequestBody android_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(android_id));
+                RequestBody device_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(device_id));
+                RequestBody user_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(user_id));
+                RequestBody key_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(key));
+                RequestBody comp_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(comp_id));
+                RequestBody news_content_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(news_content));
+                RequestBody news_type_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(news_type));
+                RequestBody news_high_imp_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(news_high_imp));
+                RequestBody check_all_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(check_all));
+                RequestBody user_type_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(user_type));
+                RequestBody names_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(names));
+                RequestBody destory_date_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(destory_date));
+
+                saveNewsOrNotificationApiCall(
+                        app_version_req,
+                        android_id_req,
+                        device_id_req,
+                        user_id_req,
+                        key_req,
+                        comp_id_req,
+                        news_content_req,
+                        news_type_req,
+                        news_high_imp_req,
+                        check_all_req,
+                        user_type_req,
+                        names_req,
+                        fileToUpload,
+                        destory_date_req);
 
 
             }
@@ -436,7 +466,7 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
                     String singleDynamicFilePath = files.get(0).getPath().trim();
                     File singleDynamicFile = new File(singleDynamicFilePath);
                     RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
-
+                    fileToUpload = MultipartBody.Part.createFormData("file", singleDynamicFile.getName(), requestBody);
                     tvChooseFile.setText(singleDynamicFile.getName());
 
                 }
