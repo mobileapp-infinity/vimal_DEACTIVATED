@@ -14,7 +14,7 @@ public class DepartmentListPojo {//this pojo class response is pending currently
     private String mESSAGE;
     @SerializedName("RECORDS")
     @Expose
-    private List<DepartmentListPojo.RECORD> rECORDS = null;
+    private List<RECORD> rECORDS = null;
 
     public Integer getTOTAL() {
         return tOTAL;
@@ -32,17 +32,16 @@ public class DepartmentListPojo {//this pojo class response is pending currently
         this.mESSAGE = mESSAGE;
     }
 
-    public List<DepartmentListPojo.RECORD> getRECORDS() {
+    public List<RECORD> getRECORDS() {
         return rECORDS;
     }
 
-    public void setRECORDS(List<DepartmentListPojo.RECORD> rECORDS) {
+    public void setRECORDS(List<RECORD> rECORDS) {
         this.rECORDS = rECORDS;
     }
 
     public class RECORD {
-
-        boolean isChecked = false;
+        boolean isChecked;
 
         public boolean isChecked() {
             return isChecked;
@@ -52,19 +51,19 @@ public class DepartmentListPojo {//this pojo class response is pending currently
             isChecked = checked;
         }
 
-        @SerializedName("des_name")
+        @SerializedName("dep_name")
         @Expose
-        private String desName;
+        private String depName;
         @SerializedName("id")
         @Expose
         private Integer id;
 
-        public String getDesName() {
-            return desName;
+        public String getDepName() {
+            return depName;
         }
 
-        public void setDesName(String desName) {
-            this.desName = desName;
+        public void setDepName(String depName) {
+            this.depName = depName;
         }
 
         public Integer getId() {
@@ -76,4 +75,5 @@ public class DepartmentListPojo {//this pojo class response is pending currently
         }
 
     }
+
 }

@@ -8,9 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings.Secure;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -25,6 +22,10 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
@@ -40,8 +41,11 @@ import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -214,12 +218,12 @@ public class Activity_Login extends AppCompatActivity {
                 }
 
             } else {
-                if (getSharedPref.get_customer_type().contentEquals("1")){
+                if (getSharedPref.get_customer_type().contentEquals("1")) {
                     Intent i = new Intent(Activity_Login.this, DashboardActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
                     finish();
-                }else{
+                } else {
                     Intent i = new Intent(Activity_Login.this, Activity_Home.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
@@ -347,14 +351,28 @@ public class Activity_Login extends AppCompatActivity {
                                 }
 
 
-                                if (getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == null) {
+                                getSharedPref.setEmp_out_time(response.body().getEmp_out_time() + "");
+                                getSharedPref.setEmp_IN_time(response.body().getEmp_in_time() + "");
+                                getSharedPref.seis_punch_in_again(response.body().getIs_punch_in_again() + "");
+                                //    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("1");
+                                try {
+                                    if (getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == null || getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == 0) {
 
-                                    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("2");
+                                        getSharedPref.setAPP_LOCATION_INTERVAL_TIME("20");
+                                    }
+                                } catch (Exception e) {
+                                    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("20");
                                 }
 
 
+//                                if (getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == null) {
+//
+//                                    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("2");
+//                                }
+
+
                                 getSharedPref.set_customer_type(response.body().getCustomer_type());
-/*20-03-21 pragna for emp punchout time */
+                                /*20-03-21 pragna for emp punchout time */
                                 getSharedPref.setEmp_out_time(response.body().getEmp_out_time() + "");
 
                                 /*pragna 19-Aug for register firebase token*/
@@ -373,7 +391,7 @@ public class Activity_Login extends AppCompatActivity {
                                     registerFCMToken();
                                 } else {
                                     /**Distributor  added on 1792020**/
-                                    if (getSharedPref.get_customer_type().contentEquals("1")) {
+                                    if (Integer.parseInt(getSharedPref.getLoginCustomerId()) > 0) {
                                         Intent i = new Intent(Activity_Login.this, DashboardActivity.class);
                                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(i);
@@ -486,6 +504,7 @@ public class Activity_Login extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
             if (data.hasExtra("CompanyId")) {
                 resCompanyName = data.getExtras().getString("CompanyName");
@@ -584,18 +603,22 @@ public class Activity_Login extends AppCompatActivity {
                 }
 
 
-                if (getSharedPref.get_customer_type().contentEquals("1")){
+                if (getSharedPref.get_customer_type().contentEquals("1")) {
                     Intent i = new Intent(Activity_Login.this, DashboardActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
                     finish();
-                }else {
+                } else {
+                    try {
+                        SET_PUNCH_OUT();
+                    } catch (Exception e) {
+
+                    }
                     Intent i = new Intent(Activity_Login.this, Activity_Home.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
                     finish();
                 }
-
 
 
             }
@@ -612,4 +635,98 @@ public class Activity_Login extends AppCompatActivity {
 //        Call<LoginResponse> call = apiService.getFCMRegistrationIDRetro()String.valueOf(getSharedPref.getAppVersionCode()),getSharedPref.getAppAndroidId(),String.valueOf(getSharedPref.getRegisteredId()),Config.ACCESS_KEY,getSharedPref.getCompanyId()
     }
 
+    private void SET_PUNCH_OUT() {
+        String punchinData = getSharedPref.getUserPunchInDate();
+        punchinData = punchinData.replace("PUNCH IN:", "");
+        Date date_in = null;
+        Date date_out = null;
+        String punchoutData = getSharedPref.getUserPunchOutDate();
+        try {
+            if (punchinData.contains("PM")) {
+                punchinData = punchinData.replace("PM", "");
+
+            }
+            if (punchinData.contains("AM")) {
+                punchinData = punchinData.replace("AM", "");
+
+            }
+            if (punchinData.contains("pm")) {
+                punchinData = punchinData.replace("pm", "");
+
+            }
+            if (punchinData.contains("am")) {
+                punchinData = punchinData.replace("am", "");
+
+            }
+            if (punchinData.contains("  ")) {
+                punchinData = punchinData.replace("  ", " ");
+
+            }
+
+            //========================
+
+
+            DateFormat inputFormat = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss", Locale.ENGLISH);//16-01-2021 2:12:46
+            //  DateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String punch_in = punchinData + "";
+            System.out.println("this is final string " + punch_in + "");
+            try {
+                date_in = inputFormat.parse(punch_in);
+            } catch (ParseException e) {
+                System.out.println("EROOR!!!!!!!!!!!!!!!!!");
+                e.printStackTrace();
+            }
+            punchoutData = punchoutData.replace("PUNCH OUT:", "");
+
+            if (punchoutData.contains("PM")) {
+                punchoutData = punchoutData.replace("PM", "");
+
+            }
+            if (punchoutData.contains("AM")) {
+                punchoutData = punchoutData.replace("AM", "");
+
+            }
+            if (punchoutData.contains("pm")) {
+                punchoutData = punchoutData.replace("pm", "");
+
+            }
+            if (punchoutData.contains("am")) {
+                punchoutData = punchoutData.replace("am", "");
+
+            }
+            if (punchoutData.contains("  ")) {
+                punchoutData = punchoutData.replace("  ", " ");
+
+            }
+            try {
+                date_out = inputFormat.parse(punchoutData);
+                // String outputDateStr = outputFormat.format(date_out);
+            } catch (ParseException e) {
+                System.out.println("ERROR punchoutData!!!!!!!!!!!!!!!!!");
+                e.printStackTrace();
+            }
+            System.out.println("this is final string " + punch_in + "");
+
+            System.out.println("this is final dateIN " + date_in + "");
+            System.out.println("this is final dateOUT " + date_out + "");
+//            String dtStart = "2010-10-15T09:27:37Z";
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+//            try {
+//                Date date = format.parse(dtStart);
+//                System.out.println(date);
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+
+            if (date_in.after(date_out)) {
+                System.out.println("is after !!!!!!!!!!!!!!!!");
+                getSharedPref.setUserPunchOutDate("");
+            } else {
+                System.out.println("is after or not!!!!!!!!!!!!!!!!");
+            }
+        } catch (Exception e) {
+            System.out.println("error in to setting punch-out");
+            e.printStackTrace();
+        }
+    }
 }

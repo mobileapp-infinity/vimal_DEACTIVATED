@@ -42,8 +42,7 @@ public class UserListPojo {
     }
 
     public class RECORD {
-
-        boolean isChecked = false;
+        boolean isChecked;
 
         public boolean isChecked() {
             return isChecked;

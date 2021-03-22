@@ -50,8 +50,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
         holder.cbUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                record.setChecked(isChecked);
                 iUser.onUserChecked(recordArrayList);
-                holder.cbUser.setChecked(isChecked);
             }
         });
 

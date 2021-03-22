@@ -64,6 +64,11 @@
             android:title="@string/title_report_menu_Suspecting" />
 
         <item
+            android:id="@+id/nav_leave_application"
+            android:icon="@drawable/ic_menu_assignment_black_24dp"
+            android:title="Leave Application" />
+
+        <item
         android:id="@+id/nav_Tour_planning"
         android:icon="@drawable/ic_menu_tour_planning_white_24dp"
         android:title="@string/title_my_schedule_menu" /> <item

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -99,8 +100,6 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
 
 
     final DatePickerDialog.OnDateSetListener from_date = new DatePickerDialog.OnDateSetListener() {
-
-
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
@@ -164,6 +163,11 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
         broadcastTypeArrayList.add("Instruction");
         broadcastTypeAndIdHashMap.put("Instruction", "3");
 
+        ArrayAdapter<String> broadcastTypeAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_common_layout, broadcastTypeArrayList);
+        broadcastTypeAdapter.setDropDownViewResource(R.layout.spinner_common_layout);
+        spSelectBroadcastType.setTitle(SELECT_BROADCAST_TYPE);
+        spSelectBroadcastType.setAdapter(broadcastTypeAdapter);
+
         cbIsSendToAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -204,7 +208,7 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
     }
 
     private boolean isValid() {
-        if (spSelectBroadcastType.getSelectedItemPosition() == 0) {
+        if (spSelectBroadcastType.getSelectedItemPosition() == -1 || spSelectBroadcastType.getSelectedItemPosition() == 0) {
             Toast.makeText(this, "Please select broadcast type", Toast.LENGTH_SHORT).show();
             return false;
         } else if (TextUtils.isEmpty(edtDescription.getText().toString())) {
@@ -442,7 +446,7 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
         selectedDepartmentName = "";
         for (int i = 0; i < recordArrayList.size(); i++) {
             if (recordArrayList.get(i).isChecked()) {
-                selectedDepartmentName = selectedDepartmentName + "," + recordArrayList.get(i).getDesName() + "";
+                selectedDepartmentName = selectedDepartmentName + "," + recordArrayList.get(i).getDepName() + "";
             }
         }
         selectedDepartmentName = selectedDepartmentName.replaceFirst(",", "");

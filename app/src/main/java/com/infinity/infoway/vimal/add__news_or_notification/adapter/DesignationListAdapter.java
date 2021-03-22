@@ -50,8 +50,8 @@ public class DesignationListAdapter extends RecyclerView.Adapter<DesignationList
         holder.cbDesignation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                iDesignation.onDesignationChecked(recordArrayList);
                 record.setChecked(isChecked);
+                iDesignation.onDesignationChecked(recordArrayList);
             }
         });
 

@@ -41,8 +41,7 @@ public class DesignationListPojo {
     }
 
     public class RECORD {
-
-        boolean isChecked = false;
+        boolean isChecked;
 
         public boolean isChecked() {
             return isChecked;
@@ -76,6 +75,5 @@ public class DesignationListPojo {
         }
 
     }
-
 
 }

@@ -42,15 +42,15 @@ public class DeprtmentListAdapter extends RecyclerView.Adapter<DeprtmentListAdap
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         DepartmentListPojo.RECORD record = recordArrayList.get(position);
         holder.cbDepartment.setChecked(record.isChecked());
-        if (!TextUtils.isEmpty(record.getDesName())) {
-            holder.cbDepartment.setText(record.getDesName() + "");
+        if (!TextUtils.isEmpty(record.getDepName())) {
+            holder.cbDepartment.setText(record.getDepName() + "");
         }
 
         holder.cbDepartment.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                iDepartment.onDepartmentChecked(recordArrayList);
                 record.setChecked(isChecked);
+                iDepartment.onDepartmentChecked(recordArrayList);
             }
         });
 

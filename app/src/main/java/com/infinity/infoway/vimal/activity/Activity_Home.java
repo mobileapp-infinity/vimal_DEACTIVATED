@@ -884,6 +884,8 @@ public class Activity_Home extends AppCompatActivity
             mLinearTourPlanning.performClick();
         } else if (id == R.id.nav_new_retailer) {
             mLinearNewRetailer.performClick();
+        } else if (id == R.id.nav_leave_application) {
+            linear_leave_application.performClick();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

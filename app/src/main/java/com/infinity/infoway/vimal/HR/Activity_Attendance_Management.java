@@ -27,6 +27,7 @@ public class Activity_Attendance_Management extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_management);
+        getSupportActionBar().hide();
         if (getIntent().hasExtra("title_screen")) {
             title_screen = getIntent().getExtras().getString("title_screen");
         } else {

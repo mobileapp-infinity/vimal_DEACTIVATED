@@ -17,20 +17,17 @@
             android:title="@string/title_perform_invoice_and_ledger_nav" />
 
 
-
-
-
         <item
             android:id="@+id/nav_vehicle_dispatch_update"
             android:icon="@drawable/vehicleblack"
-            android:visible="true"
-            android:title="@string/title_vehicle_dispatch_update_nav" />
+            android:title="@string/title_vehicle_dispatch_update_nav"
+            android:visible="true" />
 
         <item
             android:id="@+id/nav_update_call_list"
             android:icon="@drawable/updatecallblack"
-            android:visible="true"
-            android:title="@string/title_update_call_list" />
+            android:title="@string/title_update_call_list"
+            android:visible="true" />
         <item
             android:id="@+id/nav_retailer_order_booking"
             android:icon="@drawable/orderbookingblack"
@@ -47,8 +44,8 @@
         <item
             android:id="@+id/nav_salses_stock"
             android:icon="@drawable/stockblack"
-            android:visible="true"
-            android:title="@string/title_sales_and_stock_details_nav" />
+            android:title="@string/title_sales_and_stock_details_nav"
+            android:visible="true" />
 
 
         <item
@@ -74,11 +71,10 @@
         <item
 
 
-
-        android:id="@+id/nav_new_retailer"
-        android:icon="@drawable/menu_supervisor_account_perple_24dp"
-        android:visible="false"
-        android:title="@string/title_nav_Retailer_Management" />
+            android:id="@+id/nav_new_retailer"
+            android:icon="@drawable/menu_supervisor_account_perple_24dp"
+            android:title="@string/title_nav_Retailer_Management"
+            android:visible="false" />
 
         <item
             android:id="@+id/nav_credit_note"
@@ -99,9 +95,17 @@
             android:icon="@drawable/ic_action_blank_expense"
             android:title="Route Planning" />
 
+        <item
+            android:id="@+id/nav_send_notification"
+            android:icon="@drawable/ic_send_noti"
+            android:title="Send Notification" />
+
+
     </group>
 
-    <item android:title="Communicate"  android:visible="false">
+    <item
+        android:title="Communicate"
+        android:visible="false">
         <menu>
             <item
                 android:id="@+id/nav_feedback"

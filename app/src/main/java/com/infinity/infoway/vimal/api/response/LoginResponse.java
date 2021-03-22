@@ -58,6 +58,28 @@ public class LoginResponse {
     @Expose
     private String emp_out_time;
 
+    public String getEmp_in_time() {
+        return emp_in_time;
+    }
+
+    public void setEmp_in_time(String emp_in_time) {
+        this.emp_in_time = emp_in_time;
+    }
+
+    public String getIs_punch_in_again() {
+        return is_punch_in_again;
+    }
+
+    public void setIs_punch_in_again(String is_punch_in_again) {
+        this.is_punch_in_again = is_punch_in_again;
+    }
+
+    @SerializedName("emp_in_time")
+    @Expose
+    private String emp_in_time;   @SerializedName("is_punch_in_again")
+    @Expose
+    private String is_punch_in_again;
+
 
 
 

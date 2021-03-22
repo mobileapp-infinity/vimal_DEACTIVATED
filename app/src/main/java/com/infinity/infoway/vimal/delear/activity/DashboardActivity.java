@@ -1,15 +1,7 @@
 package com.infinity.infoway.vimal.delear.activity;
 
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,8 +12,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.navigation.NavigationView;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Login;
+import com.infinity.infoway.vimal.add__news_or_notification.activity.AddNewsOrNotificationActivity;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningActivity;
 import com.infinity.infoway.vimal.delear.activity.Complaint.ComplainFormActivity;
@@ -36,9 +38,10 @@ import com.infinity.infoway.vimal.delear.activity.SalesAndStockDetails.SalesAndS
 import com.infinity.infoway.vimal.delear.activity.UpdateCallList.UpdateCallListActivity;
 import com.infinity.infoway.vimal.delear.activity.VehicleDispatchUpdate.VehicleDispatchUpdateActivity;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.activity.ScheduleActivity;
-/*import com.infinity.infoway.davat.delear.activity.test.activity.AddScheduleActivity;*/
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
+/*import com.infinity.infoway.davat.delear.activity.test.activity.AddScheduleActivity;*/
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -62,6 +65,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     //remish
     private LinearLayout llTest, llRoutePlanning;
+
+    private LinearLayout llSendNotification;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,6 +142,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         llComplainForm.setOnClickListener(this);
         llCreditNote.setOnClickListener(this);
         llDebitNote.setOnClickListener(this);
+        llSendNotification = findViewById(R.id.llSendNotification);
+        llSendNotification.setOnClickListener(this);
 
 
         /**TextView**/
@@ -260,7 +268,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             Intent debit_note = new Intent(DashboardActivity.this, RoutePlanningActivity.class);
             debit_note.putExtra("title_screen", "Route Plannig");
             startActivity(debit_note);
-
+        } else if (v.getId() == R.id.llSendNotification) {
+            Intent debit_note = new Intent(DashboardActivity.this, AddNewsOrNotificationActivity.class);
+            debit_note.putExtra("title_screen", "Send Notification");
+            startActivity(debit_note);
         }
 
 
@@ -431,6 +442,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             llRoutePlanning.performClick();
         } else if (id == R.id.nav_schedules) {
             llTest.performClick();
+        } else if (id == R.id.nav_send_notification) {
+            llSendNotification.performClick();
         }
 
 
