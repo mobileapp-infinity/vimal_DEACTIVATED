@@ -1010,7 +1010,8 @@
 
 
                 <LinearLayout
-                    android:visibility="invisible"
+                    android:id="@+id/llViewNewsOrNotification"
+                    android:visibility="visible"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_5sdp"
@@ -1039,14 +1040,15 @@
                                 android:layout_height="@dimen/_50sdp"
                                 android:background="@drawable/bg_circle_outstanding"
                                 android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/orderplacetocoampny" />
+                                app:srcCompat="@drawable/ledgerwhite" />
 
                             <TextView
+                                android:id="@+id/tvViewNewsOrNotification"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:gravity="center"
-                                android:text="Schedules"
+                                android:text="View News or Notification"
                                 android:textColor="@color/transparent"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />

@@ -92,6 +92,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.add__news_or_notification.activity.ViewNewsOrNotificationListActivity;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
@@ -246,6 +247,7 @@ public class Activity_Home extends AppCompatActivity
     RequestQueue queue;
 
     private LinearLayout linear_leave_application;
+    private LinearLayout llViewNewsOrNotification;
 
 
     @RequiresPermission("android.permission.WRITE_SETTINGS")
@@ -886,6 +888,8 @@ public class Activity_Home extends AppCompatActivity
             mLinearNewRetailer.performClick();
         } else if (id == R.id.nav_leave_application) {
             linear_leave_application.performClick();
+        } else if (id == R.id.nav_view_news_noti) {
+            llViewNewsOrNotification.performClick();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -2397,6 +2401,16 @@ public class Activity_Home extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 login_for_hr();
+            }
+        });
+        llViewNewsOrNotification = findViewById(R.id.llViewNewsOrNotification);
+        llViewNewsOrNotification.setOnClickListener(this);
+        llViewNewsOrNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewNewsOrNotification = new Intent(Activity_Home.this, ViewNewsOrNotificationListActivity.class);
+                viewNewsOrNotification.putExtra("title_screen", "View News or Notification");
+                startActivity(viewNewsOrNotification);
             }
         });
     }

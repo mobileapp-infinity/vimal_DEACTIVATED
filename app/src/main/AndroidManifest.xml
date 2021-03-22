@@ -45,10 +45,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon,android:allowBackup">
+        <activity android:name=".add__news_or_notification.activity.ViewNewsOrNotificationListActivity"></activity>
         <activity
             android:name=".add__news_or_notification.activity.AddNewsOrNotificationActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".kich_expense.Expense.Expense_Listing"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
@@ -122,6 +123,7 @@
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

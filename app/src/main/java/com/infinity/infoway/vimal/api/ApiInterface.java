@@ -3,7 +3,9 @@ package com.infinity.infoway.vimal.api;
 
 import com.infinity.infoway.vimal.add__news_or_notification.pojo.DepartmentListPojo;
 import com.infinity.infoway.vimal.add__news_or_notification.pojo.DesignationListPojo;
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.GetNewsAndMsgListPojo;
 import com.infinity.infoway.vimal.add__news_or_notification.pojo.SaveNewsOrNotificationPojo;
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.UpdateReadUnReadStatusPojo;
 import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.api.request.Request_GPS_Internet_Bgservice;
 import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
@@ -817,6 +819,26 @@ public interface ApiInterface {
             @Query("comp_id") String comp_id,
             @Query("type") String type,
             @Query("prefixText") String prefixText);
+
+    @GET("Get_News_And_Msg")
+    Call<GetNewsAndMsgListPojo> getNewsAndMsg(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id);
+
+    @GET("Update_News_And_Msg_Read_UnRead")
+    Call<UpdateReadUnReadStatusPojo> updateReadUnReadStatus(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("cnm_id") String cnm_id,
+            @Query("cnm_user_id") String cnm_user_id);
 
 
     @Multipart

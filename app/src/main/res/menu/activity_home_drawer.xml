@@ -69,6 +69,11 @@
             android:title="Leave Application" />
 
         <item
+            android:id="@+id/nav_view_news_noti"
+            android:icon="@drawable/ic_menu_assignment_black_24dp"
+            android:title="View News or Notification" />
+
+        <item
         android:id="@+id/nav_Tour_planning"
         android:icon="@drawable/ic_menu_tour_planning_white_24dp"
         android:title="@string/title_my_schedule_menu" /> <item

@@ -24,6 +24,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Login;
 import com.infinity.infoway.vimal.add__news_or_notification.activity.AddNewsOrNotificationActivity;
+import com.infinity.infoway.vimal.add__news_or_notification.activity.ViewNewsOrNotificationListActivity;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningActivity;
 import com.infinity.infoway.vimal.delear.activity.Complaint.ComplainFormActivity;
@@ -67,6 +68,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private LinearLayout llTest, llRoutePlanning;
 
     private LinearLayout llSendNotification;
+    private LinearLayout llViewNewsOrNotification;
 
 
     @Override
@@ -144,6 +146,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         llDebitNote.setOnClickListener(this);
         llSendNotification = findViewById(R.id.llSendNotification);
         llSendNotification.setOnClickListener(this);
+        llViewNewsOrNotification = findViewById(R.id.llViewNewsOrNotification);
+        llViewNewsOrNotification.setOnClickListener(this);
 
 
         /**TextView**/
@@ -271,6 +275,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         } else if (v.getId() == R.id.llSendNotification) {
             Intent debit_note = new Intent(DashboardActivity.this, AddNewsOrNotificationActivity.class);
             debit_note.putExtra("title_screen", "Send Notification");
+            startActivity(debit_note);
+        } else if (v.getId() == R.id.llViewNewsOrNotification) {
+            Intent debit_note = new Intent(DashboardActivity.this, ViewNewsOrNotificationListActivity.class);
+            debit_note.putExtra("title_screen", "View News or Notification");
             startActivity(debit_note);
         }
 
@@ -444,6 +452,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             llTest.performClick();
         } else if (id == R.id.nav_send_notification) {
             llSendNotification.performClick();
+        } else if (id == R.id.nav_view_news_or_notification) {
+            llViewNewsOrNotification.performClick();
         }
 
 
