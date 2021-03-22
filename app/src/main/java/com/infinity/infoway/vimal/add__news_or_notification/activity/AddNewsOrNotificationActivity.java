@@ -131,6 +131,12 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
         iv_back.setOnClickListener(this);
         tv_title = findViewById(R.id.tv_title);
         tv_title.setText("Add News/Notification");
+        rbtnUser = findViewById(R.id.rbtnUser);
+        rbtnDepartment = findViewById(R.id.rbtnDepartment);
+        rbtnDesignation = findViewById(R.id.rbtnDesignation);
+        llSelectUser = findViewById(R.id.llSelectUser);
+        llDepartment = findViewById(R.id.llDepartment);
+        llSelectDesignation = findViewById(R.id.llSelectDesignation);
 
         spSelectBroadcastType = findViewById(R.id.spSelectBroadcastType);
         cbIsHighlyImportant = findViewById(R.id.cbIsHighlyImportant);
