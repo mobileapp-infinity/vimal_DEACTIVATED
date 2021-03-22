@@ -1,6 +1,10 @@
 package com.infinity.infoway.vimal.api;
 
 
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.DepartmentListPojo;
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.DesignationListPojo;
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.SaveNewsOrNotificationPojo;
+import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.api.request.Request_GPS_Internet_Bgservice;
 import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
 import com.infinity.infoway.vimal.api.request.Request_Save_schedule_status;
@@ -10,7 +14,6 @@ import com.infinity.infoway.vimal.api.response.AddExpenseResponse;
 import com.infinity.infoway.vimal.api.response.Add_RetailerPojo;
 import com.infinity.infoway.vimal.api.response.AreaPojo;
 import com.infinity.infoway.vimal.api.response.City_State_Taluka_CountryPojo;
-import com.infinity.infoway.vimal.api.response.Connection_on_off_notificationResponse;
 import com.infinity.infoway.vimal.api.response.Connection_on_off_notificationResponse_updated;
 import com.infinity.infoway.vimal.api.response.Distributor_Pojo;
 import com.infinity.infoway.vimal.api.response.ExecutivePersonPojo;
@@ -110,7 +113,22 @@ public interface ApiInterface {
             , @Query("gps_flag") String gps_flag);*/
 
 
-   /* @Multipart
+    /* @Multipart
+     @POST("Add_Attendance")
+     Call<AddAttendanceResponse> Add_Attendance(@Part("app_version") RequestBody app_version, @Part("android_id") RequestBody android_id, @Part("device_id") RequestBody device_id, @Part("user_id") RequestBody user_id, @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("branch_id") RequestBody branch_id, @Part("emp_code") RequestBody emp_code
+             , @Part("latitude") RequestBody latitude
+             , @Part("longitude") RequestBody longitude
+             , @Part("location_address") RequestBody location_address
+             , @Part("location_city") RequestBody location_city
+             , @Part("location_district") RequestBody location_district
+             , @Part("location_taluka") RequestBody location_taluka
+             , @Part("location_state") RequestBody location_state
+             , @Part("location_country") RequestBody location_country
+             , @Part("punch_in_out_flag") RequestBody punch_in_out_flag
+             , @Part("gps_flag") RequestBody gps_flag
+             , @Part MultipartBody.Part file);*/
+    /*20-03-2021 pragna for adding early reason*/
+    @Multipart
     @POST("Add_Attendance")
     Call<AddAttendanceResponse> Add_Attendance(@Part("app_version") RequestBody app_version, @Part("android_id") RequestBody android_id, @Part("device_id") RequestBody device_id, @Part("user_id") RequestBody user_id, @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("branch_id") RequestBody branch_id, @Part("emp_code") RequestBody emp_code
             , @Part("latitude") RequestBody latitude
@@ -123,25 +141,11 @@ public interface ApiInterface {
             , @Part("location_country") RequestBody location_country
             , @Part("punch_in_out_flag") RequestBody punch_in_out_flag
             , @Part("gps_flag") RequestBody gps_flag
-            , @Part MultipartBody.Part file);*/
-   /*20-03-2021 pragna for adding early reason*/
-   @Multipart
-   @POST("Add_Attendance")
-   Call<AddAttendanceResponse> Add_Attendance(@Part("app_version") RequestBody app_version, @Part("android_id") RequestBody android_id, @Part("device_id") RequestBody device_id, @Part("user_id") RequestBody user_id, @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("branch_id") RequestBody branch_id, @Part("emp_code") RequestBody emp_code
-           , @Part("latitude") RequestBody latitude
-           , @Part("longitude") RequestBody longitude
-           , @Part("location_address") RequestBody location_address
-           , @Part("location_city") RequestBody location_city
-           , @Part("location_district") RequestBody location_district
-           , @Part("location_taluka") RequestBody location_taluka
-           , @Part("location_state") RequestBody location_state
-           , @Part("location_country") RequestBody location_country
-           , @Part("punch_in_out_flag") RequestBody punch_in_out_flag
-           , @Part("gps_flag") RequestBody gps_flag
-           , @Part("early_reason") RequestBody early_reason
+            , @Part("early_reason") RequestBody early_reason
 
-           , @Part MultipartBody.Part file
-   );
+            , @Part MultipartBody.Part file
+    );
+
     @GET("Get_Attendance_List")
     Call<GetAttendanceResponse> Get_Attendance_List(@Query("app_version") String app_version, @Query("android_id") String android_id, @Query("device_id") String device_id, @Query("user_id") String user_id, @Query("key") String key, @Query("comp_id") String comp_id, @Query("branch_id") String branch_id, @Query("fdt") String fdt, @Query("tdt") String tdt);
 
@@ -777,5 +781,62 @@ public interface ApiInterface {
             , @Part List<MultipartBody.Part> file
             , @PartMap HashMap<String, RequestBody> ref_detail_id,
                                                                   @Part("ref_mst_id") RequestBody ref_mst_id);//
+
+
+    //added by remish
+    @GET("Get_For_send_user_designation_department_notification")
+    Call<UserListPojo> getUser(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("type") String type,
+            @Query("prefixText") String prefixText);
+
+
+    @GET("Get_For_send_user_designation_department_notification")
+    Call<DesignationListPojo> getDesignation(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("type") String type,
+            @Query("prefixText") String prefixText);
+
+    @GET("Get_For_send_user_designation_department_notification")
+    Call<DepartmentListPojo> getDepartment(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("type") String type,
+            @Query("prefixText") String prefixText);
+
+
+    @Multipart
+    @POST("save_news_and_notification")
+    Call<SaveNewsOrNotificationPojo> saveNewsAndNotification(
+            @Part("app_version") RequestBody app_version,
+            @Part("android_id") RequestBody android_id,
+            @Part("device_id") RequestBody device_id,
+            @Part("user_id") RequestBody user_id,
+            @Part("key") RequestBody key,
+            @Part("comp_id") RequestBody comp_id,
+            @Part("news_content") RequestBody news_content,
+            @Part("news_type") RequestBody news_type,
+            @Part("news_high_imp") RequestBody news_high_imp,
+            @Part("check_all") RequestBody check_all,
+            @Part("user_type") RequestBody user_type,
+            @Part("names") RequestBody names,
+            @Part MultipartBody.Part file,
+            @Part("destory_date") RequestBody destory_date
+    );
+
 
 }
