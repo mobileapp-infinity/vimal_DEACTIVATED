@@ -77,9 +77,6 @@ public class ReadNotificationFragment extends Fragment {
                         DialogUtils.hideProgressDialog();
                         try {
                             if (response.isSuccessful() && response.body() != null && response.body().getRECORDS().size() > 0) {
-                                readNoti.setVisibility(View.VISIBLE);
-                                tvNoDataFound.setVisibility(View.GONE);
-
                                 ArrayList<GetNewsAndMsgListPojo.RECORD> recordArrayList = new ArrayList<>();
 
                                 for (int i = 0; i < response.body().getRECORDS().size(); i++) {
@@ -88,7 +85,11 @@ public class ReadNotificationFragment extends Fragment {
                                     }
                                 }
 
-                                readNoti.setAdapter(new ReadNotificationListAdapter(context, recordArrayList));
+                                if (recordArrayList.size() > 0) {
+                                    readNoti.setVisibility(View.VISIBLE);
+                                    tvNoDataFound.setVisibility(View.GONE);
+                                    readNoti.setAdapter(new ReadNotificationListAdapter(context, recordArrayList));
+                                }
                             } else {
                                 readNoti.setVisibility(View.GONE);
                                 tvNoDataFound.setVisibility(View.VISIBLE);

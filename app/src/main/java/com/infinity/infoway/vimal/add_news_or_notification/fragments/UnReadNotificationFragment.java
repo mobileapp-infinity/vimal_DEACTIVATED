@@ -1,6 +1,5 @@
 package com.infinity.infoway.vimal.add_news_or_notification.fragments;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.add_news_or_notification.NewsOrNotificationImplementer;
+import com.infinity.infoway.vimal.add_news_or_notification.activity.ViewNewsOrNotificationListActivity;
 import com.infinity.infoway.vimal.add_news_or_notification.adapter.UnReadNotificationListAdapter;
 import com.infinity.infoway.vimal.add_news_or_notification.pojo.GetNewsAndMsgListPojo;
 import com.infinity.infoway.vimal.database.SharedPref;
@@ -26,11 +26,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UnReadNotificationFragment extends Fragment {
+public class UnReadNotificationFragment extends Fragment implements UnReadNotificationListAdapter.IOnListEmpty {
 
     private SharedPref getSharedPref;
     private RecyclerView unreadNoti;
-    private Activity context;
+    private Context context;
     private TextView tvNoDataFound;
 
     public UnReadNotificationFragment() {
@@ -40,7 +40,7 @@ public class UnReadNotificationFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        this.context = (Activity) context;
+        this.context = (ViewNewsOrNotificationListActivity) context;
     }
 
     @Override
@@ -50,6 +50,7 @@ public class UnReadNotificationFragment extends Fragment {
         initView(view);
         getAllNewsOrNotificationListApiCall();
         return view;
+
     }
 
     private void initView(View view) {
@@ -62,6 +63,9 @@ public class UnReadNotificationFragment extends Fragment {
         unreadNoti.setVisibility(View.GONE);
         tvNoDataFound.setVisibility(View.VISIBLE);
         DialogUtils.showProgressDialogNotCancelable(context, "");
+        //            NewsOrNotificationImplementer.getNewsAndMsgApiImplementer(String.valueOf("0"),
+//                    "testing", String.valueOf("0"),
+//                    "1", String.valueOf("28"), new Callback<GetNewsAndMsgListPojo>() {
         NewsOrNotificationImplementer.getNewsAndMsgApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
                 getSharedPref.getRegisteredUserId(), String.valueOf(getSharedPref.getCompanyId()), new Callback<GetNewsAndMsgListPojo>() {
@@ -70,9 +74,19 @@ public class UnReadNotificationFragment extends Fragment {
                         DialogUtils.hideProgressDialog();
                         try {
                             if (response.isSuccessful() && response.body() != null && response.body().getRECORDS().size() > 0) {
-                                unreadNoti.setVisibility(View.VISIBLE);
-                                tvNoDataFound.setVisibility(View.GONE);
-                                unreadNoti.setAdapter(new UnReadNotificationListAdapter(context, (ArrayList<GetNewsAndMsgListPojo.RECORD>) response.body().getRECORDS()));
+                                ArrayList<GetNewsAndMsgListPojo.RECORD> recordArrayList = new ArrayList<>();
+
+                                for (int i = 0; i < response.body().getRECORDS().size(); i++) {
+                                    if (response.body().getRECORDS().get(i).getIsRead() == 0){
+                                        recordArrayList.add(response.body().getRECORDS().get(i));
+                                    }
+                                }
+                                if (recordArrayList.size() > 0){
+                                    unreadNoti.setVisibility(View.VISIBLE);
+                                    tvNoDataFound.setVisibility(View.GONE);
+                                    unreadNoti.setAdapter(new UnReadNotificationListAdapter(context, recordArrayList,UnReadNotificationFragment.this));
+                                }
+
                             } else {
                                 unreadNoti.setVisibility(View.GONE);
                                 tvNoDataFound.setVisibility(View.VISIBLE);
@@ -95,4 +109,10 @@ public class UnReadNotificationFragment extends Fragment {
                 });
     }
 
+
+    @Override
+    public void onClear() {
+        unreadNoti.setVisibility(View.GONE);
+        tvNoDataFound.setVisibility(View.VISIBLE);
+    }
 }

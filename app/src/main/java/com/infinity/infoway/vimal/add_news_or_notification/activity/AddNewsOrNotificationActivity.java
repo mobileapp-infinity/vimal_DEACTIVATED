@@ -509,6 +509,7 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
                         try {
                             if (response.isSuccessful() && response.body() != null && response.body().getFLAG() == 1) {
                                 Toast.makeText(AddNewsOrNotificationActivity.this, "" + response.body().getMESSAGE(), Toast.LENGTH_SHORT).show();
+                                finish();
                             } else {
                                 Toast.makeText(AddNewsOrNotificationActivity.this, "Something went wrong,Please try again later.", Toast.LENGTH_SHORT).show();
                             }
