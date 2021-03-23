@@ -70,7 +70,7 @@
 
         <item
             android:id="@+id/nav_view_news_noti"
-            android:icon="@drawable/ic_menu_assignment_black_24dp"
+            android:icon="@drawable/view_leave_dra_black"
             android:title="View News or Notification" />
 
         <item
