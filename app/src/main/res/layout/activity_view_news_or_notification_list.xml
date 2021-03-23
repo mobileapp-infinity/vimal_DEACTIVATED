@@ -2,23 +2,50 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".add__news_or_notification.activity.ViewNewsOrNotificationListActivity">
-
-    <include
-        android:id="@+id/header"
-        layout="@layout/header" />
+    tools:context=".add_news_or_notification.activity.ViewNewsOrNotificationListActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <include
+            android:id="@+id/header"
+            layout="@layout/header" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabNewsAndNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabUnReadNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UnRead Notification" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabReadNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read Notificaiton" />
+
+
+        </com.google.android.material.tabs.TabLayout>
 
     </LinearLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpReadAndUnReadNotification"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 
 </LinearLayout>

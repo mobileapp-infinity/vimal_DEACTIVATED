@@ -1,12 +1,12 @@
 package com.infinity.infoway.vimal.api;
 
 
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DepartmentListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DesignationListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.GetNewsAndMsgListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.SaveNewsOrNotificationPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UpdateReadUnReadStatusPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DepartmentListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DesignationListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.GetNewsAndMsgListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.SaveNewsOrNotificationPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UpdateReadUnReadStatusPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.api.request.Request_GPS_Internet_Bgservice;
 import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;
 import com.infinity.infoway.vimal.api.request.Request_Save_schedule_status;

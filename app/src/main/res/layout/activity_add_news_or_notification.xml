@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".add__news_or_notification.activity.AddNewsOrNotificationActivity">
+    tools:context=".add_news_or_notification.activity.AddNewsOrNotificationActivity">
 
     <include
         android:id="@+id/header"

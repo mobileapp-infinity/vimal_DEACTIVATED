@@ -1,4 +1,4 @@
-package com.infinity.infoway.vimal.add__news_or_notification.adapter;
+package com.infinity.infoway.vimal.add_news_or_notification.adapter;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.infinity.infoway.vimal.R;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UserListPojo;
 
 import java.util.ArrayList;
 

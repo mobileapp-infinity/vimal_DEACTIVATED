@@ -92,7 +92,7 @@ import com.google.gson.Gson;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
 import com.infinity.infoway.vimal.R;
-import com.infinity.infoway.vimal.add__news_or_notification.activity.ViewNewsOrNotificationListActivity;
+import com.infinity.infoway.vimal.add_news_or_notification.activity.ViewNewsOrNotificationListActivity;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.api.request.Request_Insert_Location_Sync;

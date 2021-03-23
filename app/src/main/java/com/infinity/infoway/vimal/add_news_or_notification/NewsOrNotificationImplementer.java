@@ -1,11 +1,11 @@
-package com.infinity.infoway.vimal.add__news_or_notification;
+package com.infinity.infoway.vimal.add_news_or_notification;
 
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DepartmentListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DesignationListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.GetNewsAndMsgListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.SaveNewsOrNotificationPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UpdateReadUnReadStatusPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DepartmentListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DesignationListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.GetNewsAndMsgListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.SaveNewsOrNotificationPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UpdateReadUnReadStatusPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.config.Config;

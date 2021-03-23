@@ -45,9 +45,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon,android:allowBackup">
-        <activity android:name=".add__news_or_notification.activity.ViewNewsOrNotificationListActivity"></activity>
+        <activity android:name=".add_news_or_notification.activity.ViewNewsOrNotificationListActivity"></activity>
         <activity
-            android:name=".add__news_or_notification.activity.AddNewsOrNotificationActivity"
+            android:name=".add_news_or_notification.activity.AddNewsOrNotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

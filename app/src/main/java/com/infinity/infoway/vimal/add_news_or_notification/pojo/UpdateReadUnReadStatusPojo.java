@@ -1,4 +1,4 @@
-package com.infinity.infoway.vimal.add__news_or_notification.pojo;
+package com.infinity.infoway.vimal.add_news_or_notification.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

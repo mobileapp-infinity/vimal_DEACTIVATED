@@ -1,11 +1,12 @@
-package com.infinity.infoway.vimal.add__news_or_notification.pojo;
+package com.infinity.infoway.vimal.add_news_or_notification.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DesignationListPojo {
+public class UserListPojo {
+
     @SerializedName("TOTAL")
     @Expose
     private Integer tOTAL;
@@ -51,19 +52,19 @@ public class DesignationListPojo {
             isChecked = checked;
         }
 
-        @SerializedName("des_name")
+        @SerializedName("usrm_name")
         @Expose
-        private String desName;
+        private String usrmName;
         @SerializedName("id")
         @Expose
         private Integer id;
 
-        public String getDesName() {
-            return desName;
+        public String getUsrmName() {
+            return usrmName;
         }
 
-        public void setDesName(String desName) {
-            this.desName = desName;
+        public void setUsrmName(String usrmName) {
+            this.usrmName = usrmName;
         }
 
         public Integer getId() {

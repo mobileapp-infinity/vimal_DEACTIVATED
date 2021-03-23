@@ -1,4 +1,4 @@
-package com.infinity.infoway.vimal.add__news_or_notification.activity;
+package com.infinity.infoway.vimal.add_news_or_notification.activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -21,14 +21,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.infinity.infoway.vimal.R;
-import com.infinity.infoway.vimal.add__news_or_notification.NewsOrNotificationImplementer;
-import com.infinity.infoway.vimal.add__news_or_notification.adapter.DeprtmentListAdapter;
-import com.infinity.infoway.vimal.add__news_or_notification.adapter.DesignationListAdapter;
-import com.infinity.infoway.vimal.add__news_or_notification.adapter.UserListAdapter;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DepartmentListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.DesignationListPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.SaveNewsOrNotificationPojo;
-import com.infinity.infoway.vimal.add__news_or_notification.pojo.UserListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.NewsOrNotificationImplementer;
+import com.infinity.infoway.vimal.add_news_or_notification.adapter.DeprtmentListAdapter;
+import com.infinity.infoway.vimal.add_news_or_notification.adapter.DesignationListAdapter;
+import com.infinity.infoway.vimal.add_news_or_notification.adapter.UserListAdapter;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DepartmentListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.DesignationListPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.SaveNewsOrNotificationPojo;
+import com.infinity.infoway.vimal.add_news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
