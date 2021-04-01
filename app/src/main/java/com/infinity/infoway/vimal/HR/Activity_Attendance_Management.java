@@ -87,7 +87,7 @@ public class Activity_Attendance_Management extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
     }
 

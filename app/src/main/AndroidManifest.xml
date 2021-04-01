@@ -55,13 +55,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".kich_expense.Expense.Expense_Listing"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".kich_expense.Expense.Expense_Save"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".kich_expense.Expense.Expense_Save_U"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".delear.RoutePlanning.RoutePlanningCopyOrViewActivity"
             android:parentActivityName=".delear.RoutePlanning.RoutePlanningListActivity" />

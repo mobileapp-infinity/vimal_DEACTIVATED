@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,7 +48,7 @@ public class Expense_Listing extends AppCompatActivity implements View.OnClickLi
     /**
      * Kich
      */
-    private CustomTextView tv_title;
+    private AppCompatTextView tv_title;
     private Toolbar toolbar;
     private LinearLayout toolbarContainer;
     private RecyclerView list;
@@ -167,7 +168,7 @@ public class Expense_Listing extends AppCompatActivity implements View.OnClickLi
         getSharedPref = new SharedPref(Expense_Listing.this);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_back.setOnClickListener(this);
-        tv_title = (CustomTextView) findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.tv_title);
         tv_title.setText("Expenses");
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbarContainer = (LinearLayout) findViewById(R.id.toolbarContainer);

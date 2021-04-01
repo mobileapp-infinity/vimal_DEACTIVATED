@@ -358,10 +358,10 @@ public class Activity_Login extends AppCompatActivity {
                                 try {
                                     if (getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == null || getSharedPref.getAPP_LOCATION_INTERVAL_TIME() == 0) {
 
-                                        getSharedPref.setAPP_LOCATION_INTERVAL_TIME("20");
+                                        getSharedPref.setAPP_LOCATION_INTERVAL_TIME("30");
                                     }
                                 } catch (Exception e) {
-                                    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("20");
+                                    getSharedPref.setAPP_LOCATION_INTERVAL_TIME("30");
                                 }
 
 

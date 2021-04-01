@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/header"
-        layout="@layout/header"></include>
+        layout="@layout/header"/>
 
     <LinearLayout
         android:id="@+id/ll_btn_header"

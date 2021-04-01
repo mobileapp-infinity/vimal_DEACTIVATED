@@ -688,11 +688,11 @@ public class SharedPref {
         SharedPreferences getReg = PreferenceManager
                 .getDefaultSharedPreferences(context);
         String s = getReg.getString("APP_LOCATION_INTERVAL_TIME", "");
-        int time_to_send = 20;
+        int time_to_send = 30;
         try {
             time_to_send = Integer.parseInt(s + "");
         } catch (Exception e) {
-            time_to_send = 20;
+            time_to_send = 30;
         }
         return time_to_send;
     }

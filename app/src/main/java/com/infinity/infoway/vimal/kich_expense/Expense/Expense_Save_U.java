@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -164,7 +163,7 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
         String getAllCityUrl = URLS.Get_All_City + "&app_version=" + getSharedPref.getAppVersionCode() +
                 "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() +
                 "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY +
-                "&comp_id=" + getSharedPref.getCompanyId() + "&state_id=" + "0" + "";
+                "&comp_id=" + getSharedPref.getCompanyId() +"&branch_id="+"0"+  "&state_id=" + "0" + "";
 
         getAllCityUrl = getAllCityUrl.replace(" ", "%20");
         StringRequest request = new StringRequest(Request.Method.GET, getAllCityUrl, new Response.Listener<String>() {

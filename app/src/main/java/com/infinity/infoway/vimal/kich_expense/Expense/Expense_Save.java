@@ -2,7 +2,6 @@ package com.infinity.infoway.vimal.kich_expense.Expense;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,11 +12,11 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
@@ -74,7 +73,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
     /**
      * Kich
      */
-    private CustomTextView tv_title;
+    private AppCompatTextView tv_title;
     private ImageView iv_add;
     private Toolbar toolbar;
     private LinearLayout toolbarContainer;
@@ -233,7 +232,7 @@ public class Expense_Save extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_back.setOnClickListener(this);
-        tv_title = (CustomTextView) findViewById(R.id.tv_title);
+        tv_title =  findViewById(R.id.tv_title);
         tv_title.setText("Add Expense");
         iv_add = (ImageView) findViewById(R.id.iv_add);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
