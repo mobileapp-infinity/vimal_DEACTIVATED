@@ -66,7 +66,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                        android:layout_weight="1"/>
                     <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
@@ -75,7 +75,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                        android:layout_weight="1"/>
                     <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textSize="@dimen/text_size"
@@ -84,7 +84,7 @@
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                        android:layout_weight="1"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -97,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
-                        android:divider="@null"></ListView>
+                        android:divider="@null"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView >
