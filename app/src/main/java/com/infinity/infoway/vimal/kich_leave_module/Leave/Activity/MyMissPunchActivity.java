@@ -45,22 +45,26 @@ public class MyMissPunchActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_miss_punch);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_act);
-        setSupportActionBar(toolbar);
-        iv_back = (ImageView) findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
+        try {
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_act);
+            setSupportActionBar(toolbar);
+            iv_back = (ImageView) findViewById(R.id.iv_back);
+            iv_back.setOnClickListener(new View.OnClickListener()
             {
-                onBackPressed();
-            }
-        });
-        txt_act = (CustomBoldTextView) findViewById(R.id.txt_act);
-        txt_act.setText("View Miss Punch");
-        initView();
+                @Override
+                public void onClick(View v)
+                {
+                    onBackPressed();
+                }
+            });
+            txt_act = (CustomBoldTextView) findViewById(R.id.txt_act);
+            txt_act.setText("View Miss Punch");
+            initView();
 
-        MyMissPunchViewAPICall(1);
+            MyMissPunchViewAPICall(1);
+        }catch (Throwable ex){
+         ex.printStackTrace();
+        }
     }
 
     List<MissPunchListPojo.DataBean> listall;
