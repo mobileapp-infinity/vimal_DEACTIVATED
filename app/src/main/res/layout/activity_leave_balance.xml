@@ -14,23 +14,26 @@
         android:layout_marginBottom="40dp"
         android:gravity="center"
         android:orientation="vertical">
+
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_leave_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:id="@+id/card_leave_balance"
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="true"
             card_view:contentPadding="3dp"
             card_view:elevation="36dp">
+
             <ListView
                 android:id="@+id/lv_balance_leave"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@null"></ListView>
+                android:divider="@null" />
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,7 +68,7 @@
                         android:gravity="left|center"
                         android:text="Leave Type"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                        android:textSize="@dimen/text_size"/>
 
                     <com.infinity.infoway.vimal.util.common.CustomBoldTextView
                         android:layout_width="0dp"
@@ -76,7 +79,8 @@
                         android:paddingLeft="10dp"
                         android:text="Balance"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+                        android:textSize="@dimen/text_size"/>
+
                 </LinearLayout>
 
 
@@ -111,7 +115,7 @@
                             android:padding="15dp"
                             android:text="Compulsorry Off"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
 
                         <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
@@ -124,7 +128,7 @@
                             android:paddingLeft="15dp"
                             android:text="0"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -150,7 +154,7 @@
                             android:padding="15dp"
                             android:text="Casual Leave"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
 
                         <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
@@ -163,7 +167,7 @@
                             android:paddingLeft="15dp"
                             android:text="10"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -190,7 +194,7 @@
 
                             android:text="Medical Leave"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
 
                         <com.infinity.infoway.vimal.util.common.CustomTextView
                             android:layout_width="0dp"
@@ -200,11 +204,10 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:padding="15dp"
-
                             android:paddingLeft="15dp"
                             android:text="6"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                            android:textSize="@dimen/text_size"/>
                     </LinearLayout>
 
                     <View

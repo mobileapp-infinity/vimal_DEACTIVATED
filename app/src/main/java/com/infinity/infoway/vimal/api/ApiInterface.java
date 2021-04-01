@@ -394,12 +394,17 @@ public interface ApiInterface {
     /**
      * Insert_RoutWise_FeedBack  added on 23-09-2020
      **/
+    @Headers({
+            "Accept: application/json"
+
+    })
+    @Multipart
     @POST("Insert_RoutWise_FeedBack")
-    Call<Insert_RoutWise_FeedBack_Pojo> insert_routWise_feedBack(@Query("app_version") String app_version,
-                                                                 @Query("android_id") String android_id,
-                                                                 @Query("device_id") String device_id,
-                                                                 @Query("user_id") String user_id,
-                                                                 @Query("key") String key, @Query("comp_id") String comp_id, @Query("retailer_name") String retailer_name, @Query("shop_name") String shop_name, @Query("mobile_no") String mobile_no, @Query("area_name") String area_name, @Query("village_name") String village_name, @Query("city_name") String city_name, @Query("district_name") String district_name, @Query("Feedback") String Feedback);
+    Call<Insert_RoutWise_FeedBack_Pojo> insert_routWise_feedBack(@Part("app_version") RequestBody app_version,
+                                                                 @Part("android_id") RequestBody android_id,
+                                                                 @Part("device_id") RequestBody device_id,
+                                                                 @Part("user_id") RequestBody user_id,
+                                                                 @Part("key") RequestBody key, @Part("comp_id") RequestBody comp_id, @Part("retailer_name") RequestBody retailer_name, @Part("shop_name") RequestBody shop_name, @Part("mobile_no") RequestBody mobile_no, @Part("area_name") RequestBody area_name, @Part("village_name") RequestBody village_name, @Part("city_name") RequestBody city_name, @Part("district_name") RequestBody district_name, @Part("Feedback") RequestBody Feedback, @Part MultipartBody.Part file);
 
 
     /**

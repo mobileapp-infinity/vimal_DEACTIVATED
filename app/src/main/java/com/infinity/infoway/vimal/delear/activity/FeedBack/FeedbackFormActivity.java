@@ -2,33 +2,30 @@ package com.infinity.infoway.vimal.delear.activity.FeedBack;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.textfield.TextInputLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Select_City;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
-import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.activity.fragment.FeedbackFragment;
 import com.infinity.infoway.vimal.delear.activity.fragment.FeedbackReport;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FeedbackFormActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,7 +35,7 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
     String title_screen = "";
 
     private TextInputLayout tv_input_retailer_name, tv_input_shop_name, tv_input_mobile, tv_input_area, tv_input_village, tv_input_city, tv_input_district, tv_input_feedback;
-    private EditText et_select_retailer_name, et_feedback, et_shop_name, et_mobile, et_area, et_village, et_city, et_district;
+    private EditText et_select_retailer_name, et_feedback, et_shop_name, et_mobile, et_area, et_village, et_city, et_district, et_feedback_attachment;
     Button btn_submit_feedback;
 
 
@@ -48,6 +45,7 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
 
     private ApiInterface apiService;
     private ProgressDialog progDialog;
+    private ImageView feedback_image_close;
     private SharedPref getSharedPref;
 
     /**
@@ -62,6 +60,7 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
     /**
      * Fragment added on 24_9_2020
      **/
+
 
     ConstraintLayout main_feed_back;
 
@@ -119,10 +118,12 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
         et_city = (EditText) findViewById(R.id.et_city);
         et_district = (EditText) findViewById(R.id.et_district);
         et_feedback = (EditText) findViewById(R.id.et_feedback);
+        et_feedback_attachment = (EditText) findViewById(R.id.et_feedback_attachment);
 
         /** Button **/
         btn_submit_feedback = (Button) findViewById(R.id.btn_submit_feedback);
         btn_submit_feedback.setOnClickListener(this);
+        et_feedback_attachment.setOnClickListener(this);
 
 
     }
@@ -188,7 +189,7 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
         } catch (Exception ex) {
         }
 
-        Call<Insert_RoutWise_FeedBack_Pojo> call = apiService.insert_routWise_feedBack(
+      /*  Call<Insert_RoutWise_FeedBack_Pojo> call = apiService.insert_routWise_feedBack(
                 getSharedPref.getAppVersionCode() + "",
                 getSharedPref.getAppAndroidId() + "",
                 getSharedPref.getRegisteredId() + "",
@@ -202,9 +203,9 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
                 DISTRICT_NAME, Feedback
 
 
-        );
+        );*/
 
-        call.enqueue(new Callback<Insert_RoutWise_FeedBack_Pojo>() {
+       /* call.enqueue(new Callback<Insert_RoutWise_FeedBack_Pojo>() {
             @Override
             public void onResponse(Call<Insert_RoutWise_FeedBack_Pojo> call, Response<Insert_RoutWise_FeedBack_Pojo> response) {
                 if (response.isSuccessful()) {
@@ -227,7 +228,7 @@ public class FeedbackFormActivity extends AppCompatActivity implements View.OnCl
 
             }
         });
-
+*/
 
     }
 

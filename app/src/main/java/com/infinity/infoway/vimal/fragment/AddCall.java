@@ -26,13 +26,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.provider.MediaStore;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.FileProvider;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -50,9 +43,17 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Select_City;
@@ -934,6 +935,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
 
             bottomSheetDialog.show();
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
     private long lastClickTime = 0;

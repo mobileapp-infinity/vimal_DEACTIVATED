@@ -1,8 +1,6 @@
 package com.infinity.infoway.vimal.delear.activity.FeedBack;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.infinity.infoway.vimal.R;
 
@@ -36,8 +37,8 @@ public class RetailerAdapter extends RecyclerView.Adapter<RetailerAdapter.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(context).inflate(R.layout.layout_item_select_city,parent,false);
-       return new MyViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.layout_item_select_city,parent,false);
+        return new MyViewHolder(view);
     }
 
     @Override

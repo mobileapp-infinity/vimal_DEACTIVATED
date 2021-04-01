@@ -2,8 +2,6 @@ package com.infinity.infoway.vimal.delear.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ScrollView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Select_City;
 import com.infinity.infoway.vimal.api.ApiClient;
@@ -506,6 +507,8 @@ public class RetailerManagementForRetailerActivity extends AppCompatActivity
                                 if (customer_id_list.get(k).equals(Cus_Id)) {
                                     System.out.println("name----------------------------------------" + customer_id_list.get(k));
                                     ed_distributor.setText(listDistributorResponse.get(k).getCus_name().toString());
+                                    ed_distributor.setEnabled(false);
+                                    ed_distributor.setClickable(false);
                                     break;
                                 }
 

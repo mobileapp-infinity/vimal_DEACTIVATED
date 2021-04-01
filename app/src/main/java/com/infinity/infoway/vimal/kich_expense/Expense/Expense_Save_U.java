@@ -45,7 +45,6 @@ import com.jaiselrahman.filepicker.model.MediaFile;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -393,7 +392,7 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
                             modeOfTransport = Integer.parseInt(recordArrayListUpdated.get(i).getSelectedModeOfTransportId());
                         }
 
-                        jsonObject.put("expense_amount", Integer.parseInt(recordArrayListUpdated.get(i).getAmount()));
+                        jsonObject.put("expense_amount",(int) Double.parseDouble(recordArrayListUpdated.get(i).getAmount()));
                         jsonObject.put("description", recordArrayListUpdated.get(i).getDescription());
                         jsonObject.put("expense_id", recordArrayListUpdated.get(i).getID());
                         jsonObject.put("expense_name", recordArrayListUpdated.get(i).getNAME());
@@ -404,7 +403,7 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
                         jsonObject.put("visit_city_id", 0);
                         jsonObject.put("night_halt_city_id", 0);
 
-                    } catch (JSONException e) {
+                    } catch (Throwable e) {
                         e.printStackTrace();
                     }
                     jsonArray.put(jsonObject);
