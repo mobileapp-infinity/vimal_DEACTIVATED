@@ -111,7 +111,7 @@ public class UnReadNotificationListAdapter extends RecyclerView.Adapter<UnReadNo
                             if (response.isSuccessful() && response.body() != null && response.body().getRECORDS().size() > 0) {
                                 Toast.makeText(context, "" + response.body().getMESSAGE(), Toast.LENGTH_SHORT).show();
                                 recordArrayList.remove(pos);
-                                notifyItemRemoved(pos);
+                                notifyDataSetChanged();
                                 if (recordArrayList.size() <= 0){
                                     iOnListEmpty.onClear();
                                 }
