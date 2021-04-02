@@ -26,8 +26,10 @@ import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.MySharedPrefereces;
 import com.infinity.infoway.vimal.util.common.URLS;
-public class LeaveBalanceActivity extends AppCompatActivity
-{
+
+import java.util.Calendar;
+
+public class LeaveBalanceActivity extends AppCompatActivity {
     CustomBoldTextView txt_act;
     ImageView iv_back;
     ListView lv_balance_leave;
@@ -40,19 +42,16 @@ public class LeaveBalanceActivity extends AppCompatActivity
     CardView card_leave_balance;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leave_balance);
-        card_leave_balance = (CardView)findViewById(R.id.card_leave_balance);
+        card_leave_balance = (CardView) findViewById(R.id.card_leave_balance);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_act);
         setSupportActionBar(toolbar);
         iv_back = (ImageView) findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener()
-        {
+        iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 onBackPressed();
             }
         });
@@ -66,13 +65,10 @@ public class LeaveBalanceActivity extends AppCompatActivity
         PackageInfo pInfo = null;
         assert pInfo != null;
 
-        try
-        {
+        try {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
 
-        }
-        catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -84,18 +80,19 @@ public class LeaveBalanceActivity extends AppCompatActivity
         LeaveBalanceAPICall();
     }
 
+    int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
     //********** leave balance dislay as per web *********
     private void LeaveBalanceAPICall() {
         mySharedPreferenses = new MySharedPrefereces(getApplicationContext());
-        String url = URLS.Get_User_LeaveBalance + "&user_id=" + mySharedPreferenses.getUserID() + "";
-        url = url.replace(" ","%20");
+        String url = URLS.Get_User_LeaveBalance + "&user_id=" + mySharedPreferenses.getUserID() + "&year=" + currentYear;
+        url = url.replace(" ", "%20");
         System.out.println("Get_User_LeaveBalance URL " + url + "");
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 //                DialogUtils.hideProgressDialog();
-                if (response.length()>10)
-                {
+                if (response.length() > 10) {
                     System.out.println("response of Get_User_LeaveBalance !!!!!!!!!!! " + response);
                     response = response + "";
                     response = "{\"Data\":" + response + "}";
@@ -115,25 +112,19 @@ public class LeaveBalanceActivity extends AppCompatActivity
 
                                     }
 
-                                }
-                                else
-                                {
+                                } else {
                                     card_leave_balance.setVisibility(View.GONE);
-                                    DialogUtils.Show_Toast(LeaveBalanceActivity.this,"No Records Found");
+                                    DialogUtils.Show_Toast(LeaveBalanceActivity.this, "No Records Found");
 
                                 }
 
                             }
                         }
                     }
-                }
-
-                else
-                {
+                } else {
                     card_leave_balance.setVisibility(View.GONE);
-                    DialogUtils.Show_Toast(LeaveBalanceActivity.this,"No Records Found");
+                    DialogUtils.Show_Toast(LeaveBalanceActivity.this, "No Records Found");
                 }
-
 
 
             }
@@ -146,7 +137,7 @@ public class LeaveBalanceActivity extends AppCompatActivity
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
         });
-        request.setRetryPolicy(new DefaultRetryPolicy(0,DefaultRetryPolicy.DEFAULT_MAX_RETRIES,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        request.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(request);
 
     }
