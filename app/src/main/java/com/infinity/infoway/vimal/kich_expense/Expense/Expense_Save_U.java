@@ -39,6 +39,7 @@ import com.infinity.infoway.vimal.kich_expense.Expense.model_new.SaveExpenseMode
 import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.FileUtils;
 import com.infinity.infoway.vimal.util.common.MarshMallowPermission;
 import com.infinity.infoway.vimal.util.common.URLS;
 import com.jaiselrahman.filepicker.model.MediaFile;
@@ -558,18 +559,37 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_FOR_UPLOAD_DOC && resultCode == RESULT_OK) {
-            ArrayList<MediaFile> files = data.getParcelableArrayListExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.MEDIA_FILES);
-            if (data != null && files != null && files.size() == 1) {
 
-                String singleDynamicFilePath = files.get(0).getPath().trim();
-                File singleDynamicFile = new File(singleDynamicFilePath);
-                RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
+
+            try {
+                if (data != null && data.getData() != null) {
+                    String fileUrl = FileUtils.getPath(Expense_Save_U.this, data.getData());
+                    File singleDynamicFile = new File(fileUrl);
+                    RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
 //                MultipartBody.Part multipartFile = MultipartBody.Part.createFormData("file[0]", singleDynamicFile.getName(), requestBody);
-                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileToUpload(requestBody);
-                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileName(singleDynamicFile.getName());
-                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileAttached(true);
-                tvAttachmentNameUpdated.setText(singleDynamicFile.getName());
+                    recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileToUpload(requestBody);
+                    recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileName(singleDynamicFile.getName());
+                    recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileAttached(true);
+                    tvAttachmentNameUpdated.setText(singleDynamicFile.getName());
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
+
+
+
+//            ArrayList<MediaFile> files = data.getParcelableArrayListExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.MEDIA_FILES);
+//            if (data != null && files != null && files.size() == 1) {
+//
+//                String singleDynamicFilePath = files.get(0).getPath().trim();
+//                File singleDynamicFile = new File(singleDynamicFilePath);
+//                RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
+////                MultipartBody.Part multipartFile = MultipartBody.Part.createFormData("file[0]", singleDynamicFile.getName(), requestBody);
+//                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileToUpload(requestBody);
+//                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileName(singleDynamicFile.getName());
+//                recordArrayListUpdated.get(ATTACHMENT_EXP_PO).setFileAttached(true);
+//                tvAttachmentNameUpdated.setText(singleDynamicFile.getName());
+//            }
         }
     }
 

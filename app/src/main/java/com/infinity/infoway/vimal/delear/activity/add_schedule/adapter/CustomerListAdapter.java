@@ -45,6 +45,12 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             holder.cbSelectCustomer.setText(record.getCusName());
         }
 
+        if (record.getIs_exists_flag() == 1) {
+
+            holder.cbSelectCustomer.setEnabled(false);
+
+        }
+
         holder.cbSelectCustomer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean value) {

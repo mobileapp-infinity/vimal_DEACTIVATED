@@ -18,10 +18,14 @@ import com.infinity.infoway.vimal.api.ApiImplementer;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.RoutePlanning.GetAllEmployeeByDesignationPojo;
 import com.infinity.infoway.vimal.delear.RoutePlanning.GetAllRouteListPojo;
-import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.SaveRouteModel;
-import com.infinity.infoway.vimal.delear.util.CommonUtils;
+import com.infinity.infoway.vimal.delear.RoutePlanning.model.SaveRouteModel;
 
+import com.infinity.infoway.vimal.delear.util.CommonUtils;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +37,7 @@ import retrofit2.Response;
 public class RouteListAdapter extends RecyclerView.Adapter<RouteListAdapter.MyViewHolder> {
 
     private Context context;
-     GetAllRouteListPojo getAllRouteListPojo;
+    GetAllRouteListPojo getAllRouteListPojo;
     private SharedPref sharedPref;
     private ArrayList<String> getEmployeeNameList;
     private ArrayList<GetAllRouteListPojo.RECORD> arrayList;
@@ -41,16 +45,17 @@ public class RouteListAdapter extends RecyclerView.Adapter<RouteListAdapter.MyVi
     HashMap<Integer, Integer> selectedValue = new HashMap<>();
     private ArrayList<SaveRouteModel> saveRouteModelArrayList;
     private HashMap<Integer, ArrayList<SaveRouteModel>> integerArrayListHashMap;
+    ArrayList<SaveRouteModel> selectedRecordList;
 
-    public RouteListAdapter(Context context, GetAllRouteListPojo getAllRouteListPojo, ArrayList<GetAllRouteListPojo.RECORD> arrayList, ArrayList<String> employeeNameList, ArrayList<SaveRouteModel> saveRouteModelArrayList, ArrayList<Integer> employeeNameListId, HashMap<Integer, ArrayList<SaveRouteModel>> integerArrayListHashMap) {
+    public RouteListAdapter(Context context, GetAllRouteListPojo getAllRouteListPojo, ArrayList<GetAllRouteListPojo.RECORD> arrayList, ArrayList<String> employeeNameList, ArrayList<SaveRouteModel> saveRouteModelArrayList, ArrayList<Integer> employeeNameListId, HashMap<Integer, ArrayList<SaveRouteModel>> integerArrayListHashMap, ArrayList<SaveRouteModel> selectedRecordList) {
         this.context = context;
         this.getAllRouteListPojo = getAllRouteListPojo;
         this.arrayList = arrayList;
         this.saveRouteModelArrayList = saveRouteModelArrayList;
-this.integerArrayListHashMap = integerArrayListHashMap;
+        this.integerArrayListHashMap = integerArrayListHashMap;
         this.employeeNameListId = employeeNameListId;
         this.employeeNameList = employeeNameList;
-
+        this.selectedRecordList = selectedRecordList;
         sharedPref = new SharedPref(context);
         employeeArrayListAdapter = new ArrayAdapter<String>
                 (context, R.layout.searchable_spinner_text_view,
@@ -63,17 +68,17 @@ this.integerArrayListHashMap = integerArrayListHashMap;
 
     }
 
-    public RouteListAdapter(Context context, GetAllRouteListPojo getAllRouteListPojo, ArrayList<String> employeeNameList, HashMap<Integer, ArrayList<SaveRouteModel>> integerArrayListHashMap, ArrayList<Integer> employeeNameListId){
+    public RouteListAdapter(Context context, GetAllRouteListPojo getAllRouteListPojo, ArrayList<String> employeeNameList, HashMap<Integer, ArrayList<SaveRouteModel>> integerArrayListHashMap, ArrayList<Integer> employeeNameListId) {
         this.context = context;
         this.getAllRouteListPojo = getAllRouteListPojo;
         this.employeeNameList = employeeNameList;
-        this.employeeNameListId =employeeNameListId;
+        this.employeeNameListId = employeeNameListId;
         employeeArrayListAdapter = new ArrayAdapter<String>
                 (context, R.layout.searchable_spinner_text_view,
                         employeeNameList);
 
         employeeArrayListAdapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
-this.integerArrayListHashMap =integerArrayListHashMap;
+        this.integerArrayListHashMap = integerArrayListHashMap;
     }
 
 
@@ -93,7 +98,10 @@ this.integerArrayListHashMap =integerArrayListHashMap;
 
         if (!CommonUtils.checkIsEmptyOrNullCommon(getAllRouteListPojo.getRECORDS().get(position).getRouteName())) {
             holder.tvRouteName.setText(getAllRouteListPojo.getRECORDS().get(position).getRouteName());
+        }else{
+            holder.tvRouteName.setText("test");
         }
+        holder.spEmployeeName.setTitle("Select Employee");
         holder.spEmployeeName.setAdapter(employeeArrayListAdapter);
 
 
@@ -116,13 +124,15 @@ this.integerArrayListHashMap =integerArrayListHashMap;
                 // selectedValue.remove(i);
                 if (i > 0) {
 
+
                     selectedValue.put(getAllRouteListPojo.getRECORDS().get(position).getRouteId(), i);
 
                     /*saveRouteModelArrayList.add(new SaveRouteModel(getAllRouteListPojo.ge))*/
 
                     ArrayList<SaveRouteModel> saveRouteModels = new ArrayList<>();
-                    saveRouteModels.add(new SaveRouteModel(getAllRouteListPojo.getRECORDS().get(position).getRouteId(),employeeNameListId.get(i)));
-                    integerArrayListHashMap.put(getAllRouteListPojo.getRECORDS().get(position).getRouteId(),saveRouteModels);
+                    saveRouteModels.add(new SaveRouteModel(getAllRouteListPojo.getRECORDS().get(position).getRouteId(), employeeNameListId.get(i), true));
+                    selectedRecordList.add(new SaveRouteModel(getAllRouteListPojo.getRECORDS().get(position).getRouteId(), employeeNameListId.get(i), true));
+                    integerArrayListHashMap.put(getAllRouteListPojo.getRECORDS().get(position).getRouteId(), saveRouteModels);
                     /*if (saveRouteModelArrayList != null && saveRouteModelArrayList.size() > 0) {
                         if (saveRouteModelArrayList.get(position).getRoute_id() == getAllRouteListPojo.getRECORDS().get(position).getRouteId()) {
                             saveRouteModelArrayList.set(position, saveRouteModelArrayList.get(position)).setSales_person_id(employeeNameListId.get(i));
@@ -138,6 +148,7 @@ this.integerArrayListHashMap =integerArrayListHashMap;
                     if (integerArrayListHashMap != null && integerArrayListHashMap.size() > 0) {
                         integerArrayListHashMap.remove(getAllRouteListPojo.getRECORDS().get(position).getRouteId());
                     }
+                    selectedRecordList.remove(new SaveRouteModel(getAllRouteListPojo.getRECORDS().get(position).getRouteId(), employeeNameListId.get(i), false));
 
                 }
 
@@ -193,7 +204,7 @@ this.integerArrayListHashMap =integerArrayListHashMap;
     private void getAllEmployeeByDesignation(SearchableSpinner spEmployeeName) {
 
 
-        ApiImplementer.getAllEmployeeByDesignationImplementer(String.valueOf(sharedPref.getAppVersionCode()), sharedPref.getAppAndroidId(), String.valueOf(sharedPref.getRegisteredId()), sharedPref.getRegisteredUserId(), String.valueOf(sharedPref.getCompanyId()), "sales_person", new Callback<GetAllEmployeeByDesignationPojo>() {
+        ApiImplementer.getAllEmployeeByDesignationImplementer(String.valueOf(sharedPref.getAppVersionCode()), sharedPref.getAppAndroidId(), String.valueOf(sharedPref.getRegisteredId()), sharedPref.getRegisteredUserId(), String.valueOf(sharedPref.getCompanyId()), "sales_officer", new Callback<GetAllEmployeeByDesignationPojo>() {
             @Override
             public void onResponse(Call<GetAllEmployeeByDesignationPojo> call, Response<GetAllEmployeeByDesignationPojo> response) {
 

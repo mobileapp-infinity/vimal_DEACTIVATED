@@ -187,6 +187,10 @@ public class Get_Size_Flavour_Wise_All_Items_Detail_Pojo {
         @Expose
         private Object remarks;
 
+        @SerializedName("only_item_name")
+        @Expose
+        private String only_item_name;
+
         public String getFlavour() {
             return flavour;
         }
@@ -563,6 +567,13 @@ public class Get_Size_Flavour_Wise_All_Items_Detail_Pojo {
             this.remarks = remarks;
         }
 
+        public String getOnly_item_name() {
+            return only_item_name;
+        }
+
+        public void setOnly_item_name(String only_item_name) {
+            this.only_item_name = only_item_name;
+        }
     }
 
 }

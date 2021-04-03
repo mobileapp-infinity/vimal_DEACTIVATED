@@ -80,6 +80,27 @@
         android:id="@+id/nav_new_retailer"
         android:icon="@drawable/menu_supervisor_account_perple_24dp"
         android:title="@string/title_nav_Retailer_Management" />
+
+        <item
+            android:id="@+id/nav_update_call_list"
+            android:icon="@drawable/updatecallblack"
+            android:title="@string/title_update_call_list"
+            android:visible="true" />
+
+        <item
+            android:id="@+id/nav_retailer_order_booking"
+            android:icon="@drawable/orderbookingblack"
+            android:title="@string/title_retail_order_booking_nav" />
+
+        <item
+            android:id="@+id/nav_schedules"
+            android:icon="@drawable/schedule_new"
+            android:title="Schedules" />
+
+        <item
+            android:id="@+id/nav_route_planning"
+            android:icon="@drawable/ledgerblack"
+            android:title="Route Planning" />
     </group>
 
     <item android:title="Communicate"  android:visible="false">

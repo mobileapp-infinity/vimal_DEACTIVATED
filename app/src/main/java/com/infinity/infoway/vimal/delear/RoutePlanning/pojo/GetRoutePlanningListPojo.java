@@ -59,6 +59,10 @@ public class GetRoutePlanningListPojo {
         @Expose
         private String rsoEffectiveDnt;
 
+        @SerializedName("eff_time")
+        @Expose
+        private String eff_time;
+
         public Integer getRsoRouteId() {
             return rsoRouteId;
         }
@@ -97,6 +101,14 @@ public class GetRoutePlanningListPojo {
 
         public void setRsoEffectiveDnt(String rsoEffectiveDnt) {
             this.rsoEffectiveDnt = rsoEffectiveDnt;
+        }
+
+        public String getEff_time() {
+            return eff_time;
+        }
+
+        public void setEff_time(String eff_time) {
+            this.eff_time = eff_time;
         }
     }
 

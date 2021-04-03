@@ -8,6 +8,7 @@ import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.RoutePlanningDateWis
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.SaveRoutePlanningReponsePojo;
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.SaveRoutePlanningRequestPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.AddScheduleRequestPojo;
+import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
@@ -25,9 +26,9 @@ public class ApiImplementer {
     }
 
     public static void getCustomerHierarchyWiseApiImplementer(String app_version, String android_id, String device_id,
-                                                         String user_id,String comp_id,String cus_id, Callback<SelectCustomerPojo> cb) {
+                                                              String user_id,String comp_id,String cus_id,String schedule, Callback<SelectCustomerPojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<SelectCustomerPojo> call = apiService.getCustomerHierarychyWise(app_version, android_id, device_id, user_id, Config.ACCESS_KEY, comp_id,cus_id);
+        Call<SelectCustomerPojo> call = apiService.getCustomerHierarychyWise(app_version, android_id, device_id, user_id, Config.ACCESS_KEY, comp_id,cus_id,schedule);
         call.enqueue(cb);
     }
 
@@ -51,11 +52,12 @@ public class ApiImplementer {
     }
 
     public static void getSaleRouteWiseSalesOfficerMappingViewCopy(String app_version, String android_id, String device_id,
-                                                                   String user_id, String comp_id, String effective_date,  Callback<GetRoutePlanningListPojo> cb) {
+                                                                   String user_id, String comp_id, String effective_date,String id,  Callback<GetRoutePlanningListPojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetRoutePlanningListPojo> call = apiService.getSaleRouteWiseSalesOfficerMappingViewCopy(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,effective_date);
+        Call<GetRoutePlanningListPojo> call = apiService.getSaleRouteWiseSalesOfficerMappingViewCopy(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,effective_date,id);
         call.enqueue(cb);
     }
+
     public static void getSaleRouteWiseSalesOfficerMapping(String app_version, String android_id, String device_id,
                                                            String user_id, String comp_id, String fdt, String tdt, Callback<RoutePlanningDateWisePojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -66,6 +68,16 @@ public class ApiImplementer {
     public static void saveRouteImplementer(SaveRoutePlanningRequestPojo saveRoutePlanningRequestPojo, Callback<SaveRoutePlanningReponsePojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<SaveRoutePlanningReponsePojo> call = apiService.saveSaleRouteWiseSalesOfficerMapping(saveRoutePlanningRequestPojo);
+        call.enqueue(cb);
+    }
+
+
+    //new Added by harsh // 1-4-2021
+
+    public static void getSaleRouteWiseVehicleWisePlanningDetails(String app_version, String android_id, String device_id,
+                                                                  String user_id, String comp_id, String rvpm_id,  Callback<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> call = apiService.getSaleRouteWiseVehicleWisePlanningDetails(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,rvpm_id);
         call.enqueue(cb);
     }
 

@@ -155,7 +155,7 @@ public class ScheduleListFragment extends Fragment {
                 getSharedPref.getRegisteredId() + "",
                 getSharedPref.getRegisteredUserId() + "",
                 Config.ACCESS_KEY,
-                FOR_TESTING_COMPANY_ID + ""
+                getSharedPref.getCompanyId() + ""
 
 
         );

@@ -213,19 +213,28 @@ public class ExpensesListAdapterNew extends RecyclerView.Adapter<ExpensesListAda
                 iExpenseListData.onDataChanged(expensesArrayList);
                 iExpenseListData.onAttachFileClicked(position, holder.tvAttachmentName);
 
-                Intent intent = new Intent(context,
-                        com.jaiselrahman.filepicker.activity.FilePickerActivity.class);
-                intent.putExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.CONFIGS,
-                        new Configurations.Builder()
-                                .setCheckPermission(true)
-                                .setShowImages(true)
-                                .setShowAudios(false)
-                                .setShowVideos(false)
-                                .enableImageCapture(false)
-                                .setMaxSelection(1)
-                                .setSkipZeroSizeFiles(true)
-                                .build());
-                ((Activity) context).startActivityForResult(intent, Expense_Save_U.REQUEST_CODE_FOR_UPLOAD_DOC);
+                try {
+                    Intent pickPhoto = new Intent(Intent.ACTION_GET_CONTENT);
+                    pickPhoto.setType("image/*|application/*");
+                    pickPhoto.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false);
+                    ((Activity) context).startActivityForResult(pickPhoto, Expense_Save_U.REQUEST_CODE_FOR_UPLOAD_DOC);
+                } catch (Throwable ex) {
+                    ex.printStackTrace();
+                }
+
+//                Intent intent = new Intent(context,
+//                        com.jaiselrahman.filepicker.activity.FilePickerActivity.class);
+//                intent.putExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.CONFIGS,
+//                        new Configurations.Builder()
+//                                .setCheckPermission(true)
+//                                .setShowImages(true)
+//                                .setShowAudios(false)
+//                                .setShowVideos(false)
+//                                .enableImageCapture(false)
+//                                .setMaxSelection(1)
+//                                .setSkipZeroSizeFiles(true)
+//                                .build());
+//                ((Activity) context).startActivityForResult(intent, Expense_Save_U.REQUEST_CODE_FOR_UPLOAD_DOC);
 
 
             }

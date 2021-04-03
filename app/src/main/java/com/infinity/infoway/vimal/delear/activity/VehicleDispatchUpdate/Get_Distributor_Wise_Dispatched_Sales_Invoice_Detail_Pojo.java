@@ -61,6 +61,7 @@ public class Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail_Pojo {
         private String Customer_City;
         private String Delivery_City;
         private String Delivery_Area;
+        private String Invoice_Time;
 
         public int getInv_Id() {
             return Inv_Id;
@@ -132,6 +133,14 @@ public class Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail_Pojo {
 
         public void setDelivery_Area(String Delivery_Area) {
             this.Delivery_Area = Delivery_Area;
+        }
+
+        public String getInvoice_Time() {
+            return Invoice_Time;
+        }
+
+        public void setInvoice_Time(String invoice_Time) {
+            Invoice_Time = invoice_Time;
         }
     }
 }

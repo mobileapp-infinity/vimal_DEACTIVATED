@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
@@ -35,7 +36,6 @@ import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.AddScheduleR
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
-
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import org.json.JSONArray;
@@ -87,6 +87,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
     private AppCompatImageView imClearVehicleNumber;
     private SearchableSpinner spCustomerName;
     private ArrayList<String> customerNameArrayList;
+    private ArrayList<String> customerIDNameArrayList;
     private HashMap<String, String> customerHashMap;
     private String selectedVehicleNumber = "";
     private String selectedVehicleNumberId = "0";
@@ -97,6 +98,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
     private RecyclerView rvCustomerName;
     private RecyclerView rvSelectedCustomerName;
     private TextView tvNoCustomerSelected;
+    private String SELECTEDSCHEDULE;
     private ArrayList<SelectCustomerPojo.RECORD> selectedRecoredlist = new ArrayList<>();
 
     public AddScheduleFragment() {
@@ -139,6 +141,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
         View view = inflater.inflate(R.layout.fragment_add_schedule, container, false);
 
         initView(view);
+
         getAllVehicleNumberApiCall(true, true);
         return view;
     }
@@ -203,8 +206,9 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
                     String selectedCustomer = customerNameArrayList.get(position).trim();
+
                     String selectedCustomerId = customerHashMap.get(selectedCustomer);
-                    getCustomerHierarchyWiseApiCall(true, true, selectedCustomerId);
+                    getCustomerHierarchyWiseApiCall(true, true, selectedCustomerId,SELECTED_SCHEDULE_ID);
                 } else {
 
                 }
@@ -285,7 +289,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
         }
         ApiImplementer.getAllVehicleNumberApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
-                getSharedPref.getRegisteredUserId(), FOR_TESTING_COMPANY_ID, new Callback<VehicalNumberPojo>() {
+                getSharedPref.getRegisteredUserId(), getSharedPref.getCompanyId(), new Callback<VehicalNumberPojo>() {
                     @Override
                     public void onResponse(Call<VehicalNumberPojo> call, Response<VehicalNumberPojo> response) {
 
@@ -332,13 +336,16 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
                 if (response.isSuccessful() && response.body() != null && response.body().getRECORDS().size() > 0) {
                     Distributor_Pojo distributor_pojo = response.body();
                     customerNameArrayList = new ArrayList<>();
+                    customerIDNameArrayList = new ArrayList<>();
+                    customerIDNameArrayList.add("0");
                     customerNameArrayList.add(SELECT_CUSTOMER_NAME);
                     customerHashMap = new HashMap<>();
 
                     for (int i = 0; i < distributor_pojo.getRECORDS().size(); i++) {
                         if (!TextUtils.isEmpty(distributor_pojo.getRECORDS().get(i).getCus_name())) {
                             String customerName = distributor_pojo.getRECORDS().get(i).getCus_name().trim();
-                            customerNameArrayList.add(customerName.toLowerCase());
+                            customerNameArrayList.add(customerName);
+                            customerIDNameArrayList.add(distributor_pojo.getRECORDS().get(i).getId() + "");
                             customerHashMap.put(customerName, distributor_pojo.getRECORDS().get(i).getId() + "");
                         }
                     }
@@ -351,10 +358,12 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
                     spCustomerName.setTitle("Select Customer");
                     spCustomerName.setPositiveButton("Cancel");
                     String userName = getSharedPref.getUserName().trim();
-                    if (!TextUtils.isEmpty(userName)) {
-                        spCustomerName.setSelection(customerNameArrayList.indexOf(userName.toLowerCase()));
-                        String customerId = customerHashMap.get(userName);
-                        getCustomerHierarchyWiseApiCall(false, true, customerId);
+                    String customerId = getSharedPref.getLoginCustomerId();
+                    if (!TextUtils.isEmpty(customerId)) {
+                        spCustomerName.setSelection(customerIDNameArrayList.indexOf(customerId));
+
+                        //String customerId = customerHashMap.get(userName);
+                        getCustomerHierarchyWiseApiCall(false, true, customerId,SELECTED_SCHEDULE_ID);
                     } else {
                         hideProgressDialog();
                     }
@@ -374,14 +383,15 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
 
     SelectedCustomerListadapter selectedCustomerListadapter;
 
-    private void getCustomerHierarchyWiseApiCall(boolean isPdShow, boolean isPdHide, String customerId) {
+    private boolean isAlreadyAdded  =false;
+    private void getCustomerHierarchyWiseApiCall(boolean isPdShow, boolean isPdHide, String customerId,String schedule) {
         if (isPdShow) {
             showProgressDialog();
         }
         llCustomer.setVisibility(View.GONE);
         ApiImplementer.getCustomerHierarchyWiseApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
-                getSharedPref.getRegisteredUserId(), FOR_TESTING_COMPANY_ID, FOR_TESTING_CUS_ID, new Callback<SelectCustomerPojo>() {
+                getSharedPref.getRegisteredUserId(), getSharedPref.getCompanyId(), customerId,schedule, new Callback<SelectCustomerPojo>() {
                     @Override
                     public void onResponse(Call<SelectCustomerPojo> call, Response<SelectCustomerPojo> response) {
                         if (isPdHide) {
@@ -518,7 +528,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
                             getSharedPref.getRegisteredId(),
                             Integer.parseInt(getSharedPref.getRegisteredUserId()),
                             Config.ACCESS_KEY,
-                            Integer.parseInt(FOR_TESTING_COMPANY_ID),
+                            Integer.parseInt(getSharedPref.getCompanyId()),
                             Integer.parseInt(SELECTED_SCHEDULE_ID),
                             ROUTE_NAME,
                             Integer.parseInt(selectedVehicleNumberId),
@@ -585,6 +595,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
                     Toast.makeText(getActivity(), "Please Provide Sort Number For " + selectedRecoredlist.get(i).getCusName(), Toast.LENGTH_SHORT).show();
 
                     flag = false;
+                    break;
                 }
             }
         }
@@ -618,6 +629,7 @@ public class AddScheduleFragment extends Fragment implements View.OnClickListene
                             llHeader.setVisibility(View.GONE);
                             rvSelectedCustomerName.setVisibility(View.GONE);
                             tvNoCustomerSelected.setVisibility(View.VISIBLE);
+                            getActivity().finish();
 
 
                         }

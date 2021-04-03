@@ -11,15 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-import androidx.appcompat.widget.AppCompatCheckBox;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -35,11 +27,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatCheckBox;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
+import com.infinity.infoway.vimal.api.ApiImplementer;
 import com.infinity.infoway.vimal.api.response.City_State_Taluka_CountryPojo;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
+import com.infinity.infoway.vimal.delear.RoutePlanning.GetAllRouteListPojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.BoxOrderListForAdapter;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_All_employee_Pojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Distributor_and_its_Retailer_detail_Pojo;
@@ -48,11 +55,15 @@ import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Size_F
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveSalesOrderReqModel;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemDetailsJasonReqModel;
+import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningDetailsPojo;
+import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
 import com.infinity.infoway.vimal.delear.util.CommonUtils;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.FontSelector;
@@ -83,7 +94,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private SharedPref getSharedPref;
     private ProgressDialog progDialog;
 
-    private SearchableSpinner spCustomer;
+    private SearchableSpinner spCustomer, spRoute, spVehicle;
     private EditText edtDeliveryDate;
     private AppCompatCheckBox cbOtherDeliveryAddress;
     private SearchableSpinner spDelAddressTitle;
@@ -99,7 +110,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private EditText edtContactPerson;
     private EditText edtContactNo;
     private LinearLayout llOrderDeliveryAddress;
-//    private SearchableSpinner spSalesPerson;
+    //    private SearchableSpinner spSalesPerson;
     private EditText edtRemarks;
     private Button btnSubmitOrder;
     private ConstraintLayout clMainOrder;
@@ -115,8 +126,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private CardView cvProductHeader;
 
     private ArrayList<String> customerNameArrayList;
+    private ArrayList<String> routeArrayList, routeIdArrayList;
     private ArrayList<String> customerIdArrayList = new ArrayList<>();
     private HashMap<String, Get_Distributor_and_its_Retailer_detail_Pojo.RECORD> distributorAndRetailerRecordHashMap;
+    private HashMap<String, GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD> distributorAndRetailerRecordHashMap2;
 
     private ArrayList<String> allEmployeeArrayList;
     private HashMap<String, Get_All_employee_Pojo.RECORDSBean> getAllEmployeeRecordArrayListHashMap;
@@ -125,7 +138,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private HashMap<String, Get_Sale_Order_Consignee_Pojo.RECORD> salesOrderConsigneeHashMap;
 
     private LinearLayout llAddressTitle;
-//    private LinearLayout llSalesPerson;
+    //    private LinearLayout llSalesPerson;
     private LinearLayout llExpandedProductDetails, llExpandedBasicDetailsNewOrder;
 
 //    private ArrayList<String> salesOrderArrayList;
@@ -158,10 +171,27 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
             edtDeliveryDate.setText(sdf.format(my_calendar.getTime()));
             if (spCustomer.getSelectedItemPosition() > 0 &&
                     !TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
-                Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
-                        distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
-                getSizeFlavourWiseItemsApiCall(true, true,
-                        edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+
+                if (isRootSelectedFormHere) {
+                    GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
+                            distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
+                    getSizeFlavourWiseItemsApiCall(true, true,
+                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+                } else {
+                    // if (isfromHere) {
+                    Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
+                            distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
+                    getSizeFlavourWiseItemsApiCall(true, true,
+                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+                   /* } else {
+                        GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
+                                distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
+                        getSizeFlavourWiseItemsApiCall(true, true,
+                                edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+                    }*/
+                }
+
+
             }
         }
     };
@@ -171,9 +201,16 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     }
 
     boolean isOrder = false;
+    String routeID = "";
+    String CustId = "";
+    String vehicleNo = "";
+    private EditText edVehicleNo;
 
-    public NewOrderFragment(boolean isOrder) {
+    public NewOrderFragment(boolean isOrder, String routeID, String CustId, String vehicleNo) {
         this.isOrder = isOrder;
+        this.routeID = routeID;
+        this.CustId = CustId;
+        this.vehicleNo = vehicleNo;
     }
 
 
@@ -183,16 +220,39 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         this.context = (Activity) context;
     }
 
+    private boolean isfromHere = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_order, container, false);
         initView(view);
-        getDiatributorAndRetailerNameApiCall(true, false);
+        if (routeID != null && CustId != null) {
+            isRootSelectedFormHere = true;
+            getAllRouteList(true, false, routeID);
+        } else {
+            isRootSelectedFormHere = false;
+            isfromHere = true;
+            routeID = null;
+            routeIdHere = "";
+            getAllRouteList(true, false, routeID);
+
+        }
+
+       /* if (!routeID.contentEquals("") && routeID != null) {
+
+
+        } else {
+            getDiatributorAndRetailerNameApiCall(true, false);
+        }*/
+
         return view;
     }
 
+    String routeIdHere = "";
+
+    private boolean isRootSelectedFormHere = false;
 
     private void initView(View view) {
         getSharedPref = new SharedPref(context);
@@ -201,7 +261,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         edtTotal = view.findViewById(R.id.edttotalBox);
         edtTotalAmount = view.findViewById(R.id.tvTotalAmount);
         edtTotalWeight = view.findViewById(R.id.tvtotalWeight);
-
+        edVehicleNo = view.findViewById(R.id.edVehicleNo);
+        if (vehicleNo != null && !vehicleNo.equals("")) {
+            edVehicleNo.setText(vehicleNo);
+        }
         cvProductDetails = view.findViewById(R.id.cvProductDetails);
         llTotal = view.findViewById(R.id.llTotal);
         cvProductHeader = view.findViewById(R.id.cvProductHeader);
@@ -215,6 +278,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         llExpandedBasicDetailsNewOrder.setOnClickListener(this);
         llExpandedProductDetails = view.findViewById(R.id.llExpandedProductDetails);
         llExpandedProductDetails.setOnClickListener(this);
+        spRoute = view.findViewById(R.id.spRoute);
+        //spVehicle = view.findViewById(R.id.spVehicle);
 
 
         llAddressTitle = view.findViewById(R.id.llAddressTitle);
@@ -222,41 +287,125 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
         spCustomer = view.findViewById(R.id.spCustomer);
         spCustomer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position > 0) {
-                    edtTotal.setText("");
-                    edtTotalAmount.setText("");
-                    edtTotalWeight.setText("");
-                    Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record = distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(position).trim());
+                getAllVehicleNumberApiCall(true, false);
 
-                    if (!TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
-                        getSaleOrderConsigneeApiCall(true, false, record.getId(),
-                                edtDeliveryDate.getText().toString(), "0", true);
-                    } else {
-                        getSaleOrderConsigneeApiCall(true, true, record.getId(),
-                                edtDeliveryDate.getText().toString(), "0", false);
+                if (isRootSelectedFormHere) {
+
+                    if (position > 0) {
+                        edtTotal.setText("");
+                        edtTotalAmount.setText("");
+                        edtTotalWeight.setText("");
+                        GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record = distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(position).trim());
+
+                        if (!TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
+                            getSaleOrderConsigneeApiCall(true, false, record.getId(),
+                                    edtDeliveryDate.getText().toString(), "0", true);
+                        } else {
+                            getSaleOrderConsigneeApiCall(true, true, record.getId(),
+                                    edtDeliveryDate.getText().toString(), "0", false);
+                        }
+                        String consigneeName = CommonUtils.checkIsEmptyOrNullCommon(record.getConsigneeName()) ? "" : record.getConsigneeName();
+                        String add1 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress1()) ? "" : record.getAddress1();
+                        String add2 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress2()) ? "" : record.getAddress2();
+                        String add3 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress3()) ? "" : record.getAddress3().toString();
+                        String cityName = CommonUtils.checkIsEmptyOrNullCommon(record.getCityName()) ? "" : record.getCityName();
+                        String stateName = CommonUtils.checkIsEmptyOrNullCommon(record.getStateName()) ? "" : record.getStateName();
+                        String panNo = CommonUtils.checkIsEmptyOrNullCommon(record.getPANNo()) ? " " : record.getPANNo().toString();
+                        String GSTIN = CommonUtils.checkIsEmptyOrNullCommon(record.getGSTINNo()) ? "" : record.getGSTINNo().toString();
+                        String pinCode = CommonUtils.checkIsEmptyOrNullCommon(record.getPinCode()) ? "" : record.getPinCode();
+                        String contactPerson = CommonUtils.checkIsEmptyOrNullCommon(record.getContactPerson()) ? "" : record.getContactPerson();
+                        String mobileNo = CommonUtils.checkIsEmptyOrNullCommon(record.getMobileNo()) ? "" : record.getMobileNo();
+                        edVehicleNo.setText(record.getRvpm_vehicle_no() + "");
+                        setData(consigneeName, add1, add2, add3, cityName,
+                                stateName, panNo, GSTIN, pinCode,
+                                contactPerson, mobileNo);
                     }
-                    String consigneeName = CommonUtils.checkIsEmptyOrNullCommon(record.getConsigneeName()) ? "" : record.getConsigneeName();
-                    String add1 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress1()) ? "" : record.getAddress1();
-                    String add2 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress2()) ? "" : record.getAddress2();
-                    String add3 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress3()) ? "" : record.getAddress3().toString();
-                    String cityName = CommonUtils.checkIsEmptyOrNullCommon(record.getCityName()) ? "" : record.getCityName();
-                    String stateName = CommonUtils.checkIsEmptyOrNullCommon(record.getStateName()) ? "" : record.getStateName();
-                    String panNo = CommonUtils.checkIsEmptyOrNullCommon(record.getPANNo()) ? " " : record.getPANNo().toString();
-                    String GSTIN = CommonUtils.checkIsEmptyOrNullCommon(record.getGSTINNo()) ? "" : record.getGSTINNo().toString();
-                    String pinCode = CommonUtils.checkIsEmptyOrNullCommon(record.getPinCode()) ? "" : record.getPinCode();
-                    String contactPerson = CommonUtils.checkIsEmptyOrNullCommon(record.getContactPerson()) ? "" : record.getContactPerson();
-                    String mobileNo = CommonUtils.checkIsEmptyOrNullCommon(record.getMobileNo()) ? "" : record.getMobileNo();
+                } else {
+                    if (position > 0) {
+                        edtTotal.setText("");
+                        edtTotalAmount.setText("");
+                        edtTotalWeight.setText("");
+                        Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record = distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(position).trim());
 
-                    setData(consigneeName, add1, add2, add3, cityName,
-                            stateName, panNo, GSTIN, pinCode,
-                            contactPerson, mobileNo);
+                        if (!TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
+                            getSaleOrderConsigneeApiCall(true, false, record.getId(),
+                                    edtDeliveryDate.getText().toString(), "0", true);
+                        } else {
+                            getSaleOrderConsigneeApiCall(true, true, record.getId(),
+                                    edtDeliveryDate.getText().toString(), "0", false);
+                        }
+                        String consigneeName = CommonUtils.checkIsEmptyOrNullCommon(record.getConsigneeName()) ? "" : record.getConsigneeName();
+                        String add1 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress1()) ? "" : record.getAddress1();
+                        String add2 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress2()) ? "" : record.getAddress2();
+                        String add3 = CommonUtils.checkIsEmptyOrNullCommon(record.getAddress3()) ? "" : record.getAddress3().toString();
+                        String cityName = CommonUtils.checkIsEmptyOrNullCommon(record.getCityName()) ? "" : record.getCityName();
+                        String stateName = CommonUtils.checkIsEmptyOrNullCommon(record.getStateName()) ? "" : record.getStateName();
+                        String panNo = CommonUtils.checkIsEmptyOrNullCommon(record.getPANNo()) ? " " : record.getPANNo().toString();
+                        String GSTIN = CommonUtils.checkIsEmptyOrNullCommon(record.getGSTINNo()) ? "" : record.getGSTINNo().toString();
+                        String pinCode = CommonUtils.checkIsEmptyOrNullCommon(record.getPinCode()) ? "" : record.getPinCode();
+                        String contactPerson = CommonUtils.checkIsEmptyOrNullCommon(record.getContactPerson()) ? "" : record.getContactPerson();
+                        String mobileNo = CommonUtils.checkIsEmptyOrNullCommon(record.getMobileNo()) ? "" : record.getMobileNo();
+
+                        setData(consigneeName, add1, add2, add3, cityName,
+                                stateName, panNo, GSTIN, pinCode,
+                                contactPerson, mobileNo);
+                    }
                 }
+
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spRoute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                edVehicleNo.setText("");
+                if (i > 0) {
+                    isRootSelectedFormHere = true;
+                }
+
+
+                if (isfromHere) {
+
+                    if (routeID == null) {
+
+                        routeID = routeIdArrayList.get(i);
+                        get_sale_route_wise_vehicle_wise_planning_details(routeID);
+                        //getDiatributorAndRetailerNameApiCall(true, false);
+                    } else {
+
+                        if (isfromHere) {
+
+                            routeID = routeIdArrayList.get(i);
+                            get_sale_route_wise_vehicle_wise_planning_details(routeID);
+                        } else {
+                            if (routeIdArrayList.contains(routeID)) {
+                                get_sale_route_wise_vehicle_wise_planning_details(routeID);
+                            } else {
+                                getDiatributorAndRetailerNameApiCall(true, false);
+                            }
+                        }
+
+
+                    }
+                } else {
+                    routeID = routeIdArrayList.get(i);
+                    get_sale_route_wise_vehicle_wise_planning_details(routeID);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
@@ -368,6 +517,12 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
     private boolean isValid() {
         boolean isValid = true;
+
+     /*   if (spRoute.getSelectedItemPosition() == 0) {
+           // Toast.makeText(context, "Please select Route", Toast.LENGTH_SHORT).show();
+           // isValid = false;
+
+        } else*/
         if (spCustomer.getSelectedItemPosition() == 0) {
             Toast.makeText(context, "Please select customer", Toast.LENGTH_SHORT).show();
             isValid = false;
@@ -438,134 +593,273 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         if (v.getId() == R.id.btnSubmitOrder) {
             if (isValid()) {
 
-                Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
-                        distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
+                if (!isRootSelectedFormHere) {
 
-                String app_version = String.valueOf(getSharedPref.getAppVersionCode());
-                String android_id = getSharedPref.getAppAndroidId();
-                String device_id = String.valueOf(getSharedPref.getRegisteredId());
-                String user_id = getSharedPref.getRegisteredUserId();
-                String key = Config.ACCESS_KEY;
-                String comp_id = getSharedPref.getCompanyId();
-                String cus_name = customerNameArrayList.get(spCustomer.getSelectedItemPosition());
-                String delivery_date = edtDeliveryDate.getText().toString();
-                String som_id = "0";
-                String cus_id = CommonUtils.checkIsEmptyOrNullCommon(record.getId()) ? "" : record.getId().toString();
-                String ord_to_ref_id = CommonUtils.checkIsEmptyOrNullCommon(record.getOrderToRefId()) ? "" : record.getOrderToRefId().toString();
-                String chk_other_del = cbOtherDeliveryAddress.isChecked() ? "0" : "1";
+                    Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
+                            distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
 
-                String area_name = "";
-                String full_address = "";
-                String del_add_title = "";
-                String del_cus_name = "";
-                String del_address1 = "";
-                String del_address2 = "";
-                String del_address3 = "";
-                String del_cit_name = "";
-                String del_state_name = "";
-                String del_area_name = "";
-                String del_pan_no = "";
-                String del_contact_person = "";
-                String del_contact_no = "";
-                String del_GSTIN = "";
-                String del_pincode = "";
+                    String app_version = String.valueOf(getSharedPref.getAppVersionCode());
+                    String android_id = getSharedPref.getAppAndroidId();
+                    String device_id = String.valueOf(getSharedPref.getRegisteredId());
+                    String user_id = getSharedPref.getRegisteredUserId();
+                    String key = Config.ACCESS_KEY;
+                    String comp_id = getSharedPref.getCompanyId();
+                    String cus_name = customerNameArrayList.get(spCustomer.getSelectedItemPosition());
+                    String delivery_date = edtDeliveryDate.getText().toString();
+                    String som_id = "0";
+                    String cus_id = CommonUtils.checkIsEmptyOrNullCommon(record.getId()) ? "" : record.getId().toString();
+                    String ord_to_ref_id = CommonUtils.checkIsEmptyOrNullCommon(record.getOrderToRefId()) ? "" : record.getOrderToRefId().toString();
+                    String chk_other_del = cbOtherDeliveryAddress.isChecked() ? "0" : "1";
+
+                    String area_name = "";
+                    String full_address = "";
+                    String del_add_title = "";
+                    String del_cus_name = "";
+                    String del_address1 = "";
+                    String del_address2 = "";
+                    String del_address3 = "";
+                    String del_cit_name = "";
+                    String del_state_name = "";
+                    String del_area_name = "";
+                    String del_pan_no = "";
+                    String del_contact_person = "";
+                    String del_contact_no = "";
+                    String del_GSTIN = "";
+                    String del_pincode = "";
 
 
-                if (cbOtherDeliveryAddress.isChecked()) {
-                    area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getAreaName().toString();
-                    full_address = CommonUtils.checkIsEmptyOrNullCommon(record.getFullAddress()) ? "" : record.getFullAddress();
-                    del_add_title = salesOrderConsigneeArrayList != null ? salesOrderConsigneeArrayList.get(spDelAddressTitle.getSelectedItemPosition()) : "";
-                    del_cus_name = edtConsigneeName.getText().toString();
-                    del_address1 = edtAddress1.getText().toString();
-                    del_address2 = edtAddress2.getText().toString();
-                    del_address3 = edtAddress3.getText().toString();
-                    del_cit_name = spCity.getSelectedItemPosition() == 0 ? "" : cityAndStateArrayList.get(spCity.getSelectedItemPosition());
-                    del_state_name = edtState.getText().toString();
-                    del_area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getFullAddress();
-                    del_pan_no = edtPANno.getText().toString();
-                    del_contact_person = edtContactPerson.getText().toString();
-                    del_contact_no = edtContactNo.getText().toString();
-                    del_GSTIN = edtGSTIN.getText().toString();
-                    del_pincode = edtPinCode.getText().toString();
-                }
+                    if (cbOtherDeliveryAddress.isChecked()) {
+                        area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getAreaName().toString();
+                        full_address = CommonUtils.checkIsEmptyOrNullCommon(record.getFullAddress()) ? "" : record.getFullAddress();
+                        del_add_title = salesOrderConsigneeArrayList != null ? salesOrderConsigneeArrayList.get(spDelAddressTitle.getSelectedItemPosition()) : "";
+                        del_cus_name = edtConsigneeName.getText().toString();
+                        del_address1 = edtAddress1.getText().toString();
+                        del_address2 = edtAddress2.getText().toString();
+                        del_address3 = edtAddress3.getText().toString();
+                        del_cit_name = spCity.getSelectedItemPosition() == 0 ? "" : cityAndStateArrayList.get(spCity.getSelectedItemPosition());
+                        del_state_name = edtState.getText().toString();
+                        del_area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getFullAddress();
+                        del_pan_no = edtPANno.getText().toString();
+                        del_contact_person = edtContactPerson.getText().toString();
+                        del_contact_no = edtContactNo.getText().toString();
+                        del_GSTIN = edtGSTIN.getText().toString();
+                        del_pincode = edtPinCode.getText().toString();
+                    }
 
 //                String sales_person_name = "";
 //                if (allEmployeeArrayList != null) {
 //                    sales_person_name = spSalesPerson.getSelectedItemPosition() == 0 ? "" : allEmployeeArrayList.get(spSalesPerson.getSelectedItemPosition());
 //                }
-                String remarks = edtRemarks.getText().toString();
+                    String remarks = edtRemarks.getText().toString();
 
-                String productInfo = "";
+                    String productInfo = "";
 
-                JSONArray jsonArray = new JSONArray();
+                    JSONArray jsonArray = new JSONArray();
 
-                if (itemDetailsJasonReqModelArrayListFinal != null &&
-                        itemDetailsJasonReqModelArrayListFinal.size() > 0) {
-                    for (int i = 0; i < itemDetailsJasonReqModelArrayListFinal.size(); i++) {
-                        if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited()) {
-                            JSONObject jsonObject = new JSONObject();
-                            try {
-                                productInfo += "Product Name:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name() + "\n" +
-                                        "Quantity:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getQty() + "\n" +
-                                        "Price:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getPrice() + "\n" +
-                                        "Flavour:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour() + "\n\n";
+                    if (itemDetailsJasonReqModelArrayListFinal != null &&
+                            itemDetailsJasonReqModelArrayListFinal.size() > 0) {
+                        for (int i = 0; i < itemDetailsJasonReqModelArrayListFinal.size(); i++) {
+                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited()) {
+                                JSONObject jsonObject = new JSONObject();
+                                try {
+                                    productInfo += "Product Name:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name() + "\n" +
+                                            "Quantity:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getQty() + "\n" +
+                                            "Price:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getPrice() + "\n" +
+                                            "Flavour:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour() + "\n\n";
 
-                                jsonObject.put("item_id", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_id());
-                                jsonObject.put("item_name", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name());
-                                jsonObject.put("qty", itemDetailsJasonReqModelArrayListFinal.get(i).getQty());
-                                jsonObject.put("disc_amt", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_amt());
-                                jsonObject.put("disc_per", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_per());
-                                jsonObject.put("basic_price", itemDetailsJasonReqModelArrayListFinal.get(i).getBasic_price());
-                                jsonObject.put("price", itemDetailsJasonReqModelArrayListFinal.get(i).getPrice());
-                                jsonObject.put("st_uom_id", itemDetailsJasonReqModelArrayListFinal.get(i).getSt_uom_id());
-                                jsonObject.put("hsn_code", itemDetailsJasonReqModelArrayListFinal.get(i).getHsn_code());
-                                jsonObject.put("gst_type", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_type());
-                                jsonObject.put("gst_per", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_per());
-                                jsonObject.put("cess_per", itemDetailsJasonReqModelArrayListFinal.get(i).getCess_per());
-                                jsonObject.put("flavour", itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour());
-                                jsonObject.put("size", itemDetailsJasonReqModelArrayListFinal.get(i).getSize());
-                                jsonArray.put(jsonObject);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                                    jsonObject.put("item_id", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_id());
+                                    jsonObject.put("item_name", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name());
+                                    jsonObject.put("qty", itemDetailsJasonReqModelArrayListFinal.get(i).getQty());
+                                    jsonObject.put("disc_amt", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_amt());
+                                    jsonObject.put("disc_per", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_per());
+                                    jsonObject.put("basic_price", itemDetailsJasonReqModelArrayListFinal.get(i).getBasic_price());
+                                    jsonObject.put("price", itemDetailsJasonReqModelArrayListFinal.get(i).getPrice());
+                                    jsonObject.put("st_uom_id", itemDetailsJasonReqModelArrayListFinal.get(i).getSt_uom_id());
+                                    jsonObject.put("hsn_code", itemDetailsJasonReqModelArrayListFinal.get(i).getHsn_code());
+                                    jsonObject.put("gst_type", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_type());
+                                    jsonObject.put("gst_per", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_per());
+                                    jsonObject.put("cess_per", itemDetailsJasonReqModelArrayListFinal.get(i).getCess_per());
+                                    jsonObject.put("flavour", itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour());
+                                    jsonObject.put("size", itemDetailsJasonReqModelArrayListFinal.get(i).getSize());
+                                    jsonArray.put(jsonObject);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }
                     }
+
+
+                    InsertRespectiveSalesOrderReqModel insertRespectiveSalesOrderReqModel = new InsertRespectiveSalesOrderReqModel();
+                    insertRespectiveSalesOrderReqModel.setApp_version(app_version);
+                    insertRespectiveSalesOrderReqModel.setAndroid_id(android_id);
+                    insertRespectiveSalesOrderReqModel.setDevice_id(device_id);
+                    insertRespectiveSalesOrderReqModel.setUser_id(user_id);
+                    insertRespectiveSalesOrderReqModel.setKey(key);
+                    insertRespectiveSalesOrderReqModel.setComp_id(comp_id);
+                    insertRespectiveSalesOrderReqModel.setCus_name(cus_name);
+                    insertRespectiveSalesOrderReqModel.setDelivery_date(delivery_date);
+                    insertRespectiveSalesOrderReqModel.setSom_id(som_id);
+                    insertRespectiveSalesOrderReqModel.setCus_id(cus_id);
+                    insertRespectiveSalesOrderReqModel.setOrd_to_ref_id(ord_to_ref_id);
+                    insertRespectiveSalesOrderReqModel.setArea_name(area_name);
+                    insertRespectiveSalesOrderReqModel.setFull_address(full_address);
+                    insertRespectiveSalesOrderReqModel.setChk_other_del(chk_other_del);
+                    insertRespectiveSalesOrderReqModel.setDel_cus_name(del_cus_name);
+                    insertRespectiveSalesOrderReqModel.setDel_add_title(del_add_title);
+                    insertRespectiveSalesOrderReqModel.setDel_address1(del_address1);
+                    insertRespectiveSalesOrderReqModel.setDel_address2(del_address2);
+                    insertRespectiveSalesOrderReqModel.setDel_address3(del_address3);
+                    insertRespectiveSalesOrderReqModel.setDel_cit_name(del_cit_name);
+                    insertRespectiveSalesOrderReqModel.setDel_state_name(del_state_name);
+                    insertRespectiveSalesOrderReqModel.setDel_area_name(del_area_name);
+                    insertRespectiveSalesOrderReqModel.setDel_pan_no(del_pan_no);
+                    insertRespectiveSalesOrderReqModel.setDel_contact_person(del_contact_person);
+                    insertRespectiveSalesOrderReqModel.setDel_contact_no(del_contact_no);
+                    insertRespectiveSalesOrderReqModel.setDel_GSTIN(del_GSTIN);
+                    insertRespectiveSalesOrderReqModel.setDel_pincode(del_pincode);
+                    insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
+                    insertRespectiveSalesOrderReqModel.setRemarks(remarks);
+                    insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
+
+                    insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel, productInfo);
+
+                } else {
+
+                    GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
+                            distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
+
+                    String app_version = String.valueOf(getSharedPref.getAppVersionCode());
+                    String android_id = getSharedPref.getAppAndroidId();
+                    String device_id = String.valueOf(getSharedPref.getRegisteredId());
+                    String user_id = getSharedPref.getRegisteredUserId();
+                    String key = Config.ACCESS_KEY;
+                    String comp_id = getSharedPref.getCompanyId();
+                    String cus_name = customerNameArrayList.get(spCustomer.getSelectedItemPosition());
+                    String delivery_date = edtDeliveryDate.getText().toString();
+                    String som_id = "0";
+                    String cus_id = CommonUtils.checkIsEmptyOrNullCommon(record.getRvpdCustId()) ? "" : record.getRvpdCustId().toString();
+
+                    String ord_to_ref_id = CommonUtils.checkIsEmptyOrNullCommon(record.getOrderToRefId()) ? "" : record.getOrderToRefId().toString();
+                    String chk_other_del = cbOtherDeliveryAddress.isChecked() ? "0" : "1";
+
+                    String area_name = "";
+                    String full_address = "";
+                    String del_add_title = "";
+                    String del_cus_name = "";
+                    String del_address1 = "";
+                    String del_address2 = "";
+                    String del_address3 = "";
+                    String del_cit_name = "";
+                    String del_state_name = "";
+                    String del_area_name = "";
+                    String del_pan_no = "";
+                    String del_contact_person = "";
+                    String del_contact_no = "";
+                    String del_GSTIN = "";
+                    String del_pincode = "";
+
+
+                    if (cbOtherDeliveryAddress.isChecked()) {
+                        area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getAreaName().toString();
+                        full_address = CommonUtils.checkIsEmptyOrNullCommon(record.getFullAddress()) ? "" : record.getFullAddress();
+                        del_add_title = salesOrderConsigneeArrayList != null ? salesOrderConsigneeArrayList.get(spDelAddressTitle.getSelectedItemPosition()) : "";
+                        del_cus_name = edtConsigneeName.getText().toString();
+                        del_address1 = edtAddress1.getText().toString();
+                        del_address2 = edtAddress2.getText().toString();
+                        del_address3 = edtAddress3.getText().toString();
+                        del_cit_name = spCity.getSelectedItemPosition() == 0 ? "" : cityAndStateArrayList.get(spCity.getSelectedItemPosition());
+                        del_state_name = edtState.getText().toString();
+                        del_area_name = CommonUtils.checkIsEmptyOrNullCommon(record.getAreaName()) ? "" : record.getFullAddress();
+                        del_pan_no = edtPANno.getText().toString();
+                        del_contact_person = edtContactPerson.getText().toString();
+                        del_contact_no = edtContactNo.getText().toString();
+                        del_GSTIN = edtGSTIN.getText().toString();
+                        del_pincode = edtPinCode.getText().toString();
+                    }
+
+//                String sales_person_name = "";
+//                if (allEmployeeArrayList != null) {
+//                    sales_person_name = spSalesPerson.getSelectedItemPosition() == 0 ? "" : allEmployeeArrayList.get(spSalesPerson.getSelectedItemPosition());
+//                }
+                    String remarks = edtRemarks.getText().toString();
+
+                    String productInfo = "";
+
+                    JSONArray jsonArray = new JSONArray();
+
+                    if (itemDetailsJasonReqModelArrayListFinal != null &&
+                            itemDetailsJasonReqModelArrayListFinal.size() > 0) {
+                        for (int i = 0; i < itemDetailsJasonReqModelArrayListFinal.size(); i++) {
+                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited()) {
+                                JSONObject jsonObject = new JSONObject();
+                                try {
+                                    productInfo += "Product Name:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name() + "\n" +
+                                            "Quantity:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getQty() + "\n" +
+                                            "Price:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getPrice() + "\n" +
+                                            "Flavour:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour() + "\n\n";
+
+                                    jsonObject.put("item_id", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_id());
+                                    jsonObject.put("item_name", itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name());
+                                    jsonObject.put("qty", itemDetailsJasonReqModelArrayListFinal.get(i).getQty());
+                                    jsonObject.put("disc_amt", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_amt());
+                                    jsonObject.put("disc_per", itemDetailsJasonReqModelArrayListFinal.get(i).getDisc_per());
+                                    jsonObject.put("basic_price", itemDetailsJasonReqModelArrayListFinal.get(i).getBasic_price());
+                                    jsonObject.put("price", itemDetailsJasonReqModelArrayListFinal.get(i).getPrice());
+                                    jsonObject.put("st_uom_id", itemDetailsJasonReqModelArrayListFinal.get(i).getSt_uom_id());
+                                    jsonObject.put("hsn_code", itemDetailsJasonReqModelArrayListFinal.get(i).getHsn_code());
+                                    jsonObject.put("gst_type", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_type());
+                                    jsonObject.put("gst_per", itemDetailsJasonReqModelArrayListFinal.get(i).getGst_per());
+                                    jsonObject.put("cess_per", itemDetailsJasonReqModelArrayListFinal.get(i).getCess_per());
+                                    jsonObject.put("flavour", itemDetailsJasonReqModelArrayListFinal.get(i).getFlavour());
+                                    jsonObject.put("size", itemDetailsJasonReqModelArrayListFinal.get(i).getSize());
+                                    jsonArray.put(jsonObject);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+
+
+                    InsertRespectiveSalesOrderReqModel insertRespectiveSalesOrderReqModel = new InsertRespectiveSalesOrderReqModel();
+                    insertRespectiveSalesOrderReqModel.setApp_version(app_version);
+                    insertRespectiveSalesOrderReqModel.setAndroid_id(android_id);
+                    insertRespectiveSalesOrderReqModel.setDevice_id(device_id);
+                    insertRespectiveSalesOrderReqModel.setUser_id(user_id);
+                    insertRespectiveSalesOrderReqModel.setKey(key);
+                    insertRespectiveSalesOrderReqModel.setComp_id(comp_id);
+                    insertRespectiveSalesOrderReqModel.setCus_name(cus_name);
+                    insertRespectiveSalesOrderReqModel.setDelivery_date(delivery_date);
+                    insertRespectiveSalesOrderReqModel.setSom_id(som_id);
+                    insertRespectiveSalesOrderReqModel.setCus_id(cus_id);
+                    insertRespectiveSalesOrderReqModel.setOrd_to_ref_id(ord_to_ref_id);
+                    insertRespectiveSalesOrderReqModel.setArea_name(area_name);
+                    insertRespectiveSalesOrderReqModel.setFull_address(full_address);
+                    insertRespectiveSalesOrderReqModel.setChk_other_del(chk_other_del);
+                    insertRespectiveSalesOrderReqModel.setDel_cus_name(del_cus_name);
+                    insertRespectiveSalesOrderReqModel.setDel_add_title(del_add_title);
+                    insertRespectiveSalesOrderReqModel.setDel_address1(del_address1);
+                    insertRespectiveSalesOrderReqModel.setDel_address2(del_address2);
+                    insertRespectiveSalesOrderReqModel.setDel_address3(del_address3);
+                    insertRespectiveSalesOrderReqModel.setDel_cit_name(del_cit_name);
+                    insertRespectiveSalesOrderReqModel.setDel_state_name(del_state_name);
+                    insertRespectiveSalesOrderReqModel.setDel_area_name(del_area_name);
+                    insertRespectiveSalesOrderReqModel.setDel_pan_no(del_pan_no);
+                    insertRespectiveSalesOrderReqModel.setDel_contact_person(del_contact_person);
+                    insertRespectiveSalesOrderReqModel.setDel_contact_no(del_contact_no);
+                    insertRespectiveSalesOrderReqModel.setDel_GSTIN(del_GSTIN);
+                    insertRespectiveSalesOrderReqModel.setDel_pincode(del_pincode);
+                    insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
+                    insertRespectiveSalesOrderReqModel.setRemarks(remarks);
+                    insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
+
+                    insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel, productInfo);
+
+
                 }
 
 
-                InsertRespectiveSalesOrderReqModel insertRespectiveSalesOrderReqModel = new InsertRespectiveSalesOrderReqModel();
-                insertRespectiveSalesOrderReqModel.setApp_version(app_version);
-                insertRespectiveSalesOrderReqModel.setAndroid_id(android_id);
-                insertRespectiveSalesOrderReqModel.setDevice_id(device_id);
-                insertRespectiveSalesOrderReqModel.setUser_id(user_id);
-                insertRespectiveSalesOrderReqModel.setKey(key);
-                insertRespectiveSalesOrderReqModel.setComp_id(comp_id);
-                insertRespectiveSalesOrderReqModel.setCus_name(cus_name);
-                insertRespectiveSalesOrderReqModel.setDelivery_date(delivery_date);
-                insertRespectiveSalesOrderReqModel.setSom_id(som_id);
-                insertRespectiveSalesOrderReqModel.setCus_id(cus_id);
-                insertRespectiveSalesOrderReqModel.setOrd_to_ref_id(ord_to_ref_id);
-                insertRespectiveSalesOrderReqModel.setArea_name(area_name);
-                insertRespectiveSalesOrderReqModel.setFull_address(full_address);
-                insertRespectiveSalesOrderReqModel.setChk_other_del(chk_other_del);
-                insertRespectiveSalesOrderReqModel.setDel_cus_name(del_cus_name);
-                insertRespectiveSalesOrderReqModel.setDel_add_title(del_add_title);
-                insertRespectiveSalesOrderReqModel.setDel_address1(del_address1);
-                insertRespectiveSalesOrderReqModel.setDel_address2(del_address2);
-                insertRespectiveSalesOrderReqModel.setDel_address3(del_address3);
-                insertRespectiveSalesOrderReqModel.setDel_cit_name(del_cit_name);
-                insertRespectiveSalesOrderReqModel.setDel_state_name(del_state_name);
-                insertRespectiveSalesOrderReqModel.setDel_area_name(del_area_name);
-                insertRespectiveSalesOrderReqModel.setDel_pan_no(del_pan_no);
-                insertRespectiveSalesOrderReqModel.setDel_contact_person(del_contact_person);
-                insertRespectiveSalesOrderReqModel.setDel_contact_no(del_contact_no);
-                insertRespectiveSalesOrderReqModel.setDel_GSTIN(del_GSTIN);
-                insertRespectiveSalesOrderReqModel.setDel_pincode(del_pincode);
-                insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
-                insertRespectiveSalesOrderReqModel.setRemarks(remarks);
-                insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
-
-                insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel, productInfo);
             }
         } else if (v.getId() == R.id.edtDeliveryDate) {
             DatePickerDialog datePickerDialog = new DatePickerDialog(context, deliveryDatePicker, my_calendar
@@ -606,14 +900,17 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         if (isPdShow) {
             showProgressDialog();
         }
+
         ApiClient.getDistributorAndRetailerDetailsImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(),
                 Config.ACCESS_KEY, getSharedPref.getCompanyId(), new Callback<Get_Distributor_and_its_Retailer_detail_Pojo>() {
                     @Override
                     public void onResponse(Call<Get_Distributor_and_its_Retailer_detail_Pojo> call, Response<Get_Distributor_and_its_Retailer_detail_Pojo> response) {
+
                         if (isPdHide) {
                             hideProgressDialog();
                         }
+
                         try {
                             Get_Distributor_and_its_Retailer_detail_Pojo get_distributor_and_its_retailer_detail_pojo = response.body();
                             if (response.isSuccessful() && get_distributor_and_its_retailer_detail_pojo != null &&
@@ -711,6 +1008,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 //                    }
 //                });
 //    }
+
+    private boolean isFromSalesAndConsign = false;
 
     private void getSaleOrderConsigneeApiCall(boolean isPdShow, final boolean isPdHide,
                                               final int cus_id, final String del_date,
@@ -854,11 +1153,18 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                 spCity.setAdapter(cityOrState);
                                 spCity.setTitle("Select City");
                                 spCity.setPositiveButton("Cancel");
+
+
                                 // if (isOrder) {
 
                                 System.out.println(customerIdArrayList);
+                                String loggedInCusId;
+                                if (isRootSelectedFormHere) {
+                                    loggedInCusId = CustId;
+                                } else {
+                                    loggedInCusId = getSharedPref.getLoginCustomerId() + "";
+                                }
 
-                                String loggedInCusId = getSharedPref.getLoginCustomerId() + "";
 
                                 for (int i = 0; i < customerIdArrayList.size(); i++) {
                                     if (customerIdArrayList.get(i).equals(loggedInCusId)) {
@@ -931,8 +1237,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                     if (!CommonUtils.checkIsEmptyOrNullCommon(record.getItemId())) {
                                         itemDetailsJasonReqModel.setItem_id(record.getItemId().toString());
                                     }
-                                    if (!CommonUtils.checkIsEmptyOrNullCommon(record.getItemName())) {
-                                        itemDetailsJasonReqModel.setItem_name(record.getItemName());
+                                    if (!CommonUtils.checkIsEmptyOrNullCommon(record.getOnly_item_name())) {
+                                        itemDetailsJasonReqModel.setItem_name(record.getOnly_item_name());
                                     }
                                     if (!CommonUtils.checkIsEmptyOrNullCommon(record.getQty())) {
                                         itemDetailsJasonReqModel.setQty(record.getQty().toString());
@@ -1239,5 +1545,216 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         }
 
 
+    }
+
+    private GetAllRouteListPojo getAllRouteListPojo;
+
+    private void getAllRouteList(boolean isPdShow, boolean isPdHide, String routeID) {
+        if (isPdShow) {
+            showProgressDialog();
+        }
+        ApiImplementer.getAllRouteListImplementer(String.valueOf(getSharedPref.getAppVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(), getSharedPref.getCompanyId(), new Callback<GetAllRouteListPojo>() {
+            @Override
+            public void onResponse(Call<GetAllRouteListPojo> call, Response<GetAllRouteListPojo> response) {
+
+                if (isPdHide) {
+                    hideProgressDialog();
+                }
+
+                routeArrayList = new ArrayList<>();
+                routeIdArrayList = new ArrayList<>();
+                routeArrayList.add("Select Route");
+                routeIdArrayList.add("**");
+
+                try {
+
+                    if (response.isSuccessful() && response.body() != null) {
+
+                        getAllRouteListPojo = response.body();
+                        if (getAllRouteListPojo != null && getAllRouteListPojo.getRECORDS().size() > 0) {
+                            for (int i = 0; i < getAllRouteListPojo.getRECORDS().size(); i++) {
+
+                                routeArrayList.add(getAllRouteListPojo.getRECORDS().get(i).getRouteName());
+                                routeIdArrayList.add(getAllRouteListPojo.getRECORDS().get(i).getRouteId() + "");
+
+                            }
+                            ArrayAdapter<String> customerNameAdapter = new ArrayAdapter<String>
+                                    (context, R.layout.searchable_spinner_text_view,
+                                            routeArrayList);
+                            customerNameAdapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
+                            spRoute.setAdapter(customerNameAdapter);
+                            spRoute.setTitle("Select Route");
+                            spRoute.setPositiveButton("Cancel");
+                            // spRoute.setSelection(0);
+                            for (int i = 0; i < routeIdArrayList.size(); i++) {
+                                if (routeIdArrayList.get(i).equals(routeID)) {
+                                    isRootSelectedFormHere = true;
+                                    spRoute.setSelection(i);
+                                    break;
+
+                                } else {
+                                    isRootSelectedFormHere = false;
+                                    spRoute.setSelection(0);
+                                }
+                            }
+                            getDiatributorAndRetailerNameApiCall(true, false);
+
+                        } else {
+                            ArrayAdapter<String> customerNameAdapter = new ArrayAdapter<String>
+                                    (context, R.layout.searchable_spinner_text_view,
+                                            routeArrayList);
+                            customerNameAdapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
+                            spRoute.setAdapter(customerNameAdapter);
+                            spRoute.setTitle("Select Route");
+                            spRoute.setPositiveButton("Cancel");
+                            spRoute.setSelection(0);
+                        }
+
+
+                    }
+
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), "Something went Wrong", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetAllRouteListPojo> call, Throwable t) {
+                hideProgressDialog();
+                Toast.makeText(getActivity(), "Request Failed" + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+
+    private void get_sale_route_wise_vehicle_wise_planning_details(String rvpmId) {
+        showProgressDialog();
+
+        ApiImplementer.getSaleRouteWiseVehicleWisePlanningDetails(String.valueOf(getSharedPref.getAppVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(), getSharedPref.getCompanyId(), rvpmId, new Callback<GetSaleRouteWiseVehicleWisePlanningDetailsPojo>() {
+            @Override
+            public void onResponse(Call<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> call, Response<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> response) {
+                hideProgressDialog();
+
+                try {
+                    if (response.isSuccessful() && response.body() != null) {
+
+                        GetSaleRouteWiseVehicleWisePlanningDetailsPojo getSaleRouteWiseVehicleWisePlanningDetailsPojo = response.body();
+
+                        customerNameArrayList = new ArrayList<>();
+                        customerIdArrayList = new ArrayList<>();
+                        customerNameArrayList.add(0, "Select Customer");
+                        customerIdArrayList.add(0, "0");
+
+                        if (getSaleRouteWiseVehicleWisePlanningDetailsPojo != null && getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().size() > 0) {
+
+                            for (int i = 0; i < getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().size(); i++) {
+
+                                customerNameArrayList.add(getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().get(i).getCustName());
+                                customerIdArrayList.add(getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().get(i).getRvpdCustId() + "");
+
+                            }
+
+                            distributorAndRetailerRecordHashMap2 = new HashMap<>();
+                            for (int i = 0; i < getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().size(); i++) {
+                                GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record = getSaleRouteWiseVehicleWisePlanningDetailsPojo.getRECORDS().get(i);
+                                if (!TextUtils.isEmpty(record.getCustName()) &&
+                                        record.getId() != null) {
+                                    // customerNameArrayList.add(record.getCustName().trim());
+                                    //customerIdArrayList.add(record.getId().toString().trim());
+                                    distributorAndRetailerRecordHashMap2.put(record.getCustName(), record);
+                                }
+                            }
+                            ArrayAdapter<String> customerNameAdapter = new ArrayAdapter<String>
+                                    (context, R.layout.searchable_spinner_text_view,
+                                            customerNameArrayList);
+                            customerNameAdapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
+                            spCustomer.setAdapter(customerNameAdapter);
+                            spCustomer.setTitle("Select Customer");
+                            spCustomer.setPositiveButton("Cancel");
+
+                          /*  for (int i = 0; i < customerIdArrayList.size(); i++) {
+                                if (customerIdArrayList.get(i).equals(CustId)) {
+                                    System.out.println("name----------------------------------------" + customerIdArrayList.get(i));
+                                    spCustomer.setSelection(i);
+
+                                    break;
+                                }
+
+                                //
+
+                            }*/
+                            getAllCityOrTalukaApiCall(false, true);
+
+
+                        } else {
+
+                            Toast.makeText(getActivity(), getSaleRouteWiseVehicleWisePlanningDetailsPojo.getMESSAGE(), Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+                } catch (Exception e) {
+
+                    Toast.makeText(getActivity(), "Error in response", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    private ArrayList<String> selectVehicleNumberArrayList;
+
+    private void getAllVehicleNumberApiCall(boolean isPdShow, boolean isPdHide) {
+
+        if (isPdShow) {
+            showProgressDialog();
+        }
+        ApiImplementer.getAllVehicleNumberApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
+                getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
+                getSharedPref.getRegisteredUserId(), getSharedPref.getCompanyId(), new Callback<VehicalNumberPojo>() {
+                    @Override
+                    public void onResponse(Call<VehicalNumberPojo> call, Response<VehicalNumberPojo> response) {
+
+                        if (isPdHide) {
+                            hideProgressDialog();
+                        }
+                        if (response.isSuccessful() && response.body() != null && response.body().getRECORDS().size() > 0) {
+                            selectVehicleNumberArrayList = new ArrayList<>();
+
+                            VehicalNumberPojo vehicalNumberPojo = response.body();
+
+                            for (int i = 0; i < vehicalNumberPojo.getRECORDS().size(); i++) {
+                                if (!TextUtils.isEmpty(vehicalNumberPojo.getRECORDS().get(i).getNAME())) {
+                                    String vehicleNumber = vehicalNumberPojo.getRECORDS().get(i).getNAME();
+                                    selectVehicleNumberArrayList.add(vehicleNumber);
+
+                                }
+                            }
+
+
+                            ArrayAdapter<String> addScheduleAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, selectVehicleNumberArrayList);
+                            //  spVehicle.setAdapter(addScheduleAdapter);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<VehicalNumberPojo> call, Throwable t) {
+                        hideProgressDialog();
+                        Toast.makeText(getActivity(), "Something went wrong,Please try again later.", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

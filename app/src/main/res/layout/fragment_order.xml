@@ -67,7 +67,7 @@
                         android:padding="@dimen/_3sdp">
 
                         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                            android:id="@+id/spCustomer"
+                            android:id="@+id/spRoute"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
@@ -84,6 +84,43 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="@android:color/darker_gray"/>
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spCustomer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:drawableRight="@drawable/ic_action_down_arrow"
+                            android:visibility="visible"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:textColor="@android:color/black"
+                            android:spinnerMode="dialog" />
+                        <View
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/edVehicleNo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="top"
+                                android:focusable="false"
+
+                                android:paddingTop="@dimen/_2sdp"
+                                android:textSize="16sp"
+
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginTop="2dp"
@@ -371,32 +408,32 @@
 
                         </LinearLayout>
 
-<!--                        <LinearLayout-->
-<!--                            android:id="@+id/llSalesPerson"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical">-->
+                        <!--                        <LinearLayout-->
+                        <!--                            android:id="@+id/llSalesPerson"-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:orientation="vertical">-->
 
-<!--                            <com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
-<!--                                android:id="@+id/spSalesPerson"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:maxLines="1"-->
-<!--                                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                                android:drawableTint="@color/colorPrimary"-->
-<!--                                android:drawableRight="@drawable/ic_action_down_arrow"-->
-<!--                                android:visibility="visible"-->
-<!--                                android:paddingTop="@dimen/_2sdp"-->
-<!--                                android:textColor="@android:color/black"-->
-<!--                                android:spinnerMode="dialog" />-->
+                        <!--                            <com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
+                        <!--                                android:id="@+id/spSalesPerson"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="wrap_content"-->
+                        <!--                                android:maxLines="1"-->
+                        <!--                                android:layout_marginTop="@dimen/_10sdp"-->
+                        <!--                                android:drawableTint="@color/colorPrimary"-->
+                        <!--                                android:drawableRight="@drawable/ic_action_down_arrow"-->
+                        <!--                                android:visibility="visible"-->
+                        <!--                                android:paddingTop="@dimen/_2sdp"-->
+                        <!--                                android:textColor="@android:color/black"-->
+                        <!--                                android:spinnerMode="dialog" />-->
 
-<!--                            <View-->
-<!--                                android:layout_marginTop="@dimen/_10sdp"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="1dp"-->
-<!--                                android:background="@android:color/darker_gray"/>-->
+                        <!--                            <View-->
+                        <!--                                android:layout_marginTop="@dimen/_10sdp"-->
+                        <!--                                android:layout_width="match_parent"-->
+                        <!--                                android:layout_height="1dp"-->
+                        <!--                                android:background="@android:color/darker_gray"/>-->
 
-<!--                        </LinearLayout>-->
+                        <!--                        </LinearLayout>-->
 
                         <!--                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
                         <!--                            android:id="@+id/spOrderList"-->
@@ -703,7 +740,7 @@
                                     android:gravity="center"
                                     android:layout_gravity="center"
                                     android:layout_height="wrap_content"
-                                   />
+                                    />
 
                                 <View
                                     android:layout_width="1dp"
@@ -822,7 +859,7 @@
                                     android:layout_gravity="center"
                                     android:layout_weight="1"
                                     android:layout_height="wrap_content"
-                                   />
+                                    />
 
                             </LinearLayout>
 

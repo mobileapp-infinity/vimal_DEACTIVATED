@@ -84,6 +84,15 @@ public class GetSaleRouteWiseVehicleWisePlanningPojo {
         @Expose
         private String rvpmVehicleNo;
 
+        @SerializedName("cre_dt")
+        @Expose
+        private String cre_dt;
+
+        @SerializedName("cre_time")
+        @Expose
+        private String cre_time;
+
+
         public Integer getId() {
             return id;
         }
@@ -186,6 +195,22 @@ public class GetSaleRouteWiseVehicleWisePlanningPojo {
 
         public void setRvpmVehicleNo(String rvpmVehicleNo) {
             this.rvpmVehicleNo = rvpmVehicleNo;
+        }
+
+        public String getCre_dt() {
+            return cre_dt;
+        }
+
+        public void setCre_dt(String cre_dt) {
+            this.cre_dt = cre_dt;
+        }
+
+        public String getCre_time() {
+            return cre_time;
+        }
+
+        public void setCre_time(String cre_time) {
+            this.cre_time = cre_time;
         }
     }
 }

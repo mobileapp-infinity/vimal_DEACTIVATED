@@ -85,7 +85,16 @@ public class SelectCustomerPojo {
             this.cusName = cusName;
         }
 
+        @SerializedName("is_exists_flag")
+        @Expose
+        private Integer is_exists_flag;
 
+        public Integer getIs_exists_flag() {
+            return is_exists_flag;
+        }
 
+        public void setIs_exists_flag(Integer is_exists_flag) {
+            this.is_exists_flag = is_exists_flag;
+        }
     }
 }

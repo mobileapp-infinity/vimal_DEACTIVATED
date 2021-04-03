@@ -71,6 +71,7 @@ import com.infinity.infoway.vimal.delear.activity.UpdateCallList.Get_Retailer_Ro
 import com.infinity.infoway.vimal.delear.activity.VehicleDispatchUpdate.Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail_Pojo;
 import com.infinity.infoway.vimal.delear.activity.VehicleDispatchUpdate.Get_Distributor_Wise_Dispatched_Sales_Invoice_List_Pojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.AddScheduleRequestPojo;
+import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
@@ -677,7 +678,8 @@ public interface ApiInterface {
             @Query("user_id") String user_id,
             @Query("key") String key,
             @Query("comp_id") String comp_id,
-            @Query("cus_id") String cus_id
+            @Query("cus_id") String cus_id,
+            @Query("schedule") String schedule
     );
 
     @POST("save_sale_route_wise_vehicle_wise_planning")
@@ -738,7 +740,8 @@ public interface ApiInterface {
             @Query("user_id") String user_id,
             @Query("key") String key,
             @Query("comp_id") String comp_id,
-            @Query("effective_date") String effective_date
+            @Query("effective_date") String effective_date,
+            @Query("id") String id
 
     );
 
@@ -866,4 +869,18 @@ public interface ApiInterface {
     );
 
 
+    //new Added by harsh // 1-4-2021
+
+
+    @GET("get_sale_route_wise_vehicle_wise_planning_details")
+    Call<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> getSaleRouteWiseVehicleWisePlanningDetails(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("rvpm_id") String rvpm_id
+
+    );
 }

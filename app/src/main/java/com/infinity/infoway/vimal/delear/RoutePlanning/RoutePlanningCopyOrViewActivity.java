@@ -211,8 +211,8 @@ public class RoutePlanningCopyOrViewActivity extends AppCompatActivity implement
 
             if (spEmployeeName.getSelectedItemPosition() != 0) {
 
-                SaveRoutePlanningRequestPojo saveRoutePlanningRequestPojo = new SaveRoutePlanningRequestPojo(sharedPref.getAppVersionCode(), sharedPref.getAppAndroidId(), sharedPref.getRegisteredId(), Integer.parseInt(sharedPref.getRegisteredUserId()), Config.ACCESS_KEY, Integer.parseInt(sharedPref.getCompanyId()), routeId, salesPersonId);
-                saveSaleRouteWiseSalesOfficerMapping(saveRoutePlanningRequestPojo);
+              //  SaveRoutePlanningRequestPojo saveRoutePlanningRequestPojo = new SaveRoutePlanningRequestPojo(sharedPref.getAppVersionCode(), sharedPref.getAppAndroidId(), sharedPref.getRegisteredId(), Integer.parseInt(sharedPref.getRegisteredUserId()), Config.ACCESS_KEY, Integer.parseInt(sharedPref.getCompanyId()), routeId, salesPersonId);
+                //saveSaleRouteWiseSalesOfficerMapping(saveRoutePlanningRequestPojo);
 
 
             } else {

@@ -108,10 +108,10 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
 
             } else if (scrolled && holder.llinnerDetails.getVisibility() == View.VISIBLE) {
                 holder.llinnerDetails.setVisibility(View.VISIBLE);
-                Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(0).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city);
+                Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(0).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city,holder.tvInvoiceTime);
                 holder.tv_vehicle_dispatch_update_invoice_name.setText("Today`s Gate Pass");
             } else {
-                Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(0).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city);
+                Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(0).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city,holder.tvInvoiceTime);
                 holder.llinnerDetails.setVisibility(View.VISIBLE);
                 holder.tv_vehicle_dispatch_update_invoice_name.setText("Today`s Gate Pass");
 
@@ -138,7 +138,7 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
 
                 } else {
 
-                    Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(position).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city);
+                    Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(get_distributor_wise_dispatched_sales_invoice_list_pojo.getRECORDS().get(position).getId() + "", holder.tv_invoice_name, holder.tv_invoice_date, holder.tv_driver_name, holder.tv_driver_no, holder.tv_vehicle_no, holder.tv_delivery_city, holder.tv_delivery_area,holder.tv_customer_city,holder.tvInvoiceTime);
 
                     holder.llinnerDetails.setVisibility(View.VISIBLE);
                 }
@@ -167,7 +167,7 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
         /**
          * inner view
          **/
-        TextView tv_invoice_name, tv_invoice_date, tv_driver_name, tv_driver_no, tv_vehicle_no, tv_customer_city, tv_delivery_city, tv_delivery_area;
+        TextView tv_invoice_name, tv_invoice_date, tv_driver_name, tv_driver_no, tv_vehicle_no, tv_customer_city, tv_delivery_city, tv_delivery_area,tvInvoiceTime;
 
 
         /**
@@ -191,6 +191,7 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
             tv_delivery_city = itemView.findViewById(R.id.tv_delivery_city);
             tv_delivery_area = itemView.findViewById(R.id.tv_delivery_area);
             tv_customer_city = itemView.findViewById(R.id.tv_customer_city);
+            tvInvoiceTime = itemView.findViewById(R.id.tvInvoiceTime);
             llinnerDetails = itemView.findViewById(R.id.llinnerDetails);
 
 
@@ -219,7 +220,7 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
         }
     }
 
-    private void Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(String inv_id, final TextView tv_invoice_name, final TextView tv_invoice_date, final TextView tv_driver_name, final TextView tv_driver_no, final TextView tv_vehicle_no, final TextView tv_delivery_city, final TextView tv_delivery_area,final TextView tv_customer_city) {
+    private void Get_Distributor_Wise_Dispatched_Sales_Invoice_Detail(String inv_id, final TextView tv_invoice_name, final TextView tv_invoice_date, final TextView tv_driver_name, final TextView tv_driver_no, final TextView tv_vehicle_no, final TextView tv_delivery_city, final TextView tv_delivery_area,final TextView tv_customer_city,final TextView tvInvoiceTime) {
 
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
@@ -266,6 +267,7 @@ public class VehicleDispatchUpdateAdapter extends RecyclerView.Adapter<VehicleDi
                         tv_delivery_city.setText(get_distributor_wise_dispatched_sales_invoice_detail_pojo.getRECORDS().get(0).getDelivery_City() + "");
                         tv_delivery_area.setText(get_distributor_wise_dispatched_sales_invoice_detail_pojo.getRECORDS().get(0).getDelivery_Area() + "");
                         tv_customer_city.setText(get_distributor_wise_dispatched_sales_invoice_detail_pojo.getRECORDS().get(0).getCustomer_City() + "");
+                        tvInvoiceTime.setText(get_distributor_wise_dispatched_sales_invoice_detail_pojo.getRECORDS().get(0).getInvoice_Time() + "");
 
 
                         // VehicleDipatchUpdateInnerAdapter vehicleDipatchUpdateInnerAdapter = new VehicleDipatchUpdateInnerAdapter(context,get_distributor_wise_dispatched_sales_invoice_detail_pojo);

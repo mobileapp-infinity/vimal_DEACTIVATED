@@ -2,14 +2,19 @@ package com.infinity.infoway.vimal.delear.activity.UpdateCallList;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.OrderPlaceToCompanyActivity;
+
 
 public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAdapter.MyViewHolder> {
 
@@ -137,6 +142,23 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
             }
         });
 
+        holder.tvCreateSo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent slaeOrdeIntent = new Intent(context, OrderPlaceToCompanyActivity.class);
+                //  slaeOrdeIntent.putExtra("routeId", "70");
+                //slaeOrdeIntent.putExtra("CustId", "412");
+                // slaeOrdeIntent.putExtra("vehicleNO", "Gj03R3322");
+                slaeOrdeIntent.putExtra("CustId", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getId() + "");
+                slaeOrdeIntent.putExtra("routeId", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getRoute_id() + "");
+                slaeOrdeIntent.putExtra("vehicleNO", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getRvpm_vehicle_no() + "");
+                slaeOrdeIntent.putExtra("title_screen", "Place Order");
+                context.startActivity(slaeOrdeIntent);
+
+            }
+        });
+
 
     }
 
@@ -146,7 +168,7 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_customer_name, tv_shop_name, tv_contact_person, tv_mobile;
+        TextView tv_customer_name, tv_shop_name, tv_contact_person, tv_mobile, tvCreateSo;
         TextView btnViewDetials;
 
         public MyViewHolder(View itemView) {
@@ -156,6 +178,7 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
             tv_contact_person = itemView.findViewById(R.id.tv_contact_person);
             tv_mobile = itemView.findViewById(R.id.tv_mobile);
             btnViewDetials = itemView.findViewById(R.id.btnViewDetials);
+            tvCreateSo = itemView.findViewById(R.id.tvCreateSo);
 
         }
     }

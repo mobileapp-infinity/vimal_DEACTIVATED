@@ -1,5 +1,6 @@
 package com.infinity.infoway.vimal.delear.RoutePlanning.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,10 +22,12 @@ import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiImplementer;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.RoutePlanning.Adapter.RoutePlanningDateWiseListAdapter;
-import com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningListActivity;
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.RoutePlanningDateWisePojo;
 
 
+
+
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -151,7 +154,7 @@ public class RoutPlanningListFragment extends Fragment implements View.OnClickLi
         showProgressDialog();
 
 
-        ApiImplementer.getSaleRouteWiseSalesOfficerMapping(String.valueOf(sharedPref.getAppVersionCode()), sharedPref.getAppAndroidId(), String.valueOf(sharedPref.getRegisteredId()), sharedPref.getRegisteredUserId(), "1", fdt, tdt, new Callback<RoutePlanningDateWisePojo>() {
+        ApiImplementer.getSaleRouteWiseSalesOfficerMapping(String.valueOf(sharedPref.getAppVersionCode()), sharedPref.getAppAndroidId(), String.valueOf(sharedPref.getRegisteredId()), sharedPref.getRegisteredUserId(), sharedPref.getCompanyId(), fdt, tdt, new Callback<RoutePlanningDateWisePojo>() {
             @Override
             public void onResponse(Call<RoutePlanningDateWisePojo> call, Response<RoutePlanningDateWisePojo> response) {
 
@@ -172,9 +175,7 @@ public class RoutPlanningListFragment extends Fragment implements View.OnClickLi
                                 public void onItemClicked(String selectedDate, RoutePlanningDateWisePojo routePlanningDateWisePojo, int pos) {
 
 
-                                    Intent routePlanningCopyIntent = new Intent(getActivity(), RoutePlanningListActivity.class);
-                                    routePlanningCopyIntent.putExtra("date", routePlanningDateWisePojo.getRECORDS().get(pos).getRsoEffectiveDntForUse());
-                                    getActivity().startActivity(routePlanningCopyIntent);
+
                                    /* String input = selectedDate;
                                     DateFormat inputFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
                                     Date date = null;

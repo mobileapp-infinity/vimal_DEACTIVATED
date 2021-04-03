@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo {
 
-
     /**
      * TOTAL : 8
      * MESSAGE : Record Found
@@ -85,6 +84,8 @@ public class Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo {
         private int order_to_ref_id;
         private String full_address;
         private String cus_area_id;
+        private int route_id;
+        private String rvpm_vehicle_no;
 
         public int getId() {
             return Id;
@@ -252,6 +253,22 @@ public class Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo {
 
         public void setCus_area_id(String cus_area_id) {
             this.cus_area_id = cus_area_id;
+        }
+
+        public int getRoute_id() {
+            return route_id;
+        }
+
+        public void setRoute_id(int route_id) {
+            this.route_id = route_id;
+        }
+
+        public String getRvpm_vehicle_no() {
+            return rvpm_vehicle_no;
+        }
+
+        public void setRvpm_vehicle_no(String rvpm_vehicle_no) {
+            this.rvpm_vehicle_no = rvpm_vehicle_no;
         }
     }
 }

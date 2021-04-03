@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/edate"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:text="Effective date :- "
@@ -53,6 +54,35 @@
 
                 </TextView>
             </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/etime"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:text="Effective Time :- "
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:textColor="@android:color/black"
+
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:id="@+id/tvEffectiveTime"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+            </LinearLayout>
 
 
             <LinearLayout
@@ -62,6 +92,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/routeName"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:text="Route Name :- "
@@ -92,6 +123,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/edSalesPerson"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:text="Sales Person :- "
@@ -102,9 +134,11 @@
 
                 </TextView>
 
+
                 <TextView
                     android:textColor="@android:color/black"
 
+                    android:visibility="gone"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:id="@+id/tvSalesPeronName"
@@ -112,9 +146,28 @@
                     android:layout_height="wrap_content">
 
                 </TextView>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:layout_width="match_parent"
+
+                        android:id="@+id/spEmployeeName"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/darker_gray" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:gravity="end"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
@@ -125,7 +178,7 @@
                     android:background="@drawable/bg_square_route_planning"
 
 
-                    android:id="@+id/tvCopy"
+                    android:id="@+id/tvCreateSo"
                     android:backgroundTint="@color/colorPrimary"
                     android:padding="14dp"
 

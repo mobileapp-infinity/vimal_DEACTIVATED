@@ -73,6 +73,10 @@ public class RoutePlanningDateWisePojo {
         @Expose
         private Boolean rw;
 
+        @SerializedName("ef_time")
+        @Expose
+        private String ef_time;
+
         public String getCreateByUser() {
             return createByUser;
         }
@@ -151,6 +155,14 @@ public class RoutePlanningDateWisePojo {
 
         public void setRw(Boolean rw) {
             this.rw = rw;
+        }
+
+        public String getEf_time() {
+            return ef_time;
+        }
+
+        public void setEf_time(String ef_time) {
+            this.ef_time = ef_time;
         }
     }
 

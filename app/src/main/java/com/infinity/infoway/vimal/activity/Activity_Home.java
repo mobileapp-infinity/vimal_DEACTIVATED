@@ -101,6 +101,10 @@ import com.infinity.infoway.vimal.api.response.InsertLocationSyncResponse;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
+import com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningActivity;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.OrderPlaceToCompanyActivity;
+import com.infinity.infoway.vimal.delear.activity.UpdateCallList.UpdateCallListActivity;
+import com.infinity.infoway.vimal.delear.activity.add_schedule.activity.ScheduleActivity;
 import com.infinity.infoway.vimal.fragment.Background_Service;
 import com.infinity.infoway.vimal.kich_expense.Expense.Expense_Listing;
 import com.infinity.infoway.vimal.kich_leave_module.Leave.Pojo.LoginPojo;
@@ -141,7 +145,7 @@ import retrofit2.Response;
 public class Activity_Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     static Activity_Home homeActivity;
-    private LinearLayout linear_order_history, linear_expense_tracker, linear_out_standing_dash_board, linear_complaint, linear_attedance,
+    private LinearLayout linear_order_history, linear_expense_tracker, linear_out_standing_dash_board, linear_complaint, linear_attedance, llRetailOrderBooking,
             linear_retailer, linear_sync_offline, linear_my_schedule, linear_Suspecting;
     private Intent intent;
     private FloatingActionButton floatingActionButton;
@@ -230,6 +234,9 @@ public class Activity_Home extends AppCompatActivity
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
 
+    private LinearLayout llUpdateCallList;
+    private LinearLayout llTest;
+    private LinearLayout llRoutePlanning;
     private static final long INTERVAL = 1000 * 60;
     private static final long FASTEST_INTERVAL = 1000 * 30;
     private static final int REQUEST_CHECK_SETTINGS = 0x1;
@@ -890,6 +897,15 @@ public class Activity_Home extends AppCompatActivity
             linear_leave_application.performClick();
         } else if (id == R.id.nav_view_news_noti) {
             llViewNewsOrNotification.performClick();
+        } else if (id == R.id.nav_route_planning) {
+
+            llRoutePlanning.performClick();
+        } else if (id == R.id.nav_retailer_order_booking) {
+            llRetailOrderBooking.performClick();
+        } else if (id == R.id.nav_update_call_list) {
+            llUpdateCallList.performClick();
+        } else if (id == R.id.nav_schedules) {
+            llTest.performClick();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -993,6 +1009,63 @@ public class Activity_Home extends AppCompatActivity
 //                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
                     intent = new Intent(Activity_Home.this, Activity_Add_Customer.class);
                     intent.putExtra("title_screen", mTxtTitleNewRetailer.getText().toString().trim());
+                    startActivity(intent);
+                }
+                break;
+
+            case R.id.llUpdateCallList:
+              /*  if (!isTodayPunchINDone()) {
+                    showAttendanceScreen();
+                } else if (isTodayPunchOutDone()) {
+                    showPunchOutDialog();
+                } else {*/
+                FLAG_4_BACK_START_PG_AGAIN = false;
+//                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
+                intent = new Intent(Activity_Home.this, UpdateCallListActivity.class);
+                intent.putExtra("title_screen", "Call List");
+                startActivity(intent);
+                // }
+                break;
+
+            case R.id.llTest:
+              /*  if (!isTodayPunchINDone()) {
+                    showAttendanceScreen();
+                } else if (isTodayPunchOutDone()) {
+                    showPunchOutDialog();
+                } else {*/
+                FLAG_4_BACK_START_PG_AGAIN = false;
+//                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
+                intent = new Intent(Activity_Home.this, ScheduleActivity.class);
+                intent.putExtra("title_screen", "Schedules");
+                startActivity(intent);
+                // }
+                break;
+
+            case R.id.llRoutePlanning:
+              /*  if (!isTodayPunchINDone()) {
+                    showAttendanceScreen();
+                } else if (isTodayPunchOutDone()) {
+                    showPunchOutDialog();
+                } else {*/
+                FLAG_4_BACK_START_PG_AGAIN = false;
+//                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
+                intent = new Intent(Activity_Home.this, RoutePlanningActivity.class);
+                intent.putExtra("title_screen", "Route Planning");
+                startActivity(intent);
+                // }
+                break;
+
+
+            case R.id.llRetailOrderBooking:
+                if (!isTodayPunchINDone()) {
+                    showAttendanceScreen();
+                } else if (isTodayPunchOutDone()) {
+                    showPunchOutDialog();
+                } else {
+                    FLAG_4_BACK_START_PG_AGAIN = false;
+//                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
+                    intent = new Intent(Activity_Home.this, OrderPlaceToCompanyActivity.class);
+                    intent.putExtra("title_screen", "Retailer Order Booking");
                     startActivity(intent);
                 }
                 break;
@@ -2389,6 +2462,7 @@ public class Activity_Home extends AppCompatActivity
 
     private void initView() {
         queue = Volley.newRequestQueue(this);
+        llRetailOrderBooking = findViewById(R.id.llRetailOrderBooking);
         mTxtTitleTourPlanning = (TextView) findViewById(R.id.txt_title_Tour_planning);
         mLinearTourPlanning = (LinearLayout) findViewById(R.id.linear_Tour_planning);
         mLinearTourPlanning.setOnClickListener(this);
@@ -2403,8 +2477,15 @@ public class Activity_Home extends AppCompatActivity
                 login_for_hr();
             }
         });
+        llUpdateCallList = findViewById(R.id.llUpdateCallList);
+        llTest = findViewById(R.id.llTest);
+        llRoutePlanning = findViewById(R.id.llRoutePlanning);
         llViewNewsOrNotification = findViewById(R.id.llViewNewsOrNotification);
         llViewNewsOrNotification.setOnClickListener(this);
+        llUpdateCallList.setOnClickListener(this);
+        llTest.setOnClickListener(this);
+        llRoutePlanning.setOnClickListener(this);
+        llRetailOrderBooking.setOnClickListener(this);
         llViewNewsOrNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

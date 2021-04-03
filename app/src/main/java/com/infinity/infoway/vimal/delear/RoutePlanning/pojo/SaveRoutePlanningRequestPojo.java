@@ -34,24 +34,30 @@ public class SaveRoutePlanningRequestPojo {
     @Expose
     private Integer comp_id;
 
-    @SerializedName("route_id")
+  /*  @SerializedName("route_id")
     @Expose
     private Integer route_id;
 
     @SerializedName("sales_person_id")
     @Expose
-    private Integer sales_person_id;
+    private Integer sales_person_id;*/
+
+    @SerializedName("json_detail")
+    @Expose
+    private String json_detail;
 
 
-    public SaveRoutePlanningRequestPojo(Integer app_version, String android_id, Integer device_id, Integer user_id, String key, Integer comp_id, Integer route_id, Integer sales_person_id) {
+    public SaveRoutePlanningRequestPojo(Integer app_version, String android_id, Integer device_id, Integer user_id, String key, Integer comp_id, String json_detail ) {
         this.app_version = app_version;
         this.android_id = android_id;
         this.device_id = device_id;
         this.user_id = user_id;
         this.key = key;
         this.comp_id = comp_id;
-        this.route_id = route_id;
-        this.sales_person_id = sales_person_id;
+        this.json_detail = json_detail;
+        //  this.route_id = route_id;
+        //this.sales_person_id = sales_person_id;
+        //this.effective_dt =effective_dt;
 
     }
 }
