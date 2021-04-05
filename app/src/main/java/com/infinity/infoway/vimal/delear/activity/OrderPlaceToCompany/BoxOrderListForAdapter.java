@@ -25,7 +25,7 @@ import static com.infinity.infoway.vimal.delear.activity.fragment.NewOrderFragme
 public class BoxOrderListForAdapter extends RecyclerView.Adapter<BoxOrderListForAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD> sizeFlavourWiseAllItemsDetailsPojoArrayList;
+    private ArrayList<ItemDetailsPojo.Record> sizeFlavourWiseAllItemsDetailsPojoArrayList;
     private ArrayList<ItemDetailsJasonReqModel> itemDetailsJasonReqModelArrayList;
     private LayoutInflater layoutInflater;
     private ITotalProduct iTotalProduct;
@@ -34,7 +34,7 @@ public class BoxOrderListForAdapter extends RecyclerView.Adapter<BoxOrderListFor
     private HashMap<Integer, Double> sumofAmount;
 
     public BoxOrderListForAdapter(Context context,
-                                  ArrayList<Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD> sizeFlavourWiseAllItemsDetailsPojoArrayList,
+                                  ArrayList<ItemDetailsPojo.Record> sizeFlavourWiseAllItemsDetailsPojoArrayList,
                                   ArrayList<ItemDetailsJasonReqModel> itemDetailsJasonReqModelArrayList,
                                   ITotalProduct iTotalProduct) {
         this.context = context;
@@ -56,7 +56,7 @@ public class BoxOrderListForAdapter extends RecyclerView.Adapter<BoxOrderListFor
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        final Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD record = sizeFlavourWiseAllItemsDetailsPojoArrayList.get(position);
+        final ItemDetailsPojo.Record record = sizeFlavourWiseAllItemsDetailsPojoArrayList.get(position);
 
         if (!CommonUtils.checkIsEmptyOrNullCommon(record.getItemName())) {
             holder.tvProductName.setText(record.getItemName());

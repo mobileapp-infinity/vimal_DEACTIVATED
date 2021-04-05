@@ -7,6 +7,8 @@ import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.GetRoutePlanningList
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.RoutePlanningDateWisePojo;
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.SaveRoutePlanningReponsePojo;
 import com.infinity.infoway.vimal.delear.RoutePlanning.pojo.SaveRoutePlanningRequestPojo;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemCategoryPojo;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.AddScheduleRequestPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
@@ -78,6 +80,20 @@ public class ApiImplementer {
                                                                   String user_id, String comp_id, String rvpm_id,  Callback<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<GetSaleRouteWiseVehicleWisePlanningDetailsPojo> call = apiService.getSaleRouteWiseVehicleWisePlanningDetails(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,rvpm_id);
+        call.enqueue(cb);
+    }
+
+    public static void GetItemCategoryKeyImplementer(String app_version, String android_id, String device_id,
+                                                                  String user_id,String key, String comp_id,  Callback<ItemCategoryPojo> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ItemCategoryPojo> call = apiService.GetItemCategoryKey(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id);
+        call.enqueue(cb);
+    }
+
+    public static void getAllItemsDetailForSalesOrderImplementer(String app_version, String android_id, String device_id,
+                                                     String user_id,String key, String comp_id,String del_date,String cus_id,String som_id,String item_cat_id,  Callback<ItemDetailsPojo> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ItemDetailsPojo> call = apiService.getAllItemsDetailForSalesOrder(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,del_date,cus_id,som_id,item_cat_id);
         call.enqueue(cb);
     }
 

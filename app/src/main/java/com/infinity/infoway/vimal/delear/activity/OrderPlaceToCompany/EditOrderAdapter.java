@@ -20,13 +20,13 @@ import java.util.ArrayList;
 public class EditOrderAdapter extends RecyclerView.Adapter<EditOrderAdapter.MyViewHolder> {
 
     Context context;
-    ArrayList<Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD> editOrderArrayList;
+    ArrayList<ItemDetailsPojo.Record> editOrderArrayList;
     LayoutInflater layoutInflater;
     IEditOrder iEditOrder;
     ArrayList<ItemDetailsJasonReqModel> itemDetailsJasonReqModelArrayListFinal;
 
     public EditOrderAdapter(Context context,
-                            ArrayList<Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD> editOrderArrayList,
+                            ArrayList<ItemDetailsPojo.Record> editOrderArrayList,
                             ArrayList<ItemDetailsJasonReqModel> itemDetailsJasonReqModelArrayListFinal,
                             IEditOrder iEditOrder) {
         this.context = context;
@@ -46,7 +46,7 @@ public class EditOrderAdapter extends RecyclerView.Adapter<EditOrderAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        final Get_Size_Flavour_Wise_All_Items_Detail_Pojo.RECORD record = editOrderArrayList.get(position);
+        final ItemDetailsPojo.Record record = editOrderArrayList.get(position);
 
         if (!CommonUtils.checkIsEmptyOrNullCommon(record.getItemName())) {
             holder.tvProductNameEdit.setText(record.getItemName());

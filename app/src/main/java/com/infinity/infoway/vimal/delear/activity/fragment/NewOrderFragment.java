@@ -35,10 +35,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
@@ -54,16 +52,17 @@ import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Sale_O
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Size_Flavour_Wise_All_Items_Detail_Pojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveSalesOrderReqModel;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemCategoryAdapter;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemCategoryPojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemDetailsJasonReqModel;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRouteWiseVehicleWisePlanningDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
 import com.infinity.infoway.vimal.delear.util.CommonUtils;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.FontSelector;
@@ -93,7 +92,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private Activity context;
     private SharedPref getSharedPref;
     private ProgressDialog progDialog;
-
+    private RecyclerView rvItemCategory;
     private SearchableSpinner spCustomer, spRoute, spVehicle;
     private EditText edtDeliveryDate;
     private AppCompatCheckBox cbOtherDeliveryAddress;
@@ -125,6 +124,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private BoxOrderListForAdapter boxOrderListForAdapter;
     private CardView cvProductHeader;
 
+    private String selectedCategoryId = "";
     private ArrayList<String> customerNameArrayList;
     private ArrayList<String> routeArrayList, routeIdArrayList;
     private ArrayList<String> customerIdArrayList = new ArrayList<>();
@@ -175,14 +175,19 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                 if (isRootSelectedFormHere) {
                     GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
                             distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
-                    getSizeFlavourWiseItemsApiCall(true, true,
-                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+                 /*   getSizeFlavourWiseItemsApiCall(true, true,
+                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");*/
+                 customerID = record.getId() + "";
+                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,String.valueOf(record.getId()),"0",edtDeliveryDate.getText().toString());
+
                 } else {
                     // if (isfromHere) {
                     Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
                             distributorAndRetailerRecordHashMap.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
-                    getSizeFlavourWiseItemsApiCall(true, true,
-                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");
+                 /*   getSizeFlavourWiseItemsApiCall(true, true,
+                            edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");*/
+                    customerID = record.getId() + "";
+                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,String.valueOf(record.getId()),"0",edtDeliveryDate.getText().toString());
                    /* } else {
                         GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
                                 distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
@@ -230,13 +235,15 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         initView(view);
         if (routeID != null && CustId != null) {
             isRootSelectedFormHere = true;
-            getAllRouteList(true, false, routeID);
+            getItemCategoryKey();
+            //  getAllRouteList(true, false, routeID);
         } else {
             isRootSelectedFormHere = false;
             isfromHere = true;
             routeID = null;
             routeIdHere = "";
-            getAllRouteList(true, false, routeID);
+            getItemCategoryKey();
+            //  getAllRouteList(true, false, routeID);
 
         }
 
@@ -256,6 +263,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
     private void initView(View view) {
         getSharedPref = new SharedPref(context);
+        rvItemCategory = view.findViewById(R.id.rvItemCategory);
+        rvItemCategory.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         progDialog = new ProgressDialog(context);
         rvProductList = view.findViewById(R.id.rvProductList);
         edtTotal = view.findViewById(R.id.edttotalBox);
@@ -515,14 +524,15 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         });
     }
 
+    int selectedPostion = -1;
     private boolean isValid() {
         boolean isValid = true;
 
-     /*   if (spRoute.getSelectedItemPosition() == 0) {
-           // Toast.makeText(context, "Please select Route", Toast.LENGTH_SHORT).show();
-           // isValid = false;
+        if (selectedPostion == -1) {
+            Toast.makeText(context, "Please select Category", Toast.LENGTH_SHORT).show();
+            isValid = false;
 
-        } else*/
+        } else
         if (spCustomer.getSelectedItemPosition() == 0) {
             Toast.makeText(context, "Please select customer", Toast.LENGTH_SHORT).show();
             isValid = false;
@@ -1048,13 +1058,17 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                 spDelAddressTitle.setTitle("Select address title");
                                 spDelAddressTitle.setPositiveButton("Cancel");
                                 if (isFlavourSizeApiCall) {
-                                    getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
+                                  //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
+                                    customerID = cus_id+ "";
+                                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,cus_id+"","0",edtDeliveryDate.getText().toString());
                                 }
 //                                getSalesOrderListOnCustomerDate(false, true, cus_id, date);
                             } else {
                                 llAddressTitle.setVisibility(View.GONE);
                                 if (isFlavourSizeApiCall) {
-                                    getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
+                                    customerID = cus_id+ "";
+                                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,cus_id+"","0",edtDeliveryDate.getText().toString());
+                                  //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
                                 }
                             }
                         } catch (Exception ex) {
@@ -1200,7 +1214,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void getSizeFlavourWiseItemsApiCall(boolean isPdShow, final boolean isPdHide,
+  /*  private void getSizeFlavourWiseItemsApiCall(boolean isPdShow, final boolean isPdHide,
                                                 String del_date, String cus_id, String som_id) {
         if (isPdShow) {
             showProgressDialog();
@@ -1313,7 +1327,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         Toast.makeText(context, "Request Failed:- " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
+    }*/
 
     private void showProgressDialog() {
         if (!((Activity) context).isFinishing() &&
@@ -1557,6 +1571,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onResponse(Call<GetAllRouteListPojo> call, Response<GetAllRouteListPojo> response) {
 
+
                 if (isPdHide) {
                     hideProgressDialog();
                 }
@@ -1757,4 +1772,181 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                     }
                 });
     }
+
+
+    String customerID;
+    private void getItemCategoryKey() {
+
+
+        ApiImplementer.GetItemCategoryKeyImplementer(String.valueOf(getSharedPref.getAppVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(), Config.ACCESS_KEY, getSharedPref.getCompanyId(), new Callback<ItemCategoryPojo>() {
+            @Override
+            public void onResponse(Call<ItemCategoryPojo> call, Response<ItemCategoryPojo> response) {
+                getAllRouteList(true, false, routeID);
+                try {
+
+                    if (response.isSuccessful() && response.body() != null) {
+
+                        ItemCategoryPojo itemCategoryPojo = response.body();
+
+                        if (itemCategoryPojo != null && itemCategoryPojo.getRecords().size() > 0) {
+
+                            ItemCategoryAdapter itemCategoryAdapter = new ItemCategoryAdapter(getActivity(), itemCategoryPojo, new ItemCategoryAdapter.IOnRadioButtonChanged() {
+                                @Override
+                                public void OnCheckedChaged(int position, ItemCategoryPojo itemCategoryPojo) {
+                                    selectedPostion = position;
+                                    System.out.println(itemCategoryPojo);
+                                    selectedCategoryId = itemCategoryPojo.getRecords().get(position).getParentValue() + "";
+                                    if (!edtDeliveryDate.getText().toString().equals("") && !customerID.equals("")){
+                                        Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,customerID,"0",edtDeliveryDate.getText().toString());
+
+                                    }
+
+
+                                }
+                            });
+                            rvItemCategory.setAdapter(itemCategoryAdapter);
+
+                        } else {
+                            Toast.makeText(getActivity(), itemCategoryPojo.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    }
+
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ItemCategoryPojo> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    private void Get_All_Items_Detail_For_Sales_Order(boolean isPdShow, final boolean isPdHide,String selectedCategoryId, String selectedCustomerId, String somId, String delDate) {
+
+        if (isPdShow) {
+            showProgressDialog();
+        }
+
+        ApiImplementer.getAllItemsDetailForSalesOrderImplementer(String.valueOf(getSharedPref.getAppVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(), Config.ACCESS_KEY, getSharedPref.getCompanyId(), delDate, selectedCustomerId, somId, selectedCategoryId, new Callback<ItemDetailsPojo>() {
+            @Override
+            public void onResponse(Call<ItemDetailsPojo> call, Response<ItemDetailsPojo> response) {
+                if (isPdHide) {
+                    hideProgressDialog();
+                }
+
+                ArrayList<ItemDetailsPojo.Record> allItems = new ArrayList<>();
+                itemDetailsJasonReqModelArrayListFinal = new ArrayList<>();
+                try {
+                    ItemDetailsPojo allItemsPojo = response.body();
+                    if (response.isSuccessful() &&
+                            allItemsPojo != null &&
+                            allItemsPojo.getRecords().size() > 0) {
+                        cvProductDetails.setVisibility(View.VISIBLE);
+                        allItems = (ArrayList<ItemDetailsPojo.Record>) allItemsPojo.getRecords();
+                        cvProductHeader.setVisibility(View.VISIBLE);
+                        for (int i = 0; i < allItemsPojo.getRecords().size(); i++) {
+                            ItemDetailsJasonReqModel itemDetailsJasonReqModel = new ItemDetailsJasonReqModel();
+                            ItemDetailsPojo.Record record = allItemsPojo.getRecords().get(i);
+
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getFlavour())) {
+                                itemDetailsJasonReqModel.setFlavour(record.getFlavour());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getSize())) {
+                                itemDetailsJasonReqModel.setSize(record.getSize());
+                            }
+
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getItemId())) {
+                                itemDetailsJasonReqModel.setItem_id(record.getItemId().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getOnlyItemName())) {
+                                itemDetailsJasonReqModel.setItem_name(record.getOnlyItemName());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getQty())) {
+                                itemDetailsJasonReqModel.setQty(record.getQty().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getDiscAmt())) {
+                                itemDetailsJasonReqModel.setDisc_amt(record.getDiscAmt());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getDiscPer())) {
+                                itemDetailsJasonReqModel.setDisc_per(record.getDiscPer());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getBasicPrice())) {
+                                itemDetailsJasonReqModel.setBasic_price(record.getBasicPrice());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getPrice())) {
+                                itemDetailsJasonReqModel.setPrice(record.getPrice().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getStUomId())) {
+                                itemDetailsJasonReqModel.setSt_uom_id(record.getStUomId().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getHsnCode())) {
+                                itemDetailsJasonReqModel.setHsn_code(record.getHsnCode());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getGstType())) {
+                                itemDetailsJasonReqModel.setGst_type(record.getGstType().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getGstPer())) {
+                                itemDetailsJasonReqModel.setGst_per(record.getGstPer().toString());
+                            }
+                            if (!CommonUtils.checkIsEmptyOrNullCommon(record.getCessPer())) {
+                                itemDetailsJasonReqModel.setCess_per(record.getCessPer().toString());
+                            }
+                            itemDetailsJasonReqModelArrayListFinal.add(itemDetailsJasonReqModel);
+                        }
+
+
+                        boxOrderListForAdapter = new BoxOrderListForAdapter(context, allItems,
+                                itemDetailsJasonReqModelArrayListFinal, new BoxOrderListForAdapter.ITotalProduct() {
+                            @Override
+                            public void getTotalOrder(ArrayList<ItemDetailsJasonReqModel> itemDetailsJasonReqModels) {
+                                itemDetailsJasonReqModelArrayListFinal = itemDetailsJasonReqModels;
+                            }
+                        });
+                        rvProductList.setAdapter(boxOrderListForAdapter);
+
+                    } else {
+                        cvProductDetails.setVisibility(View.GONE);
+                        hideProgressDialog();
+                        cvProductHeader.setVisibility(View.GONE);
+                        llProductDetails.setVisibility(View.GONE);
+                        llTotal.setVisibility(View.GONE);
+
+                        Toast.makeText(context, "Product Not Found!", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception ex) {
+                    cvProductDetails.setVisibility(View.GONE);
+                    cvProductHeader.setVisibility(View.GONE);
+                    llProductDetails.setVisibility(View.GONE);
+                    llTotal.setVisibility(View.GONE);
+                    hideProgressDialog();
+                    Toast.makeText(context, "Exception:- " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ItemDetailsPojo> call, Throwable t) {
+                hideProgressDialog();
+                cvProductDetails.setVisibility(View.GONE);
+                cvProductHeader.setVisibility(View.GONE);
+                llProductDetails.setVisibility(View.GONE);
+                llTotal.setVisibility(View.GONE);
+                Toast.makeText(context, "Request Failed:- " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+
+
+
+
 }

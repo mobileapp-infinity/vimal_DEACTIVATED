@@ -58,6 +58,8 @@ import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Sales_
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.Get_Size_Flavour_Wise_All_Items_Detail_Pojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.InsertRespectiveSalesOrderReqModel;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemCategoryPojo;
+import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.ItemDetailsPojo;
 import com.infinity.infoway.vimal.delear.activity.PerfomInVoiceLedger.Get_Account_Ledger_Of_Login_User;
 import com.infinity.infoway.vimal.delear.activity.PerfomInVoiceLedger.Get_Distributor_Wise_Sales_Invoice_List_POJO;
 import com.infinity.infoway.vimal.delear.activity.PerfomInVoiceLedger.Get_SalesInvoice_Report_By_Id_POJO;
@@ -881,6 +883,34 @@ public interface ApiInterface {
             @Query("key") String key,
             @Query("comp_id") String comp_id,
             @Query("rvpm_id") String rvpm_id
+
+    );
+
+    @GET("Get_Item_Category_Key")
+    Call<ItemCategoryPojo> GetItemCategoryKey(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id
+
+
+    );
+
+    @GET("Get_All_Items_Detail_For_Sales_Order")
+    Call<ItemDetailsPojo> getAllItemsDetailForSalesOrder(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("del_date") String del_date,
+            @Query("cus_id") String cus_id,
+            @Query("som_id") String som_id,
+            @Query("item_cat_id") String item_cat_id
+
 
     );
 }
