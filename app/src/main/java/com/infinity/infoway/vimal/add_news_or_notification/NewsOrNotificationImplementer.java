@@ -9,6 +9,7 @@ import com.infinity.infoway.vimal.add_news_or_notification.pojo.UserListPojo;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.config.Config;
+import com.infinity.infoway.vimal.model.GetShopNamePojo;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -69,6 +70,19 @@ public class NewsOrNotificationImplementer {
                 cnm_id, cnm_user_id);
         call.enqueue(cb);
     }
+
+    public static void getShopNameListApiImplementer(String app_version,
+                                                     String android_id,
+                                                     String device_id,
+                                                     String user_id,
+                                                     String key,
+                                                     String comp_id,
+                                                     Callback<GetShopNamePojo> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<GetShopNamePojo> call = apiService.getShopNameList(app_version, android_id, device_id, user_id, key, comp_id);
+        call.enqueue(cb);
+    }
+
 
 
 }

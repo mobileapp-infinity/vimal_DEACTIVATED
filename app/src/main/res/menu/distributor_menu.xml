@@ -17,11 +17,11 @@
             android:title="@string/title_perform_invoice_and_ledger_nav" />
 
 
-        <item
-            android:id="@+id/nav_vehicle_dispatch_update"
-            android:icon="@drawable/vehicleblack"
-            android:title="@string/title_vehicle_dispatch_update_nav"
-            android:visible="true" />
+<!--        <item-->
+<!--            android:id="@+id/nav_vehicle_dispatch_update"-->
+<!--            android:icon="@drawable/vehicleblack"-->
+<!--            android:title="@string/title_vehicle_dispatch_update_nav"-->
+<!--            android:visible="true" />-->
 
         <item
             android:id="@+id/nav_update_call_list"

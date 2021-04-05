@@ -423,8 +423,6 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             llOrderPlaceToCompany.performClick();
         } else if (id == R.id.nav_invoice_ledger) {
             llPerformInvoiceAndLedger.performClick();
-        } else if (id == R.id.nav_vehicle_dispatch_update) {
-            llVehicleDispatchUpdate.performClick();
         } else if (id == R.id.nav_update_call_list) {
             llUpdateCallList.performClick();
         } else if (id == R.id.nav_retailer_order_booking) {
@@ -455,6 +453,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         } else if (id == R.id.nav_view_news_or_notification) {
             llViewNewsOrNotification.performClick();
         }
+
+//        else if (id == R.id.nav_vehicle_dispatch_update) {
+//            llVehicleDispatchUpdate.performClick();
+//        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

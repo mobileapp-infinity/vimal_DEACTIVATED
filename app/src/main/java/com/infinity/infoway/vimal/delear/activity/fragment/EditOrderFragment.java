@@ -87,6 +87,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
     private ArrayList<String> cityAndStateArrayList;
     private HashMap<String, City_State_Taluka_CountryPojo.RECORDSBean> cityAndStateHashMap;
 
+    private String key;
     final DatePickerDialog.OnDateSetListener to_date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
@@ -465,6 +466,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                     insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
                     insertRespectiveSalesOrderReqModel.setRemarks(remarks);
                     insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
+                    insertRespectiveSalesOrderReqModel.setIcm_key(selectedCategoryId);
 
                     insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel);
                 } else {
@@ -1191,6 +1193,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                                 public void OnCheckedChaged(int position, ItemCategoryPojo itemCategoryPojo) {
                                     selectedPostion = position;
                                     System.out.println(itemCategoryPojo);
+
                                     selectedCategoryId = itemCategoryPojo.getRecords().get(position).getParentValue() + "";
                                     if (!edtDeliveryDateEdit.getText().toString().equals("") && !customerID.equals("") && !som_id_for_edit_product.equals("")){
                                         Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,customerID,som_id_for_edit_product,edtDeliveryDateEdit.getText().toString());

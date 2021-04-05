@@ -2,6 +2,7 @@ package com.infinity.infoway.vimal.add_news_or_notification.activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -35,6 +36,7 @@ import com.infinity.infoway.vimal.util.common.CustomButtonView;
 import com.infinity.infoway.vimal.util.common.CustomEditText;
 import com.infinity.infoway.vimal.util.common.CustomTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.FileUtils;
 import com.jaiselrahman.filepicker.config.Configurations;
 import com.jaiselrahman.filepicker.model.MediaFile;
 import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
@@ -312,7 +314,9 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
             datePickerDialog_from.getDatePicker();//.setMinDate(System.currentTimeMillis() - 1000);
             datePickerDialog_from.show();
         } else if (v.getId() == R.id.tvChooseFile) {
+          /*
             Intent intent = new Intent(AddNewsOrNotificationActivity.this,
+
                     com.jaiselrahman.filepicker.activity.FilePickerActivity.class);
             intent.putExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.CONFIGS,
                     new Configurations.Builder()
@@ -324,7 +328,19 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
                             .setMaxSelection(1)
                             .setSkipZeroSizeFiles(true)
                             .build());
-            startActivityForResult(intent, REQUEST_CODE_FOR_UPLOAD_DOC);
+            startActivityForResult(intent, REQUEST_CODE_FOR_UPLOAD_DOC);*/
+
+
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+
+            intent.setType("*/*");
+            String[] mimetypes = {"image/*"};
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimetypes);
+
+
+            startActivityForResult(Intent.createChooser(intent, "ChooseFile"), REQUEST_CODE_FOR_UPLOAD_DOC);
         }
     }
 
@@ -469,23 +485,64 @@ public class AddNewsOrNotificationActivity extends AppCompatActivity implements 
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CODE_FOR_UPLOAD_DOC && resultCode == RESULT_OK) {
-            try {
-                ArrayList<MediaFile> files = data.getParcelableArrayListExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.MEDIA_FILES);
-                if (data != null && files != null && files.size() == 1) {
+//            try {
+//                ArrayList<MediaFile> files = data.getParcelableArrayListExtra(com.jaiselrahman.filepicker.activity.FilePickerActivity.MEDIA_FILES);
+//                if (data != null && files != null && files.size() == 1) {
+//
+//                    String singleDynamicFilePath = files.get(0).getPath().trim();
+//                    File singleDynamicFile = new File(singleDynamicFilePath);
+//                    RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
+//                    fileToUpload = MultipartBody.Part.createFormData("file", singleDynamicFile.getName(), requestBody);
+//                    tvChooseFile.setText(singleDynamicFile.getName());
+//
+//                }
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            }
 
-                    String singleDynamicFilePath = files.get(0).getPath().trim();
-                    File singleDynamicFile = new File(singleDynamicFilePath);
-                    RequestBody requestBody = RequestBody.create(MediaType.parse("application*//*"), singleDynamicFile);
-                    fileToUpload = MultipartBody.Part.createFormData("file", singleDynamicFile.getName(), requestBody);
-                    tvChooseFile.setText(singleDynamicFile.getName());
+            try {
+
+                Uri uri;
+
+                if (data.getData() == null) {
+                    uri = (Uri) data.getExtras().get("data");
+                } else {
+                    uri = data.getData();
 
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+
+                String fileUrl = FileUtils.getPath(AddNewsOrNotificationActivity.this, uri);
+
+                File file = new File(fileUrl);
+
+                //  if ((file.length() / 1024) > 2048) {
+                String file_extension = file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf(".") + 1);
+               /* if ((!TextUtils.isEmpty(file_extension)) && (file_extension.equalsIgnoreCase("jpeg"))) {
+                    file = saveBitmapToFile(file);
+
+                } else if ((!TextUtils.isEmpty(file_extension)) && (!file_extension.equalsIgnoreCase("mp3"))) {
+                    et_feedback_attachment.setText(file.getName());
+                }*/
+                RequestBody mFile = null;
+                if (file_extension.equals("jpeg")) {
+                    mFile = RequestBody.create(MediaType.parse(IMG_JPEG), file);
+
+                }
+                if (file_extension.equals("jpg")) {
+                    mFile = RequestBody.create(MediaType.parse(IMG_JPEG), file);
+
+                }
+
+                    fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), mFile);
+                    tvChooseFile.setText(file.getName());
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
-
+    private static final String IMG_JPEG = "image/jpeg";
     private void saveNewsOrNotificationApiCall(RequestBody app_version,
                                                RequestBody android_id,
                                                RequestBody device_id,

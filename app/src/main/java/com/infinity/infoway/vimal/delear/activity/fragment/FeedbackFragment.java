@@ -1,6 +1,8 @@
 package com.infinity.infoway.vimal.delear.activity.fragment;
 
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +19,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.R;
@@ -37,6 +43,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -55,7 +64,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
     private TextInputLayout tv_input_retailer_name, tv_input_shop_name, tv_input_mobile, tv_input_area, tv_input_village, tv_input_city, tv_input_district, tv_input_feedback, tv_photo_or_video;
     private EditText et_select_retailer_name, et_feedback, et_shop_name, et_mobile, et_area, et_village, et_city, et_district, et_feedback_attachment;
     Button btn_submit_feedback;
-
+    private static final int REQ_FOR_CAPTURE_IMAGE = 3268;
 
     /**
      * initial items
@@ -65,7 +74,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
     private ApiInterface apiService;
     private ProgressDialog progDialog;
     private SharedPref getSharedPref;
-
+    private Dialog bottomSheetDialog;
     /**
      * initial items
      **/
@@ -154,7 +163,8 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
             startActivityForResult(intent, 9888);
 
         } else if (v.getId() == R.id.et_feedback_attachment) {
-            browseDocuments();
+            //browseDocuments();
+            openBottomSheetSialog();
 
 
         } else if (v.getId() == R.id.feedback_image_close) {
@@ -413,7 +423,6 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
                 System.out.println("size-------" + file.length());
 
 
-
                 // RequestBody mFile = RequestBody.create(MediaType.parse("application*//*"), file);
 
                 this.file = MultipartBody.Part.createFormData("file", file.getName(), mFile);
@@ -424,6 +433,19 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
                 e.printStackTrace();
             }
 
+        } else if (requestCode == REQ_FOR_CAPTURE_IMAGE && resultCode == Activity.RESULT_OK) {
+            try {
+//                Uri capturedImageUri = data.getData();
+//                String fileUrl = FileUtils.getPath(getActivity(), capturedImageUri);
+                File file = new File(imageFilePath);
+                RequestBody mFile = null;
+                mFile = RequestBody.create(MediaType.parse(IMG_JPEG), file);
+                et_feedback_attachment.setText(file.getName());
+                feedback_image_close.setVisibility(View.VISIBLE);
+                this.file = MultipartBody.Part.createFormData("file", file.getName(), mFile);
+            } catch (Throwable ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -589,4 +611,92 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
         cursor.close();
         return path;
     }
+
+
+    private void openBottomSheetSialog() {
+        try {
+            bottomSheetDialog = new BottomSheetDialog(getActivity());
+            bottomSheetDialog.setContentView(R.layout.layout_for_capture_and_select_image_option);
+            LinearLayout llCaptureImage = bottomSheetDialog.findViewById(R.id.llCaptureImage);
+            LinearLayout llSelectImage = bottomSheetDialog.findViewById(R.id.llSelectImage);
+            bottomSheetDialog.setCancelable(true);
+
+            llCaptureImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    closeBottomSheetDialog();
+                    try {
+//                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                        startActivityForResult(intent, REQ_FOR_CAPTURE_IMAGE);
+
+
+                        Intent pictureIntent = new Intent(
+                                MediaStore.ACTION_IMAGE_CAPTURE);
+                        if (pictureIntent.resolveActivity(getContext().getPackageManager()) != null) {
+                            //Create a file to store the image
+                            File photoFile = null;
+                            try {
+                                photoFile = createImageFile();
+                            } catch (IOException ex) {
+                            }
+                            if (photoFile != null) {
+                                Uri photoURI = FileProvider.getUriForFile(getContext(), "com.infinity.infoway.vimal.provider", photoFile);
+                                pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                                        photoURI);
+                                startActivityForResult(pictureIntent,
+                                        REQ_FOR_CAPTURE_IMAGE);
+                            }
+                        }
+
+
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            llSelectImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    closeBottomSheetDialog();
+                    browseDocuments();
+                }
+            });
+
+
+            if (bottomSheetDialog != null && !bottomSheetDialog.isShowing()) {
+                bottomSheetDialog.show();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void closeBottomSheetDialog() {
+        if (bottomSheetDialog != null && bottomSheetDialog.isShowing()) {
+            bottomSheetDialog.dismiss();
+        }
+    }
+
+
+    String imageFilePath;
+
+    private File createImageFile() throws IOException {
+        String timeStamp =
+                new SimpleDateFormat("yyyyMMdd_HHmmss",
+                        Locale.getDefault()).format(new Date());
+        String imageFileName = "IMG_" + timeStamp + "_";
+        File storageDir =
+                getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName, /* prefix */
+                ".jpg", /* suffix */
+                storageDir /* directory */
+        );
+
+        imageFilePath = image.getAbsolutePath();
+        return image;
+    }
+
+
 }

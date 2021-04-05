@@ -31,6 +31,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -44,6 +45,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
@@ -57,6 +59,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Select_City;
+import com.infinity.infoway.vimal.add_news_or_notification.NewsOrNotificationImplementer;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.api.response.Insert_Retailer_And_Call_Visit_Response;
@@ -64,6 +67,7 @@ import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.model.GPSMasterBean;
+import com.infinity.infoway.vimal.model.GetShopNamePojo;
 import com.infinity.infoway.vimal.model.RetailerVisitCallModel;
 import com.infinity.infoway.vimal.util.common.ConnectionDetector;
 
@@ -75,6 +79,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -103,7 +108,9 @@ public class AddCall extends Fragment implements View.OnClickListener {
 
     private ProgressDialog progDialog;
     private SharedPref getSharedPref;
+    AppCompatAutoCompleteTextView actvShopName;
 
+    ArrayList<String> shopNameArrayList;
     private LinearLayout linear_call_new, linear_regular_call, linear_annexure_send_upload;
     private Dialog bottomSheetDialog;
     private Button btnConfirmAddExpense, btnCancelAddExpense;
@@ -117,7 +124,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
     private Context context;
     private RadioGroup rg_call;
     private RadioButton rb_new_visit, rb_new_call, rb_returning_call;
-    private EditText et_retailer, et_name, et_mobile, et_next_followupdate, et_select_city, et_state, et_country, et_address1, et_address2, et_select_distributor, et_select_price_list, et_remarks_new_call;
+    private EditText  et_name, et_mobile, et_next_followupdate, et_select_city, et_state, et_country, et_address1, et_address2, et_select_distributor, et_select_price_list, et_remarks_new_call;
     private ImageView imgAnnexureSend, imgAnnexureSendDelete, imgAnnexureSendUpload;
     private TextView txt_annexure_file_name;
     private Button btn_add_retailer;
@@ -180,6 +187,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
         is_call = getArguments().getBoolean("is_call");
 
         initControls(view);
+        getShopNameArrayList();
         return view;
     }
 
@@ -197,7 +205,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
             getSharedPref.SET_SHOULD_CALL_API(true);
         }
         batteryStatus = context.registerReceiver(null, ifilter);
-
+        actvShopName = view.findViewById(R.id.actvShopName);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
         apiService = ApiClient.getClient().create(ApiInterface.class);
         cd = new ConnectionDetector(context);
@@ -233,7 +241,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
 
         txt_input_retailer = view.findViewById(R.id.txt_input_retailer);
 
-        et_retailer = view.findViewById(R.id.et_retailer);
+//        et_retailer = view.findViewById(R.id.et_retailer);
         et_name = view.findViewById(R.id.et_name);
         et_mobile = view.findViewById(R.id.et_mobile);
         et_next_followupdate = view.findViewById(R.id.et_next_followupdate);
@@ -381,7 +389,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
 
                 if (is_call) {
                     if (rg_call.getCheckedRadioButtonId() == R.id.rb_new_call) {
-                        if (TextUtils.isEmpty(et_retailer.getText().toString().trim())) {
+                        if (TextUtils.isEmpty(actvShopName.getText().toString().trim())) {
                             displaySnackBar("Enter valid shop name !!!");
                         } else if (TextUtils.isEmpty(et_name.getText().toString().trim())) {
                             displaySnackBar("Enter valid contact person name !!!");
@@ -412,7 +420,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
                             }
                         }
                     } else if (rg_call.getCheckedRadioButtonId() == R.id.rb_new_visit) {
-                        if (TextUtils.isEmpty(et_retailer.getText().toString().trim())) {
+                        if (TextUtils.isEmpty(actvShopName.getText().toString().trim())) {
                             displaySnackBar("Enter valid shop name !!!");
                         } else if (TextUtils.isEmpty(et_name.getText().toString().trim())) {
                             displaySnackBar("Enter valid contact person name !!!");
@@ -443,7 +451,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
                         }
                     }
                 } else {
-                    if (TextUtils.isEmpty(et_retailer.getText().toString().trim())) {
+                    if (TextUtils.isEmpty(actvShopName.getText().toString().trim())) {
                         displaySnackBar("Enter valid shop name !!!");
                     } else if (TextUtils.isEmpty(et_name.getText().toString().trim())) {
                         displaySnackBar("Enter valid contact person name !!!");
@@ -1028,7 +1036,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
         System.out.println("this is remar111k:::: "+remarks+"");
 
         if ((!TextUtils.isEmpty(resRetailerId)) && (resRetailerId.equalsIgnoreCase("0"))) {
-            req_shop_name = RequestBody.create(MediaType.parse("text/plain"), et_retailer.getText().toString().trim());
+            req_shop_name = RequestBody.create(MediaType.parse("text/plain"), actvShopName.getText().toString().trim());
             req_con_person = RequestBody.create(MediaType.parse("text/plain"), et_name.getText().toString().trim());
             req_mb = RequestBody.create(MediaType.parse("text/plain"), et_mobile.getText().toString().trim());
             req_city_id = RequestBody.create(MediaType.parse("text/plain"), selectedCityId);
@@ -1055,7 +1063,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
                 System.out.println("this is visit code!!!!!!!!!!!!");
                 RetailerVisitCallModel data = new RetailerVisitCallModel();
                 data.setRETAILER_VISIT_CALL_TYPE(callType);
-                data.setRETAILER_VISIT_SHOP_NAME(et_retailer.getText().toString().trim());
+                data.setRETAILER_VISIT_SHOP_NAME(actvShopName.getText().toString().trim());
                 data.setRETAILER_VISIT_PERSON_NMAE(et_name.getText().toString().trim());
                 data.setRETAILER_VISIT_MOBILE(et_mobile.getText().toString().trim());
                 data.setRETAILER_VISIT_NEXT_FOLOWUP_DATE(nextFollowupDate);
@@ -1240,7 +1248,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
                 et_remarks_new_call.setText("");
                 et_select_price_list.setText("");
             } else {
-                et_retailer.setText("");
+                actvShopName.setText("");
                 et_name.setText("");
                 et_mobile.setText("");
                 et_select_city.setText("");
@@ -1269,7 +1277,7 @@ public class AddCall extends Fragment implements View.OnClickListener {
             }
             rg_call.clearCheck();
         } else {
-            et_retailer.setText("");
+            actvShopName.setText("");
             et_name.setText("");
             et_mobile.setText("");
             et_select_city.setText("");
@@ -1574,6 +1582,34 @@ public class AddCall extends Fragment implements View.OnClickListener {
         dialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, getString(R.string.title_cancel), dialog);
         dialog.getDatePicker().setMinDate(result.getTime());
         dialog.show();
+    }
+
+    private void getShopNameArrayList() {
+
+        NewsOrNotificationImplementer.getShopNameListApiImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
+                getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),
+                getSharedPref.getRegisteredUserId(), Config.ACCESS_KEY, getSharedPref.getCompanyId(), new Callback<GetShopNamePojo>() {
+                    @Override
+                    public void onResponse(Call<GetShopNamePojo> call, Response<GetShopNamePojo> response) {
+                        if (response.isSuccessful() && response.body() != null && response.body().getRecords().size() > 0) {
+                            shopNameArrayList = new ArrayList<>();
+                            GetShopNamePojo getShopNamePojo = response.body();
+
+                            for (int i = 0; i < getShopNamePojo.getRecords().size(); i++) {
+                                if (!TextUtils.isEmpty(getShopNamePojo.getRecords().get(i).getShopName())) {
+                                    String vehicleNumber = getShopNamePojo.getRecords().get(i).getShopName();
+                                    shopNameArrayList.add(vehicleNumber);
+                                }
+                            }
+                            ArrayAdapter<String> addScheduleAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, shopNameArrayList);
+                            actvShopName.setAdapter(addScheduleAdapter);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<GetShopNamePojo> call, Throwable t) {
+                    }
+                });
     }
 
 

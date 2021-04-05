@@ -1057,17 +1057,17 @@ public class Activity_Home extends AppCompatActivity
 
 
             case R.id.llRetailOrderBooking:
-                if (!isTodayPunchINDone()) {
+             /*   if (!isTodayPunchINDone()) {
                     showAttendanceScreen();
                 } else if (isTodayPunchOutDone()) {
                     showPunchOutDialog();
-                } else {
+                } else {*/
                     FLAG_4_BACK_START_PG_AGAIN = false;
 //                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
                     intent = new Intent(Activity_Home.this, OrderPlaceToCompanyActivity.class);
                     intent.putExtra("title_screen", "Retailer Order Booking");
                     startActivity(intent);
-                }
+               // }
                 break;
         }
     }

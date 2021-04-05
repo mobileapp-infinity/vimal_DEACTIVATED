@@ -32,6 +32,7 @@ public class InsertRespectiveSalesOrderReqModel {
     String sales_person_name;
     String remarks;
     String item_detail_json;
+    String icm_key;
 
     public String getApp_version() {
         return app_version;
@@ -271,5 +272,13 @@ public class InsertRespectiveSalesOrderReqModel {
 
     public void setItem_detail_json(String item_detail_json) {
         this.item_detail_json = item_detail_json;
+    }
+
+    public String getIcm_key() {
+        return icm_key;
+    }
+
+    public void setIcm_key(String icm_key) {
+        this.icm_key = icm_key;
     }
 }

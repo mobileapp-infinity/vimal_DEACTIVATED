@@ -82,6 +82,7 @@ import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Multiple_File_Save_R
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.SaveExpensePojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.InsertExpenseDetailsModel;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.SaveExpenseModelNew;
+import com.infinity.infoway.vimal.model.GetShopNamePojo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -913,4 +914,15 @@ public interface ApiInterface {
 
 
     );
+
+
+    @GET("Get_sale_sales_person_visit_status_details")
+    Call<GetShopNamePojo> getShopNameList(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id);
+
 }

@@ -177,8 +177,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                             distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
                  /*   getSizeFlavourWiseItemsApiCall(true, true,
                             edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");*/
-                 customerID = record.getId() + "";
-                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,String.valueOf(record.getId()),"0",edtDeliveryDate.getText().toString());
+                    customerID = record.getRvpdCustId() + "";
+                    Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, String.valueOf(record.getRvpdCustId()), "0", edtDeliveryDate.getText().toString());
 
                 } else {
                     // if (isfromHere) {
@@ -187,7 +187,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                  /*   getSizeFlavourWiseItemsApiCall(true, true,
                             edtDeliveryDate.getText().toString(), String.valueOf(record.getId()), "0");*/
                     customerID = record.getId() + "";
-                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,String.valueOf(record.getId()),"0",edtDeliveryDate.getText().toString());
+                    Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, String.valueOf(record.getId()), "0", edtDeliveryDate.getText().toString());
                    /* } else {
                         GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record =
                                 distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(spCustomer.getSelectedItemPosition()).trim());
@@ -219,6 +219,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     }
 
 
+    private String key = "";
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -311,10 +312,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD record = distributorAndRetailerRecordHashMap2.get(customerNameArrayList.get(position).trim());
 
                         if (!TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
-                            getSaleOrderConsigneeApiCall(true, false, record.getId(),
+                            getSaleOrderConsigneeApiCall(true, false, record.getRvpdCustId(),
                                     edtDeliveryDate.getText().toString(), "0", true);
                         } else {
-                            getSaleOrderConsigneeApiCall(true, true, record.getId(),
+                            getSaleOrderConsigneeApiCall(true, true, record.getRvpdCustId(),
                                     edtDeliveryDate.getText().toString(), "0", false);
                         }
                         String consigneeName = CommonUtils.checkIsEmptyOrNullCommon(record.getConsigneeName()) ? "" : record.getConsigneeName();
@@ -525,6 +526,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     }
 
     int selectedPostion = -1;
+
     private boolean isValid() {
         boolean isValid = true;
 
@@ -532,8 +534,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(context, "Please select Category", Toast.LENGTH_SHORT).show();
             isValid = false;
 
-        } else
-        if (spCustomer.getSelectedItemPosition() == 0) {
+        } else if (spCustomer.getSelectedItemPosition() == 0) {
             Toast.makeText(context, "Please select customer", Toast.LENGTH_SHORT).show();
             isValid = false;
         } else if (TextUtils.isEmpty(edtDeliveryDate.getText().toString())) {
@@ -731,6 +732,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                     insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
                     insertRespectiveSalesOrderReqModel.setRemarks(remarks);
                     insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
+                    insertRespectiveSalesOrderReqModel.setIcm_key(selectedCategoryId);
 
                     insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel, productInfo);
 
@@ -863,6 +865,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                     insertRespectiveSalesOrderReqModel.setSales_person_name("");//sales persion field remove by remish as per discussion with darmeshbhai
                     insertRespectiveSalesOrderReqModel.setRemarks(remarks);
                     insertRespectiveSalesOrderReqModel.setItem_detail_json(jsonArray.toString());
+                    insertRespectiveSalesOrderReqModel.setIcm_key(selectedCategoryId);
 
                     insertUpdateRespectiveSalesOrder(insertRespectiveSalesOrderReqModel, productInfo);
 
@@ -1058,17 +1061,17 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                 spDelAddressTitle.setTitle("Select address title");
                                 spDelAddressTitle.setPositiveButton("Cancel");
                                 if (isFlavourSizeApiCall) {
-                                  //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
-                                    customerID = cus_id+ "";
-                                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,cus_id+"","0",edtDeliveryDate.getText().toString());
+                                    //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
+                                    customerID = cus_id + "";
+                                    Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, cus_id + "", "0", edtDeliveryDate.getText().toString());
                                 }
 //                                getSalesOrderListOnCustomerDate(false, true, cus_id, date);
                             } else {
                                 llAddressTitle.setVisibility(View.GONE);
                                 if (isFlavourSizeApiCall) {
-                                    customerID = cus_id+ "";
-                                    Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,cus_id+"","0",edtDeliveryDate.getText().toString());
-                                  //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
+                                    customerID = cus_id + "";
+                                    Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, cus_id + "", "0", edtDeliveryDate.getText().toString());
+                                    //  getSizeFlavourWiseItemsApiCall(false, true, del_date, cus_id + "", som_id);
                                 }
                             }
                         } catch (Exception ex) {
@@ -1612,7 +1615,12 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                     spRoute.setSelection(0);
                                 }
                             }
-                            getDiatributorAndRetailerNameApiCall(true, false);
+
+                            if(!isRootSelectedFormHere){
+                                getDiatributorAndRetailerNameApiCall(true, false);
+                            }
+
+
 
                         } else {
                             ArrayAdapter<String> customerNameAdapter = new ArrayAdapter<String>
@@ -1775,6 +1783,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
 
     String customerID;
+
     private void getItemCategoryKey() {
 
 
@@ -1795,9 +1804,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                 public void OnCheckedChaged(int position, ItemCategoryPojo itemCategoryPojo) {
                                     selectedPostion = position;
                                     System.out.println(itemCategoryPojo);
+                                   // key = itemCategoryPojo.getRecords().get(position).getParentKey();
                                     selectedCategoryId = itemCategoryPojo.getRecords().get(position).getParentValue() + "";
-                                    if (!edtDeliveryDate.getText().toString().equals("") && !customerID.equals("")){
-                                        Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,customerID,"0",edtDeliveryDate.getText().toString());
+                                    if (!edtDeliveryDate.getText().toString().equals("") && !customerID.equals("")) {
+                                        Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, customerID, "0", edtDeliveryDate.getText().toString());
 
                                     }
 
@@ -1827,7 +1837,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void Get_All_Items_Detail_For_Sales_Order(boolean isPdShow, final boolean isPdHide,String selectedCategoryId, String selectedCustomerId, String somId, String delDate) {
+    private void Get_All_Items_Detail_For_Sales_Order(boolean isPdShow, final boolean isPdHide, String selectedCategoryId, String selectedCustomerId, String somId, String delDate) {
 
         if (isPdShow) {
             showProgressDialog();
@@ -1945,8 +1955,6 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
 
     }
-
-
 
 
 }

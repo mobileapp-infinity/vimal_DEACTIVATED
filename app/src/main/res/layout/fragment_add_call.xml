@@ -63,14 +63,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
+             <!--   <EditText
                     android:id="@+id/et_retailer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
                     android:hint="Shop name"
                     android:paddingTop="@dimen/_2sdp"
-                    android:textSize="16sp" />
+                    android:textSize="16sp" />-->
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/actvShopName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:hint="Select or type shop name"/>
             </com.google.android.material.textfield.TextInputLayout>
 
 
