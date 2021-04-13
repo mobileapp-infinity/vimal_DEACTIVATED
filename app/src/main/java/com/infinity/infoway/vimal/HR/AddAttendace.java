@@ -861,7 +861,8 @@ public class AddAttendace extends Fragment implements View.OnClickListener, Shar
                                             do_punch_IN_out(0);//all ok so no reason
                                         } else {
                                             System.out.println("NOT AFTER!!!!!!!!!!!!!!!!!!!!");
-                                            showDialog_punchout(context, 0);//1=>punchout
+                                            do_punch_IN_out(0);//added by remish on 13-04-2021 TODO
+//                                            showDialog_punchout(context, 0);//1=>punchout //this line is commented by remish to remove reason dialog for late punchin TODO
 
                                         }
                                     }
