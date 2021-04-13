@@ -16,7 +16,7 @@ public class ItemCategoryAdapter extends RecyclerView.Adapter<ItemCategoryAdapte
     private Context context;
     private ItemCategoryPojo itemCategoryPojo;
     private RadioButton lastCheckedRB = null;
-    int lastseletectedItemPosition = -1;
+    int lastseletectedItemPosition = 0;
     private IOnRadioButtonChanged iOnRadioButtonChanged;
 
 

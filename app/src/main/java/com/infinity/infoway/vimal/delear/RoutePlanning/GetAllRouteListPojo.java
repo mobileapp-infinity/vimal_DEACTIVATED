@@ -70,7 +70,8 @@ public class GetAllRouteListPojo {
         private String employeeName;
         private ArrayList<String> empList;
         private ArrayList<Integer> empListId;
-
+        private String rvpm_vehicle_no;
+        private String schedule;
 
         public ArrayList<String> getEmpList() {
             return empList;
@@ -95,6 +96,22 @@ public class GetAllRouteListPojo {
 
         public void setEmployeeName(String employeeName) {
             this.employeeName = employeeName;
+        }
+
+        public String getRvpm_vehicle_no() {
+            return rvpm_vehicle_no;
+        }
+
+        public void setRvpm_vehicle_no(String rvpm_vehicle_no) {
+            this.rvpm_vehicle_no = rvpm_vehicle_no;
+        }
+
+        public String getSchedule() {
+            return schedule;
+        }
+
+        public void setSchedule(String schedule) {
+            this.schedule = schedule;
         }
     }
 

@@ -571,6 +571,7 @@ public interface ApiInterface {
             @Query("device_id") String device_id,
             @Query("user_id") String user_id,
             @Query("key") String key,
+            @Query("icm_key") String icm_key,
             @Query("comp_id") String comp_id,
             @Query("cus_id") String cus_id,
             @Query("date") String date

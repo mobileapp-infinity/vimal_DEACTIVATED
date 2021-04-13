@@ -90,23 +90,6 @@
                             android:layout_height="1dp"
                             android:background="@android:color/darker_gray"/>
 
-                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                            android:id="@+id/spCustomer"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:drawableTint="@color/colorPrimary"
-                            android:drawableRight="@drawable/ic_action_down_arrow"
-                            android:visibility="visible"
-                            android:paddingTop="@dimen/_2sdp"
-                            android:textColor="@android:color/black"
-                            android:spinnerMode="dialog" />
-                        <View
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@android:color/darker_gray"/>
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginTop="2dp"
                             android:layout_marginBottom="2dp"
@@ -126,6 +109,25 @@
                                 />
 
                         </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                            android:id="@+id/spCustomer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:drawableRight="@drawable/ic_action_down_arrow"
+                            android:visibility="visible"
+                            android:paddingTop="@dimen/_2sdp"
+                            android:textColor="@android:color/black"
+                            android:spinnerMode="dialog" />
+                        <View
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@android:color/darker_gray"/>
+
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_marginTop="2dp"

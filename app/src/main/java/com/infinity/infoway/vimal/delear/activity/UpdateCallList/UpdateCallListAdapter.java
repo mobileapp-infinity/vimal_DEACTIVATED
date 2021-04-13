@@ -9,21 +9,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.OrderPlaceToCompanyActivity;
 
+import java.util.ArrayList;
 
 public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAdapter.MyViewHolder> {
 
     Context context;
+    ArrayList<Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo.RECORDSBean> array;
     Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo get_retailer_rout_detail_of_login_distributor_pojo;
 
 
-    public UpdateCallListAdapter(Context context, Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo get_retailer_rout_detail_of_login_distributor_pojo) {
+    public UpdateCallListAdapter(Context context, Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo get_retailer_rout_detail_of_login_distributor_pojo, ArrayList<Get_Retailer_Rout_Detail_Of_Login_Distributor_Pojo.RECORDSBean> array) {
         this.context = context;
+        this.array = array;
         this.get_retailer_rout_detail_of_login_distributor_pojo = get_retailer_rout_detail_of_login_distributor_pojo;
     }
 
@@ -38,26 +42,26 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
 
-        if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCus_Name() != null) {
-            holder.tv_customer_name.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCus_Name() + "");
+        if (array.get(position).getCus_Name() != null) {
+            holder.tv_customer_name.setText(array.get(position).getCus_Name() + "");
         } else {
             holder.tv_customer_name.setText("-");
         }
 
-        if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getContact_Person() != null) {
-            holder.tv_contact_person.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getContact_Person() + "");
+        if (array.get(position).getContact_Person() != null) {
+            holder.tv_contact_person.setText(array.get(position).getContact_Person() + "");
         } else {
             holder.tv_contact_person.setText("-");
         }
 
-        if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getShop_Name() != null) {
-            holder.tv_shop_name.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getShop_Name() + "");
+        if (array.get(position).getShop_Name() != null) {
+            holder.tv_shop_name.setText(array.get(position).getShop_Name() + "");
         } else {
             holder.tv_shop_name.setText("-");
         }
 
-        if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getMobile_No() != null) {
-            holder.tv_mobile.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getMobile_No() + "");
+        if (array.get(position).getMobile_No() != null) {
+            holder.tv_mobile.setText(array.get(position).getMobile_No() + "");
         } else {
             holder.tv_mobile.setText("-");
         }
@@ -81,58 +85,58 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
                 TextView tv_district_alert = view.findViewById(R.id.tv_district_alert);
                 TextView tv_state_alert = view.findViewById(R.id.tv_state_alert);
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCus_Name() != null) {
-                    tv_customer_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCus_Name() + "");
+                if (array.get(position).getCus_Name() != null) {
+                    tv_customer_alert.setText(array.get(position).getCus_Name() + "");
                 } else {
                     tv_customer_alert.setText("-");
                 }
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getContact_Person() != null) {
-                    tv_contact_person_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getContact_Person() + "");
+                if (array.get(position).getContact_Person() != null) {
+                    tv_contact_person_alert.setText(array.get(position).getContact_Person() + "");
                 } else {
                     tv_contact_person_alert.setText("-");
                 }
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getShop_Name() != null) {
-                    tv_shop_name_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getShop_Name() + "");
+                if (array.get(position).getShop_Name() != null) {
+                    tv_shop_name_alert.setText(array.get(position).getShop_Name() + "");
                 } else {
                     tv_shop_name_alert.setText("-");
                 }
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getMobile_No() != null) {
-                    tv_mobile_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getMobile_No() + "");
+                if (array.get(position).getMobile_No() != null) {
+                    tv_mobile_alert.setText(array.get(position).getMobile_No() + "");
                 } else {
                     tv_mobile_alert.setText("-");
                 }
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getFull_address() != null) {
-                    tv_full_address_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getFull_address() + "");
+                if (array.get(position).getFull_address() != null) {
+                    tv_full_address_alert.setText(array.get(position).getFull_address() + "");
                 } else {
                     tv_full_address_alert.setText("-");
                 }
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getPinCode() != null) {
-                    tv_pin_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getPinCode() + "");
+                if (array.get(position).getPinCode() != null) {
+                    tv_pin_alert.setText(array.get(position).getPinCode() + "");
                 } else {
                     tv_pin_alert.setText("-");
                 }
 
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCity_Name() != null) {
-                    tv_city2_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getCity_Name() + "");
+                if (array.get(position).getCity_Name() != null) {
+                    tv_city2_alert.setText(array.get(position).getCity_Name() + "");
                 } else {
                     tv_city2_alert.setText("-");
                 }
 
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getDistrict_Name() != null) {
-                    tv_district_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getDistrict_Name() + "");
+                if (array.get(position).getDistrict_Name() != null) {
+                    tv_district_alert.setText(array.get(position).getDistrict_Name() + "");
                 } else {
                     tv_district_alert.setText("-");
                 }
 
 
-                if (get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getState_Name() != null) {
-                    tv_state_alert.setText(get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getState_Name() + "");
+                if (array.get(position).getState_Name() != null) {
+                    tv_state_alert.setText(array.get(position).getState_Name() + "");
                 } else {
                     tv_state_alert.setText("-");
                 }
@@ -147,12 +151,12 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
             public void onClick(View view) {
 
                 Intent slaeOrdeIntent = new Intent(context, OrderPlaceToCompanyActivity.class);
-                //  slaeOrdeIntent.putExtra("routeId", "70");
-                //slaeOrdeIntent.putExtra("CustId", "412");
-                // slaeOrdeIntent.putExtra("vehicleNO", "Gj03R3322");
-                slaeOrdeIntent.putExtra("CustId", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getId() + "");
-                slaeOrdeIntent.putExtra("routeId", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getRoute_id() + "");
-                slaeOrdeIntent.putExtra("vehicleNO", get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().get(position).getRvpm_vehicle_no() + "");
+              //   slaeOrdeIntent.putExtra("routeId", "106");
+               // slaeOrdeIntent.putExtra("CustId", "412");
+                // slaeOrdeIntent.putExtra("vehicleNO", "GJ14R2232");
+                slaeOrdeIntent.putExtra("CustId", array.get(position).getId() + "");
+                slaeOrdeIntent.putExtra("routeId", array.get(position).getRoute_id() + "");
+                slaeOrdeIntent.putExtra("vehicleNO", array.get(position).getRvpm_vehicle_no() + "");
                 slaeOrdeIntent.putExtra("title_screen", "Place Order");
                 context.startActivity(slaeOrdeIntent);
 
@@ -164,12 +168,12 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
 
     @Override
     public int getItemCount() {
-        return get_retailer_rout_detail_of_login_distributor_pojo.getRECORDS().size();
+        return array.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tv_customer_name, tv_shop_name, tv_contact_person, tv_mobile, tvCreateSo;
-        TextView btnViewDetials;
+        TextView btnViewDetials, tvMap;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -179,6 +183,8 @@ public class UpdateCallListAdapter extends RecyclerView.Adapter<UpdateCallListAd
             tv_mobile = itemView.findViewById(R.id.tv_mobile);
             btnViewDetials = itemView.findViewById(R.id.btnViewDetials);
             tvCreateSo = itemView.findViewById(R.id.tvCreateSo);
+           // tvMap = itemView.findViewById(R.id.tvMap);
+
 
         }
     }

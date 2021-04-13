@@ -106,7 +106,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                 Get_Distributor_and_its_Retailer_detail_Pojo.RECORD record =
                         customerRecordHashMap.get(customerNameArrayList.get(spCustomerEdit.getSelectedItemPosition()).trim());
                 getSalesOrderListOnCustomerDate(true, true, record.getId(),
-                        edtDeliveryDateEdit.getText().toString());
+                        edtDeliveryDateEdit.getText().toString(),selectedCategoryId);
             }
         }
     };
@@ -207,7 +207,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
 
 
                         getSalesOrderListOnCustomerDate(true, true, record.getId(),
-                                edtDeliveryDateEdit.getText().toString());
+                                edtDeliveryDateEdit.getText().toString(),selectedCategoryId);
                     }
                 }
             }
@@ -686,13 +686,13 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
     }
 
 
-    private void getSalesOrderListOnCustomerDate(boolean isPdShow, final boolean isPdHide, int cus_id, String date) {
+    private void getSalesOrderListOnCustomerDate(boolean isPdShow, final boolean isPdHide, int cus_id, String date,String icm_key) {
         if (isPdShow) {
             showProgressDialog();
         }
         ApiClient.getSalesOrderListOnCustomerDateImplementer(String.valueOf(getSharedPref.getAppVersionCode()),
                 getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), getSharedPref.getRegisteredUserId(),
-                Config.ACCESS_KEY, getSharedPref.getCompanyId(), String.valueOf(cus_id), date, new Callback<Get_Sales_Order_List_Pojo>() {
+                Config.ACCESS_KEY,icm_key ,getSharedPref.getCompanyId(), String.valueOf(cus_id), date, new Callback<Get_Sales_Order_List_Pojo>() {
                     @Override
                     public void onResponse(Call<Get_Sales_Order_List_Pojo> call, Response<Get_Sales_Order_List_Pojo> response) {
                         if (isPdHide) {
@@ -1187,6 +1187,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                         ItemCategoryPojo itemCategoryPojo = response.body();
 
                         if (itemCategoryPojo != null && itemCategoryPojo.getRecords().size() > 0) {
+                            selectedCategoryId = itemCategoryPojo.getRecords().get(0).getParentValue()+"";
 
                             ItemCategoryAdapter itemCategoryAdapter = new ItemCategoryAdapter(getActivity(), itemCategoryPojo, new ItemCategoryAdapter.IOnRadioButtonChanged() {
                                 @Override
@@ -1195,10 +1196,10 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                                     System.out.println(itemCategoryPojo);
 
                                     selectedCategoryId = itemCategoryPojo.getRecords().get(position).getParentValue() + "";
-                                    if (!edtDeliveryDateEdit.getText().toString().equals("") && !customerID.equals("") && !som_id_for_edit_product.equals("")){
-                                        Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,customerID,som_id_for_edit_product,edtDeliveryDateEdit.getText().toString());
+                                    if (!edtDeliveryDateEdit.getText().toString().equals("") && !customerID.equals("")){
+                                      //  Get_All_Items_Detail_For_Sales_Order(true,true,selectedCategoryId,customerID,som_id_for_edit_product,edtDeliveryDateEdit.getText().toString());
                                         getSalesOrderListOnCustomerDate(true, true, Integer.parseInt(customerID),
-                                                edtDeliveryDateEdit.getText().toString());
+                                                edtDeliveryDateEdit.getText().toString(),selectedCategoryId);
                                     }
 
 

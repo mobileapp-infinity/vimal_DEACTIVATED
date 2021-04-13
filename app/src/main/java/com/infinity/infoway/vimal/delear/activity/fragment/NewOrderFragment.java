@@ -76,6 +76,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -124,9 +125,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private BoxOrderListForAdapter boxOrderListForAdapter;
     private CardView cvProductHeader;
 
+    private String vehicleName;
     private String selectedCategoryId = "";
     private ArrayList<String> customerNameArrayList;
-    private ArrayList<String> routeArrayList, routeIdArrayList;
+    private ArrayList<String> routeArrayList, routeIdArrayList, routeVehicleArrayList;
     private ArrayList<String> customerIdArrayList = new ArrayList<>();
     private HashMap<String, Get_Distributor_and_its_Retailer_detail_Pojo.RECORD> distributorAndRetailerRecordHashMap;
     private HashMap<String, GetSaleRouteWiseVehicleWisePlanningDetailsPojo.RECORD> distributorAndRetailerRecordHashMap2;
@@ -165,6 +167,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
             my_calendar.set(Calendar.YEAR, year);
             my_calendar.set(Calendar.MONTH, monthOfYear);
             my_calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+            edtTotal.setText("");
+            edtTotalWeight.setText("");
+            edtTotalAmount.setText("");
 
             String myFormat = "yyyy-MM-dd"; //In which you need put here
             SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -220,6 +226,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
 
     private String key = "";
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -248,6 +255,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
         }
 
+
+
        /* if (!routeID.contentEquals("") && routeID != null) {
 
 
@@ -263,6 +272,19 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     private boolean isRootSelectedFormHere = false;
 
     private void initView(View view) {
+
+
+        edtDeliveryDate = view.findViewById(R.id.edtDeliveryDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        LocalDate date = LocalDate.now();
+
+        edtDeliveryDate.setText(date + "");
+
+
+
+
+
         getSharedPref = new SharedPref(context);
         rvItemCategory = view.findViewById(R.id.rvItemCategory);
         rvItemCategory.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
@@ -329,10 +351,15 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         String pinCode = CommonUtils.checkIsEmptyOrNullCommon(record.getPinCode()) ? "" : record.getPinCode();
                         String contactPerson = CommonUtils.checkIsEmptyOrNullCommon(record.getContactPerson()) ? "" : record.getContactPerson();
                         String mobileNo = CommonUtils.checkIsEmptyOrNullCommon(record.getMobileNo()) ? "" : record.getMobileNo();
-                        edVehicleNo.setText(record.getRvpm_vehicle_no() + "");
+                        // edVehicleNo.setText(record.getRvpm_vehicle_no() + "");
                         setData(consigneeName, add1, add2, add3, cityName,
                                 stateName, panNo, GSTIN, pinCode,
                                 contactPerson, mobileNo);
+
+
+
+
+
                     }
                 } else {
                     if (position > 0) {
@@ -363,6 +390,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         setData(consigneeName, add1, add2, add3, cityName,
                                 stateName, panNo, GSTIN, pinCode,
                                 contactPerson, mobileNo);
+
+
                     }
                 }
 
@@ -377,9 +406,11 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         spRoute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                edVehicleNo.setText("");
+
                 if (i > 0) {
                     isRootSelectedFormHere = true;
+                    vehicleName = routeVehicleArrayList.get(i);
+                    edVehicleNo.setText(vehicleName);
                 }
 
 
@@ -525,7 +556,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    int selectedPostion = -1;
+    int selectedPostion = 0;
 
     private boolean isValid() {
         boolean isValid = true;
@@ -1363,6 +1394,9 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         Toast.makeText(context, insertRespectiveResponsePojo.getMESSAGE(), Toast.LENGTH_SHORT).show();
                         System.out.println(response);
                         openPdfFromBase64(insertRespectiveResponsePojo.getDocumentFile(), insertRespectiveSalesOrderReqModel.getCus_name(), insertRespectiveSalesOrderReqModel.getDelivery_date());
+                        edtTotal.setText("");
+                        edtTotalWeight.setText("");
+                        edtTotalAmount.setText("");
                         /*generatePDFOfRetailerManagement(
                                 insertRespectiveSalesOrderReqModel.getCus_name(),
                                 insertRespectiveSalesOrderReqModel.getDelivery_date(),
@@ -1581,7 +1615,9 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
                 routeArrayList = new ArrayList<>();
                 routeIdArrayList = new ArrayList<>();
+                routeVehicleArrayList = new ArrayList<>();
                 routeArrayList.add("Select Route");
+                routeVehicleArrayList.add("");
                 routeIdArrayList.add("**");
 
                 try {
@@ -1594,6 +1630,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
                                 routeArrayList.add(getAllRouteListPojo.getRECORDS().get(i).getRouteName());
                                 routeIdArrayList.add(getAllRouteListPojo.getRECORDS().get(i).getRouteId() + "");
+                                routeVehicleArrayList.add(getAllRouteListPojo.getRECORDS().get(i).getRvpm_vehicle_no() + "");
 
                             }
                             ArrayAdapter<String> customerNameAdapter = new ArrayAdapter<String>
@@ -1616,10 +1653,9 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                                 }
                             }
 
-                            if(!isRootSelectedFormHere){
+                            if (!isRootSelectedFormHere) {
                                 getDiatributorAndRetailerNameApiCall(true, false);
                             }
-
 
 
                         } else {
@@ -1783,7 +1819,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
 
     String customerID;
-
+    String itemBydefaultPosition;
     private void getItemCategoryKey() {
 
 
@@ -1799,12 +1835,19 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
                         if (itemCategoryPojo != null && itemCategoryPojo.getRecords().size() > 0) {
 
+                            selectedCategoryId = itemCategoryPojo.getRecords().get(0).getParentValue()+"";
+
+
+
                             ItemCategoryAdapter itemCategoryAdapter = new ItemCategoryAdapter(getActivity(), itemCategoryPojo, new ItemCategoryAdapter.IOnRadioButtonChanged() {
                                 @Override
                                 public void OnCheckedChaged(int position, ItemCategoryPojo itemCategoryPojo) {
+                                    edtTotal.setText("");
+                                    edtTotalWeight.setText("");
+                                    edtTotalAmount.setText("");
                                     selectedPostion = position;
                                     System.out.println(itemCategoryPojo);
-                                   // key = itemCategoryPojo.getRecords().get(position).getParentKey();
+                                    // key = itemCategoryPojo.getRecords().get(position).getParentKey();
                                     selectedCategoryId = itemCategoryPojo.getRecords().get(position).getParentValue() + "";
                                     if (!edtDeliveryDate.getText().toString().equals("") && !customerID.equals("")) {
                                         Get_All_Items_Detail_For_Sales_Order(true, true, selectedCategoryId, customerID, "0", edtDeliveryDate.getText().toString());
