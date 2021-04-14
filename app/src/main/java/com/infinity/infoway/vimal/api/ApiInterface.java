@@ -280,6 +280,7 @@ public interface ApiInterface {
                                                           @Query("possession") String possession,
                                                           @Query("Inquiry") String Inquiry,
                                                           @Query("current_company") String current_company,
+                                                          @Query("pin_code") String pin_code,
                                                           @Query("gst_no") String gst_no,
                                                           @Query("bill_sys") String bill_sys,
                                                           @Query("main_id") String main_id,
@@ -298,7 +299,8 @@ public interface ApiInterface {
                                                           @Query("area_cov") String area_cov,
                                                           @Query("form") String form,
                                                           @Query("remark") String remark,
-                                                          @Query("a_y_d") String a_y_d);
+                                                          @Query("a_y_d") String a_y_d
+                                                          );
 
 
     @POST("Add_Retailer_Customer")

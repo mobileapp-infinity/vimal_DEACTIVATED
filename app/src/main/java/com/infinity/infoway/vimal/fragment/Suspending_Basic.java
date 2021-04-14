@@ -43,6 +43,7 @@ public class Suspending_Basic extends Fragment implements View.OnClickListener {
     public static EditText ed_taluka;
     public static EditText ed_district, ed_distributor;
     public static EditText ed_state;
+    public static EditText ed_pincode;
     public static Button mBtnNxt;
     public static String selected_date = "";
     public static String selected_district_ID = "";
@@ -92,7 +93,7 @@ public class Suspending_Basic extends Fragment implements View.OnClickListener {
         ed_mobile_no = (EditText) view.findViewById(R.id.ed_mobile_no);
         ed_area = (EditText) view.findViewById(R.id.ed_area);
         ed_city = (EditText) view.findViewById(R.id.ed_city);
-
+        ed_pincode = (EditText)view.findViewById(R.id.ed_pincode);
         ed_taluka = (EditText) view.findViewById(R.id.ed_taluka);
 
         ed_district = (EditText) view.findViewById(R.id.ed_district);

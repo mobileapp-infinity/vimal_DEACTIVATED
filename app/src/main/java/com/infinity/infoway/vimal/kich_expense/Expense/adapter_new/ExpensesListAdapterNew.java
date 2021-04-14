@@ -64,7 +64,10 @@ public class ExpensesListAdapterNew extends RecyclerView.Adapter<ExpensesListAda
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         ExpensesListModelNew.RECORD record = expensesArrayList.get(position);
+        record.setEXPKEY("travel");
+        if (record.getEXPKEY().equals("travel")){
 
+        }
         if (record.getEXPKEY() != null && !record.getEXPKEY().isEmpty()) {
             String expenseKey = record.getEXPKEY();
             if (expenseKey.equalsIgnoreCase(TRAVEL_EXP_KEY)) {

@@ -918,17 +918,17 @@ public class Activity_Home extends AppCompatActivity
         switch (v.getId()) {
 
             case R.id.linear_expense_tracker:
-                if (!isTodayPunchINDone()) {
+             /*   if (!isTodayPunchINDone()) {
                     showAttendanceScreen();
                 } else if (isTodayPunchOutDone()) {
                     showPunchOutDialog();
-                } else {
+                } else {*/
                     FLAG_4_BACK_START_PG_AGAIN = false;
 //                    intent = new Intent(Activity_Home.this, Activity_Expense_Management.class);//changed as below
                     intent = new Intent(Activity_Home.this, Expense_Listing.class);
                     intent.putExtra("title_screen", txt_title_expense_management.getText().toString().trim());
                     startActivity(intent);
-                }
+                //}
                 break;
 
             case R.id.linear_complaint:

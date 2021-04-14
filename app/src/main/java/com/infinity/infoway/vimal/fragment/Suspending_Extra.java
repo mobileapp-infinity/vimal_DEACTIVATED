@@ -63,6 +63,7 @@ public class Suspending_Extra extends Fragment implements View.OnClickListener {
     private EditText ed_AreaCoverage;
     private EditText ed_ReferenceFrom;
     private EditText ed_Remarks;
+
     private EditText ed_WhyAreYouInterestInVimal;
     private Button btn_prev;
     private Button btn_submit;
@@ -118,6 +119,7 @@ public class Suspending_Extra extends Fragment implements View.OnClickListener {
         ed_AreaCoverage = (EditText) view.findViewById(R.id.ed_AreaCoverage);
         ed_ReferenceFrom = (EditText) view.findViewById(R.id.ed_ReferenceFrom);
         ed_Remarks = (EditText) view.findViewById(R.id.ed_Remarks);
+       // ed_pincode = (EditText) view.findViewById(R.id.ed_pincode);
         ed_WhyAreYouInterestInVimal = (EditText) view.findViewById(R.id.ed_WhyAreYouInterestInVimal);
         btn_prev = (Button) view.findViewById(R.id.btn_prev);
         btn_prev.setOnClickListener(this);
@@ -477,6 +479,7 @@ public class Suspending_Extra extends Fragment implements View.OnClickListener {
         String req_form = ed_ReferenceFrom.getText().toString().trim() + "";
         String req_remark = ed_Remarks.getText().toString().trim() + "";
         String req_a_y_d = ed_WhyAreYouInterestInVimal.getText().toString().trim() + "";
+        String req_pin_code = Suspending_Basic.ed_pincode.getText().toString() + "";
 
 
         Call<SuspendingReportPojo> call = apiService.Add_edit_Suspecting_Report(
@@ -498,6 +501,7 @@ public class Suspending_Extra extends Fragment implements View.OnClickListener {
                 req_possession,
                 req_Inquiry,
                 req_current_company,
+                req_pin_code,
                 req_gst_no,
                 req_bill_sys,
                 req_main_id,
@@ -516,7 +520,8 @@ public class Suspending_Extra extends Fragment implements View.OnClickListener {
                 req_area_cov,
                 req_form,
                 req_remark,
-                req_a_y_d);
+                req_a_y_d
+                );
         call.enqueue(new Callback<SuspendingReportPojo>() {
             @Override
             public void onResponse(Call<SuspendingReportPojo> call, Response<SuspendingReportPojo> response) {
