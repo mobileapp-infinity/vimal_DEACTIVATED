@@ -3,6 +3,7 @@ package com.infinity.infoway.vimal.kich_expense.Expense;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -57,6 +58,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -98,6 +101,8 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
     private AppCompatTextView tvTotalExpense;
     private LinearLayout llTotalExpense;
 
+    final Handler handler = new Handler();
+    private Timer timer = new Timer();
 
     Calendar myCalendar = Calendar.getInstance();
     final DatePickerDialog.OnDateSetListener from_date = new DatePickerDialog.OnDateSetListener() {
@@ -126,7 +131,16 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.expense_save_u);
         initViews();
         getAllCityApiCall();
+      /*  try {
+            Thread.sleep(60000);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
+        fetchDataInBackground();
+
     }
+
 
     private void initViews() {
         que = Volley.newRequestQueue(this);
@@ -189,7 +203,7 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
                     cityAdapter.setDropDownViewResource(R.layout.spinner_common_layout);
                     spSelectCity.setTitle(SELECT_CITY);
                     spSelectCity.setAdapter(cityAdapter);
-                    getAllExpensesListApiCall(false, false, true);
+                   // getAllExpensesListApiCall(false, false, true);
                 } else {
                     hideProgressDialog();
                     Toast.makeText(Expense_Save_U.this, "City not found!", Toast.LENGTH_SHORT).show();
@@ -520,9 +534,48 @@ public class Expense_Save_U extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    private void fetchDataInBackground() {
+        TimerTask doAsynchronousTask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @SuppressWarnings("unchecked")
+                    public void run() {
+                        try {
+                            getAllExpensesListApiCall(true, false, true);
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(doAsynchronousTask, 0, 60000 * 2);//this will call function every 60 secondes
+    }
+
     @Override
     public void onBackPressed() {
+        cancelTimer();
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        cancelTimer();
+        super.onDestroy();
+    }
+
+    private void cancelTimer() {
+        try {
+            if (timer != null) {
+                if (handler != null) {
+                    handler.removeCallbacks(null);
+                }
+                timer.cancel();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     int ATTACHMENT_EXP_PO;

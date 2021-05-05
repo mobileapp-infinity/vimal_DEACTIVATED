@@ -1,8 +1,10 @@
 package com.infinity.infoway.vimal.delear.activity.RetailerOrderSummary;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,9 @@ import com.infinity.infoway.vimal.R;
 public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOrderSummaryAdapter.MyViewHolder> {
 
 
-    /**Created on 26-09-2020 by harsh**/
+    /**
+     * Created on 26-09-2020 by harsh
+     **/
     Context context;
 
     Get_Retailer_Order_Summary_Report_Pojo get_retailer_order_summary_report_pojo;
@@ -42,6 +46,7 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
             holder.first_divider.setVisibility(View.GONE);
             holder.ll_header.setVisibility(View.GONE);
         }
+
 
 
         if (position == get_retailer_order_summary_report_pojo.getRECORDS().size() - 1) {
@@ -76,9 +81,6 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
         }
 
 
-
-
-
         if (get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_Box() + "" == null) {
             holder.tv_total_box.setText("-");
 
@@ -94,10 +96,28 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
             holder.tv_amount.setText(get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_Amount() + "");
         }
 
+        if (get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_carat() + "" == null) {
+            holder.tv_total_caret.setText("-");
 
-        holder.tv_total_pic_total.setText(grandPicTotal()+"");
-        holder.tv_total_box_total.setText(grandBoxTotal()+"");
-        holder.tv_total_amount_total.setText(grandAmountTotal()+"");
+        } else {
+            holder.tv_total_caret.setText(get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_carat() + "");
+        }
+
+        if (get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_Ltr() + "" == null) {
+            holder.tv_total_ltr.setText("-");
+
+        } else {
+            holder.tv_total_ltr.setText(get_retailer_order_summary_report_pojo.getRECORDS().get(position).getTotal_Ltr() + "");
+        }
+
+
+        holder.tv_total_pic_total.setText(grandPicTotal() + "");
+        holder.tv_total_box_total.setText(grandBoxTotal() + "");
+        holder.tv_total_amount_total.setText(grandAmountTotal() + "");
+
+
+        holder.tv_total_ltr_total.setText(grandTotalLtr() + "");
+        holder.tv_total_caret_total.setText(grandTotalCarat() + "");
 
 
     }
@@ -106,7 +126,6 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
     public int getItemCount() {
         return get_retailer_order_summary_report_pojo.getRECORDS().size();
     }
-
 
 
     private double grandPicTotal() {
@@ -125,16 +144,33 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
         return totalBox;
     }
 
-    private double grandAmountTotal(){
+    private double grandAmountTotal() {
         double totalAmount = 0.00;
         for (int i = 0; i < get_retailer_order_summary_report_pojo.getRECORDS().size(); i++) {
             totalAmount += get_retailer_order_summary_report_pojo.getRECORDS().get(i).getTotal_Amount();
         }
         return totalAmount;
     }
+
+    private double grandTotalCarat() {
+        double totalCarat = 0.00;
+        for (int i = 0; i < get_retailer_order_summary_report_pojo.getRECORDS().size(); i++) {
+            totalCarat += get_retailer_order_summary_report_pojo.getRECORDS().get(i).getTotal_carat();
+        }
+        return totalCarat;
+    }
+
+    private double grandTotalLtr() {
+        double totalLtr = 0.00;
+        for (int i = 0; i < get_retailer_order_summary_report_pojo.getRECORDS().size(); i++) {
+            totalLtr += get_retailer_order_summary_report_pojo.getRECORDS().get(i).getTotal_Ltr();
+        }
+        return totalLtr;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_retailer_name, tv_area_name, tv_total_box, tv_amount, tv_total_pic_total, tv_total_box_total, tv_total_amount_total, tv_total_pic;
+        TextView tv_retailer_name, tv_area_name, tv_total_box, tv_amount, tv_total_pic_total, tv_total_box_total, tv_total_amount_total, tv_total_pic, tv_total_caret, tv_total_ltr, tv_total_ltr_total, tv_total_caret_total;
         LinearLayout ll_header;
         LinearLayout ll_total;
         View first_divider, last_divider;
@@ -150,6 +186,10 @@ public class RetailerOrderSummaryAdapter extends RecyclerView.Adapter<RetailerOr
             tv_total_pic_total = itemView.findViewById(R.id.tv_total_pic_total);
             tv_total_box_total = itemView.findViewById(R.id.tv_total_box_total);
             tv_total_amount_total = itemView.findViewById(R.id.tv_total_amount_total);
+            tv_total_caret = itemView.findViewById(R.id.tv_total_caret);
+            tv_total_ltr = itemView.findViewById(R.id.tv_total_ltr);
+            tv_total_ltr_total = itemView.findViewById(R.id.tv_total_ltr_total);
+            tv_total_caret_total = itemView.findViewById(R.id.tv_total_caret_total);
 
             first_divider = itemView.findViewById(R.id.first_divider);
             last_divider = itemView.findViewById(R.id.last_divider);

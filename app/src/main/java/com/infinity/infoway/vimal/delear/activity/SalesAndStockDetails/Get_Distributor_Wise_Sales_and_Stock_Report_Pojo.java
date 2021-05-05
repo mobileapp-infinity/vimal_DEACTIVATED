@@ -57,6 +57,7 @@ public class Get_Distributor_Wise_Sales_and_Stock_Report_Pojo {
         private double Purchase;
         private double Sales;
         private double Closing;
+        private double sales_return;
 
         public int getItm_id() {
             return itm_id;
@@ -112,6 +113,14 @@ public class Get_Distributor_Wise_Sales_and_Stock_Report_Pojo {
 
         public void setClosing(double Closing) {
             this.Closing = Closing;
+        }
+
+        public double getSales_return() {
+            return sales_return;
+        }
+
+        public void setSales_return(double sales_return) {
+            this.sales_return = sales_return;
         }
     }
 }

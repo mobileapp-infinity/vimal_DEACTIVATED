@@ -40,6 +40,7 @@ public class SalesAndStockDetailsAdapter extends RecyclerView.Adapter<SalesAndSt
         }
 
 
+
         if( position == get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().size() - 1 ){
             holder.last_divider.setVisibility(View.VISIBLE);
             holder.ll_total.setVisibility(View.VISIBLE);
@@ -61,10 +62,14 @@ public class SalesAndStockDetailsAdapter extends RecyclerView.Adapter<SalesAndSt
         holder.tv_cl_stock.setText(get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().get(position).getClosing() + "");
         holder.tv_purchase.setText(get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().get(position).getPurchase() + "");
         holder.tv_sales.setText(get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().get(position).getSales() + "");
+        holder.tv_sales_return.setText(get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().get(position).getSales_return() + "");
         holder.tv_op_stock_total.setText(grandOpeningTotal()+ "");
         holder.tv_purchase_total.setText(grandPurchaseTotal()+ "");
         holder.tv_close_stock_total.setText(grandClosingTotal()+ "");
         holder.tv_sales_total.setText(grandSalesTotal()+ "");
+
+
+        holder.tv_sales_return_total.setText(grandSalesReturnTotal()+ "");
 
 
     }
@@ -108,8 +113,17 @@ public class SalesAndStockDetailsAdapter extends RecyclerView.Adapter<SalesAndSt
 
     }
 
+    private double grandSalesReturnTotal(){
+        double totalSalesReturn = 0.00;
+        for (int i = 0; i < get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().size(); i++) {
+            totalSalesReturn += get_distributor_wise_sales_and_stock_report_pojo.getRECORDS().get(i).getSales_return();
+        }
+        return totalSalesReturn;
+
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_product_name, tv_ml, tv_op_stock, tv_purchase, tv_sales, tv_cl_stock,tv_op_stock_total,tv_purchase_total,tv_close_stock_total,tv_sales_total;
+        TextView tv_product_name, tv_ml, tv_op_stock, tv_purchase, tv_sales, tv_cl_stock,tv_op_stock_total,tv_purchase_total,tv_close_stock_total,tv_sales_total,tv_sales_return_total,tv_sales_return;
         LinearLayout ll_header;
         LinearLayout ll_total;
         View first_divider,last_divider;
@@ -132,6 +146,8 @@ public class SalesAndStockDetailsAdapter extends RecyclerView.Adapter<SalesAndSt
             last_divider = itemView.findViewById(R.id.last_divider);
             ll_header = itemView.findViewById(R.id.ll_header);
             ll_total = itemView.findViewById(R.id.ll_total);
+            tv_sales_return = itemView.findViewById(R.id.tv_sales_return);
+            tv_sales_return_total = itemView.findViewById(R.id.tv_sales_return_total);
 
 
         }

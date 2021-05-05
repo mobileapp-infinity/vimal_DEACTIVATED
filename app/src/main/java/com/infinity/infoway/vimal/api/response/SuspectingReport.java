@@ -114,6 +114,7 @@ public class SuspectingReport implements Serializable {
         private String se_interest;
         private String se_area;
         private String se_suspecting_no;
+        private String se_pincode;
 
         public int getId() {
             return id;
@@ -417,6 +418,14 @@ public class SuspectingReport implements Serializable {
 
         public void setSe_suspecting_no(String se_suspecting_no) {
             this.se_suspecting_no = se_suspecting_no;
+        }
+
+        public String getSe_pincode() {
+            return se_pincode;
+        }
+
+        public void setSe_pincode(String se_pincode) {
+            this.se_pincode = se_pincode;
         }
     }
 }

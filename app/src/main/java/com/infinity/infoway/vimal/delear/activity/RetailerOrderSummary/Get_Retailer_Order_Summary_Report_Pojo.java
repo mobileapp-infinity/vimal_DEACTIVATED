@@ -53,6 +53,8 @@ public class Get_Retailer_Order_Summary_Report_Pojo {
         private double Total_Pcs;
         private double Total_Box;
         private double Total_Amount;
+        private double total_carat;
+        private double Total_Ltr;
 
         public String getRetailer_Name() {
             return Retailer_Name;
@@ -92,6 +94,22 @@ public class Get_Retailer_Order_Summary_Report_Pojo {
 
         public void setTotal_Amount(double Total_Amount) {
             this.Total_Amount = Total_Amount;
+        }
+
+        public double getTotal_carat() {
+            return total_carat;
+        }
+
+        public void setTotal_carat(double total_carat) {
+            this.total_carat = total_carat;
+        }
+
+        public double getTotal_Ltr() {
+            return Total_Ltr;
+        }
+
+        public void setTotal_Ltr(double total_Ltr) {
+            Total_Ltr = total_Ltr;
         }
     }
 }

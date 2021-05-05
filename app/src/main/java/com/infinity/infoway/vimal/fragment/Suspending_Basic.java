@@ -3,10 +3,14 @@ package com.infinity.infoway.vimal.fragment;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.google.android.material.snackbar.Snackbar;
+
 import androidx.fragment.app.Fragment;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -93,7 +97,7 @@ public class Suspending_Basic extends Fragment implements View.OnClickListener {
         ed_mobile_no = (EditText) view.findViewById(R.id.ed_mobile_no);
         ed_area = (EditText) view.findViewById(R.id.ed_area);
         ed_city = (EditText) view.findViewById(R.id.ed_city);
-        ed_pincode = (EditText)view.findViewById(R.id.ed_pincode);
+        ed_pincode = (EditText) view.findViewById(R.id.ed_pincode);
         ed_taluka = (EditText) view.findViewById(R.id.ed_taluka);
 
         ed_district = (EditText) view.findViewById(R.id.ed_district);
@@ -135,6 +139,8 @@ public class Suspending_Basic extends Fragment implements View.OnClickListener {
 
                 selected_state_Id = dataModel.getSe_state_id() + "";
                 ed_state.setText(dataModel.getSta_name() + "");
+                //se_pincode
+                ed_pincode.setText(dataModel.getSe_pincode() + "");
                 //   ed_distributor.setText(dataModel.getdi() + "");
 
             } else {
@@ -192,7 +198,7 @@ public class Suspending_Basic extends Fragment implements View.OnClickListener {
                 if (!TextUtils.isEmpty(data.getExtras().getString("State_ID"))) {
                     selected_state_Id = data.getExtras().getString("State_ID");
                 }
-              //  System.out.println("this is state ID!!!!! "+selected_state_Id+"");
+                //  System.out.println("this is state ID!!!!! "+selected_state_Id+"");
                 if (!TextUtils.isEmpty(data.getExtras().getString("TalukaName"))) {
                     ed_taluka.setText(data.getExtras().getString("TalukaName"));
                 }
