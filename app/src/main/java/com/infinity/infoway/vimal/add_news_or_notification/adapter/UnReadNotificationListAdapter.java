@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.infinity.infoway.vimal.R;
@@ -61,7 +62,7 @@ public class UnReadNotificationListAdapter extends RecyclerView.Adapter<UnReadNo
             }
 
             if (record.getNewsContent() != null && !record.getNewsContent().isEmpty()) {
-                holder.tvNotificationContent.setText(record.getNewsContent() + "");
+                holder.tvNotificationContent.setText(HtmlCompat.fromHtml(record.getNewsContent(), 0));
             }
 
             if (record.getImgUrl() != null && !record.getImgUrl().toString().isEmpty()) {

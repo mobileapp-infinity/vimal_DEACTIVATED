@@ -69,7 +69,7 @@ public class ItemDetailsPojo {
         private String stUomName;
         @SerializedName("price")
         @Expose
-        private Integer price;
+        private Double price;
         @SerializedName("basic_price")
         @Expose
         private String basicPrice;
@@ -105,13 +105,13 @@ public class ItemDetailsPojo {
         private Integer wtRndType;
         @SerializedName("gst_amt")
         @Expose
-        private Integer gstAmt;
+        private Double gstAmt;
         @SerializedName("cess_amt")
         @Expose
-        private Integer cessAmt;
+        private Double cessAmt;
         @SerializedName("net_amt")
         @Expose
-        private Integer netAmt;
+        private Double netAmt;
         @SerializedName("somd_som_id")
         @Expose
         private Integer somdSomId;
@@ -254,11 +254,11 @@ public class ItemDetailsPojo {
             this.stUomName = stUomName;
         }
 
-        public Integer getPrice() {
+        public Double getPrice() {
             return price;
         }
 
-        public void setPrice(Integer price) {
+        public void setPrice(Double price) {
             this.price = price;
         }
 
@@ -350,27 +350,27 @@ public class ItemDetailsPojo {
             this.wtRndType = wtRndType;
         }
 
-        public Integer getGstAmt() {
+        public Double getGstAmt() {
             return gstAmt;
         }
 
-        public void setGstAmt(Integer gstAmt) {
+        public void setGstAmt(Double gstAmt) {
             this.gstAmt = gstAmt;
         }
 
-        public Integer getCessAmt() {
+        public Double getCessAmt() {
             return cessAmt;
         }
 
-        public void setCessAmt(Integer cessAmt) {
+        public void setCessAmt(Double cessAmt) {
             this.cessAmt = cessAmt;
         }
 
-        public Integer getNetAmt() {
+        public Double getNetAmt() {
             return netAmt;
         }
 
-        public void setNetAmt(Integer netAmt) {
+        public void setNetAmt(Double netAmt) {
             this.netAmt = netAmt;
         }
 

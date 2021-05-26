@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.infinity.infoway.vimal.R;
@@ -45,7 +46,7 @@ public class ReadNotificationListAdapter extends RecyclerView.Adapter<ReadNotifi
             GetNewsAndMsgListPojo.RECORD record = recordArrayList.get(position);
 
             if (record.getNewsContent() != null && !record.getNewsContent().isEmpty()) {
-                holder.tvNotificationContent.setText(record.getNewsContent() + "");
+                holder.tvNotificationContent.setText(HtmlCompat.fromHtml(record.getNewsContent(), 0));
             }
 
 

@@ -505,6 +505,8 @@ public class RetailerManagementForRetailerActivity extends AppCompatActivity
                             for (int k = 0; k < customer_id_list.size(); k++) {
 
                                 if (customer_id_list.get(k).equals(Cus_Id)) {
+
+                                    selected_distributor_ID = listDistributorResponse.get(k).getId() + "";
                                     System.out.println("name----------------------------------------" + customer_id_list.get(k));
                                     ed_distributor.setText(listDistributorResponse.get(k).getCus_name().toString());
                                     ed_distributor.setEnabled(false);

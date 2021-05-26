@@ -275,11 +275,17 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
 
         edtDeliveryDate = view.findViewById(R.id.edtDeliveryDate);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        LocalDate date = LocalDate.now();
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            LocalDate date = LocalDate.now();
+//            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            String date = sdf.format(new Date());
 
-        edtDeliveryDate.setText(date + "");
+            edtDeliveryDate.setText(date + "");
+        }catch (Throwable th){
+            th.printStackTrace();
+        }
 
 
 
@@ -698,10 +704,15 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
                     JSONArray jsonArray = new JSONArray();
 
+                    boolean isQuantityEntered = false;
+
                     if (itemDetailsJasonReqModelArrayListFinal != null &&
                             itemDetailsJasonReqModelArrayListFinal.size() > 0) {
                         for (int i = 0; i < itemDetailsJasonReqModelArrayListFinal.size(); i++) {
-                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited()) {
+                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited() &&
+                                    Integer.parseInt(itemDetailsJasonReqModelArrayListFinal.get(i).getQty()) > 0 &&
+                                    Integer.parseInt(itemDetailsJasonReqModelArrayListFinal.get(i).getBasic_price()) > 0) {
+                                isQuantityEntered = true;
                                 JSONObject jsonObject = new JSONObject();
                                 try {
                                     productInfo += "Product Name:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name() + "\n" +
@@ -731,6 +742,11 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         }
                     }
 
+
+                    if (!isQuantityEntered){
+                        Toast.makeText(context, "Please enter quantity", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     InsertRespectiveSalesOrderReqModel insertRespectiveSalesOrderReqModel = new InsertRespectiveSalesOrderReqModel();
                     insertRespectiveSalesOrderReqModel.setApp_version(app_version);
@@ -831,10 +847,15 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
 
                     JSONArray jsonArray = new JSONArray();
 
+                    boolean isQuantityEntered = false;
+
                     if (itemDetailsJasonReqModelArrayListFinal != null &&
                             itemDetailsJasonReqModelArrayListFinal.size() > 0) {
                         for (int i = 0; i < itemDetailsJasonReqModelArrayListFinal.size(); i++) {
-                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited()) {
+                            if (itemDetailsJasonReqModelArrayListFinal.get(i).isEdited() &&
+                            Integer.parseInt(itemDetailsJasonReqModelArrayListFinal.get(i).getQty()) > 0 &&
+                                    Integer.parseInt(itemDetailsJasonReqModelArrayListFinal.get(i).getBasic_price()) > 0) {
+                                isQuantityEntered = true;
                                 JSONObject jsonObject = new JSONObject();
                                 try {
                                     productInfo += "Product Name:- " + itemDetailsJasonReqModelArrayListFinal.get(i).getItem_name() + "\n" +
@@ -864,6 +885,10 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                         }
                     }
 
+                    if (!isQuantityEntered){
+                        Toast.makeText(context, "Please enter quantity", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
                     InsertRespectiveSalesOrderReqModel insertRespectiveSalesOrderReqModel = new InsertRespectiveSalesOrderReqModel();
                     insertRespectiveSalesOrderReqModel.setApp_version(app_version);
@@ -1618,7 +1643,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                 routeVehicleArrayList = new ArrayList<>();
                 routeArrayList.add("Select Route");
                 routeVehicleArrayList.add("");
-                routeIdArrayList.add("**");
+                routeIdArrayList.add("0");//** changed by remish 0 //date:-  06-05-2021
 
                 try {
 
