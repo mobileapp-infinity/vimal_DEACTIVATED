@@ -26,6 +26,7 @@ public class AddFreezeRequestActivity extends AppCompatActivity {
         getDistributor();
     }
 
+
     private void initView(){
 
         edtrefNo = findViewById(R.id.edtRefNo);
