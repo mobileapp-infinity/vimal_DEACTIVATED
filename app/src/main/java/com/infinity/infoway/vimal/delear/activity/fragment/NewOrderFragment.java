@@ -417,6 +417,8 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                     isRootSelectedFormHere = true;
                     vehicleName = routeVehicleArrayList.get(i);
                     edVehicleNo.setText(vehicleName);
+                }else{
+                    spCustomer.setSelection(0);
                 }
 
 
@@ -976,6 +978,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onResponse(Call<Get_Distributor_and_its_Retailer_detail_Pojo> call, Response<Get_Distributor_and_its_Retailer_detail_Pojo> response) {
 
+                        System.out.println("cus"+call.request().url());
                         if (isPdHide) {
                             hideProgressDialog();
                         }
@@ -1727,6 +1730,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                 try {
                     if (response.isSuccessful() && response.body() != null) {
 
+                        System.out.println("url"+call.request().url());
                         GetSaleRouteWiseVehicleWisePlanningDetailsPojo getSaleRouteWiseVehicleWisePlanningDetailsPojo = response.body();
 
                         customerNameArrayList = new ArrayList<>();
@@ -1843,7 +1847,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    String customerID;
+    String customerID = "";
     String itemBydefaultPosition;
     private void getItemCategoryKey() {
 
@@ -1917,6 +1921,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
                 if (isPdHide) {
                     hideProgressDialog();
                 }
+                System.out.println("nilay"+call.request().url());
 
                 ArrayList<ItemDetailsPojo.Record> allItems = new ArrayList<>();
                 itemDetailsJasonReqModelArrayListFinal = new ArrayList<>();

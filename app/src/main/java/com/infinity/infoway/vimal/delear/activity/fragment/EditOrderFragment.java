@@ -1167,7 +1167,7 @@ public class EditOrderFragment extends Fragment implements View.OnClickListener 
                 });
     }
 
-    String customerID,somID;
+    String customerID = "",somID = "";
 
     private int selectedPostion;
     private String selectedCategoryId;

@@ -2521,6 +2521,7 @@ public class Activity_Home extends AppCompatActivity
         url.replace(" ", "%20");
 
         System.out.println("LoginCheck URL " + url + "");
+
         StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

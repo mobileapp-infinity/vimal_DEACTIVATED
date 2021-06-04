@@ -60,13 +60,15 @@ public class Config {
 
     //For LEAVE MODULE
     //TODO LIVE URL FOR LEAVE MODULE FOR VIMAL PROJECT
-//    public static final String LEAVE_MODULE_LIVE_URL = "http://vimal.ierp.co.in/ierphr.asmx/";
+    public static final String LEAVE_MODULE_LIVE_URL = "http://vimal.ierp.co.in/ierphr.asmx/";
     public static final int MIN_KM_FOR_ACCURACY = 10000;
 
     /*20-03-21 pragna for service auto stop*/
     public static final String SHOULD_STOP_SERVICE_ON_WHICH_TIME = "23:30:00" + "";// this is correct
 
     //TODO LOCAL URL FOR LEAVE MODULE
-    public static final String LEAVE_MODULE_LIVE_URL = "http://192.168.30.70/ierphr.asmx/";
+//    public static final String LEAVE_MODULE_LIVE_URL = "http://192.168.30.70/ierphr.asmx/";
+
+
 
 }

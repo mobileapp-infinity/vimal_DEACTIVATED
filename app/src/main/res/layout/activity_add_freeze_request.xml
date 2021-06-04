@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Freeze.AddFreezeRequestActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <ScrollView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_margin="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+           >
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Ref No *"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtRefNo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Approx Sales "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtApproxSales"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Distributor Name "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinDistributorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Sales Person "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinSalesPerson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Retailer Firm Name "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinRetaielrFirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:textSize="@dimen/text_size"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Mobile No "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtMobileNo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:enabled="false"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Address 1 "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtAddress1"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:enabled="false"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Address 2 "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtAddress2"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:enabled="false"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Address 3 "
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_border"
+                android:orientation="vertical">
+
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/edtAddress3"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:enabled="false"
+                    android:minHeight="35dp"
+                    android:padding="10dp"
+                    android:text=""
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
