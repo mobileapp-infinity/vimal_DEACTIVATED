@@ -3,6 +3,7 @@ package com.infinity.infoway.vimal.DeepFridge;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -12,11 +13,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.config.Config;
+import com.infinity.infoway.vimal.database.SharedPref;
+import com.infinity.infoway.vimal.kich_expense.Expense.Expense_Listing;
+import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ChangePasswordActivity;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
+import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.util.ArrayList;
 
@@ -41,6 +51,7 @@ public class Fridge_Listing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fridge_listing);
         getSupportActionBar().hide();
+        getSharedPref = new SharedPref(Fridge_Listing.this);
         queue = Volley.newRequestQueue(this);
         filter_status = new ArrayList<>();
         // filter_status.add("Please");
@@ -58,6 +69,18 @@ public class Fridge_Listing extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
         //spDelAddressTitle.setAdapter(consigneeNameAdapter);
         sp_status.setAdapter(adapter);
+        sp_status.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                GetFridge_Request_Master(position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         iv_add.setVisibility(View.VISIBLE);
         iv_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +95,31 @@ public class Fridge_Listing extends AppCompatActivity {
                 finish();
             }
         });
+        GetFridge_Request_Master(1);
+    }
+    SharedPref getSharedPref;
+    private void GetFridge_Request_Master(int status) {
+        DialogUtils.showProgressDialog(Fridge_Listing.this, "");
+//        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
+        String url = URLS.GetFridge_Request_Master + "&app_version=" + getSharedPref.getAppVersionCode() + "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() + "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY + "&comp_id=" + getSharedPref.getCompanyId()+ "&status="+status;
+
+        url = url.replace(" ","%20");
+
+        System.out.println("GetFridge_Request_Master URL " + url + "");
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println("response "+response);
+                DialogUtils.hideProgressDialog();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                DialogUtils.hideProgressDialog();
+
+            }
+        });
+        queue.add(request);
     }
 
     private void initViews() {

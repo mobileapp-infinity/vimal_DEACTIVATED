@@ -226,4 +226,7 @@ public class URLS {
     //-remish varsani
     public static String Get_From_and_To_Date_For_Leave_Application = Base_URl_FOR_LEAVE_MODULE + "Get_From_and_To_Date_For_Leave_Application?";
 
+
+    /*05-06-2021 pragna for fridge module*/
+    public static final String GetFridge_Request_Master = Config.MAIN_URL + "GetFridge_Request_Master?";
 }
