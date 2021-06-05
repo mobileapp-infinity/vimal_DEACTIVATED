@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    >
+
+
+
+
+            <TextView
+                android:id="@+id/ed_Retailer_Photo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+              android:text="Retailer Photo"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></TextView> <TextView
+                android:id="@+id/ed_Retailer_Signature"
+                android:layout_width="fill_parent"
+    android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+              android:text="Retailer Signature"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+          >
+            <EditText
+                android:id="@+id/ed_Remarks"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="Remarks"
+                android:inputType="number"
+                android:lines="3"
+                android:maxLines="3"
+
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

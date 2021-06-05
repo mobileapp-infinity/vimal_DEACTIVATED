@@ -90,8 +90,33 @@
                 android:textSize="@dimen/text_size" />
         </LinearLayout>
 
-        <include
-            android:id="@+id/pg_one"
-            layout="@layout/fridge_request_pg_two"></include>
+       <!-- <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:fillViewport="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">-->
+            <include
+                android:id="@+id/pg_one"
+                android:visibility="visible"
+                layout="@layout/fridge_request_pg_one"></include>
+
+            <include
+                android:id="@+id/pg_two"
+                android:visibility="gone"
+                layout="@layout/fridge_request_pg_two"></include>
+
+            <include
+                android:id="@+id/pg_three"  android:visibility="gone"
+                layout="@layout/fridge_request_pg_three"></include>
+
+            <include
+                android:id="@+id/pg_four"  android:visibility="gone"
+                layout="@layout/fridge_request_pg_four"></include>
+         <!--   </LinearLayout>
+        </ScrollView>-->
     </LinearLayout>
 </LinearLayout>

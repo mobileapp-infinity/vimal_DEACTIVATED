@@ -204,7 +204,7 @@
                 android:id="@+id/ed_retailer_city"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="*retailer_city"
+                android:hint="*Retailer City"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
@@ -220,7 +220,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:hint="*retailer state"
+                android:hint="*Retailer State"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
