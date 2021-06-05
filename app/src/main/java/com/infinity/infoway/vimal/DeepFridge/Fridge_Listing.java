@@ -103,6 +103,7 @@ public class Fridge_Listing extends AppCompatActivity {
 //        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
         String url = URLS.GetFridge_Request_Master + "&app_version=" + getSharedPref.getAppVersionCode() + "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() + "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY + "&comp_id=" + getSharedPref.getCompanyId()+ "&status="+status;
 
+
         url = url.replace(" ","%20");
 
         System.out.println("GetFridge_Request_Master URL " + url + "");
