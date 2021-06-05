@@ -131,7 +131,7 @@
             android:id="@+id/ed_Mobile_No"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-          android:digits="0123456789"
+            android:digits="0123456789"
             android:inputType="phone"
             android:hint="Mobile No"
             android:singleLine="true"
@@ -222,6 +222,7 @@
                 android:enabled="false"
                 android:hint="*Retailer State"
                 android:singleLine="true"
+
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
         </com.google.android.material.textfield.TextInputLayout>

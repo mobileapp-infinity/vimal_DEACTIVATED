@@ -159,13 +159,13 @@
         android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
 
 
-        <LinearLayout
-            android:id="@+id/lin_bank_dd"
+    <LinearLayout
+        android:id="@+id/lin_bank_dd"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
         <com.google.android.material.textfield.TextInputLayout
 
@@ -213,69 +213,69 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-      >
+        >
         <LinearLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:id="@+id/sp_bank_cheque_account"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-android:layout_weight="1"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:drawableRight="@drawable/ic_action_down_arrow"
-        android:drawableTint="@color/colorPrimary"
-        android:paddingTop="@dimen/_2sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/sp_bank_cheque_account"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableRight="@drawable/ic_action_down_arrow"
+                android:drawableTint="@color/colorPrimary"
+                android:paddingTop="@dimen/_2sdp"
 
-        android:spinnerMode="dialog"
-        android:textColor="@android:color/black"
-        android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+                android:spinnerMode="dialog"
+                android:textColor="@android:color/black"
+                android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
 
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/ed_bank_Cheque_No"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="*Cheque No."
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/text_size"></EditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        </LinearLayout>
         <com.google.android.material.textfield.TextInputLayout
 
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            >
 
             <EditText
-                android:id="@+id/ed_bank_Cheque_No"
+                android:id="@+id/ed_bank_Cheque_Date"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="*Cheque No."
+                android:enabled="false"
+                android:hint="*Cheque Date"
                 android:lines="1"
+                android:longClickable="false"
                 android:maxLines="1"
                 android:singleLine="true"
-
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-    </LinearLayout>
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-    >
-
-        <EditText
-            android:id="@+id/ed_bank_Cheque_Date"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:hint="*Cheque Date"
-            android:lines="1"
-            android:longClickable="false"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="@color/color_black"
-            android:textSize="@dimen/text_size"></EditText>
-    </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -318,46 +318,47 @@ android:layout_weight="1"
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout> <LinearLayout
-        android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
+        android:layout_weight="1">
+        <EditText
+            android:id="@+id/ed_Other_Charge"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/ed_Other_Charge"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:hint="Other Charge"
-                android:inputType="number"
-                android:lines="1"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/color_black"
-                android:textSize="@dimen/text_size"></EditText>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <EditText
-                android:id="@+id/ed_Total"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:hint="Total"
-                android:inputType="number"
-                android:lines="1"
-                android:enabled="false"
-                android:longClickable="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@color/color_black"
-                android:textSize="@dimen/text_size"></EditText>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:digits="0123456789"
+            android:hint="Other Charge"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <EditText
 
-    </LinearLayout>
+            android:id="@+id/ed_Total"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:digits="0123456789"
+            android:hint="Total"
+            android:inputType="number"
+            android:lines="1"
+            android:enabled="false"
+            android:longClickable="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
 </LinearLayout>

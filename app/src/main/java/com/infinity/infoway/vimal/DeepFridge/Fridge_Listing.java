@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 
@@ -20,7 +23,8 @@ import java.util.ArrayList;
 //4-06-2021 pragna for listing deep fridge with folter option
 public class Fridge_Listing extends AppCompatActivity {
 
-
+//StringRequest request;
+    RequestQueue queue;
     private Spinner sp_status;
     ArrayList<String> filter_status = new ArrayList<>();
     private ImageView iv_back;
@@ -37,6 +41,7 @@ public class Fridge_Listing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fridge_listing);
         getSupportActionBar().hide();
+        queue = Volley.newRequestQueue(this);
         filter_status = new ArrayList<>();
         // filter_status.add("Please");
 

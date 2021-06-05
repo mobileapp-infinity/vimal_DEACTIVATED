@@ -69,6 +69,7 @@ public class Config {
     //TODO LOCAL URL FOR LEAVE MODULE
 //    public static final String LEAVE_MODULE_LIVE_URL = "http://192.168.30.70/ierphr.asmx/";
 
-
+/*05-06-2021 pragna for fridge module*/
+    public static final String GetFridge_Request_Master = MAIN_URL + "GetFridge_Request_Master?";
 
 }
