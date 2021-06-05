@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    >
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      >
+
+        <EditText
+            android:id="@+id/ed_owner_Name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Owner Name"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/ed_owner_Mobile_No"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Mobile No."
+            android:inputType="phone"
+            android:singleLine="true"
+            android:digits="0123456789"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_owner_address_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 1"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_owner_address_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 2"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_owner_address_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 3"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_owner_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableRight="@drawable/ic_action_down_arrow"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingTop="@dimen/_2sdp"
+
+        android:spinnerMode="dialog"
+        android:textColor="@android:color/black"
+        android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+<com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_owner_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableRight="@drawable/ic_action_down_arrow"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingTop="@dimen/_2sdp"
+
+        android:spinnerMode="dialog"
+        android:textColor="@android:color/black"
+        android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/ed_owner_pincode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Mobile No."
+            android:inputType="phone"
+            android:singleLine="true"
+            android:digits="0123456789"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

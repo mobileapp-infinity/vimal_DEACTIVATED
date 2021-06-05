@@ -70,7 +70,15 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_centerVertical="true"
-                        android:visibility="gone" />
+                        android:visibility="gone" /> <ImageView
+                        android:id="@+id/iv_add"
+                    android:src="@drawable/add_leave_white"
+                        android:layout_width="25dp"
+                    android:visibility="gone"
+                        android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                      android:layout_alignParentRight="true"
+                        />
 
 
 

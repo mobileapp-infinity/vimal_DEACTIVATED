@@ -90,6 +90,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.BuildConfig;
+import com.infinity.infoway.vimal.DeepFridge.Fridge_Listing;
 import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.add_news_or_notification.activity.ViewNewsOrNotificationListActivity;
@@ -154,7 +155,8 @@ public class Activity_Home extends AppCompatActivity
     private SharedPref getSharedPref;
     private DrawerLayout drawer;
     public static boolean FLAG_4_BACK_START_PG_AGAIN = true;
-
+    /*4-06-21 pragna added fridge module*/
+    LinearLayout llFridgeRequest;
     /**
      * Tour\nPlanning
      */
@@ -598,6 +600,7 @@ public class Activity_Home extends AppCompatActivity
         txt_title_my_schedule = findViewById(R.id.txt_title_my_schedule);
         txt_title_Suspecting = findViewById(R.id.txt_title_Suspecting);
         linear_Suspecting = findViewById(R.id.linear_Suspecting);
+        llFridgeRequest = findViewById(R.id.llFridgeRequest);
 
         floatingActionButton = findViewById(R.id.fab);
 
@@ -612,6 +615,8 @@ public class Activity_Home extends AppCompatActivity
         linear_sync_offline.setOnClickListener(this);
         linear_my_schedule.setOnClickListener(this);
         linear_Suspecting.setOnClickListener(this);
+
+        llFridgeRequest.setOnClickListener(this);
 
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -906,6 +911,8 @@ public class Activity_Home extends AppCompatActivity
             llUpdateCallList.performClick();
         } else if (id == R.id.nav_schedules) {
             llTest.performClick();
+        }else if (id == R.id.nav_fridge_request) {
+            llFridgeRequest.performClick();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -923,11 +930,11 @@ public class Activity_Home extends AppCompatActivity
                 } else if (isTodayPunchOutDone()) {
                     showPunchOutDialog();
                 } else {*/
-                    FLAG_4_BACK_START_PG_AGAIN = false;
+                FLAG_4_BACK_START_PG_AGAIN = false;
 //                    intent = new Intent(Activity_Home.this, Activity_Expense_Management.class);//changed as below
-                    intent = new Intent(Activity_Home.this, Expense_Listing.class);
-                    intent.putExtra("title_screen", txt_title_expense_management.getText().toString().trim());
-                    startActivity(intent);
+                intent = new Intent(Activity_Home.this, Expense_Listing.class);
+                intent.putExtra("title_screen", txt_title_expense_management.getText().toString().trim());
+                startActivity(intent);
                 //}
                 break;
 
@@ -986,6 +993,19 @@ public class Activity_Home extends AppCompatActivity
                     intent.putExtra("title_screen", txt_title_Suspecting.getText().toString().trim());
                     startActivity(intent);
                 }
+                break;
+            /*04-06-21 pragna for request of fridge*/
+            case R.id.llFridgeRequest:
+//                if (!isTodayPunchINDone()) {
+//                    showAttendanceScreen();
+//                } else if (isTodayPunchOutDone()) {
+//                    showPunchOutDialog();
+//                } else {
+                    FLAG_4_BACK_START_PG_AGAIN = false;
+                    intent = new Intent(Activity_Home.this, Fridge_Listing.class);
+                    intent.putExtra("title_screen", "Fridge Request");
+                    startActivity(intent);
+               // }
                 break;
             case R.id.linear_Tour_planning:
                 if (!isTodayPunchINDone()) {
@@ -1062,12 +1082,12 @@ public class Activity_Home extends AppCompatActivity
                 } else if (isTodayPunchOutDone()) {
                     showPunchOutDialog();
                 } else {*/
-                    FLAG_4_BACK_START_PG_AGAIN = false;
+                FLAG_4_BACK_START_PG_AGAIN = false;
 //                intent = new Intent(Activity_Home.this, Davat_Suspecting_Entry.class);
-                    intent = new Intent(Activity_Home.this, OrderPlaceToCompanyActivity.class);
-                    intent.putExtra("title_screen", "Retailer Order Booking");
-                    startActivity(intent);
-               // }
+                intent = new Intent(Activity_Home.this, OrderPlaceToCompanyActivity.class);
+                intent.putExtra("title_screen", "Retailer Order Booking");
+                startActivity(intent);
+                // }
                 break;
         }
     }

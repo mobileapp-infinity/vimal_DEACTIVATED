@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tool_main"
+        layout="@layout/toolbar_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/ll_btn_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lv"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:id="@+id/tv_pg_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1"
+
+                android:background="@color/red"
+                android:gravity="center"
+
+                android:text="Pg. 1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/tv_pg_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1"
+
+                android:background="@color/redlight"
+                android:gravity="center"
+
+                android:text="pg. 2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/tv_pg_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1"
+
+                android:background="@color/redlight"
+                android:gravity="center"
+
+                android:text="pg. 3"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/tv_pg_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:layout_weight="1"
+
+                android:background="@color/redlight"
+                android:gravity="center"
+
+                android:text="pg. 4"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/pg_one"
+            layout="@layout/fridge_request_pg_two"></include>
+    </LinearLayout>
+</LinearLayout>

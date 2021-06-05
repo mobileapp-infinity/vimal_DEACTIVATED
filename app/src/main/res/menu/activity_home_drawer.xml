@@ -101,6 +101,10 @@
             android:id="@+id/nav_route_planning"
             android:icon="@drawable/ledgerblack"
             android:title="Route Planning" />
+        <item
+            android:id="@+id/nav_fridge_request"
+            android:icon="@drawable/schedule_new"
+            android:title="Fridge Request" />
     </group>
 
     <item android:title="Communicate"  android:visible="false">

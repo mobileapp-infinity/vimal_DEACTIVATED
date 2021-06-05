@@ -30,9 +30,9 @@ public class Config {
     //TODO below URL,username and password for local testingtesttestt
     //userName:- nikul
     //password:- CfgwTsSPUma9tCx
-   // public static final String MAIN_URL = "http://192.168.30.70/API/SFVimal/";
-   public static final String MAIN_URL =
-           "http://vimal.ierp.co.in/API/SFVimal/";
+    public static final String MAIN_URL = "http://192.168.30.70/API/SFVimal/";
+  // public static final String MAIN_URL =
+     //      "http://vimal.ierp.co.in/API/SFVimal/";
 
     public static final String IMAGE_URL = "http://192.168.30.70/";
 

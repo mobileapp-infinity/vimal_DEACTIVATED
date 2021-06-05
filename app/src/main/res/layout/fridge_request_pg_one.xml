@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_ref_no"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="*Ref. No."
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="*Date"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_approx_sale"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Approx Sales"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_Distributor_Firm_Name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="*Distributor Firm Name"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_city"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="*city"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_Sales_person"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableRight="@drawable/ic_action_down_arrow"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingTop="@dimen/_2sdp"
+
+        android:spinnerMode="dialog"
+        android:textColor="@android:color/black"
+        android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_Retailer_Firm_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableRight="@drawable/ic_action_down_arrow"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingTop="@dimen/_2sdp"
+
+        android:spinnerMode="dialog"
+        android:textColor="@android:color/black"
+        android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_Mobile_No"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+          android:digits="0123456789"
+            android:inputType="phone"
+            android:hint="Mobile No"
+            android:singleLine="true"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_address_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 1"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_address_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 2"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_address_3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Address 3"
+            android:lines="3"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_retailer_city"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="*retailer_city"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_retailer_state"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:hint="*retailer state"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+
