@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           android:text="Request No."
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           android:text="Request Date."
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           android:text="Distributor/Super stockiest"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           android:text="Retailer Name"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=""
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+           android:text="Company Name"
+            android:singleLine="true"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal" 
+
+        android:layout_marginTop="3dp"
+        android:weightSum="2">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Size"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+            android:id="@+id/tv_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+</LinearLayout>

@@ -229,4 +229,7 @@ public class URLS {
 
     /*05-06-2021 pragna for fridge module*/
     public static final String GetFridge_Request_Master = Config.MAIN_URL + "GetFridge_Request_Master?";
+    public static final String Get_distributor_fridge_type = Config.MAIN_URL + "Get_distributor_fridge_type?";
+    public static final String Get_fridge_type = Config.MAIN_URL + "Get_fridge_type?";
+    public static final String Get_Distributor_and_its_Retailer_detail = Config.MAIN_URL + "Get_Distributor_and_its_Retailer_detail?"; public static final String Get_All_employee_By_Designation = Config.MAIN_URL + "Get_All_employee_By_Designation?";
 }

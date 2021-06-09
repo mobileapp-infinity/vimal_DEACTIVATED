@@ -51,7 +51,7 @@
                         android:textColor="@color/white"
                         android:paddingLeft="15dp"
                         android:id="@+id/txt_act"
-                        android:textSize="@dimen/activity_horizontal_margin_"
+                        android:textSize="@dimen/text_size"
                         android:textStyle="bold"
                         android:visibility="visible" />
 

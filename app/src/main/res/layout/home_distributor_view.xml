@@ -1011,10 +1011,58 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-
+<!--08-06-21 pragna for adding fridge request dorm-->
                 <LinearLayout
-                    android:visibility="invisible"
+                    android:id="@+id/llFridgeRequest"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_tour_planning"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/ledgerwhite" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="Fridge Request"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/_2sdp"

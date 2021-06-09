@@ -55,7 +55,7 @@
                 android:background="@color/redlight"
                 android:gravity="center"
 
-                android:text="pg. 2"
+                android:text="Pg. 2"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size" />
 
@@ -70,7 +70,7 @@
                 android:background="@color/redlight"
                 android:gravity="center"
 
-                android:text="pg. 3"
+                android:text="Pg. 3"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size" />
 
@@ -85,20 +85,21 @@
                 android:background="@color/redlight"
                 android:gravity="center"
 
-                android:text="pg. 4"
+                android:text="Pg. 4"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size" />
         </LinearLayout>
 
-        <!-- <ScrollView
+      <ScrollView
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             android:visibility="gone"
-             android:fillViewport="true">
+android:layout_margin="5dp"
+          android:padding="5dp"
+           >
              <LinearLayout
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
-                 android:orientation="vertical">-->
+                 android:orientation="vertical">
         <include
             android:id="@+id/pg_one"
             android:visibility="visible"
@@ -117,7 +118,7 @@
         <include
             android:id="@+id/pg_four"  android:visibility="gone"
             layout="@layout/fridge_request_pg_four"></include>
-        <!--   </LinearLayout>
-       </ScrollView>-->
+          </LinearLayout>
+       </ScrollView>
     </LinearLayout>
 </LinearLayout>

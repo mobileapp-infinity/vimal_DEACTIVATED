@@ -21,7 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.infinity.infoway.vimal.DeepFridge.Fridge_Listing;
 import com.infinity.infoway.vimal.R;
+import com.infinity.infoway.vimal.activity.Activity_Home;
 import com.infinity.infoway.vimal.activity.Activity_Login;
 import com.infinity.infoway.vimal.add_news_or_notification.activity.AddNewsOrNotificationActivity;
 import com.infinity.infoway.vimal.add_news_or_notification.activity.ViewNewsOrNotificationListActivity;
@@ -69,7 +71,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     private LinearLayout llSendNotification;
     private LinearLayout llViewNewsOrNotification;
+    /*8-06-21 pragna added fridge module*/
 
+    LinearLayout llFridgeRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +135,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         llComplainForm = (LinearLayout) findViewById(R.id.llComplainForm);
         llCreditNote = (LinearLayout) findViewById(R.id.llCreditNote);
         llDebitNote = (LinearLayout) findViewById(R.id.llDebitNote);
-
+        llFridgeRequest = findViewById(R.id.llFridgeRequest);
+        llFridgeRequest.setOnClickListener(this);
         llOrderPlaceToCompany.setOnClickListener(this);
         llPerformInvoiceAndLedger.setOnClickListener(this);
         llVehicleDispatchUpdate.setOnClickListener(this);
@@ -190,7 +195,22 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             order_place_to_company_intent.putExtra("title_screen", "Add Schedule");
             startActivity(order_place_to_company_intent);
 
-        } else if (v.getId() == R.id.llOrderPlaceToCompany) {
+        }
+        /*04-06-21 pragna for request of fridge*/
+        else if (v.getId() == R.id.llFridgeRequest) {
+//                if (!isTodayPunchINDone()) {
+//                    showAttendanceScreen();
+//                } else if (isTodayPunchOutDone()) {
+//                    showPunchOutDialog();
+//                } else {
+          //  FLAG_4_BACK_START_PG_AGAIN = false;
+            Intent    intent = new Intent(DashboardActivity.this, Fridge_Listing.class);
+            intent.putExtra("title_screen", "Fridge Request");
+            startActivity(intent);
+            // }
+        }
+
+        else if (v.getId() == R.id.llOrderPlaceToCompany) {
 
 
             Intent order_place_to_company_intent = new Intent(DashboardActivity.this, OrderPlaceToCompanyActivity.class);

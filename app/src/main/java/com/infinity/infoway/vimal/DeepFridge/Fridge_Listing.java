@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
@@ -19,11 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.infinity.infoway.vimal.DeepFridge.Adapter.GetFridge_Request_MasterAdapter;
+import com.infinity.infoway.vimal.DeepFridge.Pojo.GetFridge_Request_MasterPojo;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
-import com.infinity.infoway.vimal.kich_expense.Expense.Expense_Listing;
-import com.infinity.infoway.vimal.kich_leave_module.Leave.Activity.ChangePasswordActivity;
 import com.infinity.infoway.vimal.util.common.CustomBoldTextView;
 import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
@@ -33,7 +35,7 @@ import java.util.ArrayList;
 //4-06-2021 pragna for listing deep fridge with folter option
 public class Fridge_Listing extends AppCompatActivity {
 
-//StringRequest request;
+    //StringRequest request;
     RequestQueue queue;
     private Spinner sp_status;
     ArrayList<String> filter_status = new ArrayList<>();
@@ -45,6 +47,7 @@ public class Fridge_Listing extends AppCompatActivity {
     private Toolbar toolbar_act;
     private CoordinatorLayout toolbarContainer;
     private ImageView iv_add;
+    private ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,7 @@ public class Fridge_Listing extends AppCompatActivity {
         filter_status.add("Reject");
         filter_status.add("All");
         initViews();
+        txt_act.setText("Fridge Request List");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (getApplicationContext(), R.layout.searchable_spinner_text_view,
                         filter_status);
@@ -85,7 +89,7 @@ public class Fridge_Listing extends AppCompatActivity {
         iv_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =new Intent(Fridge_Listing.this,Fridge_Request_Add.class);
+                Intent i = new Intent(Fridge_Listing.this, Fridge_Request_Add.class);
                 startActivity(i);
             }
         });
@@ -95,23 +99,45 @@ public class Fridge_Listing extends AppCompatActivity {
                 finish();
             }
         });
-        GetFridge_Request_Master(1);
+        //GetFridge_Request_Master(1);
     }
+
+
+    GetFridge_Request_MasterPojo getFridge_request_masterPojo;
     SharedPref getSharedPref;
     private void GetFridge_Request_Master(int status) {
         DialogUtils.showProgressDialog(Fridge_Listing.this, "");
 //        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
-        String url = URLS.GetFridge_Request_Master + "&app_version=" + getSharedPref.getAppVersionCode() + "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() + "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY + "&comp_id=" + getSharedPref.getCompanyId()+ "&status="+status;
+        String url = URLS.GetFridge_Request_Master + "&app_version=" + getSharedPref.getAppVersionCode() + "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() + "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY + "&comp_id=" + getSharedPref.getCompanyId() + "&status=" + status;
 
 
-        url = url.replace(" ","%20");
-
+        url = url.replace(" ", "%20");
         System.out.println("GetFridge_Request_Master URL " + url + "");
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println("response "+response);
+                System.out.println("response " + response);
                 DialogUtils.hideProgressDialog();
+                Gson gson = new Gson();
+                // getFridge_request_masterPojo = new GetFridge_Request_MasterPojo();
+                getFridge_request_masterPojo = gson.fromJson(response, GetFridge_Request_MasterPojo.class);
+                if (getFridge_request_masterPojo != null &&
+                        getFridge_request_masterPojo.RECORDS != null) {
+                    if (getFridge_request_masterPojo.RECORDS.size() > 0) {
+                        GetFridge_Request_MasterAdapter adapter;
+                        adapter = new GetFridge_Request_MasterAdapter(Fridge_Listing.this, getFridge_request_masterPojo);
+                        lv.setAdapter(adapter);
+                        lv.setVisibility(View.VISIBLE);
+                    } else {
+                        DialogUtils.Show_Toast(Fridge_Listing.this, getResources().getString(R.string.no_data_available));
+                        lv.setVisibility(View.INVISIBLE);
+                    }
+                } else {
+
+                    DialogUtils.Show_Toast(Fridge_Listing.this, getResources().getString(R.string.something_went_wrong));
+                    lv.setVisibility(View.INVISIBLE);
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -133,5 +159,6 @@ public class Fridge_Listing extends AppCompatActivity {
         toolbar_act = findViewById(R.id.toolbar_act);
         toolbarContainer = findViewById(R.id.toolbarContainer);
         iv_add = findViewById(R.id.iv_add);
+        lv = findViewById(R.id.lv);
     }
 }

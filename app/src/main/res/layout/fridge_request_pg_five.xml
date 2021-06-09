@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_annexure_send_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+
+        android:orientation="vertical"
+        android:padding="2dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txt_retailer_photo_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:padding="@dimen/_2sdp"
+                android:text="Retailer Photo Upload"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:id="@+id/img_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_retailer_photo_upload"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/bg_circle"
+                android:padding="@dimen/_5sdp"
+                app:srcCompat="@drawable/ic_document" />
+
+
+            <TextView
+                android:id="@+id/txt_retailer_photo_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_retailer_photo_upload"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/img_send"
+                android:padding="@dimen/_2sdp"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size" />
+
+
+            <ImageView
+                android:id="@+id/img_retailer_photo_upload_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_toLeftOf="@+id/img_send_retailter_photo_upload"
+                android:background="@drawable/bg_circle_red"
+                android:padding="@dimen/_5sdp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_action_delete_red" />
+
+
+            <ImageView
+                android:id="@+id/img_send_retailter_photo_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginRight="@dimen/_3sdp"
+                android:background="@drawable/bg_circle_red"
+                android:padding="@dimen/_5sdp"
+                app:srcCompat="@drawable/ic_action_file_upload_red" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

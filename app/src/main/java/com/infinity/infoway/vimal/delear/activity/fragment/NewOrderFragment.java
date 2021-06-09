@@ -966,7 +966,7 @@ public class NewOrderFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
+//////
     private void getDiatributorAndRetailerNameApiCall(boolean isPdShow, final boolean isPdHide) {
         if (isPdShow) {
             showProgressDialog();
