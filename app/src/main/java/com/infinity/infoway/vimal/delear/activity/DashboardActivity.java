@@ -473,6 +473,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         } else if (id == R.id.nav_view_news_or_notification) {
             llViewNewsOrNotification.performClick();
         }
+        //14-06-2021 pragna for fridge module
+        else if (id == R.id.nav_fridge_request) {
+            llFridgeRequest.performClick();
+        }
 
 //        else if (id == R.id.nav_vehicle_dispatch_update) {
 //            llVehicleDispatchUpdate.performClick();

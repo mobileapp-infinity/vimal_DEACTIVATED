@@ -104,7 +104,10 @@
             android:id="@+id/nav_view_news_or_notification"
             android:icon="@drawable/ic_send_noti"
             android:title="View News or Notification" />
-
+ <item
+            android:id="@+id/nav_fridge_request"
+            android:icon="@drawable/schedule_new"
+            android:title="Fridge Request" />
 
     </group>
 

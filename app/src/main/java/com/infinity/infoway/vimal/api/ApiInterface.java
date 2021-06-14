@@ -300,7 +300,7 @@ public interface ApiInterface {
                                                           @Query("form") String form,
                                                           @Query("remark") String remark,
                                                           @Query("a_y_d") String a_y_d
-                                                          );
+    );
 
 
     @POST("Add_Retailer_Customer")
@@ -872,6 +872,67 @@ public interface ApiInterface {
             @Part("names") RequestBody names,
             @Part MultipartBody.Part file,
             @Part("destory_date") RequestBody destory_date
+    );
+
+    //
+    /*14-06-21 pragna for saving fridge request*/
+    @Multipart
+    @POST("Save_fridge_request")
+    Call<SaveNewsOrNotificationPojo> Save_fridge_request(
+            @Part("app_version")             RequestBody app_version,
+            @Part("android_id")             RequestBody android_id,
+            @Part("device_id")              RequestBody device_id,
+            @Part("user_id")                RequestBody user_id,
+            @Part("key")                    RequestBody key,
+            @Part("comp_id")                RequestBody comp_id,
+            @Part("ref_no")                 RequestBody ref_no,
+            @Part("sr_no")                  RequestBody sr_no,
+            @Part("apprpox_sales")           RequestBody apprpox_sales,
+            @Part("date")                   RequestBody date,
+            @Part("dist_cust_id")               RequestBody dist_cust_id,
+            @Part("dist_city_id") RequestBody dist_city_id,
+            @Part("sales_person_id") RequestBody sales_person_id,
+            @Part("sales_per_con_no") RequestBody sales_per_con_no,
+            @Part("retailer_id") RequestBody retailer_id,
+            @Part("retailer_name") RequestBody retailer_name,
+            @Part("ret_mob_no") RequestBody ret_mob_no,
+            @Part("add1") RequestBody add1,
+            @Part("add2") RequestBody add2,
+            @Part("add3") RequestBody add3,
+            @Part("city_id") RequestBody city_id,
+            @Part("sta_id") RequestBody sta_id,
+            @Part("pincode") RequestBody pincode,
+            @Part("owner_name") RequestBody owner_name,
+            @Part("owner_mob_no") RequestBody owner_mob_no,
+            @Part("own_add1") RequestBody own_add1,
+            @Part("own_add2") RequestBody own_add2,
+            @Part("own_add3") RequestBody own_add3,
+            @Part("own_cit_id") RequestBody own_cit_id,
+            @Part("own_sta_id") RequestBody own_sta_id,
+            @Part("own_pincode") RequestBody own_pincode,
+            @Part("dis_firdge_type") RequestBody dis_firdge_type,
+            @Part("coupn_from_no") RequestBody coupn_from_no,
+            @Part("coupn_to_no") RequestBody coupn_to_no,
+            @Part("coupn_total") RequestBody coupn_total,
+            @Part("item_id") RequestBody item_id,
+            @Part("itm_qty") RequestBody itm_qty,
+            @Part("fridge_type") RequestBody fridge_type,
+            @Part("company_name") RequestBody company_name,
+            @Part("pay_mode") RequestBody pay_mode,
+            @Part("bank_id") RequestBody bank_id,
+            @Part("cheq_no") RequestBody cheq_no,
+            @Part("check_dt") RequestBody check_dt,
+            @Part("acc_no") RequestBody acc_no,
+            @Part("dd_no") RequestBody dd_no,
+            @Part("dd_dt") RequestBody dd_dt,
+            @Part("deposite") RequestBody deposite,
+            @Part("other_chrg") RequestBody other_chrg,
+            @Part("service_chrg") RequestBody service_chrg,
+            @Part("total") RequestBody total,
+            @Part("remarks") RequestBody remarks,
+            @Part MultipartBody.Part file,
+            @Part MultipartBody.Part sign
+
     );
 
 
