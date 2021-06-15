@@ -57,8 +57,10 @@ android:gravity="center_vertical"
             android:id="@+id/ed_approx_sale"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Approx Sales"
+            android:hint="Approx Sales"
             android:singleLine="true"
+            android:inputType="number"
+            android:digits="0123456789"
             android:textColor="@color/color_black"
             android:textSize="@dimen/text_size"></EditText>
     </com.google.android.material.textfield.TextInputLayout>
@@ -206,8 +208,9 @@ android:clickable="false"
             android:id="@+id/ed_address_2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Address 2"
+            android:hint="Address 2"
             android:lines="3"
+            android:clickable="false"
             android:maxLines="3"   android:enabled="false"
             android:singleLine="false"
             android:textColor="@color/color_black"
@@ -223,7 +226,7 @@ android:clickable="false"
             android:id="@+id/ed_address_3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Address 3"
+            android:hint="Address 3"
             android:lines="3"
             android:maxLines="3"   android:enabled="false"
             android:singleLine="false"
@@ -268,6 +271,25 @@ android:clickable="false"
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+        <EditText
+            android:id="@+id/ed_retailer_pincode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Pin code."
+            android:inputType="phone"
+            android:singleLine="true"
+            android:maxLength="6"
+            android:enabled="false"
+            android:digits="0123456789"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
 
 

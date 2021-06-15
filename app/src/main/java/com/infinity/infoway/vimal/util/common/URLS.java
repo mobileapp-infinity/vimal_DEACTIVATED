@@ -235,4 +235,8 @@ public class URLS {
     public static final String Get_All_employee_By_Designation = Config.MAIN_URL + "Get_All_employee_By_Designation?";
     public static final String Get_retailer_by_distributer_id = Config.MAIN_URL + "Get_retailer_by_distributer_id?";
     public static final String Get_all_item_list = Config.MAIN_URL + "Get_all_item_list?";
+    public static final String Get_City = Config.MAIN_URL + "Get_City?";
+    public static final String Get_State_Country_By_CityId = Config.MAIN_URL + "Get_State_Country_By_CityId?";
+    public static final String Get_Print_Aggrement = Config.MAIN_URL + "Get_Print_Aggrement?";
+    public static final String Get_Fridge_Confirmation_Print = Config.MAIN_URL + "Get_Fridge_Confirmation_Print?";
 }

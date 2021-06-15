@@ -68,14 +68,20 @@
         <activity
             android:name=".DeepFridge.Fridge_Listing"
             android:label="@string/title_activity_fridge__listing">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity> <activity
             android:name=".DeepFridge.Fridge_Request_Add"
             android:label="@string/title_activity_fridge__listing">
+
+      <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

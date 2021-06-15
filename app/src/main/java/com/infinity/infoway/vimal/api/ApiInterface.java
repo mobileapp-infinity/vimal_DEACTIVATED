@@ -1,6 +1,7 @@
 package com.infinity.infoway.vimal.api;
 
 
+import com.infinity.infoway.vimal.DeepFridge.Pojo.Save_Fridge_POJO;
 import com.infinity.infoway.vimal.add_news_or_notification.pojo.DepartmentListPojo;
 import com.infinity.infoway.vimal.add_news_or_notification.pojo.DesignationListPojo;
 import com.infinity.infoway.vimal.add_news_or_notification.pojo.GetNewsAndMsgListPojo;
@@ -878,7 +879,7 @@ public interface ApiInterface {
     /*14-06-21 pragna for saving fridge request*/
     @Multipart
     @POST("Save_fridge_request")
-    Call<SaveNewsOrNotificationPojo> Save_fridge_request(
+    Call<Save_Fridge_POJO> Save_fridge_request(
             @Part("app_version")             RequestBody app_version,
             @Part("android_id")             RequestBody android_id,
             @Part("device_id")              RequestBody device_id,

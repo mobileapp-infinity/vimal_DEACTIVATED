@@ -20,12 +20,16 @@
         android:spinnerMode="dialog"
         android:textColor="@android:color/black"
         android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
-
-    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-        android:id="@+id/sp_item_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:orientation="horizontal"
+        android:weightSum="2">
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+android:layout_weight="1"
         android:layout_marginTop="@dimen/_10sdp"
         android:drawableRight="@drawable/ic_action_down_arrow"
         android:drawableTint="@color/colorPrimary"
@@ -34,7 +38,27 @@
         android:spinnerMode="dialog"
         android:textColor="@android:color/black"
         android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+        <com.google.android.material.textfield.TextInputLayout
 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/ed_item_qty"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:hint="*Item Qty."
+                android:inputType="number"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size"></EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/sp_fridge_type"
         android:layout_width="match_parent"
@@ -84,6 +108,7 @@
                 android:inputType="number"
                 android:lines="1"
                 android:maxLines="1"
+                android:maxLength="8"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
@@ -104,6 +129,7 @@
                 android:inputType="number"
                 android:lines="1"
                 android:maxLines="1"
+                android:maxLength="8"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
@@ -256,7 +282,7 @@
                     android:lines="1"
                     android:maxLines="1"
                     android:singleLine="true"
-
+                    android:maxLength="35"
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/text_size"></EditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -312,6 +338,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1">
+
             <EditText
                 android:id="@+id/ed_Service_Charge"
                 android:layout_width="fill_parent"

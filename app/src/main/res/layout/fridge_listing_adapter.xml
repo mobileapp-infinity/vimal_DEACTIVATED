@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:padding="9dp">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-           android:text="Request No."
+            android:text="Request No."
             android:textColor="@color/black_light"
             android:textSize="@dimen/text_size"></TextView>
 
@@ -31,8 +35,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -40,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-           android:text="Request Date."
+            android:text="Request Date."
             android:textColor="@color/black_light"
             android:textSize="@dimen/text_size"></TextView>
 
@@ -56,8 +60,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -65,7 +69,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-           android:text="Distributor/Super stockiest"
+            android:text="Distributor/Super stockiest"
             android:textColor="@color/black_light"
             android:textSize="@dimen/text_size"></TextView>
 
@@ -81,8 +85,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -90,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-           android:text="Retailer Name"
+            android:text="Retailer Name"
             android:textColor="@color/black_light"
             android:textSize="@dimen/text_size"></TextView>
 
@@ -107,8 +111,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
         android:layout_marginTop="3dp"
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -116,8 +120,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-           android:text="Company Name"
             android:singleLine="true"
+            android:text="Company Name"
             android:textColor="@color/black_light"
             android:textSize="@dimen/text_size"></TextView>
 
@@ -133,9 +137,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:orientation="horizontal" 
-
         android:layout_marginTop="3dp"
+
+        android:orientation="horizontal"
         android:weightSum="2">
 
         <TextView
@@ -154,5 +158,49 @@
             android:layout_weight="1"
             android:textColor="@color/color_black"
             android:textSize="@dimen/text_size"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="3dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/tv_aggrement"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_picture_as_pdf_red_24dp"
+            android:text="Agreement"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+
+        <TextView
+
+            android:id="@+id/tv_confirmation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_picture_as_pdf_red_24dp"
+
+            android:text="Confirmation"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></TextView>
+        <!--<ImageView
+            android:id="@+id/iv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_picture_as_pdf_red_24dp"></ImageView>
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_picture_as_pdf_red_24dp"></ImageView>
+        -->
     </LinearLayout>
 </LinearLayout>

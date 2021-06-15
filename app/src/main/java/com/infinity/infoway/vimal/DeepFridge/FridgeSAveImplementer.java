@@ -1,5 +1,6 @@
 package com.infinity.infoway.vimal.DeepFridge;
 
+import com.infinity.infoway.vimal.DeepFridge.Pojo.Save_Fridge_POJO;
 import com.infinity.infoway.vimal.add_news_or_notification.pojo.SaveNewsOrNotificationPojo;
 import com.infinity.infoway.vimal.api.ApiClient;
 import com.infinity.infoway.vimal.api.ApiInterface;
@@ -65,9 +66,9 @@ public class FridgeSAveImplementer {
                                                          RequestBody total,
                                                          RequestBody remarks,
                                                          MultipartBody.Part file, MultipartBody.Part sign,
-                                                         Callback<SaveNewsOrNotificationPojo> cb) {
+                                                         Callback<Save_Fridge_POJO> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<SaveNewsOrNotificationPojo> call = apiService.Save_fridge_request(app_version,
+        Call<Save_Fridge_POJO> call = apiService.Save_fridge_request(app_version,
                 android_id,
                 device_id,
                 user_id,

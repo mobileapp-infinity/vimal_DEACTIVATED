@@ -125,7 +125,7 @@ public class Fridge_Listing extends AppCompatActivity {
                         getFridge_request_masterPojo.RECORDS != null) {
                     if (getFridge_request_masterPojo.RECORDS.size() > 0) {
                         GetFridge_Request_MasterAdapter adapter;
-                        adapter = new GetFridge_Request_MasterAdapter(Fridge_Listing.this, getFridge_request_masterPojo);
+                        adapter = new GetFridge_Request_MasterAdapter(Fridge_Listing.this, getFridge_request_masterPojo,Fridge_Listing.this);
                         lv.setAdapter(adapter);
                         lv.setVisibility(View.VISIBLE);
                     } else {

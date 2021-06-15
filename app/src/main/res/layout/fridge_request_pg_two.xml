@@ -28,9 +28,10 @@
             android:id="@+id/ed_owner_Mobile_No"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Mobile No."
+            android:hint="Mobile No."
             android:inputType="phone"
             android:singleLine="true"
+            android:maxLength="10"
             android:digits="0123456789"
             android:textColor="@color/color_black"
             android:textSize="@dimen/text_size"></EditText>
@@ -61,7 +62,7 @@
             android:id="@+id/ed_owner_address_2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Address 2"
+            android:hint="Address 2"
             android:lines="3"
             android:maxLines="3"
             android:singleLine="false"
@@ -78,7 +79,7 @@
             android:id="@+id/ed_owner_address_3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Address 3"
+            android:hint="Address 3"
             android:lines="3"
             android:maxLines="3"
             android:singleLine="false"
@@ -111,20 +112,47 @@
         android:spinnerMode="dialog"
         android:textColor="@android:color/black"
         android:visibility="visible"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
-    <com.google.android.material.textfield.TextInputLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         >
 
         <EditText
             android:id="@+id/ed_owner_pincode"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="*Mobile No."
+            android:hint="*Pin code"
             android:inputType="phone"
             android:singleLine="true"
+            android:maxLength="6"
+            android:digits="0123456789"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></EditText>
+    </com.google.android.material.textfield.TextInputLayout> <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="gone"
+        >
+
+        <EditText
+            android:id="@+id/ed_owner_mobile_no1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="*Mobile Number."
+            android:inputType="phone"
+            android:singleLine="true"
+            android:maxLength="10"
             android:digits="0123456789"
             android:textColor="@color/color_black"
             android:textSize="@dimen/text_size"></EditText>
     </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 </LinearLayout>
