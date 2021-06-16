@@ -20,6 +20,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="*Ref. No."
+                android:text="13456"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size"></EditText>
@@ -37,6 +38,7 @@
                 android:layout_weight="1"
                 android:hint="*Date"
 android:gravity="center_vertical"
+                android:text="2021-06-15"
                 android:drawableRight="@drawable/ic_date_range_black_24dp"
                 android:inputType="none"
                 android:clickable="true"

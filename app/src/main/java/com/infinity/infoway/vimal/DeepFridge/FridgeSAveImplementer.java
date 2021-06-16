@@ -119,6 +119,10 @@ public class FridgeSAveImplementer {
                 service_chrg,
                 total,
                 remarks, file, sign);
+        System.out.println("print... "+call.request()+"");
+        System.out.println("print... "+call.request().body()+"");
+        System.out.println("print... "+call.request().url()+"");
+        System.out.println("print... "+call.request().tag()+"");
         call.enqueue(cb);
     }
 }

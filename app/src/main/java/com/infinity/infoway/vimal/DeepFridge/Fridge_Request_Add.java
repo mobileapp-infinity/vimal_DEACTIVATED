@@ -104,7 +104,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
     private SearchableSpinner sp_owner_city;
     private SearchableSpinner sp_owner_state;
     private EditText ed_owner_pincode;
-    private EditText ed_owner_mobile_no;
+ //   private EditText ed_owner_mobile_no;
     private SearchableSpinner sp_Distributor_Fridge_Type;
     private SearchableSpinner sp_item_name;
     private SearchableSpinner sp_fridge_type;
@@ -227,7 +227,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (ed_Coupon_To_No.getText().toString().trim().length() > 0) {
+                if (ed_Coupon_To_No.getText().toString().trim().length() > 0 && ed_Coupon_From_No.getText().toString().trim().length() > 0) {
 
 
                     if (Integer.parseInt(ed_Coupon_To_No.getText().toString().trim()) > Integer.parseInt(ed_Coupon_From_No.getText().toString().trim())) {
@@ -249,8 +249,8 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (ed_Coupon_From_No.getText().toString().trim().length() > 0) {
-
+                // if (ed_Coupon_From_No.getText().toString().trim().length() > 0) {
+                if (ed_Coupon_To_No.getText().toString().trim().length() > 0 && ed_Coupon_From_No.getText().toString().trim().length() > 0) {
 
                     if (Integer.parseInt(ed_Coupon_To_No.getText().toString().trim()) > Integer.parseInt(ed_Coupon_From_No.getText().toString().trim())) {
                         int temp = Integer.parseInt(ed_Coupon_To_No.getText().toString().trim()) - Integer.parseInt(ed_Coupon_From_No.getText().toString().trim());
@@ -309,7 +309,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         sp_payment_mode.setTitle("Select Payment Mode");
 
         sp_payment_mode.setAdapter(adapter);
-
+        sp_payment_mode.setSelection(3);
         sp_payment_mode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -579,6 +579,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         sp_bank_cheque_account = findViewById(R.id.sp_bank_cheque_account);
         ed_bank_Cheque_No = findViewById(R.id.ed_bank_Cheque_No);
         ed_bank_Cheque_Date = findViewById(R.id.ed_bank_Cheque_Date);
+        ed_bank_Cheque_Date.setOnClickListener(this);
         lin_bank_cheque = findViewById(R.id.lin_bank_cheque);
         ed_Deposite = findViewById(R.id.ed_Deposite);
         ed_Service_Charge = findViewById(R.id.ed_Service_Charge);
@@ -677,6 +678,13 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 //  datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
                 break;
+            case R.id.ed_bank_Cheque_Date:
+                DatePickerDialog datePickerDialog_for_cheque_date = new DatePickerDialog(Fridge_Request_Add.this, date1, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog_for_cheque_date.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
+                datePickerDialog_for_cheque_date.show();
+                break;
             case R.id.ed_bank_DD_Date:
                 DatePickerDialog datePickerDialog_for_dd = new DatePickerDialog(Fridge_Request_Add.this, date1_dd_date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
@@ -742,7 +750,32 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
 //      }
         if (validate_pg_1()) {
             if (validate_pg_2()) {
-                save_fridge_request();
+
+                if (validate_pg_3()) {
+                    if (sp_payment_mode.getSelectedItemPosition() == 1) {//cheque
+                        ed_bank_dd_no.setText("");
+                        ed_bank_DD_Date.setText("");
+                        // selected_ban
+                    }
+                    if (sp_payment_mode.getSelectedItemPosition() == 2) {//cash
+                        ed_bank_dd_no.setText("");
+                        ed_bank_DD_Date.setText("");
+                        SELECTED_BANK_ID = 0;
+                        ed_bank_Cheque_No.setText("");
+                        ed_bank_Cheque_Date.setText("");
+                    }
+                    if (sp_payment_mode.getSelectedItemPosition() == 3) {//DD
+                        SELECTED_BANK_ID = 0;
+                        ed_bank_Cheque_No.setText("");
+                        ed_bank_Cheque_Date.setText("");
+                    }
+
+                    System.out.println("validation done");
+                    save_fridge_request();
+                } else {
+                    System.out.println("validation not done");
+                }
+               // save_fridge_request();
             } else {
                 System.out.println("something is not ok in pg 2!!!!!!!");
             }
@@ -753,8 +786,14 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
 
 
     private boolean validate_pg_3() {
-        int from_coupon = Integer.parseInt(ed_Coupon_From_No.getText().toString().trim() + "");
-        int to_coupon = Integer.parseInt(ed_Coupon_To_No.getText().toString().trim() + "");
+        int to_coupon = 0;
+        int from_coupon = 0;
+        if (ed_Coupon_From_No.getText().toString().trim().length() > 0) {
+            from_coupon = Integer.parseInt(ed_Coupon_From_No.getText().toString().trim() + "");
+        }
+        if (ed_Coupon_To_No.getText().toString().trim().length() > 0) {
+            to_coupon = Integer.parseInt(ed_Coupon_To_No.getText().toString().trim() + "");
+        }
         boolean flag = true;
 //        if (validate_pg_1()) {
 //
@@ -769,7 +808,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
             DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please enter Item Qty.  ");
         }
         //10-06-21 for coupon form number
-        else if (to_coupon > from_coupon) {
+        else if (to_coupon < from_coupon) {
             flag = false;
             tv_pg_3.performClick();
             DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please enter Proper from and to coupon  ");
@@ -781,6 +820,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
             DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please select payment mode ");
         } else if (sp_payment_mode.getSelectedItemPosition() == 1) {//cheque
             if (sp_bank_cheque_account.getSelectedItemPosition() == 0) {
+                // if (SELECTED_BANK_ID == 0) {
                 flag = false;
                 tv_pg_3.performClick();
 
@@ -797,15 +837,15 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please enter cheque date ");
             }
         } else if (sp_payment_mode.getSelectedItemPosition() == 3) {//DD
-            if (ed_bank_dd_no.getText().toString().trim().length() < 0) {
+            //ed_ref_no.getText().toString().trim().length() <= 0
+            if (ed_bank_dd_no.getText().toString().trim().length() <= 0) {
                 flag = false;
                 tv_pg_3.performClick();
-
                 DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please enter DD no. ");
-            } else if (ed_bank_DD_Date.getText().toString().trim().length() <= 0) {
+            } else if (ed_bank_DD_Date.getText().toString().trim().length() == 0) {
                 flag = false;
                 tv_pg_3.performClick();
-
+                System.out.println("dd no" + ed_bank_dd_no.getText() + "");
                 DialogUtils.Show_Toast(Fridge_Request_Add.this, "Please enter DD date ");
             }
         }//bank validation over
@@ -923,6 +963,29 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         }
 
     };
+    final DatePickerDialog.OnDateSetListener date1_cheque_date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel_cheque_date();
+
+
+        }
+
+    };
+
+    private void updateLabel_cheque_date() {
+        String myFormat = "yyyy-MM-dd"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        ed_bank_Cheque_Date.setText(sdf.format(myCalendar.getTime()));
+        Date c = Calendar.getInstance().getTime();
+        System.out.println("Current time => " + c);
+    }
 
     private void updateLabel() {
 
@@ -1170,6 +1233,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         sp_item_name.setTitle("Select Item");
 
                         sp_item_name.setAdapter(adapter);
+                        sp_item_name.setSelection(1);
                     } else {
                         DialogUtils.Show_Toast(Fridge_Request_Add.this, getResources().getString(R.string.no_data_available));
                         //  lv.setVisibility(View.INVISIBLE);
@@ -1235,6 +1299,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         adapter.setDropDownViewResource(R.layout.searchable_spinner_text_view);
                         //spDelAddressTitle.setAdapter(consigneeNameAdapter);
                         sp_Distributor_Firm_Name.setAdapter(adapter);
+                        sp_Distributor_Firm_Name.setSelection(1);//comment this line
                         ArrayAdapter<String> adapter_city = new ArrayAdapter<String>
                                 (getApplicationContext(), R.layout.searchable_spinner_text_view,
                                         list_distributor_city_name);
@@ -1358,6 +1423,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         //spDelAddressTitle.setAdapter(consigneeNameAdapter);
                         sp_owner_city.setTitle("Select City");
                         sp_owner_city.setAdapter(adapter);
+                        sp_owner_city.setSelection(1);
                     } else {
                         DialogUtils.Show_Toast(Fridge_Request_Add.this, getResources().getString(R.string.no_data_available));
                         //  lv.setVisibility(View.INVISIBLE);
@@ -1441,31 +1507,34 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         String device_id = String.valueOf(getSharedPref.getRegisteredId());
         String user_id = getSharedPref.getRegisteredUserId();
         String key = Config.ACCESS_KEY;
-        String comp_id = String.valueOf(getSharedPref.getCompanyId());
+        String comp_id = getSharedPref.getCompanyId()+"";
+        //RequestBody app_version_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
         RequestBody app_version_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
         RequestBody android_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(android_id));
         RequestBody device_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(device_id));
         RequestBody user_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(user_id));
         RequestBody key_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(key));
-        RequestBody comp_id_req = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(comp_id));
+        RequestBody comp_id_req = RequestBody.create(MediaType.parse("text/plain"), comp_id+"");
         RequestBody ref_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_ref_no.getText().toString().trim() + ""));
 
-        RequestBody sr_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
-        RequestBody apprpox_sales = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_approx_sale.getText().toString().trim() + ""));
+        RequestBody sr_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test srno"));
+        RequestBody apprpox_sales = RequestBody.create(MediaType.parse("text/plain"), ed_approx_sale.getText() + "");
         RequestBody date = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_date.getText().toString().trim() + ""));
 
-        RequestBody dist_cust_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_DIST_CUST_ID + ""));
-        RequestBody dist_city_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_DIST_CITY_ID + ""));
-        RequestBody sales_person_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_SALES_PERSON_ID + ""));
+        RequestBody dist_cust_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_DIST_CUST_ID+"");
+        RequestBody dist_city_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_DIST_CITY_ID+"");
+        RequestBody sales_person_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_SALES_PERSON_ID+"");
         RequestBody sales_per_con_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_SALES_PER_CON_NO));
-        RequestBody retailer_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_ID));
+        RequestBody retailer_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_RETAILER_ID+"");
         RequestBody retailer_name = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_NAME));
         RequestBody ret_mob_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Mobile_No.getText().toString().trim() + ""));
         RequestBody add1 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_address_1.getText().toString().trim() + ""));
         RequestBody add2 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_address_2.getText().toString().trim() + ""));
         RequestBody add3 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_address_3.getText().toString().trim() + ""));
-        RequestBody city_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_CITY + ""));
-        RequestBody sta_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_STATE + ""));
+        //RequestBody city_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_CITY));
+        RequestBody sta_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_RETAILER_STATE+"");
+        RequestBody city_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_RETAILER_CITY+"");
+
         RequestBody pincode = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_retailer_pincode.getText().toString().trim() + ""));
 
         //==page 2
@@ -1474,60 +1543,67 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         RequestBody own_add1 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_owner_address_1.getText().toString().trim() + ""));
         RequestBody own_add2 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_owner_address_2.getText().toString().trim() + ""));
         RequestBody own_add3 = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_owner_address_3.getText().toString().trim() + ""));
-        RequestBody own_cit_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_OWN_CIT_ID + ""));
-        RequestBody own_sta_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_OWN_STA_ID + ""));
+      //  RequestBody own_cit_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_OWN_CIT_ID));
+      //  RequestBody own_sta_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_OWN_STA_ID));
+        RequestBody own_sta_id = RequestBody.create(MediaType.parse("text/plain"),SELECTED_OWN_STA_ID+"");
+        RequestBody own_cit_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_OWN_CIT_ID + "");
+
         RequestBody own_pincode = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_owner_pincode.getText().toString().trim() + ""));
-        RequestBody dis_firdge_type = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
+//        RequestBody dis_firdge_type = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
+        RequestBody dis_firdge_type = RequestBody.create(MediaType.parse("text/plain"), SELECTED_DIS_FIRDGE_TYPE+"");
         RequestBody coupn_from_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Coupon_From_No.getText().toString().trim() + ""));
         RequestBody coupn_to_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Coupon_To_No.getText().toString().trim() + ""));
         RequestBody coupn_total = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Total_Coupon.getText().toString().trim() + ""));
-        RequestBody item_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_ITEM_ID + ""));
+//        RequestBody item_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_ITEM_ID));
+        RequestBody item_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_ITEM_ID+"");
         RequestBody itm_qty = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_item_qty.getText().toString().trim() + ""));
-        RequestBody fridge_type = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_FRIDGE_TYPE + ""));
+//        RequestBody fridge_type = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_FRIDGE_TYPE));
+        RequestBody fridge_type = RequestBody.create(MediaType.parse("text/plain"), SELECTED_FRIDGE_TYPE+"");
         RequestBody company_name = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Fridge_Company_Name.getText().toString().trim() + ""));
-        RequestBody pay_mode = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_PAY_MODE + ""));
-        RequestBody bank_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_BANK_ID + ""));
+//        RequestBody pay_mode = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_PAY_MODE));
+//        RequestBody bank_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_BANK_ID ));
+
+        RequestBody pay_mode = RequestBody.create(MediaType.parse("text/plain"), SELECTED_PAY_MODE+"");
+        RequestBody bank_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_BANK_ID+"");
         RequestBody cheq_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_Cheque_No.getText().toString().trim() + ""));
         RequestBody check_dt = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_Cheque_Date.getText().toString().trim() + ""));
-        RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(app_version));
-        RequestBody dd_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_dd_no.getText().toString().trim() + ""));
+        RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test acc_no"));
+        RequestBody dd_no = RequestBody.create(MediaType.parse("text/plain"), ed_bank_dd_no.getText()+"");
         RequestBody dd_dt = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_DD_Date.getText().toString().trim() + ""));
-        RequestBody deposite = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Deposite.getText().toString().trim() + ""));
-        RequestBody other_chrg = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Other_Charge.getText().toString().trim() + ""));
-        RequestBody service_chrg = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Service_Charge.getText().toString().trim() + ""));
-        RequestBody total = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Total.getText().toString().trim() + ""));
+        RequestBody deposite = RequestBody.create(MediaType.parse("text/plain"), ed_Deposite.getText()+"");
+        RequestBody other_chrg = RequestBody.create(MediaType.parse("text/plain"), ed_Other_Charge.getText()+"");
+        RequestBody service_chrg = RequestBody.create(MediaType.parse("text/plain"), ed_Service_Charge.getText()+"");
+        RequestBody total = RequestBody.create(MediaType.parse("text/plain"), ed_Total.getText()+"");
         RequestBody remarks = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Remarks.getText().toString().trim() + ""));
-        FridgeSAveImplementer.Save_fridge_requestApiImplementer(app_version_req,
-                android_id_req,
-                device_id_req,
-                user_id_req,
-                key_req,
-                comp_id_req, ref_no, sr_no, apprpox_sales, date, dist_cust_id, dist_city_id, sales_person_id, sales_per_con_no, retailer_id, retailer_name, ret_mob_no, add1, add2, add3, city_id, sta_id, pincode, owner_name, owner_mob_no, own_add1, own_add2, own_add3, own_cit_id, own_sta_id, own_pincode, owner_name, dis_firdge_type, coupn_from_no, coupn_to_no, coupn_total, item_id, itm_qty, fridge_type, company_name, pay_mode, bank_id, cheq_no, check_dt, acc_no, dd_no, dd_dt, deposite, other_chrg, service_chrg, total, remarks, retailer_photo_fileToUpload, retailer_photo_signature_fileToUpload, new Callback<Save_Fridge_POJO>() {
-                    @Override
-                    public void onResponse(Call<Save_Fridge_POJO> call, retrofit2.Response<Save_Fridge_POJO> response) {
-                        DialogUtils.hideProgressDialog();
-                        try {
-                            if (response.isSuccessful() && response.body() != null && response.body().FLAG == 1) {
-                                Toast.makeText(Fridge_Request_Add.this, "" + response.body().MESSAGE, Toast.LENGTH_SHORT).show();
-                                //  finish();
-                            } else {
-                                Toast.makeText(Fridge_Request_Add.this, "Something went wrong,Please try again later.", Toast.LENGTH_SHORT).show();
-                                System.out.println("response!!!!!!! " + response.message() + "");
-                                System.out.println("response!!!!!!! " + response.code() + "");
-                                System.out.println("response!!!!!!! " + response.raw() + "");
+        FridgeSAveImplementer.Save_fridge_requestApiImplementer(app_version_req, android_id_req, device_id_req, user_id_req, key_req, comp_id_req, ref_no, sr_no, apprpox_sales, date, dist_cust_id, dist_city_id, sales_person_id, sales_per_con_no, retailer_id, retailer_name, ret_mob_no, add1, add2, add3, city_id, sta_id, pincode, owner_name, owner_mob_no, own_add1, own_add2, own_add3, own_cit_id, own_sta_id, own_pincode, owner_name, dis_firdge_type, coupn_from_no, coupn_to_no, coupn_total, item_id, itm_qty, fridge_type, company_name, pay_mode, bank_id, cheq_no, check_dt, acc_no, dd_no, dd_dt, deposite, other_chrg, service_chrg, total, remarks, retailer_photo_fileToUpload, retailer_photo_signature_fileToUpload, new Callback<Save_Fridge_POJO>() {
+            @Override
+            public void onResponse(Call<Save_Fridge_POJO> call, retrofit2.Response<Save_Fridge_POJO> response) {
+                DialogUtils.hideProgressDialog();
+                try {
+                    if (response.isSuccessful() && response.body() != null && response.body().FLAG == 1) {
+                        Toast.makeText(Fridge_Request_Add.this, "" + response.body().MESSAGE, Toast.LENGTH_SHORT).show();
+                        //  finish();
+                    } else {
 
-                            }
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
+                        Toast.makeText(Fridge_Request_Add.this, "Something went wrong,Please try again later.", Toast.LENGTH_SHORT).show();
+                        System.out.println("response!!!!!!! " + response.message() + "");
+                        System.out.println("response!!!!!!! " + response.code() + "");
+                        System.out.println("response!!!!!!! " + response.raw() + "");
+                        System.out.println("response!!!!!!! " + response.toString() + "");
+                        System.out.println("response!!!!!!! " + response.errorBody() + "");
 
-                    @Override
-                    public void onFailure(Call<Save_Fridge_POJO> call, Throwable t) {
-                        DialogUtils.hideProgressDialog();
-                        Toast.makeText(Fridge_Request_Add.this, "Request Failed:- " + t.getCause().getMessage(), Toast.LENGTH_SHORT).show();
                     }
-                });
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Save_Fridge_POJO> call, Throwable t) {
+                DialogUtils.hideProgressDialog();
+                Toast.makeText(Fridge_Request_Add.this, "Request Failed:- " + t.getCause().getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
