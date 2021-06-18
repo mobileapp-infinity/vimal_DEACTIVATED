@@ -1044,7 +1044,7 @@
                                 android:layout_height="@dimen/_50sdp"
                                 android:background="@drawable/bg_circle_tour_planning"
                                 android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/ledgerwhite" />
+                                app:srcCompat="@drawable/complainwhitte" />
 
                             <TextView
                                 android:layout_width="wrap_content"

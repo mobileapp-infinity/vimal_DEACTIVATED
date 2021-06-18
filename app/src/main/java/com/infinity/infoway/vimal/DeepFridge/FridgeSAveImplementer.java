@@ -12,18 +12,18 @@ import retrofit2.Callback;
 
 public class FridgeSAveImplementer {
     /*14-06-2021 pragna for saving fridge request*/
-    public static void Save_fridge_requestApiImplementer(RequestBody app_version_req, RequestBody app_version,
+    //    public static void Save_fridge_requestApiImplementer(RequestBody app_version_req,
+    public static void Save_fridge_requestApiImplementer(
+                                                         RequestBody app_version,
                                                          RequestBody android_id,
                                                          RequestBody device_id,
                                                          RequestBody user_id,
                                                          RequestBody key,
                                                          RequestBody comp_id,
                                                          RequestBody ref_no,
-
                                                          RequestBody sr_no,
                                                          RequestBody apprpox_sales,
                                                          RequestBody date,
-
                                                          RequestBody dist_cust_id,
                                                          RequestBody dist_city_id,
                                                          RequestBody sales_person_id,
@@ -65,7 +65,8 @@ public class FridgeSAveImplementer {
                                                          RequestBody service_chrg,
                                                          RequestBody total,
                                                          RequestBody remarks,
-                                                         MultipartBody.Part file, MultipartBody.Part sign,
+                                                         MultipartBody.Part file,
+                                                         MultipartBody.Part sign,
                                                          Callback<Save_Fridge_POJO> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<Save_Fridge_POJO> call = apiService.Save_fridge_request(app_version,

@@ -239,4 +239,5 @@ public class URLS {
     public static final String Get_State_Country_By_CityId = Config.MAIN_URL + "Get_State_Country_By_CityId?";
     public static final String Get_Print_Aggrement = Config.MAIN_URL + "Get_Print_Aggrement?";
     public static final String Get_Fridge_Confirmation_Print = Config.MAIN_URL + "Get_Fridge_Confirmation_Print?";
+    public static final String Get_Bank_Names = Config.MAIN_URL + "Get_Bank_Names?";
 }
