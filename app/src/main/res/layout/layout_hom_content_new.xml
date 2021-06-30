@@ -82,6 +82,7 @@
 
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/linear_my_schedule"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -199,17 +200,6 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
                 <LinearLayout
                     android:id="@+id/linear_sync_offline"
                     android:layout_width="match_parent"
@@ -269,64 +259,18 @@
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+
                 <LinearLayout
-                    android:id="@+id/linear_Suspecting"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:visibility="visible">
-
-                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_gravity="center"
-                        android:elevation="@dimen/_10sdp"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="5dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="2dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:background="@drawable/bg_circle_report"
-                                android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/ic_assignment_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/txt_title_Suspecting"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_Suspecting_Report"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_Suspecting_Report"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:visibility="gone" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout><LinearLayout
                     android:id="@+id/linear_Tour_planning"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -394,6 +338,182 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_Suspecting"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_report"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/ic_assignment_black_24dp" />
+
+                            <TextView
+                                android:id="@+id/txt_title_Suspecting"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_Suspecting_Report"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_Suspecting_Report"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linear_new_retailer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_myschedule"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/ic_supervisor_account_black_24dp" />
+
+                            <TextView
+                                android:id="@+id/txt_title_new_retailer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_retailer_management"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_view_your_order_history"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linear_leave_application"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_report"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/leave_new_new" />
+
+                            <TextView
+                                android:id="@+id/txt_title_report"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="Leave Application"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_view_attendance_details"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/linear_out_standing_dash_board"
                     android:layout_width="match_parent"
@@ -525,63 +645,7 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:visibility="visible">
-                <LinearLayout
-                    android:id="@+id/linear_new_retailer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_gravity="center"
-                        android:elevation="@dimen/_10sdp"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="5dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="2dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:background="@drawable/bg_circle_myschedule"
-                                android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/ic_supervisor_account_black_24dp" />
-
-                            <TextView
-                                android:id="@+id/txt_title_new_retailer"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_retailer_management"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_view_your_order_history"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:visibility="gone" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/linear_order_history"
                     android:layout_width="match_parent"
@@ -642,64 +706,7 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:id="@+id/linear_leave_application"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:layout_weight="1"
-                    android:visibility="visible"
-                    android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_gravity="center"
-                        android:elevation="@dimen/_10sdp"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="5dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="2dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:background="@drawable/bg_circle_report"
-                                android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/leave_new_new" />
-
-                            <TextView
-                                android:id="@+id/txt_title_report"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="Leave Application"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_view_attendance_details"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:visibility="gone" />
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
 
 
                 <LinearLayout
@@ -742,6 +749,103 @@
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:gravity="center"
                                 android:text="View News or Notification"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llUpdateCallList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_sync"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/updatecalllist" />
+
+                            <TextView
+                                android:id="@+id/tv_update_call_list"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="@string/title_update_call_list"
+                                android:textColor="@color/transparent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llTest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:elevation="@dimen/_10sdp"
+                        card_view:cardCornerRadius="4dp"
+                        card_view:cardElevation="5dp"
+                        card_view:cardUseCompatPadding="true"
+                        card_view:contentPadding="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:background="@drawable/bg_circle_outstanding"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/orderplacetocoampny" />
+
+                            <TextView
+                                android:id="@+id/tvTest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:gravity="center"
+                                android:text="Schedules"
                                 android:textColor="@color/transparent"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -821,105 +925,11 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
                 android:visibility="visible">
-                <LinearLayout
-                    android:id="@+id/llUpdateCallList"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_gravity="center"
-                        android:elevation="@dimen/_10sdp"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="5dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="2dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:background="@drawable/bg_circle_sync"
-                                android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/updatecalllist" />
-
-                            <TextView
-                                android:id="@+id/tv_update_call_list"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="@string/title_update_call_list"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
 
 
 
-                <LinearLayout
-                    android:id="@+id/llTest"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_130sdp"
-                        android:layout_gravity="center"
-                        android:elevation="@dimen/_10sdp"
-                        card_view:cardCornerRadius="4dp"
-                        card_view:cardElevation="5dp"
-                        card_view:cardUseCompatPadding="true"
-                        card_view:contentPadding="2dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"
-                                android:background="@drawable/bg_circle_outstanding"
-                                android:padding="@dimen/_10sdp"
-                                app:srcCompat="@drawable/orderplacetocoampny" />
-
-                            <TextView
-                                android:id="@+id/tvTest"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:gravity="center"
-                                android:text="Schedules"
-                                android:textColor="@color/transparent"
-                                android:textSize="14sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
 
 
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
 
 
                 <LinearLayout
@@ -973,17 +983,6 @@
                 </LinearLayout>
 
 
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:visibility="visible">
                 <LinearLayout
                     android:id="@+id/llRetailOrderBooking"
                     android:layout_width="match_parent"
@@ -1081,6 +1080,21 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+
 
 
                 <LinearLayout

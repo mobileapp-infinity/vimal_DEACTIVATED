@@ -121,7 +121,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
     private LinearLayout lin_bank_dd;
     private SearchableSpinner sp_bank_cheque_account;
     private EditText ed_bank_Cheque_No;
-  //  private EditText ed_bank_Cheque_Date;
+    //  private EditText ed_bank_Cheque_Date;
     private TextView ed_bank_Cheque_Date;
     private LinearLayout lin_bank_cheque;
     private EditText ed_Deposite;
@@ -293,9 +293,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         SELECTED_RETAILER_STATE = get_retailer_by_distributer_idPOJO.RECORDS.get(position - 1).state_id;
                         ed_retailer_state.setText(get_retailer_by_distributer_idPOJO.RECORDS.get(position - 1).state_name);
                         ed_Mobile_No.setText(get_retailer_by_distributer_idPOJO.RECORDS.get(position - 1).cus_mobile_no);
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         SELECTED_RETAILER_ID = 0;
                         SELECTED_RETAILER_NAME = "";
                         ed_address_1.setText("");
@@ -342,7 +340,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         sp_payment_mode.setTitle("Select Payment Mode");
 
         sp_payment_mode.setAdapter(adapter);
-    //pp    sp_payment_mode.setSelection(3);
+        //pp    sp_payment_mode.setSelection(3);
         sp_payment_mode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -381,11 +379,48 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
 
             }
         });
+        sp_Sales_person.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    // SELECTED_DIS_FIRDGE_TYPE = get_distributor_fridge_typePojo.RECORDS.get(position - 1).id; //30-06-2021 pragna as kartik told to pass edb id
+                    SELECTED_SALES_PERSON_ID = getAllEmployeeByDesignationPojo.getRECORDS().get(position-1).getId();
+                    SELECTED_SALES_PER_CON_NO = getAllEmployeeByDesignationPojo.getRECORDS().get(position-1).getEmpContactNo()+"";
+                } else {
+                    SELECTED_SALES_PERSON_ID = 0;
+                    SELECTED_SALES_PER_CON_NO ="";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         sp_Distributor_Fridge_Type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
-                    SELECTED_DIS_FIRDGE_TYPE = get_distributor_fridge_typePojo.RECORDS.get(position - 1).id;
+                    // SELECTED_DIS_FIRDGE_TYPE = get_distributor_fridge_typePojo.RECORDS.get(position - 1).id; //30-06-2021 pragna as kartik told to pass edb id
+                    SELECTED_DIS_FIRDGE_TYPE = get_distributor_fridge_typePojo.RECORDS.get(position - 1).ebd_value;
+                } else {
+                    SELECTED_DIS_FIRDGE_TYPE = 0;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        sp_fridge_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    // SELECTED_DIS_FIRDGE_TYPE = get_distributor_fridge_typePojo.RECORDS.get(position - 1).id; //30-06-2021 pragna as kartik told to pass edb id
+                    SELECTED_FRIDGE_TYPE = get_fridge_typePojo.RECORDS.get(position - 1).ebd_value;
+                } else {
+                    SELECTED_FRIDGE_TYPE = 0;
                 }
             }
 
@@ -713,7 +748,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 datePickerDialog.show();
                 break;
             case R.id.ed_bank_Cheque_Date:
-                DatePickerDialog datePickerDialog_for_cheque_date = new DatePickerDialog(Fridge_Request_Add.this, date1, myCalendar
+                DatePickerDialog datePickerDialog_for_cheque_date = new DatePickerDialog(Fridge_Request_Add.this, date1_cheque_date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog_for_cheque_date.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
@@ -1018,7 +1053,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         ed_bank_Cheque_Date.setText(sdf.format(myCalendar.getTime()));
         Date c = Calendar.getInstance().getTime();
-        System.out.println("Current time => " + c);
+        System.out.println("Current time updateLabel_cheque_date=> " + c);
     }
 
     private void updateLabel() {
@@ -1267,7 +1302,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         sp_item_name.setTitle("Select Item");
 
                         sp_item_name.setAdapter(adapter);
-                      //pppp  sp_item_name.setSelection(1);
+                        //pppp  sp_item_name.setSelection(1);
                     } else {
                         DialogUtils.Show_Toast(Fridge_Request_Add.this, getResources().getString(R.string.no_data_available));
                         //  lv.setVisibility(View.INVISIBLE);
@@ -1334,7 +1369,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         //spDelAddressTitle.setAdapter(consigneeNameAdapter);
                         sp_Distributor_Firm_Name.setTitle("Select Distributor Firm name");
                         sp_Distributor_Firm_Name.setAdapter(adapter);
-                    //pppppppppppp    sp_Distributor_Firm_Name.setSelection(1);//comment this line
+                        //pppppppppppp    sp_Distributor_Firm_Name.setSelection(1);//comment this line
                         ArrayAdapter<String> adapter_city = new ArrayAdapter<String>
                                 (getApplicationContext(), R.layout.searchable_spinner_text_view,
                                         list_distributor_city_name);
@@ -1383,6 +1418,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 //  DialogUtils.hideProgressDialog();
                 Gson gson = new Gson();
                 list_sales_persons = new ArrayList<>();
+                list_sales_persons.add("Select Sales Person");
                 // getFridge_request_masterPojo = new GetFridge_Request_MasterPojo();
                 getAllEmployeeByDesignationPojo = gson.fromJson(response, GetAllEmployeeByDesignationPojo.class);
                 if (getAllEmployeeByDesignationPojo != null &&
@@ -1390,7 +1426,8 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                     if (getAllEmployeeByDesignationPojo.getRECORDS().size() > 0) {
                         for (int i = 0; i < getAllEmployeeByDesignationPojo.getRECORDS().size(); i++) {
                             // if (getAllEmployeeByDesignationPojo.getRECORDS().get(i).is_visible_to_user) {
-                            list_sales_persons.add(getAllEmployeeByDesignationPojo.getRECORDS().get(i).getEmpFirstName() + "");
+                          //  list_sales_persons.add(getAllEmployeeByDesignationPojo.getRECORDS().get(i).getEmpFirstName() + "");
+                            list_sales_persons.add(getAllEmployeeByDesignationPojo.getRECORDS().get(i).getEmpUserName() + "");
                             // }
                         }
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>
@@ -1458,7 +1495,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                         //spDelAddressTitle.setAdapter(consigneeNameAdapter);
                         sp_owner_city.setTitle("Select City");
                         sp_owner_city.setAdapter(adapter);
-               //ppppp         sp_owner_city.setSelection(1);
+                        //ppppp         sp_owner_city.setSelection(1);
                     } else {
                         DialogUtils.Show_Toast(Fridge_Request_Add.this, getResources().getString(R.string.no_data_available));
                         //  lv.setVisibility(View.INVISIBLE);
@@ -1500,7 +1537,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 list_bank_names = new ArrayList<>();
                 list_bank_names.add("Select Bank");
                 // getCity_list_pojo = new GetFridge_Request_MasterPojo();
-                 getBankNamesPOJO = gson.fromJson(response, GetBankNamesPOJO.class);
+                getBankNamesPOJO = gson.fromJson(response, GetBankNamesPOJO.class);
                 if (getBankNamesPOJO != null &&
                         getBankNamesPOJO.RECORDS != null) {
                     if (getBankNamesPOJO.RECORDS.size() > 0) {
@@ -1623,7 +1660,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         RequestBody dist_cust_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_DIST_CUST_ID + "");
         RequestBody dist_city_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_DIST_CITY_ID + "");
         RequestBody sales_person_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_SALES_PERSON_ID + "");
-        RequestBody sales_per_con_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_SALES_PER_CON_NO+""));
+        RequestBody sales_per_con_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_SALES_PER_CON_NO + ""));
         RequestBody retailer_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_RETAILER_ID + "");
         RequestBody retailer_name = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_RETAILER_NAME));
         RequestBody ret_mob_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Mobile_No.getText().toString() + ""));
@@ -1712,7 +1749,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         RequestBody check_dt = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_Cheque_Date.getText().toString().trim() + ""));
         System.out.println("ed_bank_Cheque_Date no @@@@: " + ed_bank_Cheque_Date.getText().toString().trim() + "");
 
-       // RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test acc_no"));
+        // RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test acc_no"));
         RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_BANK_ID));
         double dd = 0;
         if (ed_bank_dd_no.getText().toString().trim().length() > 0) {
@@ -1775,7 +1812,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 try {
                     if (response.isSuccessful() && response.body() != null && response.body().FLAG == 1) {
                         Toast.makeText(Fridge_Request_Add.this, "" + response.body().MESSAGE, Toast.LENGTH_SHORT).show();
-                        //  finish();
+                         finish();
                     } else {
 
                         Toast.makeText(Fridge_Request_Add.this, "Something went wrong,Please try again later.", Toast.LENGTH_SHORT).show();
