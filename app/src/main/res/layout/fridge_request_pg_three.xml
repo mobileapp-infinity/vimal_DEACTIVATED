@@ -298,25 +298,25 @@ android:text=""
 
 
         </LinearLayout>
-        <com.google.android.material.textfield.TextInputLayout
+       <!-- <com.google.android.material.textfield.TextInputLayout
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            >-->
 
-            <EditText
+            <TextView
                 android:id="@+id/ed_bank_Cheque_Date"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
+
                 android:hint="*Cheque Date"
                 android:lines="1"
                 android:longClickable="false"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:textColor="@color/color_black"
-                android:textSize="@dimen/text_size"></EditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:textSize="@dimen/text_size"></TextView>
+       <!-- </com.google.android.material.textfield.TextInputLayout>-->
     </LinearLayout>
 </LinearLayout>
     <LinearLayout

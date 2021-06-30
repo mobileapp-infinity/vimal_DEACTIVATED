@@ -121,7 +121,8 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
     private LinearLayout lin_bank_dd;
     private SearchableSpinner sp_bank_cheque_account;
     private EditText ed_bank_Cheque_No;
-    private EditText ed_bank_Cheque_Date;
+  //  private EditText ed_bank_Cheque_Date;
+    private TextView ed_bank_Cheque_Date;
     private LinearLayout lin_bank_cheque;
     private EditText ed_Deposite;
     private EditText ed_Service_Charge;
@@ -1499,7 +1500,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
                 list_bank_names = new ArrayList<>();
                 list_bank_names.add("Select Bank");
                 // getCity_list_pojo = new GetFridge_Request_MasterPojo();
-                //  getBankNamesPOJO = gson.fromJson(response, getBankNamesPOJO.class);
+                 getBankNamesPOJO = gson.fromJson(response, GetBankNamesPOJO.class);
                 if (getBankNamesPOJO != null &&
                         getBankNamesPOJO.RECORDS != null) {
                     if (getBankNamesPOJO.RECORDS.size() > 0) {
@@ -1681,10 +1682,10 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
             from_to_no_tot = Integer.parseInt(ed_Total_Coupon.getText().toString());
         }
 
-        RequestBody coupn_from_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(from_no + ""));
-        RequestBody coupn_to_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(to_no + ""));
+        RequestBody coupn_from_no = RequestBody.create(MediaType.parse("text/plain"), from_no + "");
+        RequestBody coupn_to_no = RequestBody.create(MediaType.parse("text/plain"), to_no + "");
 
-        RequestBody coupn_total = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(from_to_no_tot + ""));
+        RequestBody coupn_total = RequestBody.create(MediaType.parse("text/plain"), from_to_no_tot + "");
 //        RequestBody item_id = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_ITEM_ID));
         RequestBody item_id = RequestBody.create(MediaType.parse("text/plain"), SELECTED_ITEM_ID + "");
 
@@ -1711,7 +1712,8 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         RequestBody check_dt = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_bank_Cheque_Date.getText().toString().trim() + ""));
         System.out.println("ed_bank_Cheque_Date no @@@@: " + ed_bank_Cheque_Date.getText().toString().trim() + "");
 
-        RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test acc_no"));
+       // RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf("test acc_no"));
+        RequestBody acc_no = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(SELECTED_BANK_ID));
         double dd = 0;
         if (ed_bank_dd_no.getText().toString().trim().length() > 0) {
             dd = Double.parseDouble(ed_bank_dd_no.getText().toString());
@@ -1733,7 +1735,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         if (ed_Service_Charge.getText().toString().trim().length() > 0) {
             service = Double.parseDouble(ed_Service_Charge.getText().toString());
         }
-        Double tot = 0.0;
+        double tot = 0.0;
         if (ed_Total.getText().toString().trim().length() > 0) {
             tot = Double.parseDouble(ed_Total.getText().toString());
         }
