@@ -31,6 +31,7 @@ import com.infinity.infoway.vimal.api.response.GetLatestVesionResponse;
 import com.infinity.infoway.vimal.api.response.Get_schedule_dealersResponse;
 import com.infinity.infoway.vimal.api.response.InsertLocationSyncResponse;
 import com.infinity.infoway.vimal.api.response.Insert_Retailer_And_Call_Visit_Response;
+import com.infinity.infoway.vimal.api.response.LoginOtpPojo;
 import com.infinity.infoway.vimal.api.response.LoginResponse;
 import com.infinity.infoway.vimal.api.response.Save_schedule_statusResponse;
 import com.infinity.infoway.vimal.api.response.ScheduleResponse;
@@ -84,6 +85,7 @@ import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.SaveExpensePojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.InsertExpenseDetailsModel;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.SaveExpenseModelNew;
 import com.infinity.infoway.vimal.model.GetShopNamePojo;
+import com.infinity.infoway.vimal.retailer.pojo.SubmitOtpResponse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -989,5 +991,30 @@ public interface ApiInterface {
             @Query("user_id") String user_id,
             @Query("key") String key,
             @Query("comp_id") String comp_id);
+
+
+    @GET("Check_Login_OTP ")
+    Call<LoginOtpPojo> checkLoginOTP (
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("mobile_no") String mobile_no,
+            @Query("comp_id") String comp_id);
+
+    //Submit_OTP
+
+
+    @POST("Submit_OTP ")
+    Call<SubmitOtpResponse> Submit_OTP (
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("key") String key,
+            @Query("OTP") String OTP,
+            @Query("mobile_no") String mobile_no);
+
+
 
 }

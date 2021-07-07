@@ -5,6 +5,7 @@
 
     <color name="colorPrimary">#ED1C24</color>
     <color name="colorPrimaryDark">#006A3B</color>
+    <color name="offcolor">#F5EDDa</color>
     <color name="colorAccent">#777575</color>
     <color name="disable_bg">#88676767</color>
     <color name="white">#FFFFFFFF</color>

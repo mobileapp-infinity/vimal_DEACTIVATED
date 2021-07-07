@@ -43,9 +43,39 @@
                 android:orientation="vertical"
                 android:paddingTop="30dp">
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioGroup
+                        android:id="@+id/rgLoginSelection"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/rbRetailer"
+                            android:text="Retailer"
+                            android:checked="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <RadioButton
+                            android:id="@+id/rbDistributorSalesPerson"
+                            android:text="Distributor/SalesPerson"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:id="@+id/tiUserName"
                     android:layout_height="wrap_content">
 
                     <EditText
@@ -58,16 +88,38 @@
                         android:hint="@string/username"
                         android:inputType="textEmailAddress"
                         android:maxLength="50"
+
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/tiRetailerMobile"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/edtRetailerMobileNo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/user"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorPrimary"
+                        android:hint="Mobile No"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50"
                         android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:id="@+id/relPassword"
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txt_input_password"
                         android:layout_width="match_parent"
+
                         android:layout_height="wrap_content">
 
                         <EditText

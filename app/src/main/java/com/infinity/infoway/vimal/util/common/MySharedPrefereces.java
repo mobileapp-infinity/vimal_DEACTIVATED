@@ -141,4 +141,8 @@ public class MySharedPrefereces {
         editor.clear();
         editor.commit();
     }
+
+
+
+
 }

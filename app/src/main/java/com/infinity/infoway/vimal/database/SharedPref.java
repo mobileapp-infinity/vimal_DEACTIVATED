@@ -966,5 +966,36 @@ public class SharedPref {
         editor.commit();
     }
 
+    public boolean isRetailer() {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        return getReg.getBoolean("isRetailer", false);
+
+    }
+
+    public String setDisId(String distID) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        Editor editPref = getReg.edit();
+        editPref.putString("distID", distID);
+
+        editPref.commit();
+
+        return distID;
+    }
+
+    public boolean setIsRetailer(boolean isRetailer) {
+        SharedPreferences getReg = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        Editor editPref = getReg.edit();
+        editPref.putBoolean("isRetailer", isRetailer);
+
+        editPref.commit();
+
+        return isRetailer;
+    }
+
+
+
 
 }

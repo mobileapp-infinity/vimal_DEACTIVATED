@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_otp_white"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_corners"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Vimal"
+            android:textColor="@color/white">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/tvMobileNo"
+            android:text="Please Enter Verifaction Code Sent to "
+            android:layout_margin="8dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <EditText
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:id="@+id/ed0"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/white"
+            android:hint="_"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+
+
+            android:id="@+id/ed1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:maxLength="1"
+            android:inputType="number"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:hint="_"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+
+            android:id="@+id/ed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/white"
+            android:hint="_"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+
+            android:id="@+id/ed3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:hint="_"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+
+            android:id="@+id/ed4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:inputType="number"
+            android:maxLength="1"
+            android:hint="_"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+
+            android:id="@+id/ed5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/white"
+            android:background="@drawable/otp_digit_shape"
+            android:padding="8dp"
+            android:hint="_"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="@dimen/_16sdp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnVerifyOtp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+
+        <TextView
+            android:id="@+id/tvOtpTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+
+
+            android:text="10:00"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:visibility="visible" />
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/btnVerifyOtp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Verify"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

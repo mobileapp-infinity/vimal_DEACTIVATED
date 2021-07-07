@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.infinity.infoway.vimal">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!--<uses-feature android:name="android.hardware.type.watch" />-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- <uses-feature android:name="android.hardware.type.watch" /> -->
     <uses-feature
         android:name="android.hardware.location.gps"
         android:required="false" />
@@ -53,7 +51,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon,android:allowBackup">
-        <!--<uses-library
+        <activity android:name=".retailer.RetailerDashboardActivity"></activity>
+        <!--
+        <uses-library
             android:name="com.google.android.wearable"
             android:required="true" />
 
@@ -63,30 +63,38 @@
         &ndash;&gt;
         <meta-data
             android:name="com.google.android.wearable.standalone"
-            android:value="true" />-->
-
+            android:value="true" />
+        -->
         <activity
             android:name=".DeepFridge.Fridge_Listing"
             android:label="@string/title_activity_fridge__listing">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity> <activity
+            </intent-filter>
+            -->
+        </activity>
+        <activity
             android:name=".DeepFridge.Fridge_Request_Add"
             android:label="@string/title_activity_fridge__listing">
 
-     <!-- <intent-filter>
+            <!--
+        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>-->
-          <!-- <intent-filter>
+        </intent-filter>
+            -->
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <!--
          <activity
@@ -180,8 +188,8 @@
             android:name=".activity.Activity_Splash"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:theme="@style/FullscreenTheme" >
-       <intent-filter>
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

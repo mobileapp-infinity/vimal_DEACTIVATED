@@ -1,11 +1,15 @@
 package com.infinity.infoway.vimal.activity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.provider.Settings.Secure;
 import android.text.Editable;
@@ -15,28 +19,39 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.api.ApiClient;
+import com.infinity.infoway.vimal.api.ApiImplementer;
 import com.infinity.infoway.vimal.api.ApiInterface;
 import com.infinity.infoway.vimal.api.request.RequestgetFCMRegistrationIDRetro;
 import com.infinity.infoway.vimal.api.response.FCMRegResponse;
+import com.infinity.infoway.vimal.api.response.LoginOtpPojo;
 import com.infinity.infoway.vimal.api.response.LoginResponse;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.activity.DashboardActivity;
+import com.infinity.infoway.vimal.retailer.RetailerDashboardActivity;
+import com.infinity.infoway.vimal.retailer.pojo.SubmitOtpResponse;
 import com.infinity.infoway.vimal.util.common.ConnectionDetector;
+import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.judemanutd.autostarter.AutoStartPermissionHelper;
 
 import java.security.MessageDigest;
@@ -46,19 +61,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Activity_Login extends AppCompatActivity {
+public class    Activity_Login extends AppCompatActivity {
 
     private EditText et_username, et_password;
 
     private final ConnectionDetector cd = new ConnectionDetector(Activity_Login.this);
 
     private final SharedPref getPref = new SharedPref(Activity_Login.this);
-
+    private EditText et_retailerNo, etRetailerName;
+    private RadioGroup rgLoginSelection;
 
     private String productId[], productName[], gradeId[], gradeName[];
     private String stockAvailable[], nextStockAvailable[];
@@ -80,11 +97,16 @@ public class Activity_Login extends AppCompatActivity {
     private SharedPref getSharedPref;
     private ProgressDialog progDialog;
     private boolean is_pwd_show = false;
+    private RelativeLayout relPassword;
 
-    private EditText et_select_company;
+    private EditText et_select_company,edtRetailerMobileNo;
     private TextInputLayout input_company;
 
+
     private String resCompanyId = "", resCompanyName = "";
+    private RadioButton rbRetailer,rbDistributorSalesPerson;
+    private TextInputLayout tiUserName,tiRetailerMobile;
+    private boolean isFromRetailer = true;
 
 
     @Override
@@ -94,11 +116,37 @@ public class Activity_Login extends AppCompatActivity {
 
         apiService = ApiClient.getClient().create(ApiInterface.class);
         getSharedPref = new SharedPref(Activity_Login.this);
-
+       // et_retailerNo = findViewById(R.id.et_retailerNo);
+       // etRetailerName = findViewById(R.id.etRetailerName);
         et_username = findViewById(R.id.et_username);
         et_password = findViewById(R.id.et_password);
+        edtRetailerMobileNo = findViewById(R.id.edtRetailerMobileNo);
 //        et_password.requestFocus();
+        rgLoginSelection = findViewById(R.id.rgLoginSelection);
+        tiUserName =findViewById(R.id.tiUserName);
+        tiRetailerMobile =findViewById(R.id.tiRetailerMobile);
+        relPassword  =findViewById(R.id.relPassword);
+        rgLoginSelection.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                if (checkedId == R.id.rbRetailer){
+                    isFromRetailer = true;
+                 tiRetailerMobile.setVisibility(View.VISIBLE);
+                 tiUserName.setVisibility(View.GONE);
+                 relPassword.setVisibility(View.GONE);
+
+
+                }else{
+                    isFromRetailer = false;
+                    tiRetailerMobile.setVisibility(View.GONE);
+                    tiUserName.setVisibility(View.VISIBLE);
+                    relPassword.setVisibility(View.VISIBLE);
+
+                }
+
+            }
+        });
         Button btn_login = findViewById(R.id.btn_login);
 
 
@@ -213,7 +261,13 @@ public class Activity_Login extends AppCompatActivity {
                     displaySnackBar(getResources().getString(R.string.title_valid_company));
                     layout_activityLoginMain.setVisibility(View.VISIBLE);
                     scrollview_login_main.setBackgroundResource(R.color.disable_bg);
-                } else {
+                }else if (getPref.isRetailer()){
+                    Intent intent = new Intent(Activity_Login.this, RetailerDashboardActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                }
+                else {
                     CheckLoginApiCall();
                 }
 
@@ -244,17 +298,37 @@ public class Activity_Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(et_username.getText().toString().trim())) {
-                    et_username.setError(getResources().getString(R.string.title_valid_username));
-                } else if (TextUtils.isEmpty(et_password.getText().toString().trim())) {
-                    et_password.setError(getResources().getString(R.string.title_valid_password));
-                } else if (TextUtils.isEmpty(getSharedPref.getCompanyId()) || getSharedPref.getCompanyId().equalsIgnoreCase("0")) {
-                    input_company.setVisibility(View.VISIBLE);
-                    displaySnackBar(getResources().getString(R.string.title_valid_company));
-                } else {
 
                     if (cd.isConnectingToInternet()) {
-                        CheckLoginApiCall();
+                        if (isFromRetailer){
+
+                            if (TextUtils.isEmpty(edtRetailerMobileNo.getText().toString())){
+
+                                edtRetailerMobileNo.setError(getResources().getString(R.string.title_valid_mobile_no));
+
+                            }else{
+                                checkLoginOtp(edtRetailerMobileNo.getText().toString());
+                            }
+
+
+
+
+                        }else{
+
+
+                            if (TextUtils.isEmpty(et_username.getText().toString().trim())) {
+                                et_username.setError(getResources().getString(R.string.title_valid_username));
+                            } else if (TextUtils.isEmpty(et_password.getText().toString().trim())) {
+                                et_password.setError(getResources().getString(R.string.title_valid_password));
+                            } else if (TextUtils.isEmpty(getSharedPref.getCompanyId()) || getSharedPref.getCompanyId().equalsIgnoreCase("0")) {
+                                input_company.setVisibility(View.VISIBLE);
+                                displaySnackBar(getResources().getString(R.string.title_valid_company));
+                            }else{
+                                CheckLoginApiCall();
+                            }
+
+                        }
+
                     } else {
                         try {
                             Snackbar bar = Snackbar.make(scrollview_login_main, getResources().getString(R.string.connection_lost), Snackbar.LENGTH_INDEFINITE);
@@ -262,7 +336,29 @@ public class Activity_Login extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
 
-                                    CheckLoginApiCall();
+                                    if (isFromRetailer){
+
+                                        if (!TextUtils.isEmpty(edtRetailerMobileNo.getText().toString())){
+
+                                            edtRetailerMobileNo.setError(getResources().getString(R.string.title_valid_mobile_no));
+
+                                        }else{
+                                            checkLoginOtp(edtRetailerMobileNo.getText().toString());
+                                        }
+                                    }else{
+                                        if (TextUtils.isEmpty(et_username.getText().toString().trim())) {
+                                            et_username.setError(getResources().getString(R.string.title_valid_username));
+                                        } else if (TextUtils.isEmpty(et_password.getText().toString().trim())) {
+                                            et_password.setError(getResources().getString(R.string.title_valid_password));
+                                        } else if (TextUtils.isEmpty(getSharedPref.getCompanyId()) || getSharedPref.getCompanyId().equalsIgnoreCase("0")) {
+                                            input_company.setVisibility(View.VISIBLE);
+                                            displaySnackBar(getResources().getString(R.string.title_valid_company));
+                                        }else{
+                                            CheckLoginApiCall();
+                                        }
+                                    }
+
+
 
                                 }
                             });
@@ -270,7 +366,7 @@ public class Activity_Login extends AppCompatActivity {
                         } catch (Exception ignored) {
                         }
                     }
-                }
+
             }
 
         });
@@ -634,7 +730,7 @@ public class Activity_Login extends AppCompatActivity {
 
 //        Call<LoginResponse> call = apiService.getFCMRegistrationIDRetro()String.valueOf(getSharedPref.getAppVersionCode()),getSharedPref.getAppAndroidId(),String.valueOf(getSharedPref.getRegisteredId()),Config.ACCESS_KEY,getSharedPref.getCompanyId()
     }
-
+    int otpFromBackEnd = 0;
     private void SET_PUNCH_OUT() {
         String punchinData = getSharedPref.getUserPunchInDate();
         punchinData = punchinData.replace("PUNCH IN:", "");
@@ -729,4 +825,275 @@ public class Activity_Login extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    //Retailer Login
+    TextView tvOtpTime, tvMobileNo;
+    private  void checkLoginOtp(String mobileNo){
+        DialogUtils.showProgressDialog(Activity_Login.this, "");
+        ApiImplementer.checkLoginOtp(String.valueOf(getSharedPref.getVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()), "0", Config.ACCESS_KEY, mobileNo,"28", new Callback<LoginOtpPojo>() {
+            @Override
+            public void onResponse(Call<LoginOtpPojo> call, Response<LoginOtpPojo> response) {
+                DialogUtils.hideProgressDialog();
+                try {
+
+                    if (response.isSuccessful() && response.body() != null){
+                        LoginOtpPojo loginOtpPojo = response.body();
+
+
+
+                        if (loginOtpPojo != null && loginOtpPojo.getRecords().size() > 0){
+                            otpFromBackEnd =  loginOtpPojo.getRecords().get(0).getOtp();
+                            Toast.makeText(Activity_Login.this,otpFromBackEnd+"",Toast.LENGTH_LONG).show();
+
+                            retailerOtp(Activity_Login.this,edtRetailerMobileNo.getText().toString());
+                            System.out.println(loginOtpPojo);
+
+
+
+
+                        }
+
+                    }else
+                    {
+                        Toast.makeText(Activity_Login.this,"Please try Again Later",Toast.LENGTH_LONG).show();
+                    }
+                }catch (Exception e){
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<LoginOtpPojo> call, Throwable t) {
+                DialogUtils.hideProgressDialog();
+
+            }
+        });
+
+    }
+    Dialog dialog = null;
+
+    private void retailerOtp(Context context, String mobileNo) {
+
+
+        String message = "012345";
+
+        // public class ViewDialog {
+
+        // public void showDialog(Context ){
+        dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.inflater_retailer_otp);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        tvOtpTime = dialog.findViewById(R.id.tvOtpTime);
+        tvMobileNo = dialog.findViewById(R.id.tvMobileNo);
+        Button btnVerifyOtp = dialog.findViewById(R.id.btnVerifyOtp);
+
+        EditText ed0, ed1, ed2, ed3, ed4, ed5;
+        ed0 = dialog.findViewById(R.id.ed0);
+        ed1 = dialog.findViewById(R.id.ed1);
+        ed2 = dialog.findViewById(R.id.ed2);
+        ed3 = dialog.findViewById(R.id.ed3);
+        ed4 = dialog.findViewById(R.id.ed4);
+        ed5 = dialog.findViewById(R.id.ed5);
+
+        EditText[] otpTextViews = {ed0, ed1, ed2, ed3, ed4, ed5};
+
+        for (TextView currTextView : otpTextViews) {
+
+            currTextView.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    if (!s.toString().isEmpty()) {
+                        nextTextView().requestFocus();
+                    } else {
+
+                        previousTextView().requestFocus();
+                    }
+
+
+                    // nextTextView().setBackground();
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if (s.toString().isEmpty()) {
+                        currTextView.setBackground(ContextCompat.getDrawable(Activity_Login.this, R.drawable.otp_digit_shape));
+                    } else {
+                        currTextView.setBackground(ContextCompat.getDrawable(Activity_Login.this, R.drawable.otp_regular_shape));
+                    }
+
+                }
+
+                public EditText nextTextView() {
+                    int i;
+
+                    for (i = 0; i < otpTextViews.length - 1; i++) {
+                        if (otpTextViews[i] == currTextView)
+                            //enteredText  += otpTextViews[i].getText().toString();
+
+
+                            return otpTextViews[i + 1];
+
+
+                    }
+
+                    return otpTextViews[i];
+                }
+
+                public EditText previousTextView() {
+
+                    int i;
+
+                    // if()
+                    for (i = 0; i < otpTextViews.length; i++) {
+                        if (otpTextViews[i] == currTextView)
+                            //enteredText  += otpTextViews[i].getText().toString();
+
+
+                            if (i > 0) {
+                                return otpTextViews[i - 1];
+                            } else {
+                                otpTextViews[i].clearFocus();
+                            }
+
+
+                    }
+
+                    return otpTextViews[i - 1];
+                }
+            });
+        }
+        tvMobileNo.setText("Enter Verification Code Sent To " + mobileNo + "");
+
+        //  TextView text = (TextView) dialog.findViewById(R.id.txt_file_path);
+        //  text.setText(msg);
+
+        Button dialogBtn_cancel = (Button) dialog.findViewById(R.id.btn_cancel);
+              /*  dialogBtn_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                    Toast.makeText(getApplicationContext(),"Cancel" ,Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });*/
+        //timer.start();
+        new CountDownTimer(6000, 1000) { // adjust the milli seconds here
+
+            public void onTick(long millisUntilFinished) {
+                tvOtpTime.setText("" + String.format("%d min, %d sec",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+                tvOtpTime.setText("Resend OTP");
+                tvOtpTime.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                      //  checkLoginWithOtp(et_retailerNo.getText().toString());
+                        checkLoginOtp(edtRetailerMobileNo.getText().toString());
+                    }
+                });
+            }
+        }.start();
+        Button dialogBtn_okay = (Button) dialog.findViewById(R.id.btnVerifyOtp);
+        dialogBtn_okay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                    Toast.makeText(getApplicationContext(),"Okay" ,Toast.LENGTH_SHORT).show();
+                if (!TextUtils.isEmpty(ed0.getText().toString()) && !TextUtils.isEmpty(ed1.getText().toString()) && !TextUtils.isEmpty(ed2.getText().toString()) && !TextUtils.isEmpty(ed3.getText().toString()) && !TextUtils.isEmpty(ed4.getText().toString()) && !TextUtils.isEmpty(ed5.getText().toString())) {
+
+                    String otp = ed0.getText().toString().trim() + ed1.getText().toString().trim() + ed2.getText().toString().trim() + ed3.getText().toString().trim() + ed4.getText().toString().trim() + ed5.getText().toString().trim();
+
+                    Toast.makeText(Activity_Login.this, otpFromBackEnd + "", Toast.LENGTH_SHORT).show();
+
+                    if (otpFromBackEnd == Integer.parseInt(otp)) {
+
+
+                        submitOtp(otpFromBackEnd + "", edtRetailerMobileNo.getText().toString());
+
+                    } else {
+                        Toast.makeText(Activity_Login.this, "You Have Entered Wrong OTP", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                } else {
+                    Toast.makeText(Activity_Login.this, "Please Enter Valid OTP", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        dialog.show();
+        // }
+    }
+
+    private void submitOtp(String otpFrombackEnd,String mobileNo){
+        DialogUtils.showProgressDialog(Activity_Login.this, "");
+        ApiImplementer.SubmitOTP(String.valueOf(getSharedPref.getVersionCode()), getSharedPref.getAppAndroidId(), String.valueOf(getSharedPref.getRegisteredId()),  Config.ACCESS_KEY,otpFrombackEnd ,mobileNo, new Callback<SubmitOtpResponse>() {
+            @Override
+            public void onResponse(Call<SubmitOtpResponse> call, Response<SubmitOtpResponse> response) {
+                DialogUtils.hideProgressDialog();
+                try {
+
+
+                    if (response.body() != null && response.isSuccessful() ){
+
+
+
+
+                        if (response.isSuccessful() && response.body().getMessage().equals("OTP verified successfully")) {
+                            Toast.makeText(Activity_Login.this, response.body().getMessage(), Toast.LENGTH_LONG).show();
+                            String string = response.body().getDetail().get(0).getUserIdName();
+                            String[] parts = string.split(",");
+                            String retailerUserID = parts[0];
+                            String retailerUserName = parts[1];
+
+
+                            SubmitOtpResponse submitOtpResponse = response.body();
+                            getSharedPref.setLoginCustomerId(submitOtpResponse.getCusId() + "");
+                            getSharedPref.setIsLogin(true);
+                            getSharedPref.setRegisteredUserId(retailerUserID);
+                            getSharedPref.setUserName(retailerUserName);
+                            getSharedPref.setIsRetailer(true);
+                            getSharedPref.setCompanyId("28");
+                            getSharedPref.setDisId(submitOtpResponse.getDetail().get(0).getDist_id()+"");
+
+                            Intent intent = new Intent(Activity_Login.this, RetailerDashboardActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                        }
+
+
+                    }
+
+
+
+                }catch (Exception e){
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<SubmitOtpResponse> call, Throwable t) {
+                DialogUtils.hideProgressDialog();
+
+            }
+        });
+    }
+
+
+
+
 }

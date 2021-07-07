@@ -1,5 +1,6 @@
 package com.infinity.infoway.vimal.api;
 
+import com.infinity.infoway.vimal.api.response.LoginOtpPojo;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.delear.RoutePlanning.GetAllEmployeeByDesignationPojo;
 import com.infinity.infoway.vimal.delear.RoutePlanning.GetAllRouteListPojo;
@@ -14,6 +15,7 @@ import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRoute
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
+import com.infinity.infoway.vimal.retailer.pojo.SubmitOtpResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -94,6 +96,20 @@ public class ApiImplementer {
                                                      String user_id,String key, String comp_id,String del_date,String cus_id,String som_id,String item_cat_id,  Callback<ItemDetailsPojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ItemDetailsPojo> call = apiService.getAllItemsDetailForSalesOrder(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,comp_id,del_date,cus_id,som_id,item_cat_id);
+        call.enqueue(cb);
+    }
+
+    public static void checkLoginOtp(String app_version, String android_id, String device_id,
+                                                                 String user_id,String key, String mobile_no,String comp_id,  Callback<LoginOtpPojo> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<LoginOtpPojo> call = apiService.checkLoginOTP(app_version,android_id,device_id,user_id,Config.ACCESS_KEY,mobile_no,comp_id);
+        call.enqueue(cb);
+    }
+
+    public static void SubmitOTP(String app_version, String android_id, String device_id,
+            String key, String mobile_no,String comp_id,  Callback<SubmitOtpResponse> cb) {
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<SubmitOtpResponse> call = apiService.Submit_OTP(app_version,android_id,device_id,Config.ACCESS_KEY,mobile_no,comp_id);
         call.enqueue(cb);
     }
 

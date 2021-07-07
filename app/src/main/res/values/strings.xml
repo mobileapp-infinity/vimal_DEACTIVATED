@@ -35,6 +35,7 @@
     <string name="connection_lost">Connection lost!!!</string>
 
     <string name="title_valid_username">Please enter valid user name!</string>
+    <string name="title_valid_mobile_no">Please enter valid Mobile No!</string>
     <string name="title_valid_password">Please enter valid password!</string>
 
     <string name="processing_request">Processing Request</string>
