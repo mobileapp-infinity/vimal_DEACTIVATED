@@ -1794,6 +1794,7 @@ public class Fridge_Request_Add extends AppCompatActivity implements View.OnClic
         RequestBody total = RequestBody.create(MediaType.parse("text/plain"), tot + "");
 
 
+
         RequestBody remarks = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(ed_Remarks.getText().toString().trim() + ""));
 
 
