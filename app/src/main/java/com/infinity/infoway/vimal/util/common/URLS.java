@@ -240,4 +240,10 @@ public class URLS {
     public static final String Get_Print_Aggrement = Config.MAIN_URL + "Get_Print_Aggrement?";
     public static final String Get_Fridge_Confirmation_Print = Config.MAIN_URL + "Get_Fridge_Confirmation_Print?";
     public static final String Get_Bank_Names = Config.MAIN_URL + "Get_Bank_Names?";
+
+
+    /*16-07-21 pragna for advertisement module */
+
+    public static final String Get_hoarding_details = Config.MAIN_URL + "Get_hoarding_details?";
+    public static final String HOapproverequest = Config.MAIN_URL + "HOapproverequest?";
 }

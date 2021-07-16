@@ -89,6 +89,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
+import com.infinity.infoway.vimal.Advertisement.Adv_listing;
 import com.infinity.infoway.vimal.BuildConfig;
 import com.infinity.infoway.vimal.DeepFridge.Fridge_Listing;
 import com.infinity.infoway.vimal.HR.Activity_Attendance_Management;
@@ -103,6 +104,7 @@ import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.DBConnector;
 import com.infinity.infoway.vimal.database.SharedPref;
 import com.infinity.infoway.vimal.delear.RoutePlanning.RoutePlanningActivity;
+import com.infinity.infoway.vimal.delear.activity.DashboardActivity;
 import com.infinity.infoway.vimal.delear.activity.OrderPlaceToCompany.OrderPlaceToCompanyActivity;
 import com.infinity.infoway.vimal.delear.activity.UpdateCallList.UpdateCallListActivity;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.activity.ScheduleActivity;
@@ -167,6 +169,8 @@ public class Activity_Home extends AppCompatActivity
      */
     private TextView mTxtTitleNewRetailer;
     private LinearLayout mLinearNewRetailer;
+    //16-07-21pragna
+    LinearLayout ll_advertisement;
     /*14-aug-19 pragna for punch-in out location*/
 //    private final String[] RunTimePerMissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA};
 //    private static final int IGNORE_BATTERY_OPTIMIZATION_REQUEST = 1002;
@@ -601,6 +605,7 @@ public class Activity_Home extends AppCompatActivity
         txt_title_Suspecting = findViewById(R.id.txt_title_Suspecting);
         linear_Suspecting = findViewById(R.id.linear_Suspecting);
         llFridgeRequest = findViewById(R.id.llFridgeRequest);
+        ll_advertisement = findViewById(R.id.ll_advertisement);
 
         floatingActionButton = findViewById(R.id.fab);
 
@@ -617,6 +622,7 @@ public class Activity_Home extends AppCompatActivity
         linear_Suspecting.setOnClickListener(this);
 
         llFridgeRequest.setOnClickListener(this);
+        ll_advertisement.setOnClickListener(this);
 
         manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         statusOfGPS = manager.isProviderEnabled(LocationManager.GPS_PROVIDER);
@@ -911,8 +917,12 @@ public class Activity_Home extends AppCompatActivity
             llUpdateCallList.performClick();
         } else if (id == R.id.nav_schedules) {
             llTest.performClick();
-        }else if (id == R.id.nav_fridge_request) {
+        }
+        else if (id == R.id.nav_fridge_request) {
             llFridgeRequest.performClick();
+        }
+        else if (id == R.id.nav_advertisement) {
+            ll_advertisement.performClick();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -1006,6 +1016,19 @@ public class Activity_Home extends AppCompatActivity
                     intent.putExtra("title_screen", "Fridge Request");
                     startActivity(intent);
                // }
+                break;
+            case  R.id.ll_advertisement:
+//                if (!isTodayPunchINDone()) {
+//                    showAttendanceScreen();
+//                } else if (isTodayPunchOutDone()) {
+//                    showPunchOutDialog();
+//                } else {
+                //  FLAG_4_BACK_START_PG_AGAIN = false;
+                Intent    intent = new Intent(Activity_Home.this, Adv_listing.class);
+                intent.putExtra("title_screen", "Advertisement");
+                startActivity(intent);
+                // }
+         //   }
                 break;
             case R.id.linear_Tour_planning:
                 if (!isTodayPunchINDone()) {

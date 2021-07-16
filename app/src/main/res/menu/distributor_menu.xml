@@ -108,7 +108,10 @@
             android:id="@+id/nav_fridge_request"
             android:icon="@drawable/schedule_new"
             android:title="Fridge Request" />
-
+        <item
+            android:id="@+id/nav_advertisement"
+            android:icon="@drawable/orderbookingblack"
+            android:title="Advertisemet" />
     </group>
 
     <item

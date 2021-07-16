@@ -21,6 +21,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.infinity.infoway.vimal.Advertisement.Adv_listing;
 import com.infinity.infoway.vimal.DeepFridge.Fridge_Listing;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.activity.Activity_Home;
@@ -74,7 +75,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     /*8-06-21 pragna added fridge module*/
 
     LinearLayout llFridgeRequest;
-
+//16-07-21pragna
+LinearLayout ll_advertisement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,7 +138,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         llCreditNote = (LinearLayout) findViewById(R.id.llCreditNote);
         llDebitNote = (LinearLayout) findViewById(R.id.llDebitNote);
         llFridgeRequest = findViewById(R.id.llFridgeRequest);
-        llFridgeRequest.setOnClickListener(this);
+        llFridgeRequest.setOnClickListener(this);ll_advertisement = findViewById(R.id.ll_advertisement);
+        ll_advertisement.setOnClickListener(this);
         llOrderPlaceToCompany.setOnClickListener(this);
         llPerformInvoiceAndLedger.setOnClickListener(this);
         llVehicleDispatchUpdate.setOnClickListener(this);
@@ -206,6 +209,17 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
           //  FLAG_4_BACK_START_PG_AGAIN = false;
             Intent    intent = new Intent(DashboardActivity.this, Fridge_Listing.class);
             intent.putExtra("title_screen", "Fridge Request");
+            startActivity(intent);
+            // }
+        } else if (v.getId() == R.id.ll_advertisement) {
+//                if (!isTodayPunchINDone()) {
+//                    showAttendanceScreen();
+//                } else if (isTodayPunchOutDone()) {
+//                    showPunchOutDialog();
+//                } else {
+          //  FLAG_4_BACK_START_PG_AGAIN = false;
+            Intent    intent = new Intent(DashboardActivity.this, Adv_listing.class);
+            intent.putExtra("title_screen", "Advertisement");
             startActivity(intent);
             // }
         }
@@ -476,6 +490,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         //14-06-2021 pragna for fridge module
         else if (id == R.id.nav_fridge_request) {
             llFridgeRequest.performClick();
+        }
+        else if (id == R.id.nav_advertisement) {
+            ll_advertisement.performClick();
         }
 
 //        else if (id == R.id.nav_vehicle_dispatch_update) {
