@@ -1,3 +1,4 @@
+//    @Override
 package com.infinity.infoway.vimal.Advertisement;
 
 import android.app.DatePickerDialog;
@@ -26,11 +27,13 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.vimal.Advertisement.Adapter.Get_hoarding_details_Adapter;
+import com.infinity.infoway.vimal.Advertisement.Pojo.Adv_Approve_Pojo;
 import com.infinity.infoway.vimal.Advertisement.Pojo.Adv_ListingPojo;
 import com.infinity.infoway.vimal.DeepFridge.Adapter.GetFridge_Request_MasterAdapter;
 import com.infinity.infoway.vimal.DeepFridge.Fridge_Listing;
 import com.infinity.infoway.vimal.DeepFridge.Fridge_Request_Add;
 import com.infinity.infoway.vimal.DeepFridge.Pojo.GetFridge_Request_MasterPojo;
+import com.infinity.infoway.vimal.DeepFridge.Pojo.Get_distributor_fridge_typePojo;
 import com.infinity.infoway.vimal.R;
 import com.infinity.infoway.vimal.config.Config;
 import com.infinity.infoway.vimal.database.SharedPref;
@@ -41,9 +44,12 @@ import com.infinity.infoway.vimal.util.common.DialogUtils;
 import com.infinity.infoway.vimal.util.common.URLS;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import static com.infinity.infoway.vimal.util.common.URLS.HOapproverequest;
 
 public class Adv_listing extends AppCompatActivity implements View.OnClickListener {
     private ImageView iv_back;
@@ -67,7 +73,7 @@ public class Adv_listing extends AppCompatActivity implements View.OnClickListen
     private Date today, selectedToDate, selectedFromDate;
     private SimpleDateFormat sdf_full, serverDateFormat;
     private String selectedToDateString, selectedFromDateString;
-CheckBox ck;
+    CheckBox ck;
 //    @Override
 //    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
 //        super.onCreate(savedInstanceState, persistentState);
@@ -130,7 +136,15 @@ CheckBox ck;
                         adv_listing.RECORDS != null) {
                     if (adv_listing.RECORDS.size() > 0) {
                         Get_hoarding_details_Adapter adapter;
-                        adapter = new Get_hoarding_details_Adapter(Adv_listing.this, adv_listing,Adv_listing.this);
+                        adapter = new Get_hoarding_details_Adapter(Adv_listing.this, adv_listing, Adv_listing.this, new Get_hoarding_details_Adapter.OnItemClickListner() {
+                            @Override
+                            public void onItemClicked(int position, Adv_ListingPojo.RECORDSBean recordsBean) {
+                                System.out.println("clicked!!!!!! "+recordsBean.ven_name);
+
+
+                                HOapproverequest(recordsBean.id);
+                            }
+                        });
                         lv.setAdapter(adapter);
                         lv.setVisibility(View.VISIBLE);
                     } else {
@@ -153,6 +167,44 @@ CheckBox ck;
         });
         queue.add(request);
     }
+
+    private void HOapproverequest(int id) {
+        //  DialogUtils.showProgressDialog(Fridge_Request_Add.this, "");
+//        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
+        String url = URLS.HOapproverequest + "&app_version=" + getSharedPref.getAppVersionCode() + "&android_id=" + getSharedPref.getAppAndroidId() + "&device_id=" + getSharedPref.getRegisteredId() + "&user_id=" + getSharedPref.getRegisteredUserId() + "&key=" + Config.ACCESS_KEY + "&comp_id=" + getSharedPref.getCompanyId() + "&hrm_id="+id+"";// + "&status=" + status;
+        DialogUtils.showProgressDialogNotCancelable(Adv_listing.this,"");
+
+        url = url.replace(" ", "%20");
+        System.out.println("HOapproverequest URL " + url + "");
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                DialogUtils.hideProgressDialog();
+                Gson gson = new Gson();
+                // getFridge_request_masterPojo = new GetFridge_Request_MasterPojo();
+                Adv_Approve_Pojo pojo = gson.fromJson(response, Adv_Approve_Pojo.class);
+                System.out.println("response:::: "+response+"");
+                if(pojo !=null&& pojo.total>0)
+                {
+
+                }
+                else{
+                    DialogUtils.Show_Toast(Adv_listing.this, getResources().getString(R.string.something_went_wrong));
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                DialogUtils.hideProgressDialog();
+
+                DialogUtils.Show_Toast(Adv_listing.this, getResources().getString(R.string.something_went_wrong));
+
+            }
+        });
+        queue.add(request);
+    }
+
     private void initViews() {
         iv_back = findViewById(R.id.iv_back);
         txt_act = findViewById(R.id.txt_act);
