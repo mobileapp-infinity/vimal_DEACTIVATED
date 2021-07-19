@@ -98,10 +98,10 @@
         </activity>
 
 
-     <!--16-07-21 pragna for adv. module-->
+        <!--16-07-21 pragna for adv. module-->
         <activity
             android:name=".Advertisement.Adv_listing"
-         >
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -109,11 +109,15 @@
             </intent-filter>
 
         </activity> <activity
-            android:name=".Advertisement.Adv_Save"
-         >
+        android:name=".Advertisement.Adv_Save"
+        >
+        <!--        <intent-filter>-->
+        <!--                        <action android:name="android.intent.action.MAIN" />-->
 
+        <!--                       <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--                 </intent-filter>-->
 
-        </activity>
+    </activity>
         <activity
             android:name=".add_news_or_notification.activity.ViewNewsOrNotificationListActivity"
             android:screenOrientation="portrait"
@@ -196,11 +200,11 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                   <intent-filter>-->
+            <!--                       <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                        <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--                   </intent-filter>-->
         </activity>
         <activity
             android:name=".activity.Activity_MySchedule"

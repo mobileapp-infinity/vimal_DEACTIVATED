@@ -1,14 +1,10 @@
 package com.infinity.infoway.vimal.Advertisement.Pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java.util.List;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Adv_ListingPojo {
 

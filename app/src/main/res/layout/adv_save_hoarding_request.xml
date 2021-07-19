@@ -9,709 +9,746 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
-
-
-<LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="@color/white"
-    android:padding="10dp"
-    android:layout_height="match_parent"><LinearLayout
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:background="@color/white"
-    android:padding="10dp"
-    android:weightSum="2"
-    android:layout_height="wrap_content">
-
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="* Dealer Type"
-android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-    <RadioGroup
-        android:id="@+id/rg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-    <RadioButton
-        android:id="@+id/rb_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:padding="@dimen/_2sdp"
-        android:text="New"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size" />
-
-    <RadioButton
-        android:id="@+id/rb_existing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_2sdp"
-        android:text="Existing"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size" />
-    </RadioGroup>
-</LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="* Distributor name"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/spdistributor_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="*Concern Distributor Name"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/spvendor_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="*Retailer name"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/spretailer_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="Hoarding Print Name"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.infinity.infoway.vimal.util.common.CustomEditText
-            android:id="@+id/ed_hording_print_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-
-
-            android:maxLines="1"
-            android:layout_weight="1"
-
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="*Address 1"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.infinity.infoway.vimal.util.common.CustomEditText
-            android:id="@+id/ed_address_1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-          android:lines="3"
-
-            android:maxLines="3"
-            android:layout_weight="1"
-
-
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="0dp"
-        android:text="Address 2"
-        android:layout_weight="1"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.infinity.infoway.vimal.util.common.CustomEditText
-            android:id="@+id/ed_address_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-          android:lines="3"
-
-            android:maxLines="3"
-            android:layout_weight="1"
-
-
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-        <com.infinity.infoway.vimal.util.common.CustomTextView
-            android:layout_width="0dp"
-            android:text="*Territory"
-            android:layout_weight="1"
-            android:textSize="@dimen/text_size"
-            android:textColor="@color/text_color"
-            android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/sp_city"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-        <com.infinity.infoway.vimal.util.common.CustomTextView
-            android:layout_width="0dp"
-            android:text="*State"
-            android:layout_weight="1"
-            android:textSize="@dimen/text_size"
-            android:textColor="@color/text_color"
-            android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/sp_state"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-        <com.infinity.infoway.vimal.util.common.CustomTextView
-            android:layout_width="0dp"
-            android:text="*Country"
-            android:layout_weight="1"
-            android:textSize="@dimen/text_size"
-            android:textColor="@color/text_color"
-            android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-            android:id="@+id/sp_country"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:drawableRight="@drawable/ic_action_down_arrow"
-            android:drawableTint="@color/colorPrimary"
-            android:maxLines="1"
-            android:layout_weight="1"
-            android:paddingTop="@dimen/_2sdp"
-            android:spinnerMode="dialog"
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-    </LinearLayout><LinearLayout
-        android:orientation="horizontal" android:layout_width="match_parent"
-        android:background="@color/white"
-
-        android:weightSum="2"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_height="wrap_content">
-        <com.infinity.infoway.vimal.util.common.CustomTextView
-            android:layout_width="0dp"
-            android:text="*Pincode"
-            android:layout_weight="1"
-            android:textSize="@dimen/text_size"
-            android:textColor="@color/text_color"
-            android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-        <com.infinity.infoway.vimal.util.common.CustomEditText
-            android:id="@+id/ed_pin_code"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-
-
-            android:maxLines="1"
-            android:layout_weight="1"
-
-            android:textColor="@android:color/black"
-            android:visibility="visible" />
-
-
-    </LinearLayout>
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_cus_grp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_from_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorPrimary"
-                    android:focusable="false"
-                    android:text=""
-                    android:textColor="@color/text_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="*Request Date"
-                    android:padding="5dp"
-                    android:textSize="@dimen/text_size" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_todate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorPrimary"
-                    android:focusable="false"
-                    android:textColor="@color/text_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="*End Date"
-                    android:padding="5dp"
-                    android:textSize="@dimen/text_size" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-    </LinearLayout>
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:layout_height="match_parent"><LinearLayout
+            android:orientation="horizontal" android:layout_width="match_parent"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:weightSum="2"
             android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputLayout
+
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="0dp"
+                android:text="* Dealer Type"
                 android:layout_weight="1"
-                android:id="@+id/et_input_complaint_photo"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/text_color"
+                android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:padding="@dimen/_2sdp"
+                    android:text="New"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size" />
+
+                <RadioButton
+                    android:id="@+id/rb_existing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Existing"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size" />
+            </RadioGroup>
+        </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="* Distributor name"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spdistributor_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Concern Distributor Name"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spvendor_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Retailer name"
+                    android:layout_weight="0.8"        android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spretailer_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="Hoarding Print Name"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/ed_hording_print_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Address 1"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/ed_address_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lines="3"
+
+                    android:maxLines="3"
+                    android:layout_weight="1.2"
+
+
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="Address 2"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/ed_address_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lines="3"
+
+                    android:maxLines="3"
+                    android:layout_weight="1.2"
+
+
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Territory"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/sp_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*State"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/sp_state"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Country"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/sp_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableRight="@drawable/ic_action_down_arrow"
+                    android:drawableTint="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:spinnerMode="dialog"
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout><LinearLayout
+                android:orientation="horizontal" android:layout_width="match_parent"
+                android:background="@color/white"
+
+                android:weightSum="2"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:layout_width="0dp"
+                    android:text="*Pincode"  android:layout_weight="0.8"
+
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+                <com.infinity.infoway.vimal.util.common.CustomEditText
+                    android:id="@+id/ed_pin_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+
+                    android:maxLines="1"
+                    android:layout_weight="1.2"
+
+                    android:textColor="@android:color/black"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel_cus_grp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.infinity.infoway.vimal.util.common.CustomEditText
+                            android:id="@+id/et_from_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:focusable="false"
+                            android:text=""
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:hint="*Request Date"
+                            android:padding="5dp"
+                            android:textSize="@dimen/text_size" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.infinity.infoway.vimal.util.common.CustomEditText
+                            android:id="@+id/et_todate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:focusable="false"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:hint="*End Date"
+                            android:padding="5dp"
+                            android:textSize="@dimen/text_size" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_weight="1"
+                    android:id="@+id/et_input_complaint_photo"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content">
+
+                    <com.infinity.infoway.vimal.util.common.CustomEditText
+                        android:id="@+id/et_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:gravity="top"
+                        android:drawableRight="@drawable/ic_photo_red_24dp"
+                        android:hint="Location Photo"
+                        android:textColor="@color/text_color"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:textSize="@dimen/text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+
+
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content">
 
                 <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_photo"
+                    android:id="@+id/et_contact_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
                     android:gravity="top"
-                    android:drawableRight="@drawable/ic_photo_red_24dp"
-                    android:hint="Location Photo"
+                    android:inputType="number"
+                    android:digits="0123456789"
+                    android:hint="*Contact Number"
                     android:textColor="@color/text_color"
                     android:paddingTop="@dimen/_2sdp"
                     android:textSize="@dimen/text_size" />
             </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel_cus_grp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
 
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.infinity.infoway.vimal.util.common.CustomEditText
+                            android:id="@+id/et_dealer_start_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:focusable="false"
+                            android:text=""
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:hint="*Dealer start date"
+                            android:padding="5dp"
+                            android:textSize="@dimen/text_size" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.infinity.infoway.vimal.util.common.CustomEditText
+                            android:id="@+id/et_dealer_ytd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:focusable="false"
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:hint="*Dealer Sale YTD"
+                            android:padding="5dp"
+                            android:textSize="@dimen/text_size" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel_cus_grp"
+                android:layout_marginTop="@dimen/_5sdp"
+
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+
+                    android:orientation="vertical">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.infinity.infoway.vimal.util.common.CustomEditText
+                            android:id="@+id/et_last_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/colorPrimary"
+                            android:focusable="false"
+                            android:text=""
+                            android:textColor="@color/text_color"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:hint="*Last GSB Given Date"
+                            android:padding="5dp"
+                            android:textSize="@dimen/text_size" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </RelativeLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_weight="1"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content">
+
+                    <com.infinity.infoway.vimal.util.common.CustomEditText
+                        android:id="@+id/et_gsb_given_amt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:gravity="top"
+                        android:hint="*Last GSB GIVEN Exp.(In AMT)"
+                        android:textColor="@color/text_color"
+                        android:paddingTop="@dimen/_2sdp"
+                        android:textSize="@dimen/text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+            <com.infinity.infoway.vimal.util.common.CustomTextView
+                android:layout_width="match_parent"
+                android:text="* Dealer Deep freezer category"
+                android:layout_marginTop="5dp"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/text_color"
+                android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
+            <RadioGroup
+                android:id="@+id/rg_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_OwnBase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:padding="@dimen/_2sdp"
+                    android:text="Own Base"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size" />
+
+                <RadioButton
+                    android:id="@+id/rb_T_Base"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_2sdp"
+                    android:text="T Base"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size" /> <RadioButton
+                android:id="@+id/rb_DepositBase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_2sdp"
+                android:text="Deposit Base"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size" /><RadioButton
+                android:id="@+id/rb_FOCBase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_2sdp"
+                android:text="FOC Base"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size" />
+            </RadioGroup>
+            <com.infinity.infoway.vimal.util.common.CustomBoldTextView
+                android:id="@+id/tv_shop_name"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:text="Shop Name "
+
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomBoldTextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <com.infinity.infoway.vimal.util.common.CustomTextView
+                    android:id="@+id/tv_empty"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:text="No data found !"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomTextView>
+
+                <ListView
+                    android:id="@+id/lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="true"
+                    android:scrollbars="vertical"
+                    android:visibility="gone"></ListView>
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/ll_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lv"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.vimal.util.common.CustomButtonView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+
+                    android:background="@drawable/border_leave"
+                    android:gravity="center"
+
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size" />
+
+                <com.infinity.infoway.vimal.util.common.CustomButtonView
+                    android:id="@+id/tv_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+
+                    android:layout_weight="1"
+
+                    android:background="@drawable/leave_border_black"
+                    android:gravity="center"
+
+                    android:text="@string/cancel"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size" />
+            </LinearLayout>
         </LinearLayout>
-    <com.google.android.material.textfield.TextInputLayout
-
-
-        android:layout_width="match_parent"
-
-        android:layout_height="wrap_content">
-
-        <com.infinity.infoway.vimal.util.common.CustomEditText
-            android:id="@+id/et_contact_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"
-            android:gravity="top"
-            android:hint="*Contact Number"
-            android:textColor="@color/text_color"
-            android:paddingTop="@dimen/_2sdp"
-            android:textSize="@dimen/text_size" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_cus_grp"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:orientation="horizontal">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_dealer_start_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorPrimary"
-                    android:focusable="false"
-                    android:text=""
-                    android:textColor="@color/text_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="*Dealer start date"
-                    android:padding="5dp"
-                    android:textSize="@dimen/text_size" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_dealer_ytd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorPrimary"
-                    android:focusable="false"
-                    android:textColor="@color/text_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="*Dealer Sale YTD"
-                    android:padding="5dp"
-                    android:textSize="@dimen/text_size" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-    </LinearLayout>
-
-     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_cus_grp"
-        android:layout_marginTop="@dimen/_5sdp"
-
-        android:orientation="horizontal">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:background="@color/white"
-
-            android:orientation="vertical">
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.infinity.infoway.vimal.util.common.CustomEditText
-                    android:id="@+id/et_last_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:drawablePadding="5dp"
-                    android:drawableTint="@color/colorPrimary"
-                    android:focusable="false"
-                    android:text=""
-                    android:textColor="@color/text_color"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:hint="*Last GSB Given Date"
-                    android:padding="5dp"
-                    android:textSize="@dimen/text_size" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-         <com.google.android.material.textfield.TextInputLayout
-             android:layout_weight="1"
-
-             android:layout_width="match_parent"
-
-             android:layout_height="wrap_content">
-
-             <com.infinity.infoway.vimal.util.common.CustomEditText
-                 android:id="@+id/et_gsb_given_amt"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:focusable="false"
-                 android:gravity="top"
-                 android:hint="*Last GSB GIVEN Exp.(In AMT)"
-                 android:textColor="@color/text_color"
-                 android:paddingTop="@dimen/_2sdp"
-                 android:textSize="@dimen/text_size" />
-         </com.google.android.material.textfield.TextInputLayout>
-
-     </LinearLayout>
-    <com.infinity.infoway.vimal.util.common.CustomTextView
-        android:layout_width="match_parent"
-        android:text="* Dealer Deep freezer category"
-android:layout_marginTop="5dp"
-        android:textSize="@dimen/text_size"
-        android:textColor="@color/text_color"
-        android:layout_height="wrap_content"></com.infinity.infoway.vimal.util.common.CustomTextView>
-    <RadioGroup
-        android:id="@+id/rg_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_OwnBase"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:padding="@dimen/_2sdp"
-            android:text="Own Base"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size" />
-
-        <RadioButton
-            android:id="@+id/rb_T_Base"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/_2sdp"
-            android:text="T Base"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size" /> <RadioButton
-        android:id="@+id/rb_DepositBase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_2sdp"
-        android:text="Deposit Base"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size" /><RadioButton
-        android:id="@+id/rb_FOCBase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/_2sdp"
-        android:text="FOC Base"
-        android:textColor="@color/text_color"
-        android:textSize="@dimen/text_size" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/ll_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lv"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal"
-        android:weightSum="2">
-
-        <com.infinity.infoway.vimal.util.common.CustomButtonView
-            android:id="@+id/tv_submit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:layout_weight="1"
-
-            android:background="@drawable/border_leave"
-            android:gravity="center"
-
-            android:text="@string/submit"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size" />
-
-        <com.infinity.infoway.vimal.util.common.CustomButtonView
-            android:id="@+id/tv_cancel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:layout_weight="1"
-
-            android:background="@drawable/leave_border_black"
-            android:gravity="center"
-
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size" />
-    </LinearLayout>
-</LinearLayout>
-</androidx.core.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

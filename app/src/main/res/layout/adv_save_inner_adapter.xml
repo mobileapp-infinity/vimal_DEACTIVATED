@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="3dp"
+    android:layout_height="match_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="5dp"
+    android:background="@drawable/border_profile"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:background="@color/white"
+
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/sp_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:drawableRight="@drawable/ic_action_down_arrow"
+        android:drawableTint="@color/colorPrimary"
+        android:maxLines="1"
+        android:layout_weight="1"
+        android:paddingTop="@dimen/_2sdp"
+        android:spinnerMode="dialog"
+        android:textColor="@android:color/black"
+        android:visibility="visible" />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_contact_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="*St.Qty"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:background="@color/white"
+
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/sp_uom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableRight="@drawable/ic_action_down_arrow"
+            android:drawableTint="@color/colorPrimary"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/_2sdp"
+            android:spinnerMode="dialog"
+            android:textColor="@android:color/black"
+            android:visibility="visible" />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_Rt_Qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="*Rt.Qty"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:background="@color/white"
+
+        android:weightSum="3"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_BasicRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="*Basic Rate"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="*Dis%"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout> <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+android:enabled="false"
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="Price"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:background="@color/white"
+
+        android:weightSum="3"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_Freight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="Freight"
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="wrap_content">
+
+            <com.infinity.infoway.vimal.util.common.CustomEditText
+                android:id="@+id/et_P_F_Chg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+
+                android:gravity="top"
+                android:inputType="number"
+                android:digits="0123456789"
+                android:hint="P and F Chg."
+                android:textColor="@color/text_color"
+                android:paddingTop="@dimen/_2sdp"
+                android:textSize="@dimen/text_size" />
+        </com.google.android.material.textfield.TextInputLayout> <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="0dp"
+        android:layout_weight="1"
+
+        android:layout_height="wrap_content">
+
+        <com.infinity.infoway.vimal.util.common.CustomEditText
+            android:id="@+id/et_ldg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:gravity="top"
+            android:inputType="number"
+            android:digits="0123456789"
+            android:hint="Ldg And Oth Chg."
+            android:textColor="@color/text_color"
+            android:paddingTop="@dimen/_2sdp"
+            android:textSize="@dimen/text_size" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+
+
+        android:layout_height="wrap_content">
+
+        <com.infinity.infoway.vimal.util.common.CustomEditText
+            android:id="@+id/ed_Specification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:gravity="top"
+
+            android:lines="2"
+            android:hint="Specification"
+            android:textColor="@color/text_color"
+            android:paddingTop="@dimen/_2sdp"
+            android:textSize="@dimen/text_size" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.infinity.infoway.vimal.util.common.CustomButtonView
+            android:id="@+id/btn_remove"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit"
+            android:drawableRight="@drawable/remove"
+            android:background="@drawable/border_profile"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomButtonView>
+
+
+        <com.infinity.infoway.vimal.util.common.CustomButtonView
+            android:id="@+id/btn_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/border_profile"
+            android:text="Add"
+            android:drawableRight="@drawable/approve"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_size"></com.infinity.infoway.vimal.util.common.CustomButtonView>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
