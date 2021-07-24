@@ -1052,7 +1052,8 @@ public interface ApiInterface {
             @Query("user_id") String user_id,
             @Query("key") String key,
             @Query("comp_id") String comp_id,
-            @Query("retailer_id") String retailer_id);
+            @Query("retailer_id") String retailer_id,
+            @Query("type_flag") String type_flag,);
 
     @POST("Insert_Update_adv_gsb_and_deepfreeze_transfer")
     Call<InsertOrUpdateFreezeDetailsPojo> insertOrUpdateDeepFreezeTransfer(

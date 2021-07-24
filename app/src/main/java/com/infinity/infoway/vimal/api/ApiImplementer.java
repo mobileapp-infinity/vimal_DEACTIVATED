@@ -147,9 +147,9 @@ public class ApiImplementer {
     }
 
     public static void getItemDetailsByRetailerIdApiImplementer(String app_version, String android_id, String device_id, String user_id,
-                                                                String comp_id, String retailer_id, Callback<GetItemDetailsByRetailerIdPojo> cb) {
+                                                                String comp_id, String retailer_id, String type_flag,Callback<GetItemDetailsByRetailerIdPojo> cb) {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GetItemDetailsByRetailerIdPojo> call = apiService.getItemDetailsByRetailerId(app_version, android_id, device_id, user_id, Config.ACCESS_KEY, comp_id, retailer_id);
+        Call<GetItemDetailsByRetailerIdPojo> call = apiService.getItemDetailsByRetailerId(app_version, android_id, device_id, user_id, Config.ACCESS_KEY, comp_id, retailer_id,type_flag);
         call.enqueue(cb);
     }
 

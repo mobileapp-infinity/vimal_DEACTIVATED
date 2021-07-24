@@ -49,6 +49,9 @@ import retrofit2.Response;
 public class AddGsbAndDeepFreezeTransferEntryActivity extends AppCompatActivity implements View.OnClickListener,
         FreezeItemListAdapter.IOnFreezeItemChecked {
 
+    private static final String FOR_GSB_VALUE = "1";
+    private static final String FOR_DEEP_FREEZE_VALUE = "2";
+
     private SharedPref mySharedPrefereces;
     private RadioGroup rGroupGsbAndDeepFreeze;
     private TextInputEditText tvTransferDate;
@@ -184,7 +187,8 @@ public class AddGsbAndDeepFreezeTransferEntryActivity extends AppCompatActivity 
                 selectedFromRetailerName = position;
                 tilFromRetailerName.setError("");
                 String retailerId = fromRetailerNameAndIdHaspMap.get(fromRetailerArrayList.get(position).trim());
-                getItemDetailsByRetailerIdApiCall(true, true, retailerId);
+                String type_flag = rGroupGsbAndDeepFreeze.getCheckedRadioButtonId() == R.id.rbtnGsb ? "1" : "2";
+                getItemDetailsByRetailerIdApiCall(true, true, retailerId,type_flag);
             }
         });
 
@@ -493,12 +497,12 @@ public class AddGsbAndDeepFreezeTransferEntryActivity extends AppCompatActivity 
         });
     }
 
-    private void getItemDetailsByRetailerIdApiCall(boolean isPdShow, boolean isPdHide, String retailerId) {
+    private void getItemDetailsByRetailerIdApiCall(boolean isPdShow, boolean isPdHide, String retailerId,String type_flag) {
         if (isPdShow) {
             DialogUtils.showProgressDialogNotCancelable(AddGsbAndDeepFreezeTransferEntryActivity.this, "");
         }
         llFreezeItemList.setVisibility(View.GONE);
-        ApiImplementer.getItemDetailsByRetailerIdApiImplementer(appVersion, androidId, deviceId, userId, compId, retailerId, new Callback<GetItemDetailsByRetailerIdPojo>() {
+        ApiImplementer.getItemDetailsByRetailerIdApiImplementer(appVersion, androidId, deviceId, userId, compId, retailerId,type_flag, new Callback<GetItemDetailsByRetailerIdPojo>() {
             @Override
             public void onResponse(Call<GetItemDetailsByRetailerIdPojo> call, Response<GetItemDetailsByRetailerIdPojo> response) {
                 if (isPdHide) {
