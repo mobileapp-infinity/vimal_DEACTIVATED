@@ -49,7 +49,7 @@ public class FreezeItemListAdapter extends RecyclerView.Adapter<FreezeItemListAd
             holder.tvItemName.setText(record.getItmName());
         }
 
-        if (record.getTransferQty() != null) {
+        if (record.getHrdQty() != null) {
             holder.tvQuantity.setText(record.getHrdQty() + "");
         }
 

@@ -41,7 +41,7 @@ public class ViewFreezeListItemAdapter extends RecyclerView.Adapter<ViewFreezeLi
             holder.tvItemName.setText(itemDetail.getItmName());
         }
 
-        if (itemDetail.getTransferQty() != null) {
+        if (itemDetail.getHrdQty() != null) {
             holder.tvQuantity.setText(itemDetail.getHrdQty() + "");
         }
 
