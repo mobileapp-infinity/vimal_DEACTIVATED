@@ -80,6 +80,14 @@ import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.GetSaleRoute
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.ScheduleScheduleResponsePojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.SelectCustomerPojo;
 import com.infinity.infoway.vimal.delear.activity.add_schedule.pojo.VehicalNumberPojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_add_transfer_entry.pojo.GetFreezeTypePojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_add_transfer_entry.pojo.GetItemDetailsByRetailerIdPojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_add_transfer_entry.pojo.GetRetailerByDistributorIdPojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_add_transfer_entry.pojo.InsertGsbAndTransferEntryReqPojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_add_transfer_entry.pojo.InsertOrUpdateFreezeDetailsPojo;
+import com.infinity.infoway.vimal.gsb_and_deep_freeze_view_transfer_entery.ViewFreezeTransferEntryPojo;
+import com.infinity.infoway.vimal.gsb_and_transfer_list_transfer_entry.DeleteFreezeTransferEntryPojo;
+import com.infinity.infoway.vimal.gsb_and_transfer_list_transfer_entry.GetAllTransferEntryPojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.Multiple_File_Save_Response;
 import com.infinity.infoway.vimal.kich_expense.Expense.Pojo.SaveExpensePojo;
 import com.infinity.infoway.vimal.kich_expense.Expense.model_new.InsertExpenseDetailsModel;
@@ -882,17 +890,17 @@ public interface ApiInterface {
     @Multipart
     @POST("Save_fridge_request")
     Call<Save_Fridge_POJO> Save_fridge_request(
-            @Part("app_version")             RequestBody app_version,
-            @Part("android_id")             RequestBody android_id,
-            @Part("device_id")              RequestBody device_id,
-            @Part("user_id")                RequestBody user_id,
-            @Part("key")                    RequestBody key,
-            @Part("comp_id")                RequestBody comp_id,
-            @Part("ref_no")                 RequestBody ref_no,
-            @Part("sr_no")                  RequestBody sr_no,
-            @Part("apprpox_sales")           RequestBody apprpox_sales,
-            @Part("date")                   RequestBody date,
-            @Part("dist_cust_id")               RequestBody dist_cust_id,
+            @Part("app_version") RequestBody app_version,
+            @Part("android_id") RequestBody android_id,
+            @Part("device_id") RequestBody device_id,
+            @Part("user_id") RequestBody user_id,
+            @Part("key") RequestBody key,
+            @Part("comp_id") RequestBody comp_id,
+            @Part("ref_no") RequestBody ref_no,
+            @Part("sr_no") RequestBody sr_no,
+            @Part("apprpox_sales") RequestBody apprpox_sales,
+            @Part("date") RequestBody date,
+            @Part("dist_cust_id") RequestBody dist_cust_id,
             @Part("dist_city_id") RequestBody dist_city_id,
             @Part("sales_person_id") RequestBody sales_person_id,
             @Part("sales_per_con_no") RequestBody sales_per_con_no,
@@ -994,7 +1002,7 @@ public interface ApiInterface {
 
 
     @GET("Check_Login_OTP ")
-    Call<LoginOtpPojo> checkLoginOTP (
+    Call<LoginOtpPojo> checkLoginOTP(
             @Query("app_version") String app_version,
             @Query("android_id") String android_id,
             @Query("device_id") String device_id,
@@ -1007,7 +1015,7 @@ public interface ApiInterface {
 
 
     @POST("Submit_OTP ")
-    Call<SubmitOtpResponse> Submit_OTP (
+    Call<SubmitOtpResponse> Submit_OTP(
             @Query("app_version") String app_version,
             @Query("android_id") String android_id,
             @Query("device_id") String device_id,
@@ -1015,6 +1023,67 @@ public interface ApiInterface {
             @Query("OTP") String OTP,
             @Query("mobile_no") String mobile_no);
 
+    //--Remish Varsani
+    @GET("Get_retailer_by_distributer_id")
+    Call<GetRetailerByDistributorIdPojo> getRetailerByDistributorId(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("branch_id") String branch_id,
+            @Query("distributer_id") String distributer_id);
 
+    @GET("Get_fridge_type")
+    Call<GetFreezeTypePojo> getFreezeType(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id);
 
+    @GET("Get_item_details_by_retailer_id")
+    Call<GetItemDetailsByRetailerIdPojo> getItemDetailsByRetailerId(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("retailer_id") String retailer_id);
+
+    @POST("Insert_Update_adv_gsb_and_deepfreeze_transfer")
+    Call<InsertOrUpdateFreezeDetailsPojo> insertOrUpdateDeepFreezeTransfer(
+            @Body InsertGsbAndTransferEntryReqPojo insertGsbAndTransferEntryReqPojo);
+
+    @GET("Get_gsb_and_deepfreeze_transfer_details")
+    Call<ViewFreezeTransferEntryPojo> getFreezeTransferEntryDetails(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("id") String id);
+
+    @GET("Delete_gsb_detail_by_id")
+    Call<DeleteFreezeTransferEntryPojo> deleteFreezeTransferEntry(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id,
+            @Query("id") String id);
+
+    @GET("Get_all_gsb_and_deepfreeze_transfer_details")
+    Call<GetAllTransferEntryPojo> getAllTransferEntry(
+            @Query("app_version") String app_version,
+            @Query("android_id") String android_id,
+            @Query("device_id") String device_id,
+            @Query("user_id") String user_id,
+            @Query("key") String key,
+            @Query("comp_id") String comp_id);
 }
