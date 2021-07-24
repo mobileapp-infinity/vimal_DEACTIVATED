@@ -187,8 +187,8 @@ public class AddGsbAndDeepFreezeTransferEntryActivity extends AppCompatActivity 
                 selectedFromRetailerName = position;
                 tilFromRetailerName.setError("");
                 String retailerId = fromRetailerNameAndIdHaspMap.get(fromRetailerArrayList.get(position).trim());
-                String type_flag = rGroupGsbAndDeepFreeze.getCheckedRadioButtonId() == R.id.rbtnGsb ? "1" : "2";
-                getItemDetailsByRetailerIdApiCall(true, true, retailerId,type_flag);
+                String type_flag = rGroupGsbAndDeepFreeze.getCheckedRadioButtonId() == R.id.rbtnGsb ? FOR_GSB_VALUE : FOR_DEEP_FREEZE_VALUE;
+                getItemDetailsByRetailerIdApiCall(true, true, retailerId, type_flag);
             }
         });
 
@@ -497,12 +497,12 @@ public class AddGsbAndDeepFreezeTransferEntryActivity extends AppCompatActivity 
         });
     }
 
-    private void getItemDetailsByRetailerIdApiCall(boolean isPdShow, boolean isPdHide, String retailerId,String type_flag) {
+    private void getItemDetailsByRetailerIdApiCall(boolean isPdShow, boolean isPdHide, String retailerId, String type_flag) {
         if (isPdShow) {
             DialogUtils.showProgressDialogNotCancelable(AddGsbAndDeepFreezeTransferEntryActivity.this, "");
         }
         llFreezeItemList.setVisibility(View.GONE);
-        ApiImplementer.getItemDetailsByRetailerIdApiImplementer(appVersion, androidId, deviceId, userId, compId, retailerId,type_flag, new Callback<GetItemDetailsByRetailerIdPojo>() {
+        ApiImplementer.getItemDetailsByRetailerIdApiImplementer(appVersion, androidId, deviceId, userId, compId, retailerId, type_flag, new Callback<GetItemDetailsByRetailerIdPojo>() {
             @Override
             public void onResponse(Call<GetItemDetailsByRetailerIdPojo> call, Response<GetItemDetailsByRetailerIdPojo> response) {
                 if (isPdHide) {
