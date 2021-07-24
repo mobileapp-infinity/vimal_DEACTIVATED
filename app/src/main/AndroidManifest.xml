@@ -54,10 +54,7 @@
         <activity android:name=".gsb_and_transfer_list_transfer_entry.GsbAndDeepFreezeListTransferEntryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".gsb_and_deep_freeze_view_transfer_entery.GsbAndDeepFreezeViewTransferEntryActivity"
             android:screenOrientation="portrait"
@@ -68,7 +65,10 @@
             android:name=".gsb_and_deep_freeze_add_transfer_entry.activity.AddGsbAndDeepFreezeTransferEntryActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".retailer.RetailerDashboardActivity" />
         <!--
